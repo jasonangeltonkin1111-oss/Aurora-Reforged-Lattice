@@ -4,7 +4,7 @@
 //+------------------------------------------------------------------+
 //| ARL_FilePublisher
 //| Aurora Reforged Lattice — runtime IO foundation
-//| Run: ARL-RUN009
+//| Run: ARL-RUN011
 //| Status: STAGED WRITE + READBACK + PROMOTE ONLY.
 //+------------------------------------------------------------------+
 // Owner: io/file publisher
@@ -94,7 +94,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
    if(!writes_enabled)
      {
       result.code = "WRITES_DISABLED";
-      result.message = "file writes disabled by input";
+      result.message = "file writes disabled by input; final_path=" + final_path + "; temp_path=" + temp_path;
       result.ok = false;
       return result;
      }
@@ -102,7 +102,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
    if(StringFind(payload,required_token) < 0)
      {
       result.code = "REQUIRED_TOKEN_MISSING";
-      result.message = "payload missing required token: " + required_token;
+      result.message = "payload missing required token: " + required_token + "; final_path=" + final_path + "; temp_path=" + temp_path;
       result.ok = false;
       return result;
      }
@@ -118,7 +118,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
          result.no_change_skip = true;
          result.readback_ok = true;
          result.code = "NO_CHANGE_SKIP";
-         result.message = "current payload already matches requested payload";
+         result.message = "current payload already matches requested payload; final_path=" + final_path;
          result.bytes_read = current_bytes;
          return result;
         }
@@ -132,7 +132,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
    if(!ARL_FilePublisher_WriteTemp(temp_path,payload,wrote,write_error))
      {
       result.code = "TEMP_WRITE_FAILED";
-      result.message = "temp write failed";
+      result.message = "temp write failed; final_path=" + final_path + "; temp_path=" + temp_path;
       result.last_error = write_error;
       result.bytes_written = wrote;
       return result;
@@ -145,7 +145,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
    if(!ARL_FilePublisher_ReadAll(temp_path,readback,readback_bytes,readback_error))
      {
       result.code = "TEMP_READBACK_FAILED";
-      result.message = "temp readback failed";
+      result.message = "temp readback failed; final_path=" + final_path + "; temp_path=" + temp_path;
       result.last_error = readback_error;
       result.bytes_read = readback_bytes;
       return result;
@@ -155,7 +155,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
    if(!result.readback_ok)
      {
       result.code = "TEMP_READBACK_MISMATCH";
-      result.message = "temp readback did not match payload";
+      result.message = "temp readback did not match payload; final_path=" + final_path + "; temp_path=" + temp_path;
       return result;
      }
 
@@ -163,7 +163,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
    if(!FileMove(temp_path,FILE_COMMON,final_path,FILE_COMMON|FILE_REWRITE))
      {
       result.code = "PROMOTE_FAILED";
-      result.message = "temp promote to current failed";
+      result.message = "temp promote to current failed; final_path=" + final_path + "; temp_path=" + temp_path;
       result.last_error = GetLastError();
       return result;
      }
@@ -174,7 +174,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
    if(!ARL_FilePublisher_ReadAll(final_path,final_readback,final_bytes,final_error) || !ARL_PayloadHash_Equals(final_readback,payload))
      {
       result.code = "FINAL_READBACK_FAILED";
-      result.message = "final readback failed after promote";
+      result.message = "final readback failed after promote; final_path=" + final_path + "; temp_path=" + temp_path;
       result.last_error = final_error;
       result.bytes_read = final_bytes;
       result.ok = false;
@@ -183,7 +183,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
 
    result.ok = true;
    result.code = "PUBLISHED";
-   result.message = "temp written, read back, promoted, and final readback verified";
+   result.message = "temp written, read back, promoted, and final readback verified; final_path=" + final_path + "; temp_path=" + temp_path;
    result.bytes_read = final_bytes;
    return result;
   }

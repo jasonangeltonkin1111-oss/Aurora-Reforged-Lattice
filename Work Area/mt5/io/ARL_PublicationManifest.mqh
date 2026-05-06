@@ -4,7 +4,7 @@
 //+------------------------------------------------------------------+
 //| ARL_PublicationManifest
 //| Aurora Reforged Lattice — runtime IO foundation
-//| Run: ARL-RUN009
+//| Run: ARL-RUN011
 //| Status: MANIFEST PAYLOAD/PUBLISH CALL ONLY.
 //+------------------------------------------------------------------+
 // Owner: io/publication manifest
@@ -24,6 +24,7 @@ string ARL_PublicationManifest_Compose(const string artifact_name,const ARL_File
    payload += "\"artifact_name\":\"" + artifact_name + "\",";
    payload += "\"final_path\":\"" + artifact_result.final_path + "\",";
    payload += "\"temp_path\":\"" + artifact_result.temp_path + "\",";
+   payload += "\"file_location_mode\":\"" + ARL_Paths_FileLocationMode() + "\",";
    payload += "\"publish_status\":\"" + artifact_result.code + "\",";
    payload += "\"readback_status\":\"" + (artifact_result.readback_ok ? "OK" : "NOT_OK") + "\",";
    payload += "\"no_change_skip\":" + (artifact_result.no_change_skip ? "true" : "false") + ",";

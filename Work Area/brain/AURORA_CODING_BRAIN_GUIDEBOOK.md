@@ -251,3 +251,26 @@ Market Board output lessons
 Symbol Trader Pack output lessons
 Dossier output lessons
 ```
+
+---
+
+## Runtime IO Lesson — Compile Clean Is Not Publication Proof
+
+A runtime writer is not real because its module exists or compiles.
+
+For every output writer, verify the full living chain:
+
+```text
+OnInit initializes owner state
+EventSetTimer succeeds
+OnTimer calls the owner path
+input gate allows writes
+publisher writes temp
+publisher reads temp back
+publisher promotes temp to current
+publisher reads current back
+payload/report names final path, temp path, and file mode
+operator can find the file on disk
+```
+
+If any link is missing, the correct state is TEST FIRST, not ready.

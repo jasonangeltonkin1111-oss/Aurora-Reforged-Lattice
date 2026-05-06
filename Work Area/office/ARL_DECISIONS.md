@@ -324,3 +324,54 @@ Version alignment does not imply MetaEditor compile proof, runtime file proof, t
 
 Falsifier:
 If future inspection shows RUN010R added new active behavior beyond compile repair and source-property alignment, this decision must be revisited and the product version may need the next correct `a.bcd` bump.
+
+---
+
+## D023 — RUN011 advances product version to 1.006 because timer publication behavior changed
+
+Date: 2026-05-06
+
+Decision:
+Advance active MT5 product version from `1.005` to `1.006` for ARL-RUN011.
+
+Reason:
+RUN011 is not only a documentation/report run. It changes active runtime behavior by connecting `OnTimer()` to `ARL_StatusWriter_Publish()`, initializing runtime IO owners in `OnInit()`, and adding runtime path diagnostics and output path fields. That is behavior beyond RUN010R compile repair.
+
+Evidence / source:
+Direct source inspection of:
+- `mt5/ARL_Core.mq5`
+- `mt5/core/ARL_Version.mqh`
+- `mt5/io/ARL_Paths.mqh`
+- `mt5/io/ARL_FilePublisher.mqh`
+- `mt5/io/ARL_PublicationManifest.mqh`
+- `mt5/telemetry/ARL_StatusWriter.mqh`
+
+Boundary:
+Version bump does not imply current RUN011 compile proof, MT5 runtime proof, file existence proof, trading permission, signal validity, edge, or prop-firm readiness.
+
+Falsifier:
+If MetaEditor compile fails after RUN011, the version identity remains the intended behavior identity, but the implementation stays in compile-repair state until fixed.
+
+---
+
+## D024 — Runtime output path authority is COMMON_FILES, not terminal-local MQL5/Files
+
+Date: 2026-05-06
+
+Decision:
+ARL status/manifest publication uses `FILE_COMMON` and therefore targets the shared terminal common files sandbox, not the per-terminal `MQL5/Files` sandbox.
+
+Expected relative paths:
+- `Aurora Reforged Lattice/Default/Current/Status_Current.json`
+- `Aurora Reforged Lattice/Default/Current/Status_Current.json.tmp`
+- `Aurora Reforged Lattice/Default/Current/Manifest_Current.json`
+- `Aurora Reforged Lattice/Default/Current/Manifest_Current.json.tmp`
+
+Expected disk base:
+`TerminalInfoString(TERMINAL_COMMONDATA_PATH) + "\\Files"`
+
+Reason:
+Official MQL5 file docs state `FILE_COMMON` locates files under the common folder for all terminals. The active publisher uses `FILE_COMMON` for write, readback, existence checks, delete, and move/promote.
+
+Boundary:
+The path decision is source-inspected and research-supported. Actual file creation remains pending until the EA is compiled/attached with `InpARL_EnableFileWrites=true` and the files are observed on disk.

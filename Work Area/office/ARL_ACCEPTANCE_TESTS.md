@@ -330,3 +330,36 @@ Pass condition:
 
 Falsifier:
 `closing quote expected`, `Current undeclared`, downstream include avalanche from malformed string syntax, stale main EA version property, forbidden module edits, or compile success claimed without exact compiler output.
+
+---
+
+## TEST-011 — Runtime output path verification and status/manifest smoke
+
+Scope:
+ARL-RUN011 timer publication path, common-files path diagnostics, status payload, manifest payload, and no-trade boundary.
+
+Pass condition:
+- `ARL_Core.mq5` `#property version` is `1.006`.
+- `ARL_PRODUCT_VERSION` is `1.006`.
+- `ARL_PRODUCT_RUN_ID` is `ARL-RUN011`.
+- `OnInit()` initializes path/output/publisher/manifest/runtime-metrics/status owners.
+- Startup Experts log prints `ARL_Paths_DiagnosticLine()` and `InpARL_EnableFileWrites` state.
+- `OnTimer()` calls `ARL_Heartbeat_Tick()`, `ARL_Scheduler_Tick()`, `ARL_StatusWriter_Publish(...)`, and `ARL_RuntimeMetrics_RecordCycle(...)`.
+- `InpARL_EnableFileWrites` remains false by default; runtime smoke requires the operator to set it true.
+- Status payload includes file writes enabled/disabled, file location mode, status final/temp path, manifest final/temp path, publication result, and last error fields.
+- Manifest payload includes artifact name, final path, temp path, file location mode, no-change skip, readback result, publish status, payload size, and generated time.
+- Publisher uses `FILE_COMMON` consistently for write/read/exist/delete/move and `FILE_REWRITE` on promote.
+- No account scanning, universe implementation, ranking, Market Board, Dossier, HUD, trading, signal, execution, strategy formula, duplicate writer, duplicate publisher, or direct archive copy is added.
+
+Runtime smoke operator check:
+1. Compile `Work Area/mt5/ARL_Core.mq5` in MetaEditor.
+2. Attach EA to a chart.
+3. Set `InpARL_EnableFileWrites=true`.
+4. Keep `InpARL_AllowTrading=false`.
+5. Check Experts log for `ARL paths: mode=COMMON_FILES`.
+6. Open `%APPDATA%\\MetaQuotes\\Terminal\\Common\\Files\\Aurora Reforged Lattice\\Default\\Current\\` or the path printed from `TerminalInfoString(TERMINAL_COMMONDATA_PATH) + "\\Files"`.
+7. Confirm `Status_Current.json` and `Manifest_Current.json` exist.
+8. Confirm both files update after timer ticks and contain `run_id=ARL-RUN011` / `product_version=1.006`.
+
+Falsifier:
+Clean compile but no timer publication call, files written under a different sandbox than reported, status/manifest missing path fields, output exists only as `.tmp`, or any permission flag becomes true.

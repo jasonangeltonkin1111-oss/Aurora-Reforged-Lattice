@@ -1,6 +1,6 @@
 //+------------------------------------------------------------------+
 //| Aurora Reforged Lattice — ARL_Core.mq5
-//| Run: ARL-RUN009
+//| Run: ARL-RUN011
 //| Status: RUNTIME IO FOUNDATION — no trading, no signal, no execution.
 //| Purpose: compile-visible runtime scaffold with bounded runtime IO foundation.
 //| Forbidden: trading, signals, execution, HUD, direct ASC migration.
@@ -8,9 +8,9 @@
 #property strict
 #property copyright "Jason Angel Tonkin"
 #property link      "https://github.com/jasonangeltonkin1111-oss/Aurora-Reforged-Lattice-"
-#property version   "1.005"
+#property version   "1.006"
 #property description "Aurora Reforged Lattice"
-#property description "Version 1.005 | ARL-RUN009 | runtime IO foundation"
+#property description "Version 1.006 | ARL-RUN011 | runtime output path verification"
 #property description "Review-only architecture. No trade, signal, execution, or HUD permission."
 
 #include "core/ARL_ResultCodes.mqh"
@@ -131,8 +131,20 @@ int OnInit()
      }
 
    ARL_Bootstrap_Init();
+   ARL_Paths_Init();
+   ARL_OutputContracts_Init();
+   ARL_FilePublisher_Init();
+   ARL_PublicationManifest_Init();
+   ARL_RuntimeMetrics_Init();
+   ARL_StatusWriter_Init();
    ARL_Heartbeat_Init();
    ARL_Scheduler_Init();
+
+   if(InpARL_PrintStartupSummary)
+     {
+      Print(ARL_Paths_DiagnosticLine());
+      Print("ARL file writes input: InpARL_EnableFileWrites=", (InpARL_EnableFileWrites ? "true" : "false"));
+     }
 
    int timer_seconds = InpARL_TimerSeconds;
    if(timer_seconds < 1)
@@ -161,6 +173,14 @@ void OnTick()
 
 void OnTimer()
   {
+   uint cycle_start = GetTickCount();
+
    ARL_Heartbeat_Tick();
    ARL_Scheduler_Tick();
+
+   ARL_StatusWriter_Publish(InpARL_EnableFileWrites,
+                             InpARL_TimerSeconds,
+                             InpARL_WorkBudgetMs);
+
+   ARL_RuntimeMetrics_RecordCycle((int)(GetTickCount() - cycle_start));
   }

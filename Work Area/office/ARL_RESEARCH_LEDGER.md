@@ -374,3 +374,56 @@ For runtime/file-IO work, future research must explicitly check version-specific
 | Flush/close/readback/promote | Official MQL5 FileFlush/FileClose/FileReadString/FileMove docs | Keep temp write, flush/close, readback, promote, final readback pattern; do not claim OS-level atomicity or runtime success from static code. | `mt5/io/ARL_FilePublisher.mqh` | Static source preserves write/readback/promote/final-readback flow. | Success is reported without readback, or report claims runtime proof without terminal evidence. |
 | Error handling | Official MQL5 GetLastError docs | Call `ResetLastError()` before critical file calls and capture `GetLastError()` on failure; `GetLastError()` does not reset itself. | `mt5/io/ARL_FilePublisher.mqh`, `mt5/telemetry/ARL_ErrorLedger.mqh` | Failure result carries last error where available. | Error paths silently succeed or drop last error. |
 | Program properties | Official MQL5 `#property` docs | Main `.mq5` owns visible EA property version/description; included-file constants do not update EA property metadata. | `mt5/ARL_Core.mq5`, `mt5/core/ARL_Version.mqh` | `#property version` equals `ARL_PRODUCT_VERSION`. | Main `.mq5` property remains stale while version constant changes. |
+
+---
+
+## 2026-05-06 — ARL-RUN011 MQL5 Runtime File Path Research
+
+Run:
+ARL-RUN011-RUNTIME-OUTPUT-PATH-VERIFICATION-STATUS-MANIFEST-WRITE-SMOKE
+
+Research topics:
+MQL5 file sandbox paths, `FILE_COMMON`, `FileOpen`, `FileIsExist`, `FileMove`, `FolderCreate`, terminal path diagnostics, and timer flow.
+
+Findings converted into ARL requirements:
+
+1. `FILE_COMMON` location requirement:
+- Constraint: ARL must label status/manifest files as `COMMON_FILES` when publisher flags include `FILE_COMMON`.
+- Owner file: `mt5/io/ARL_Paths.mqh`, `mt5/telemetry/ARL_StatusWriter.mqh`, `mt5/io/ARL_PublicationManifest.mqh`.
+- Acceptance test: status payload and manifest identify `file_location_mode=COMMON_FILES`; startup log prints common files base path.
+- Falsifier: report/operator instructions tell the user to check per-terminal `MQL5/Files` while source uses `FILE_COMMON`.
+
+2. Local sandbox fallback requirement:
+- Constraint: If ARL ever removes `FILE_COMMON`, expected path changes to the terminal data folder under `MQL5\\Files`; that must be a deliberate path policy change, not an accident.
+- Owner file: `mt5/io/ARL_Paths.mqh`.
+- Acceptance test: path mode and publisher flags agree.
+- Falsifier: `FileOpen` uses one area and `FileIsExist`/`FileMove` use another.
+
+3. Subfolder creation requirement:
+- Constraint: Current temp write can rely on MQL5 file write behavior to create subfolders under the allowed sandbox, but future nested-directory failures must be debugged at temp-write owner, not by adding a second writer.
+- Owner file: `mt5/io/ARL_FilePublisher.mqh`.
+- Acceptance test: temp write failure message includes final path and temp path.
+- Falsifier: a missing folder creates a silent no-output state or a duplicate writer route.
+
+4. Atomic promotion requirement:
+- Constraint: `FileMove` must use matching common/local flags and `FILE_REWRITE` when replacing current files.
+- Owner file: `mt5/io/ARL_FilePublisher.mqh`.
+- Acceptance test: temp file is written/read back, promoted with `FILE_COMMON|FILE_REWRITE`, and final file is read back.
+- Falsifier: current file is overwritten directly or move fails because source and destination flags disagree.
+
+5. Timer flow requirement:
+- Constraint: `EventSetTimer()` is not output proof by itself. The timer handler must call the status publication owner or no runtime artifact can be produced.
+- Owner file: `mt5/ARL_Core.mq5`.
+- Acceptance test: `OnTimer()` calls heartbeat, scheduler, status publication, then records cycle metrics.
+- Falsifier: heartbeat ticks but no call to `ARL_StatusWriter_Publish()` exists.
+
+Primary sources used:
+- MQL5 FileOpen documentation: `https://www.mql5.com/en/docs/files/fileopen`
+- MQL5 File Functions overview: `https://www.mql5.com/en/docs/files`
+- MQL5 FolderCreate documentation: `https://www.mql5.com/en/docs/files/foldercreate`
+- MQL5 FileIsExist documentation: `https://www.mql5.com/en/docs/files/fileisexist`
+- MQL5 FileMove documentation: `https://www.mql5.com/en/docs/files/filemove`
+- MQL5 File Opening Flags: `https://www.mql5.com/en/docs/constants/io_constants/fileflags`
+
+Proof boundary:
+Research converted into path constraints and tests only. It does not prove current RUN011 compile or runtime file creation.

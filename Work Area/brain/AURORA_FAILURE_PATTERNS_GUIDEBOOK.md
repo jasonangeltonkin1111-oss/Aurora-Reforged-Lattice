@@ -166,3 +166,22 @@ The report says “proved,” “ready,” or “working” without compile/runt
 
 ### Falsifier
 A run claims runtime proof without runtime logs/output.
+
+---
+
+## Failure Pattern 11 — Unwired Writer
+
+### Symptom
+A writer module exists and compile passes, but no runtime file appears.
+
+### Cause
+The lifecycle path is missing: `OnTimer()` or the scheduler never calls the writer, or the input gate disables writes.
+
+### Prevention
+- inspect lifecycle wiring after compile repair,
+- expose write-enable input state,
+- print path diagnostics at startup,
+- include final/temp path and file mode in status/manifest outputs.
+
+### Falsifier
+`Status_Current.json` is expected, but `OnTimer()` has no status writer call or `InpARL_EnableFileWrites=false` during the smoke.

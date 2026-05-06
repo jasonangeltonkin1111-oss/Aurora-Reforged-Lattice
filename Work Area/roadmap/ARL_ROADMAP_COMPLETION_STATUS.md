@@ -119,24 +119,24 @@ A trading module cannot be production-ready from backtest alone.
 
 ## Current Whole-System Completion
 
-Last updated by: ARL-RUN010R  
+Last updated by: ARL-RUN011  
 Last updated date: 2026-05-06  
 Current active root: Work Area/  
-Current product version: 1.005 if RUN009 runtime IO behavior remains active; verify in source.  
-Current source truth warning: active source must be checked every run; RUN010R static repair prepared, MetaEditor compile proof still pending.
+Current product version: 1.006 after RUN011 timer publication wiring; verify in source.  
+Current source truth warning: RUN010R compile was user-reported clean, but RUN011 changed source behavior and therefore needs a fresh MetaEditor compile plus MT5 runtime smoke.
 
 ### Overall Completion Estimate
 
 ```text
-ARL whole-system completion: 18%
-Evidence rank supporting estimate: 3 to 4 mixed
+ARL whole-system completion: 19%
+Evidence rank supporting estimate: 2 to 4 mixed
 ```
 
 Reason:
 
 ```text
 The office, roadmap, blueprint, guide, prompt, and brain control layers are strong enough to guide implementation.
-The MT5 scaffold exists and runtime IO compile-repair source changes have been prepared, but MetaEditor compile and MT5 runtime proof are still required.
+The MT5 scaffold exists, RUN010R has user-reported clean compile evidence, and RUN011 now wires timer publication by source inspection. RUN011 still needs fresh compile and runtime output proof before runtime IO can be treated as smoked.
 Core trading-data modules, account/exposure, universe, L1-L5, Market Board, Symbol Trader Pack, Dossier, runtime smoke proof, and live proof are not complete.
 ```
 
@@ -147,8 +147,8 @@ Core trading-data modules, account/exposure, universe, L1-L5, Market Board, Symb
 | Phase | Name | Completion | Evidence Rank | Status | Notes |
 |---|---:|---:|---:|---|---|
 | Phase 0 | Archives / old-system preservation | 90% | 3 | INHERITANCE_ONLY | Archives exist in Git, but are not active source. |
-| Phase 1 | Foundation / control / scaffold | 72% | 3-4 | ACTIVE | Office, roadmap, blueprint, MT5 scaffold, guide spine, brain guides exist. RUN010R static repair prepared; compile proof pending. |
-| Phase 2 | Runtime IO nervous system | 35% | 2-3 | IN_PROGRESS_REPAIR | Runtime IO package exists; RUN010R repaired visible malformed path/JSON syntax and include ordering statically; cannot upgrade until MetaEditor compile passes. |
+| Phase 1 | Foundation / control / scaffold | 73% | 2-4 | ACTIVE | Office, roadmap, blueprint, MT5 scaffold, guide spine, brain guides exist. RUN010R compile was user-reported clean; RUN011 needs fresh compile because source changed. |
+| Phase 2 | Runtime IO nervous system | 45% | 2-3 | IN_PROGRESS_SMOKE | Runtime IO package exists; RUN010R compile was user-reported clean; RUN011 source inspection wired OnTimer publication and path diagnostics. Fresh compile/runtime smoke pending. |
 | Phase 3 | Account + exposure + trade history | 10% | 3 | PLANNED | Blueprint/trader-data law exists; implementation not started. |
 | Phase 4 | Universe + symbol folders | 20% | 3 | SCAFFOLDED | MT5 scaffold exists; functional implementation not started. |
 | Phase 5 | L1 market state | 15% | 3 | SCAFFOLDED | Planned/scaffolded; no functional proof. |
@@ -173,13 +173,13 @@ Core trading-data modules, account/exposure, universe, L1-L5, Market Board, Symb
 | brain/ guidebooks | 45% | 3 | RUN009G guide pack exists | mandatory-read integration and future updates | NOT_LOCKED |
 | AGENTS / GPT / Codex guides | 75% | 3 | RUN008 guide spine exists | future run compliance | NOT_LOCKED |
 | Git summary/description standard | 75% | 3 | Standard exists | consistent Git use | NOT_LOCKED |
-| MT5 scaffold | 45% | 3-4 | Scaffold exists; runtime IO static repair prepared | compile pass after RUN010R | NOT_LOCKED |
-| version identity | 65% | 3-4 | a.bcd law exists; verify current source | compile/source alignment | NOT_LOCKED |
-| runtime heartbeat | 30% | 2-3 | attempted in RUN009 | compile pass, then runtime log | NOT_LOCKED |
-| scheduler | 25% | 2-3 | attempted/partial | compile pass, light OnTimer proof | NOT_LOCKED |
-| atomic file publisher | 25% | 2-3 | attempted/partial; static syntax repaired, compile pending | compile pass + readback test | NOT_LOCKED |
-| Status_Current output | 20% | 2-3 | attempted/partial; static syntax repaired | compile + runtime file output | NOT_LOCKED |
-| Manifest_Current output | 20% | 2-3 | attempted/partial; static syntax repaired | compile + runtime file output | NOT_LOCKED |
+| MT5 scaffold | 48% | 2-4 | Scaffold exists; RUN010R compile user-reported clean; RUN011 behavior patch pending compile | compile RUN011 source | NOT_LOCKED |
+| version identity | 70% | 3 | a.bcd law exists; RUN011 source identity aligned to 1.006 | compile/source alignment | NOT_LOCKED |
+| runtime heartbeat | 40% | 2-3 | OnTimer heartbeat path inspected and preserved | fresh compile, then runtime log | NOT_LOCKED |
+| scheduler | 35% | 2-3 | OnTimer scheduler path inspected and preserved | fresh compile, light OnTimer proof | NOT_LOCKED |
+| atomic file publisher | 40% | 2-3 | common-files staged publish/readback/promote path inspected; diagnostics improved | fresh compile + readback test | NOT_LOCKED |
+| Status_Current output | 40% | 2-3 | status payload includes path/mode fields and timer publication is wired by source inspection | fresh compile + runtime file output | NOT_LOCKED |
+| Manifest_Current output | 38% | 2-3 | manifest payload includes path/mode fields and status publication calls manifest owner | fresh compile + runtime file output | NOT_LOCKED |
 | account snapshot | 10% | 3 | scaffold/blueprint | implement AccountInfo snapshot | NOT_STARTED |
 | position snapshot | 10% | 3 | scaffold/blueprint | implement PositionsTotal loop | NOT_STARTED |
 | order snapshot | 10% | 3 | scaffold/blueprint | implement OrdersTotal loop | NOT_STARTED |
@@ -360,3 +360,40 @@ Affected status areas:
 - MT5 scaffold compile status: not upgraded; compile not run here.
 - Atomic file publisher: JSON result string syntax repaired; readback/promote still needs runtime proof.
 - `Status_Current` / `Manifest_Current`: payload quote syntax repaired; file creation still unproven.
+
+
+### ARL-RUN011 — Runtime output path verification + status/manifest write smoke prep
+
+Date: 2026-05-06
+
+Change:
+- Wired `OnTimer()` to call `ARL_StatusWriter_Publish()` after heartbeat/scheduler ticks.
+- Added runtime IO owner initialization in `OnInit()`.
+- Added common-files path diagnostics and status/manifest path fields.
+- Updated product identity to `1.006 / ARL-RUN011` because active runtime behavior changed.
+
+Completion impact:
+- Whole-system estimate increased from 18% to 19%.
+- Runtime IO nervous system increased from 35% to 45% by direct source inspection, not by runtime proof.
+- `Status_Current` and `Manifest_Current` remain below compile/runtime acceptance because RUN011 source was not compiled in this environment.
+
+Files affected:
+- `mt5/ARL_Core.mq5`
+- `mt5/core/ARL_Version.mqh`
+- `mt5/io/ARL_Paths.mqh`
+- `mt5/io/ARL_FilePublisher.mqh`
+- `mt5/io/ARL_PublicationManifest.mqh`
+- `mt5/telemetry/ARL_StatusWriter.mqh`
+- office/brain/report control files
+
+Evidence:
+- RUN010R incoming compile evidence supplied by user: `0 errors, 0 warnings, 491 ms elapsed`.
+- RUN011 direct source inspection and static quote/brace validation passed here.
+- RUN011 compile not run here.
+- RUN011 runtime smoke not run here.
+
+Decision:
+- Test first. Compile and runtime smoke are mandatory before claiming the output path works on disk.
+
+Next:
+- Compile `ARL_Core.mq5`, attach with `InpARL_EnableFileWrites=true`, and verify the two files under the printed common files path.

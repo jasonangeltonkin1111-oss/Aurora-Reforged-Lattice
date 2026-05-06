@@ -244,3 +244,42 @@ No account scanning, universe implementation, market layers, indicators, ranking
 
 Proof boundary:
 Static quote/brace validation passed in this environment. MetaEditor compile and MT5 runtime were unavailable, so this run does not claim compile proof or runtime proof.
+
+---
+
+## 2026-05-06 — ARL-RUN011 Runtime Output Path Verification + Status/Manifest Write Smoke Prep
+
+Run:
+`ARL-RUN011-RUNTIME-OUTPUT-PATH-VERIFICATION-STATUS-MANIFEST-WRITE-SMOKE`
+
+Changed source behavior:
+- advanced active MT5 product identity from `1.005` to `1.006` because the timer runtime path now actively calls status/manifest publication;
+- repaired the missing runtime publication call by wiring `ARL_StatusWriter_Publish()` into `OnTimer()` after heartbeat and scheduler ticks;
+- initialized paths, output contracts, publisher, manifest, runtime metrics, and status writer during `OnInit()`;
+- added startup path diagnostics through `Print()` so the Experts log reports file mode, common-files base, and current status/manifest relative paths;
+- added status payload path fields for file location mode, status final/temp path, and manifest final/temp path;
+- added manifest `file_location_mode` field;
+- strengthened publisher failure/success messages to include final and temp paths.
+
+Files changed:
+- `mt5/ARL_Core.mq5`
+- `mt5/core/ARL_Version.mqh`
+- `mt5/io/ARL_Paths.mqh`
+- `mt5/io/ARL_FilePublisher.mqh`
+- `mt5/io/ARL_PublicationManifest.mqh`
+- `mt5/telemetry/ARL_StatusWriter.mqh`
+- `office/ARL_CHANGE_LEDGER.md`
+- `office/ARL_DECISIONS.md`
+- `office/ARL_RESEARCH_LEDGER.md`
+- `office/ARL_RISK_LEDGER.md`
+- `office/ARL_ACCEPTANCE_TESTS.md`
+- `roadmap/ARL_ROADMAP_COMPLETION_STATUS.md`
+- `brain/AURORA_CODING_BRAIN_GUIDEBOOK.md`
+- `brain/AURORA_FAILURE_PATTERNS_GUIDEBOOK.md`
+- `reports/ARL_RUN011_REPORT.md`
+
+Boundary:
+No account scanning, universe implementation, market layers, indicators, ranking, Market Board, Symbol Trader Pack, Dossier, HUD, trading, signals, execution, strategy formulas, archive copy, duplicate publisher, duplicate status writer, new route, or changelog `.mqh` was added.
+
+Proof boundary:
+User supplied RUN010R compile evidence for the incoming baseline: `0 errors, 0 warnings, 491 ms elapsed`. RUN011 changed source behavior after that compile, so current RUN011 source still requires MetaEditor compile and MT5 runtime smoke before runtime output proof can be claimed.

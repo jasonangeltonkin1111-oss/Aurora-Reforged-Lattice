@@ -4,7 +4,7 @@
 //+------------------------------------------------------------------+
 //| ARL_Paths
 //| Aurora Reforged Lattice — runtime IO foundation
-//| Run: ARL-RUN009
+//| Run: ARL-RUN011
 //| Status: CANONICAL FILE-SANDBOX PATHS ONLY.
 //+------------------------------------------------------------------+
 // Owner: io/paths
@@ -45,6 +45,39 @@ int ARL_Paths_CommonFlag()
    return FILE_COMMON;
   }
 
-string ARL_Paths_Contract(){ return "COMMON_FILES_SANDBOX_CURRENT_ONLY"; }
+string ARL_Paths_FileLocationMode()
+  {
+   return "COMMON_FILES";
+  }
+
+string ARL_Paths_CommonDataPath()
+  {
+   return TerminalInfoString(TERMINAL_COMMONDATA_PATH);
+  }
+
+string ARL_Paths_CommonFilesBasePath()
+  {
+   return TerminalInfoString(TERMINAL_COMMONDATA_PATH) + "\\Files";
+  }
+
+string ARL_Paths_TerminalDataPath()
+  {
+   return TerminalInfoString(TERMINAL_DATA_PATH);
+  }
+
+string ARL_Paths_TerminalFilesBasePath()
+  {
+   return TerminalInfoString(TERMINAL_DATA_PATH) + "\\MQL5\\Files";
+  }
+
+string ARL_Paths_DiagnosticLine()
+  {
+   return "ARL paths: mode=" + ARL_Paths_FileLocationMode() +
+          " | common_files_base=" + ARL_Paths_CommonFilesBasePath() +
+          " | status_current=" + ARL_Paths_StatusCurrent() +
+          " | manifest_current=" + ARL_Paths_ManifestCurrent();
+  }
+
+string ARL_Paths_Contract(){ return "COMMON_FILES_SANDBOX_CURRENT_ONLY_WITH_RUNTIME_DIAGNOSTICS"; }
 
 #endif // __IO_ARL_PATHS_MQH__

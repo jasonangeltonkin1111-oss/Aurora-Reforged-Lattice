@@ -423,3 +423,39 @@ Log the contradiction and do not claim runtime output readiness until lifecycle 
 
 Falsifier:
 `Status_Current.json` / `Manifest_Current.json` are claimed as runtime outputs while `OnTimer()` does not call the status writer or another proved publication path.
+
+---
+
+## R011 — Compile-clean baseline can still publish nothing at runtime
+
+Date: 2026-05-06
+
+Risk:
+A clean MetaEditor compile can falsely reassure the operator while `OnTimer()` never calls the status/manifest publication path.
+
+Observed in RUN011 audit:
+Incoming RUN010R baseline had user-reported compile evidence, but active `OnTimer()` only called heartbeat and scheduler. That means the EA could compile cleanly and still write no status/manifest files.
+
+Severity:
+High for runtime IO proof.
+
+Mitigation:
+`ARL_Core.mq5` now calls `ARL_StatusWriter_Publish()` inside `OnTimer()` and logs path diagnostics at startup.
+
+Falsifier:
+After attach with `InpARL_EnableFileWrites=true`, Experts log shows timer running but neither `Status_Current.json` nor `Manifest_Current.json` appears under the common files path.
+
+---
+
+## R012 — Common-files/local-files path mismatch can hide outputs
+
+Date: 2026-05-06
+
+Risk:
+Operator checks the wrong MT5 sandbox because source uses `FILE_COMMON` while the operator looks under the terminal-local `MQL5/Files`, or future code mixes common/local flags between write, existence, delete, move, and readback.
+
+Mitigation:
+Status payload, manifest payload, and startup log now expose `COMMON_FILES`, final paths, temp paths, and common files base path.
+
+Falsifier:
+`FileOpen` writes to common files while `FileIsExist`, `FileDelete`, `FileMove`, or operator instructions check terminal-local files.

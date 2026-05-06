@@ -4,7 +4,7 @@
 //+------------------------------------------------------------------+
 //| ARL_StatusWriter
 //| Aurora Reforged Lattice — runtime IO foundation
-//| Run: ARL-RUN009
+//| Run: ARL-RUN011
 //| Status: STATUS_CURRENT COMPOSITION/PUBLISH ONLY.
 //+------------------------------------------------------------------+
 // Owner: telemetry/status
@@ -47,6 +47,11 @@ string ARL_StatusWriter_ComposePayload(const bool writes_enabled,const int timer
    payload += "\"timer_seconds\":" + IntegerToString(timer_seconds) + ",";
    payload += "\"work_budget_ms\":" + IntegerToString(work_budget_ms) + ",";
    payload += "\"file_writes_enabled\":" + (writes_enabled ? "true" : "false") + ",";
+   payload += "\"file_location_mode\":\"" + ARL_Paths_FileLocationMode() + "\",";
+   payload += "\"status_final_path\":\"" + ARL_Paths_StatusCurrent() + "\",";
+   payload += "\"status_temp_path\":\"" + ARL_Paths_TempFor(ARL_Paths_StatusCurrent()) + "\",";
+   payload += "\"manifest_final_path\":\"" + ARL_Paths_ManifestCurrent() + "\",";
+   payload += "\"manifest_temp_path\":\"" + ARL_Paths_TempFor(ARL_Paths_ManifestCurrent()) + "\",";
    payload += "\"trade_permission\":false,";
    payload += "\"signal_permission\":false,";
    payload += "\"execution_permission\":false,";
