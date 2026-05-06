@@ -35,6 +35,9 @@ bool g_arl_filepublisher_disabled_logged = false;
 bool g_arl_filepublisher_startup_diag_logged = false;
 bool g_arl_filepublisher_probe_attempted = false;
 string g_arl_filepublisher_last_printed_code = "";
+bool g_arl_filepublisher_last_folder_ready = false;
+int g_arl_filepublisher_last_folder_error = 0;
+string g_arl_filepublisher_last_folder_diagnostic = "";
 
 void ARL_FilePublisher_PrintStartupDiagnostics(const bool writes_enabled)
   {
@@ -51,6 +54,21 @@ void ARL_FilePublisher_PrintStartupDiagnostics(const bool writes_enabled)
    Print("ARL runtime IO diagnostics | manifest relative=", ARL_Paths_ManifestCurrent());
    Print("ARL runtime IO diagnostics | expected common status path=", ARL_Paths_AbsoluteCommonFilesStatusPattern());
    Print("ARL runtime IO diagnostics | expected common manifest path=", ARL_Paths_AbsoluteCommonFilesManifestPattern());
+  }
+
+
+string ARL_FilePublisher_PreflightLine(const bool writes_enabled,const bool allow_trading)
+  {
+   return "mode=" + ARL_Paths_FileLocationMode()
+          + " | common_data=" + ARL_Paths_CommonDataPath()
+          + " | common_files_base=" + ARL_Paths_CommonFilesBasePath()
+          + " | relative_current_folder=" + ARL_Paths_CurrentFolder()
+          + " | status_final=" + ARL_Paths_StatusCurrent()
+          + " | status_temp=" + ARL_Paths_TempFor(ARL_Paths_StatusCurrent())
+          + " | manifest_final=" + ARL_Paths_ManifestCurrent()
+          + " | manifest_temp=" + ARL_Paths_TempFor(ARL_Paths_ManifestCurrent())
+          + " | writes_enabled=" + (writes_enabled ? "true" : "false")
+          + " | allow_trading=" + (allow_trading ? "true" : "false");
   }
 
 bool ARL_FilePublisher_WriteCommonProbe(int &last_error)
@@ -77,12 +95,12 @@ bool ARL_FilePublisher_WriteCommonProbe(int &last_error)
    return true;
   }
 
-void ARL_FilePublisher_PrintResultOnceOrOnFailure(const ARL_FilePublishResult &result)
+void ARL_FilePublisher_PrintResultOnceOrOnFailure(const string artifact,const ARL_FilePublishResult &result)
   {
    if(result.ok && g_arl_filepublisher_last_printed_code == result.code)
       return;
    g_arl_filepublisher_last_printed_code = result.code;
-   Print("ARL publish result | code=", result.code, " | ok=", (result.ok ? "true" : "false"), " | final=", result.final_path, " | temp=", result.temp_path, " | last_error=", result.last_error);
+   Print("ARL publish result: artifact=", artifact, "; code=", result.code, "; ok=", (result.ok ? "true" : "false"), "; last_error=", result.last_error, "; final=", result.final_path, "; temp=", result.temp_path, "; folder_ready=", (g_arl_filepublisher_last_folder_ready ? "true" : "false"));
    if(result.folder_diagnostic != "")
       Print("ARL publish folder diagnostic | ", result.folder_diagnostic);
    if(result.message != "")
@@ -163,24 +181,32 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
          g_arl_filepublisher_disabled_logged = true;
          Print("ARL runtime IO disabled by input. No files will be written. Set InpARL_EnableFileWrites=true for smoke test.");
         }
-      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(final_path,result);
       return result;
      }
 
    int probe_error = 0;
    ARL_FilePublisher_WriteCommonProbe(probe_error);
 
+   g_arl_filepublisher_last_folder_ready = false;
+   g_arl_filepublisher_last_folder_error = 0;
+   g_arl_filepublisher_last_folder_diagnostic = "";
    string folder_diagnostic = "";
    int folder_error = 0;
    if(!ARL_Paths_EnsureCurrentFolderChain(folder_diagnostic,folder_error))
      {
+      g_arl_filepublisher_last_folder_error = folder_error;
+      g_arl_filepublisher_last_folder_diagnostic = folder_diagnostic;
       result.code = "FOLDER_CHAIN_CREATE_FAILED";
       result.message = "folder chain creation failed before nested write; final_path=" + final_path + "; temp_path=" + temp_path;
       result.last_error = folder_error;
       result.folder_diagnostic = folder_diagnostic;
-      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(final_path,result);
       return result;
      }
+   g_arl_filepublisher_last_folder_ready = true;
+   g_arl_filepublisher_last_folder_error = 0;
+   g_arl_filepublisher_last_folder_diagnostic = folder_diagnostic;
    result.folder_diagnostic = folder_diagnostic;
    Print("ARL nested folder chain ready | ", folder_diagnostic);
    Print("ARL publish attempt | final=", final_path, " | temp=", temp_path, " | mode=", ARL_Paths_FileLocationMode());
@@ -190,7 +216,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
       result.code = "REQUIRED_TOKEN_MISSING";
       result.message = "payload missing required token: " + required_token + "; final_path=" + final_path + "; temp_path=" + temp_path;
       result.ok = false;
-      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(final_path,result);
       return result;
      }
 
@@ -207,7 +233,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
          result.code = "NO_CHANGE_SKIP";
          result.message = "current payload already matches requested payload; final_path=" + final_path;
          result.bytes_read = current_bytes;
-         ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
+         ARL_FilePublisher_PrintResultOnceOrOnFailure(final_path,result);
          return result;
         }
      }
@@ -223,7 +249,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
       result.message = "temp write failed; final_path=" + final_path + "; temp_path=" + temp_path;
       result.last_error = write_error;
       result.bytes_written = wrote;
-      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(final_path,result);
       return result;
      }
    result.bytes_written = wrote;
@@ -237,7 +263,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
       result.message = "temp readback failed; final_path=" + final_path + "; temp_path=" + temp_path;
       result.last_error = readback_error;
       result.bytes_read = readback_bytes;
-      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(final_path,result);
       return result;
      }
    result.bytes_read = readback_bytes;
@@ -246,7 +272,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
      {
       result.code = "TEMP_READBACK_MISMATCH";
       result.message = "temp readback did not match payload; final_path=" + final_path + "; temp_path=" + temp_path;
-      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(final_path,result);
       return result;
      }
 
@@ -256,7 +282,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
       result.code = "PROMOTE_FAILED";
       result.message = "temp promote to current failed; final_path=" + final_path + "; temp_path=" + temp_path;
       result.last_error = GetLastError();
-      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(final_path,result);
       return result;
      }
 
@@ -270,7 +296,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
       result.last_error = final_error;
       result.bytes_read = final_bytes;
       result.ok = false;
-      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(final_path,result);
       return result;
      }
 
@@ -278,7 +304,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
    result.code = "PUBLISHED";
    result.message = "temp written, read back, promoted, and final readback verified; final_path=" + final_path + "; temp_path=" + temp_path;
    result.bytes_read = final_bytes;
-   ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
+   ARL_FilePublisher_PrintResultOnceOrOnFailure(final_path,result);
    return result;
   }
 

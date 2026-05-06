@@ -394,3 +394,5 @@ The diagnostic flat probe `ARL_RuntimeWriteProbe.txt` is not status truth. It on
 
 Version decision:
 Product version stays `1.006`; source run headers and reports record `ARL-RUN011R` as a repair/diagnostic run.
+
+- 2026-05-06 ARL-RUN012: Runtime file output rescue updated folder-chain proof/preflight diagnostics and publish-result logging; runtime validation required in MT5 terminal.

@@ -84,6 +84,10 @@ string ARL_Paths_AbsoluteCommonFilesStatusPattern()
   {
    return ARL_Paths_CommonFilesBasePath() + "\\" + ARL_OUTPUT_ROOT_FOLDER + "\\" + ARL_Paths_ServerFolder() + "\\Current\\" + ARL_STATUS_CURRENT_FILE;
   }
+string ARL_Paths_AbsoluteCommonFilesFolder()
+  {
+   return ARL_Paths_CommonFilesBasePath() + "\\" + ARL_OUTPUT_ROOT_FOLDER + "\\" + ARL_Paths_ServerFolder() + "\\Current";
+  }
 
 string ARL_Paths_AbsoluteCommonFilesManifestPattern()
   {

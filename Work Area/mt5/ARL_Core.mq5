@@ -1,6 +1,6 @@
 //+------------------------------------------------------------------+
 //| Aurora Reforged Lattice — ARL_Core.mq5
-//| Run: ARL-RUN011R
+//| Run: ARL-RUN012
 //| Status: RUNTIME IO FOUNDATION REPAIR — no trading, no signal, no execution.
 //| Purpose: compile-visible runtime scaffold with bounded runtime IO foundation.
 //| Forbidden: trading, signals, execution, HUD, direct ASC migration.
@@ -8,9 +8,9 @@
 #property strict
 #property copyright "Jason Angel Tonkin"
 #property link      "https://github.com/jasonangeltonkin1111-oss/Aurora-Reforged-Lattice-"
-#property version   "1.006"
+#property version   "1.007"
 #property description "Aurora Reforged Lattice"
-#property description "Version 1.006 | ARL-RUN011R repair | runtime file-write diagnostics"
+#property description "Version 1.007 | ARL-RUN012 | runtime file output rescue diagnostics"
 #property description "Review-only architecture. No trade, signal, execution, or HUD permission."
 
 #include "core/ARL_ResultCodes.mqh"
@@ -143,9 +143,12 @@ int OnInit()
    if(InpARL_PrintStartupSummary)
      {
       Print(ARL_Paths_DiagnosticLine());
+      Print("ARL startup proof | version=", ARL_PRODUCT_VERSION, " | run_id=", ARL_PRODUCT_RUN_ID, " | file_mode=", ARL_Paths_FileLocationMode());
+      Print("ARL startup proof | common_files_base=", ARL_Paths_CommonFilesBasePath(), " | expected_operator_folder=", ARL_Paths_AbsoluteCommonFilesFolder());
+      Print("ARL startup proof | relative_folder_chain=", ARL_Paths_OutputRootFolder(), " -> ", ARL_Paths_ServerRelativeFolder(), " -> ", ARL_Paths_CurrentFolder());
       Print("ARL expected Common Files status path: ", ARL_Paths_AbsoluteCommonFilesStatusPattern());
       Print("ARL expected Common Files manifest path: ", ARL_Paths_AbsoluteCommonFilesManifestPattern());
-      Print("ARL file writes input: InpARL_EnableFileWrites=", (InpARL_EnableFileWrites ? "true" : "false"));
+      Print("ARL file writes input: InpARL_EnableFileWrites=", (InpARL_EnableFileWrites ? "true" : "false"), " | InpARL_AllowTrading=", (InpARL_AllowTrading ? "true" : "false"));
       if(!InpARL_EnableFileWrites)
          Print("ARL file writes disabled: no runtime files will be written. Set InpARL_EnableFileWrites=true for smoke test.");
      }
@@ -184,7 +187,8 @@ void OnTimer()
 
    ARL_StatusWriter_Publish(InpARL_EnableFileWrites,
                              InpARL_TimerSeconds,
-                             InpARL_WorkBudgetMs);
+                             InpARL_WorkBudgetMs,
+                             InpARL_AllowTrading);
 
    ARL_RuntimeMetrics_RecordCycle((int)(GetTickCount() - cycle_start));
   }

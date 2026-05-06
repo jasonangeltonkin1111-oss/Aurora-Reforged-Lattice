@@ -491,3 +491,5 @@ Probe is explicitly diagnostic-only. `Status_Current.json` and `Manifest_Current
 
 Falsifier:
 A report claims runtime IO success because only `ARL_RuntimeWriteProbe.txt` exists.
+
+- 2026-05-06 ARL-RUN012: Runtime file output rescue updated folder-chain proof/preflight diagnostics and publish-result logging; runtime validation required in MT5 terminal.

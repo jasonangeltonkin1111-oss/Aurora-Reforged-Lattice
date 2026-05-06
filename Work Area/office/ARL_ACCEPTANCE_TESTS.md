@@ -389,3 +389,5 @@ With `InpARL_EnableFileWrites=true`, Experts prints the exact Common Files path 
 
 Falsifier:
 Folder-chain creation is absent, `FileOpen()` fails without logged error, path diagnostics point to common files while user checks only local files, only the probe file exists, or any trading/signal/execution behavior appears.
+
+- 2026-05-06 ARL-RUN012: Runtime file output rescue updated folder-chain proof/preflight diagnostics and publish-result logging; runtime validation required in MT5 terminal.

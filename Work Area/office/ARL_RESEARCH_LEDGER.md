@@ -445,3 +445,5 @@ Date: 2026-05-06
 
 Proof boundary:
 Research constrains code and tests. It does not prove RUN011R compiles or writes files at runtime.
+
+- 2026-05-06 ARL-RUN012: Runtime file output rescue updated folder-chain proof/preflight diagnostics and publish-result logging; runtime validation required in MT5 terminal.

@@ -4,8 +4,8 @@
 //+------------------------------------------------------------------+
 //| ARL_Version.mqh
 //| Aurora Reforged Lattice — MT5 runtime identity
-//| Run: ARL-RUN011
-//| Status: RUNTIME OUTPUT PATH VERIFICATION — no trading, no signal, no execution.
+//| Run: ARL-RUN012
+//| Status: RUNTIME FILE OUTPUT RESCUE — no trading, no signal, no execution.
 //+------------------------------------------------------------------+
 // Owner: core/version identity
 // Purpose: Exposes current product identity. It is not a changelog; office/ and Git own change history.
@@ -15,11 +15,11 @@
 
 #define ARL_PRODUCT_NAME        "Aurora Reforged Lattice"
 #define ARL_PRODUCT_SHORT_NAME  "ARL"
-#define ARL_PRODUCT_VERSION     "1.006"
-#define ARL_PRODUCT_RUN_ID      "ARL-RUN011"
-#define ARL_PRODUCT_CHANNEL     "RUNTIME_OUTPUT_PATH_VERIFICATION"
+#define ARL_PRODUCT_VERSION     "1.007"
+#define ARL_PRODUCT_RUN_ID      "ARL-RUN012"
+#define ARL_PRODUCT_CHANNEL     "RUNTIME_FILE_OUTPUT_RESCUE"
 #define ARL_PRODUCT_DATE        "2026-05-06"
-#define ARL_PRODUCT_STATE       "RUNTIME_OUTPUT_PATH_VERIFICATION_NO_TRADING"
+#define ARL_PRODUCT_STATE       "RUNTIME_FILE_OUTPUT_RESCUE_NO_TRADING"
 #define ARL_GIT_COMMIT_HINT     "SET_BY_GIT_OR_OFFICE_LEDGER"
 #define ARL_PERMISSION_TEXT     "RUNTIME_STATUS_ONLY_NO_TRADE_SIGNAL_EXECUTION_OR_HUD_PERMISSION"
 
