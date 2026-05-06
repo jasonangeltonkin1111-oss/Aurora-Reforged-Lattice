@@ -72,6 +72,15 @@ string ARL_StatusWriter_ComposePayload(const bool writes_enabled,const int timer
    payload += "\"status_temp_path\":\"" + ARL_StatusWriter_JsonEscape(ARL_Paths_TempFor(ARL_Paths_StatusCurrent())) + "\",";
    payload += "\"manifest_final_path\":\"" + ARL_StatusWriter_JsonEscape(ARL_Paths_ManifestCurrent()) + "\",";
    payload += "\"manifest_temp_path\":\"" + ARL_StatusWriter_JsonEscape(ARL_Paths_TempFor(ARL_Paths_ManifestCurrent())) + "\",";
+   payload += "\"api_readiness_ready\":" + (ARL_ApiReadiness_IsReady() ? "true" : "false") + ",";
+   payload += "\"api_readiness_probe_enabled\":" + (g_arl_api_probe_enabled ? "true" : "false") + ",";
+   payload += "\"api_readiness_probe_attempted\":" + (ARL_ApiReadiness_ProbeAttempted() ? "true" : "false") + ",";
+   payload += "\"api_readiness_endpoint\":\"" + ARL_StatusWriter_JsonEscape(ARL_ApiReadiness_Endpoint()) + "\",";
+   payload += "\"api_readiness_detail\":\"" + ARL_StatusWriter_JsonEscape(ARL_ApiReadiness_Detail()) + "\",";
+   payload += "\"api_readiness_skip_reason\":\"" + ARL_StatusWriter_JsonEscape(ARL_ApiReadiness_SkipReason()) + "\",";
+   payload += "\"api_readiness_last_error\":" + IntegerToString(ARL_ApiReadiness_LastError()) + ",";
+   payload += "\"api_readiness_response_code\":" + IntegerToString(ARL_ApiReadiness_ResponseCode()) + ",";
+   payload += "\"api_readiness_last_check_server_time\":\"" + TimeToString(ARL_ApiReadiness_LastCheckServerTime(),TIME_DATE|TIME_SECONDS) + "\",";
    payload += "\"trade_permission\":false,";
    payload += "\"signal_permission\":false,";
    payload += "\"execution_permission\":false,";

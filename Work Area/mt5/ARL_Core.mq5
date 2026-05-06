@@ -26,6 +26,7 @@
 #include "runtime/ARL_WarmupState.mqh"
 #include "runtime/ARL_RefreshCadence.mqh"
 #include "runtime/ARL_RuntimeState.mqh"
+#include "runtime/ARL_ApiReadiness.mqh"
 #include "io/ARL_Paths.mqh"
 #include "io/ARL_PayloadHash.mqh"
 #include "io/ARL_OutputContracts.mqh"
@@ -114,6 +115,8 @@ input int    InpARL_TimerSeconds   = ARL_DEFAULT_TIMER_SECONDS;
 input int    InpARL_WorkBudgetMs   = ARL_DEFAULT_WORK_BUDGET_MS;
 input bool   InpARL_EnableFileWrites = false;  // scaffold default: no runtime writes
 input bool   InpARL_PrintStartupSummary = true;
+input bool   InpARL_EnableApiProbe = false;
+input string InpARL_ApiEndpointUrl = "";
 
 input group "ARL Safety"
 input bool   InpARL_ReviewOnlyMode = true;
@@ -139,6 +142,8 @@ int OnInit()
    ARL_StatusWriter_Init();
    ARL_Heartbeat_Init();
    ARL_Scheduler_Init();
+   ARL_ApiReadiness_Init(InpARL_ApiEndpointUrl,InpARL_EnableApiProbe);
+   ARL_ApiReadiness_RunCheck();
 
    if(InpARL_PrintStartupSummary)
      {
@@ -186,6 +191,7 @@ void OnTimer()
 
    ARL_Heartbeat_Tick();
    ARL_Scheduler_Tick();
+   ARL_ApiReadiness_Tick();
 
    ARL_StatusWriter_Publish(InpARL_EnableFileWrites,
                              InpARL_TimerSeconds,
