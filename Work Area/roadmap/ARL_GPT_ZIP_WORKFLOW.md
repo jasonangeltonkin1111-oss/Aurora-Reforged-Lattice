@@ -92,3 +92,13 @@ Archives are Git-only inheritance evidence and may be mined only for:
 Archives must not be copied directly into active Work Area source.
 
 If web browsing is unavailable, GPT must say research is blocked and continue only with evidence it actually has.
+
+## ARL-RUN007 Zip Workflow Law
+
+`Work Area/` is the only uploadable active source root for GPT repair passes.
+
+`Archives/` must not be inside uploaded Work Area zips. Archives are read from Git only and used as inheritance evidence, not active source truth.
+
+If Git and the uploaded zip disagree, the run must create a contradiction ledger. The uploaded Work Area zip is the patch baseline for that run unless the user explicitly selects a different baseline.
+
+Packaging preference: changed/additional files only, preserving `Work Area/` layout. Full Work Area packages are allowed only when safer and must be explained in the report.

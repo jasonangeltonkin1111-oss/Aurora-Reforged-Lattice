@@ -91,3 +91,18 @@ Layer 5 / Deep Review:
 - L5 delaying board publication
 - deep work on every symbol
 - endless warmup without a degraded explanation
+
+## ARL-RUN007 Refresh Visibility Law
+
+Refresh may warm up, but it must not pretend completeness.
+
+Future refresh/status output must expose:
+- cycle id;
+- due time;
+- last attempt;
+- last success;
+- next retry/backoff state;
+- missing-data reason;
+- partial/complete state.
+
+No silent retry storms. No stale file pretending to be current.

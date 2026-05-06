@@ -232,3 +232,9 @@ If it lacks symbol-specific trade history, it fails.
 If it lacks recent bars, it fails.
 
 If it lacks setup fit, it fails.
+
+## ARL-RUN007 Symbol Trader Pack Enforcement
+
+The Symbol Trader Pack is first-class.
+
+It must answer: what is the symbol, why did it rank, what is the account exposure, what did recent trade history say, what are the costs, what is the market state, what is missing, and what should the operator review next.

@@ -216,3 +216,9 @@ Caution:
 Final:
   review_permission: TRUE
   trade_permission: FALSE
+
+--- RUN007 SAMPLE LAW ---
+This sample is intentionally trader-data-first. Full arrays and verbose metadata belong in JSON/manifest/debug, not in this text file.
+Recent closed bars shown here: first two only.
+Recent closed trades shown here: first two only.
+No buy/sell/signal/execution permission is granted.

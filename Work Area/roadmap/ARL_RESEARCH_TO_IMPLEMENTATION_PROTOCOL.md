@@ -83,3 +83,15 @@ Force fresh ATR handle on cold symbol/timeframe and verify BUILDING before READY
 6. AI reasoning
 
 AI reasoning is never proof.
+
+## ARL-RUN007 Research Conversion Rule
+
+Research must not remain ornamental.
+
+Every useful finding must become:
+- an ARL constraint;
+- an affected folder/file;
+- an acceptance test;
+- a falsifier.
+
+If a finding cannot be converted, reject it or quarantine it. Do not add impressive-but-useless doctrine.

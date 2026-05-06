@@ -107,3 +107,22 @@ Office change ledger version impact
 ```
 
 A maintenance run may keep the EA version unchanged when it does not alter active product behavior. A behavior-changing source run must explicitly decide whether the a.bcd version advances.
+
+## ARL-RUN007 Pre-Implementation Run Protocol
+
+Future GPT/Codex repair runs must follow this sequence:
+
+1. User uploads `Work Area` zip only.
+2. GPT audits uploaded zip before patching.
+3. GPT performs external research where facts can matter.
+4. GPT converts research into constraints, acceptance tests, and falsifiers.
+5. GPT audits Git after research.
+6. GPT treats `Archives/` as Git-only inheritance evidence.
+7. GPT analyzes source truth before patching.
+8. GPT patches owner files only.
+9. GPT runs static checks and compiles only if MetaEditor is available.
+10. GPT updates office ledgers.
+11. GPT packages changed/additional Work Area files and excludes Archives.
+12. GPT provides a clean detailed Git summary/description.
+
+Forbidden shortcut: patching from memory or old reports before inspecting current active files.

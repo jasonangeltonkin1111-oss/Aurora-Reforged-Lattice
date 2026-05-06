@@ -127,3 +127,18 @@ all_nonempty_major_buckets_have_rank_rows=true
 all_nonempty_minor_buckets_have_rank_rows=true
 readback_status=PASS
 ```
+
+## ARL-RUN007 Market Board Trader-Data Strengthening
+
+Market Board structure is preserved, but every top bucket/candidate row must earn operator attention with trader data.
+
+Required candidate context:
+- bucket and rank;
+- board/surface/deep score context;
+- account exposure state;
+- spread/cost friction;
+- volatility/range context;
+- missing-data reason;
+- review-now group such as BEST_3/BEST_5/BEST_10/WATCH_EXPOSURE.
+
+Avoid wording that implies trade permission. Review-now means upload/check/review candidate quality, not buy/sell permission.

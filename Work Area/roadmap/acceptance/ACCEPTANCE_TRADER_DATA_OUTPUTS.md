@@ -117,3 +117,24 @@ readback confirms public artifact
 no metadata wall leaks into operator text
 no trade/signal/execution permission appears
 ```
+
+## ARL-RUN007 Acceptance Extension
+
+A trader-facing text output fails if it does not show meaningful per-symbol trader data.
+
+Mandatory per-symbol trader data lanes:
+- account exposure;
+- symbol trade history;
+- market state;
+- cost/friction;
+- volatility/range;
+- momentum/microstructure;
+- liquidity/structure;
+- ranking context;
+- deep scores;
+- setup fit;
+- first two recent closed bars;
+- first two recent closed trades;
+- final trader read.
+
+Metadata-heavy text with thin trader data is a failure even if the JSON is complete.

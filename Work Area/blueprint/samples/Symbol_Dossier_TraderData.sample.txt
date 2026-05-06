@@ -94,3 +94,6 @@ FINAL TRADER READ
     - exotic pair behavior can be broker/session sensitive
   review_permission: TRUE
   trade_permission: FALSE
+
+--- RUN007 SAMPLE LAW ---
+Dossier text is selected-symbol trader review. It may mention freshness/proof only where trust changes. Full diagnostics stay in Manifest/Debug JSON.

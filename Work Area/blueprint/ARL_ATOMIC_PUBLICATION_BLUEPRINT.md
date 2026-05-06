@@ -89,3 +89,9 @@ Future atomic publication work must prove:
 - last-good preservation on failure
 
 No runtime publication claim is valid until logs/files show the full sequence.
+
+## ARL-RUN007 Atomic Publication Constraint
+
+Future file publication must stage, write, flush, verify/read back where practical, promote, and report status.
+
+File existence alone is not proof. Manifest/readback truth must identify source file, current file, write result, flush result, move/promote result, and last error when present.

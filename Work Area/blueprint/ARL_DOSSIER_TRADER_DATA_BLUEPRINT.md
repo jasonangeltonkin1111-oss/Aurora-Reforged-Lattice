@@ -110,3 +110,7 @@ operator_action
 review_permission
 trade_permission=false
 ```
+
+## ARL-RUN007 Dossier Enforcement
+
+The Dossier must be readable and trader-focused. It can reference proof/freshness, but it must not drown the trader in metadata walls.

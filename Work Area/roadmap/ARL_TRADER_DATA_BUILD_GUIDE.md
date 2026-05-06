@@ -222,3 +222,16 @@ Do not build Market Board beauty before per-symbol trader data exists.
 ```
 
 A Market Board without rich per-symbol data is a hollow board.
+
+## ARL-RUN007 Trader-Data Build Alignment
+
+RUN006 references are active planning law for output work.
+
+Implementation order for trader-facing outputs:
+1. write structured JSON truth lanes first;
+2. compose trader text from those truth lanes;
+3. keep metadata/proof/debug in manifest/debug JSON;
+4. show recent closed bars first two only in text;
+5. show recent closed trades first two only in text;
+6. keep full arrays in JSON;
+7. never use buy/sell/signal/trade-permission language.

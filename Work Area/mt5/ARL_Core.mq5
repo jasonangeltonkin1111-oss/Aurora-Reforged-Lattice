@@ -1,16 +1,16 @@
 //+------------------------------------------------------------------+
 //| Aurora Reforged Lattice — ARL_Core.mq5
-//| Run: ARL-RUN004
+//| Run: ARL-RUN007
 //| Status: MT5 SCAFFOLD ONLY.
 //| Purpose: compile-visible skeleton for future GPT zip-audit/research/patch runs.
 //| Forbidden: trading, signals, execution, HUD, direct ASC migration.
 //+------------------------------------------------------------------+
 #property strict
 #property copyright "Jason Angel Tonkin"
-#property link      "https://github.com/jasonangeltonkin1111-oss/Aurora-Reforged-Lattice-"
+#property link      "https://github.com/jasonangeltonkin1111-oss/Aurora-Reforged-Lattice"
 #property version   "1.004"
 #property description "Aurora Reforged Lattice"
-#property description "Version 1.004 | ARL-RUN004 | MT5 scaffold only"
+#property description "Version 1.004 | ARL-RUN007 | pre-work unification only"
 #property description "Review-only architecture. No trade, signal, execution, or HUD permission."
 
 #include "core/ARL_ResultCodes.mqh"

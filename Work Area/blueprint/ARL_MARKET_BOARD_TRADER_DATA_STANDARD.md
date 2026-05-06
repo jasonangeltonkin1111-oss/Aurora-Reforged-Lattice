@@ -143,3 +143,7 @@ trade_permission: FALSE
 signal_permission: FALSE
 execution_permission: FALSE
 ```
+
+## ARL-RUN007 Market Board Enforcement
+
+Market Board may keep its structure from RUN006, but it must always point the operator toward the best review candidates with enough per-symbol trader context to avoid blind uploads/checks.

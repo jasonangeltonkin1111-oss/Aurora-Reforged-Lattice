@@ -232,3 +232,24 @@ Affected files/modules:
 
 Reversal condition:
 If a later run changes active MT5 behavior, version may advance by the a.bcd rule.
+
+## D009 — RUN007 pre-work unification keeps product version 1.004
+
+Decision: keep ARL product version at `1.004` for RUN007.
+
+Why: RUN007 is a source-record, office, roadmap, blueprint, and reference-law alignment pass. It does not implement runtime publication, trading, signals, execution, HUD, strategy formulas, or direct ASC archive migration.
+
+Constraint: MT5 source identity may state `ARL-RUN007` as the current source alignment run, but Git/office remain the history owners. MT5 source must not become a changelog.
+
+Falsifier: if a future diff shows active MT5 behavior was changed in RUN007 beyond identity/header alignment, this decision is invalid and the product version must be bumped to the next correct `a.bcd` value.
+
+## D010 — Git messages must be detailed but structured
+
+Decision: use a proper Git summary plus deep structured description.
+
+Git summary format:
+`AURORA REFORGED LATTICE — ARL-RUN### / PRIMARY PURPOSE + SECONDARY PURPOSE`
+
+Git description must include: mode, summary, why, what changed, files added, files changed, inspected-but-not-changed files, boundaries, version impact, evidence, risks, and next move.
+
+Why: tiny messages lose traceability; pasted full ChatGPT reports create noise. The correct middle path is a clean header and deep description.

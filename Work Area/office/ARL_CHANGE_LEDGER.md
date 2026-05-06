@@ -104,3 +104,21 @@ Tests required:
 
 Lock impact:
 No module lock created. This run aligns source identity and process records only.
+
+## 2026-05-06 — ARL-RUN007 Pre-Work Unification Alignment
+
+Run id: `ARL-RUN007-PRE-WORK-UNIFICATION-ALIGNMENT`.
+
+Purpose: unify Work Area source records before implementation starts.
+
+Changed/added records:
+- aligned MT5 product run identity to `ARL-RUN007` while keeping product version `1.004`;
+- recorded Git summary/description standard with proper header plus deep structured description;
+- confirmed RUN006 trader-data reference files are present in the uploaded Work Area package;
+- strengthened trader-data-first law across office, roadmap, and blueprint references;
+- recorded archive policy: `Archives/` are Git-only inheritance evidence and must not be included in uploaded Work Area zips;
+- added RUN007 report and run plan.
+
+Version impact: `1.004` retained because no runtime behavior, trading, signal, execution, HUD, or strategy formulas were added.
+
+Proof boundary: static include scan and duplicate-function scan may be recorded by this run. No compile proof exists unless MetaEditor compile output is supplied.

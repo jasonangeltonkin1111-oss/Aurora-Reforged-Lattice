@@ -35,3 +35,15 @@ Before editing ARL:
 | ARL_LOCK_POLICY.md | How working modules become protected |
 | ARL_OUTPUT_SCAFFOLD_SAMPLES.md | Operator-facing board/dossier samples |
 | ARL_OPEN_QUESTIONS.md | Unresolved questions before code/scaffold work |
+
+## ARL-RUN007 Office Index Addendum
+
+RUN007 reference records:
+
+- `ARL_CHANGE_LEDGER.md` — pre-work unification change record.
+- `ARL_DECISIONS.md` — version and Git-message decisions.
+- `ARL_RESEARCH_LEDGER.md` — official-source research converted into constraints.
+- `ARL_ACCEPTANCE_TESTS.md` — RUN007 acceptance addendum.
+- `ARL_TRADER_DATA_GUIDE.md` — RUN006 trader-data-first law.
+- `ARL_TRADER_DATA_SAMPLE_REFERENCE_LEDGER.md` — mandatory sample/reference list.
+- `../ARL_RUN007_REPORT.md` — final report for this run.

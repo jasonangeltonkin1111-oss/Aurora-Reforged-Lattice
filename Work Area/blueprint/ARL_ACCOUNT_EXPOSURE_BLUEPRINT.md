@@ -75,3 +75,16 @@ Sample files must mask account number/name.
 Runtime local files may show account number if the operator allows it.
 
 Never commit real account numbers into Git.
+
+## ARL-RUN007 Account Exposure Output Law
+
+Account exposure is mandatory trader data, not optional metadata.
+
+Future output must separate:
+- account-level equity/balance/margin/free-margin/drawdown context;
+- open positions by symbol;
+- pending orders by symbol;
+- recent closed deals by symbol;
+- exposure warning/review adjustment.
+
+Do not infer closed trade history from positions. Closed deals require history selection and deal inspection.

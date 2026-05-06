@@ -96,3 +96,9 @@ ARL-RUN003 = minimal compile/status proof.
 2. Does MetaEditor compile still pass after version identity alignment?
 3. Should `ARL_Core.ex5` be excluded from future upload zips unless intentionally preserved as a known compiled artifact?
 4. Should RUN006 implement heartbeat/status publication, or should it first perform a pure compile-repair/validation pass in MetaEditor?
+
+## RUN007 Open Questions
+
+1. Should future zip packages exclude `.ex5` binaries by default unless the binary is intentionally preserved as compile evidence?
+2. Should RUN008 be the first behavior implementation run for heartbeat/status publication, or should it first be a MetaEditor compile-confirmation run against the RUN007 aligned source?
+3. Should all old uses of the word `upload` be renamed to `review now/check now` in operator-facing text, while internal file-transfer workflow docs keep `upload` only for GPT zip workflow?

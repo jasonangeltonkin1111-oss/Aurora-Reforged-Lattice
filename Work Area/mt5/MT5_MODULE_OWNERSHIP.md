@@ -22,3 +22,16 @@ This file records the intended owner for each MT5 module family.
 | permission/ | no-trade/no-signal/no-execution boundary | exceptions |
 | debug/ | scaffold/source sanity checks | proof inflation |
 | tests/ | future static/output harnesses | runtime trading |
+
+## ARL-RUN007 Anti-Cosmetic Ownership Law
+
+A module is not allowed to exist merely because the future architecture sounds complete. Every active `.mqh` owner must have:
+
+- a real future responsibility;
+- defined inputs;
+- defined outputs;
+- forbidden ownership;
+- an acceptance lane;
+- a falsifier that proves the module is ornamental, duplicated, stale, or unsafe.
+
+If a future implementation run cannot name those five items, the module must be merged, deleted, or kept as inert scaffold only. No duplicate route owners may be created to avoid editing the correct owner file.

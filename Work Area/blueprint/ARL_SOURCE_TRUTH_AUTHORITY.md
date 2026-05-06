@@ -67,3 +67,16 @@ Authority rule:
 
 Version identity rule:
 Current product identity must agree across `ARL_Core.mq5`, `core/ARL_Version.mqh`, MT5 README, office ledger, and any active product metadata.
+
+## ARL-RUN007 Active Root Authority
+
+For patch runs, `Work Area/` is the active source root.
+
+Authority order:
+1. uploaded Work Area zip selected for the patch baseline;
+2. Git current Work Area state as comparison/check;
+3. RUN006 reference pack/files when present;
+4. `Archives/` as Git-only inheritance evidence;
+5. old reports, memory, screenshots, and prior assistant claims.
+
+Archives may inform lessons, output shapes, and migration candidates. Archives may not be copied into active Work Area source or included in output zips.

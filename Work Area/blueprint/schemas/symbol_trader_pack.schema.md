@@ -89,3 +89,7 @@ bar.spread_points_at_close: number|null
 This schema is for trader data.
 
 Verbose route/source/proof metadata belongs to Manifest/Debug schemas.
+
+## ARL-RUN007 Schema Enforcement
+
+Schema must preserve full arrays and structured truth for data omitted from text summaries, especially closed bars, trade history, score components, and missing-data details.

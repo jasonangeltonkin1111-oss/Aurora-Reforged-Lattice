@@ -83,3 +83,16 @@ Before any runtime implementation run proceeds, confirm:
 3. Runtime proof: startup log prints the same version from `ARL_VersionLine()`.
 4. No-permission proof: no HUD/trade/signal/execution/risk path was added.
 5. Packaging proof: output zip preserves `Work Area/` structure and excludes Archives.
+
+## ARL-RUN007 Testing Addendum
+
+Static tests for this run:
+
+- include scan: every `#include` in `mt5/ARL_Core.mq5` resolves under `Work Area/mt5/`;
+- duplicate-function scan: no duplicate active function definitions across `.mq5/.mqh` files;
+- version scan: `#property version` equals `ARL_PRODUCT_VERSION`;
+- boundary scan: no HUD, trade execution, buy/sell signal, or order-send route is introduced;
+- packaging scan: output zip excludes `Archives/`.
+
+Compile test may only be claimed with MetaEditor output.
+Runtime test may only be claimed with runtime logs/output.

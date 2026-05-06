@@ -85,3 +85,16 @@ Each major truth has exactly one owner:
 - Symbol files must not invent L3/L4 context.
 - Output writers must not decide trade permission.
 - Runtime scheduler must not contain ranking formulas.
+
+## ARL-RUN007 Output Boundary Alignment
+
+The operator output stack is separated as follows:
+
+- Market Board: operator battle board for the broad scan and best review candidates.
+- Symbol Trader Pack: full per-symbol trader data for review without metadata walls.
+- Dossier: selected-symbol readable review assembled from structured truth lanes.
+- `Symbol_Current.json`: structured symbol truth.
+- `Manifest_Current.json`: publication/source/readback truth.
+- `Debug_Current.json`: verbose diagnostics.
+
+The text layer may summarize truth. It must not own hidden calculations or silently override JSON/source truth.

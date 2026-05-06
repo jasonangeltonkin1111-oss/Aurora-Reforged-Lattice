@@ -106,3 +106,22 @@ Dossier cannot:
 - override exposure exclusion
 - create a signal
 - authorize execution
+
+## ARL-RUN007 Dossier Trader-Data Requirement
+
+A dossier is not acceptable if it is mostly metadata.
+
+Mandatory dossier lanes:
+- selected-symbol summary;
+- account exposure;
+- symbol trade history;
+- current market state;
+- cost/friction;
+- volatility/range;
+- liquidity/structure;
+- ranking context;
+- deep review fit;
+- missing data;
+- final trader read.
+
+No buy/sell/signal/execution permission wording.

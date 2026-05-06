@@ -292,3 +292,21 @@ RUN005 report must state external research was blocked and must not claim offici
 
 Falsifier:
 The report claims fresh official-source research or cites uncited web facts as if verified during the run.
+
+## RISK-RUN007-001 — Pre-work record drift before implementation
+
+Risk: office, roadmap, blueprint, and MT5 source can disagree before implementation starts, causing future GPT/Codex runs to build from the wrong source of truth.
+
+Mitigation: RUN007 aligns Work Area root authority, archive policy, RUN006 trader-data reference law, Git message standard, and version identity.
+
+Falsifier: a grep after RUN007 finds active docs that treat `Archives/` as uploadable source, hide RUN006 absence/presence, or report a product version/run identity inconsistent with `ARL_Core.mq5` and `ARL_Version.mqh`.
+
+Decision pressure: if this risk reappears during implementation, pause and fix records before adding behavior.
+
+## RISK-RUN007-002 — Trader data drowned by metadata
+
+Risk: operator text files become metadata walls instead of battle-board trader data.
+
+Mitigation: RUN006 trader-data references are now mandatory for Market Board, Symbol Trader Pack, and Dossier work.
+
+Falsifier: text output contains verbose route/proof/debug metadata while account exposure, trade history, market state, costs, volatility, ranking context, recent bars, or recent closed trades are thin or missing.

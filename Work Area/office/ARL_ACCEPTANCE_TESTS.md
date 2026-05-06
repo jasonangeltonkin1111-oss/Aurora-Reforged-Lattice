@@ -270,3 +270,23 @@ Pass condition:
 
 Falsifier:
 Report says external research was completed when no live source access existed.
+
+## ARL-RUN007 Acceptance Addendum
+
+Minimum acceptance before first real implementation run:
+
+1. `Work Area/` is the only active uploaded source root.
+2. Uploaded package excludes `Archives/`.
+3. Git current Work Area state is checked after research.
+4. RUN006 trader-data reference files are confirmed present or absence is logged.
+5. `ARL_Core.mq5` version and `ARL_Version.mqh` version agree.
+6. Product version decision is recorded in MT5 policy and office decisions.
+7. Git summary/description standard is documented.
+8. Trader-data-first law is referenced by office, roadmap, and blueprint.
+9. MT5 remains no-HUD/no-trade/no-signal/no-execution.
+10. Include scan finds no missing includes.
+11. Duplicate-function scan finds no duplicate active function definitions.
+12. No cosmetic module risk is left unreported.
+13. Compile is reported only if MetaEditor output exists.
+14. Output package excludes Archives.
+15. `Work Area/ARL_RUN007_REPORT.md` exists.

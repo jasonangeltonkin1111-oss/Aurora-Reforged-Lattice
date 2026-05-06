@@ -44,3 +44,17 @@ Next:
 ```
 
 This avoids ASC-style sloppy change history without pushing a changelog into MT5 source.
+
+## ARL-RUN007 Version Decision
+
+Product version remains `1.004`.
+
+Reason: RUN007 aligns source identity, office records, roadmap rules, blueprint references, and trader-data reference law. It does not add runtime behavior, trading logic, signals, execution, HUD, strategy formulas, file publication, or direct ASC archive migration.
+
+MT5 identity fields are allowed to record `ARL-RUN007` as the current source-record alignment run while the product version remains `1.004`. A future run must bump to `1.005` or the next correct `a.bcd` value only when active MT5 behavior changes.
+
+Acceptance:
+- `ARL_Core.mq5` `#property version` equals `1.004`.
+- `ARL_PRODUCT_VERSION` equals `1.004`.
+- `ARL_PRODUCT_RUN_ID` equals `ARL-RUN007`.
+- Git/office own change history; MT5 source does not become a changelog.

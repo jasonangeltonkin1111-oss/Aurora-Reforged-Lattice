@@ -73,3 +73,21 @@ This means:
 - preserve per-symbol depth
 - keep text readable
 - put full proof/debug in JSON/manifest/debug files
+
+## ARL-RUN007 Presence Check
+
+Uploaded Work Area package contains the RUN006 trader-data reference files listed by this ledger, including:
+
+- `blueprint/ARL_TRADER_DATA_OUTPUT_STANDARD.md`
+- `blueprint/ARL_MARKET_BOARD_TRADER_DATA_STANDARD.md`
+- `blueprint/ARL_SYMBOL_TRADER_PACK_BLUEPRINT.md`
+- `blueprint/ARL_DOSSIER_TRADER_DATA_BLUEPRINT.md`
+- `blueprint/samples/MarketBoard_TraderData.sample.txt`
+- `blueprint/samples/Symbol_Trader_Pack.sample.txt`
+- `blueprint/samples/Symbol_Dossier_TraderData.sample.txt`
+- `blueprint/schemas/symbol_trader_pack.schema.md`
+- `roadmap/ARL_TRADER_DATA_BUILD_GUIDE.md`
+- `roadmap/acceptance/ACCEPTANCE_TRADER_DATA_OUTPUTS.md`
+- `roadmap/runs/ARL_RUN006_TRADER_DATA_REFERENCE_PLAN.md`
+
+If a future source package lacks any of these, the run must log a contradiction and either restore the references or explicitly quarantine trader-data implementation.

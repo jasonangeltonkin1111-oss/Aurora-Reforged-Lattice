@@ -278,3 +278,20 @@ A future research-capable run must refresh official/primary sources and convert 
 
 Falsifier:
 Any future run claims official research proof without cited sources or without converting research into tests and constraints.
+
+## 2026-05-06 — ARL-RUN007 Mandatory External Research
+
+Research was performed before patching and converted into constraints.
+
+| Topic | Primary source | ARL constraint | Affected area | Acceptance test | Falsifier |
+|---|---|---|---|---|---|
+| MQL5 program properties | MQL5 Program Properties documentation | `#property version` and `description` belong in the main `.mq5`; included-file properties are ignored; description length must stay controlled. | `mt5/ARL_Core.mq5`, `mt5/core/ARL_Version.mqh`, version policy | Main `.mq5` version equals version constant; no included-file property reliance. | Version/description truth only exists in an included file or stale main property remains. |
+| MQL5 input groups | MQL5 Input Variables documentation | `input group` is visual organization and must not be used as hidden logic/proof. | `mt5/ARL_Core.mq5`, input standards | Inputs are grouped for operator readability only. | Group labels become source-of-truth logic or hidden routing. |
+| MQL5 timer lifecycle | MQL5 OnTimer/EventSetTimer/EventKillTimer documentation | Timer setup belongs in init and timer cleanup belongs in deinit when runtime is implemented. | runtime scheduler/heartbeat | Future runtime uses explicit timer lifecycle and logs timer state. | Timer is started without cleanup or status visibility. |
+| MQL5 file I/O | MQL5 FileOpen/FileWrite/FileFlush/FileMove/FileDelete/FileIsExist docs | Atomic publication must stage/write/flush/verify/promote; file presence alone is not proof. | `mt5/io`, atomic publication blueprint | Future writer reports write, flush, move, existence/readback state. | Current files are overwritten silently or FileFlush/readback status is absent. |
+| MQL5 account/trade history | MQL5 AccountInfo*, PositionsTotal, OrdersTotal, HistorySelect, HistoryDealsTotal docs | Account exposure, open positions, pending orders, and closed deals are separate truth lanes. | account, Market Board, dossiers, symbol trader pack | Per-symbol trader pack includes exposure and recent closed trades separately. | Closed trade history is inferred from open positions or omitted. |
+| MQL5 indicators / readiness | MQL5 iATR, CopyBuffer, BarsCalculated docs | Indicator handles and buffer reads need readiness checks; CopyBuffer can return unavailable/partial data. | indicators, L3/L5 future modules | Future indicator modules validate handle, BarsCalculated, CopyBuffer return count, and release handles. | ATR/range data is accepted without readiness or return-count checks. |
+| Git commit messages | Git commit documentation | Use short title plus blank line plus deeper body; ARL adapts with detailed structured body because user wants depth. | office, roadmap, report | RUN007 Git summary/description template exists. | Commit body is tiny/noisy or lacks why/boundaries/evidence. |
+| Retry/backoff and observability | General engineering principle from scheduler/status-output practice | Retries must expose attempts, next due time, failure reason, and backoff state; no silent retry storms. | runtime, telemetry, roadmap | Future scheduler/status output exposes cadence and retry health. | Refresh stalls without due/backoff/error visibility. |
+
+Research rejected as ornamental if it did not become one of: constraint, affected file, acceptance test, or falsifier.

@@ -139,3 +139,6 @@ RETRY + SCHEDULE
 FINAL
   review_permission: TRUE
   trade_permission: FALSE
+
+--- RUN007 SAMPLE LAW ---
+Market Board is a battle board for review priority, not a signal sheet. Candidate rows must show enough trader data to choose best 3/5/10 for deeper review without metadata walls.

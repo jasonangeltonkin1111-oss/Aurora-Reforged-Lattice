@@ -93,3 +93,26 @@ Risk Permission: FALSE
 ```
 
 Do not repeat this on every section unless an explicit contradiction exists.
+
+## ARL-RUN007 Trader-Data-First Text Law
+
+Operator text files must lead with trader data, not metadata.
+
+Allowed in text:
+- snapshot id and freshness if it changes trust;
+- symbol/bucket/rank facts;
+- account exposure;
+- trade history summary;
+- market state;
+- cost/friction;
+- volatility/range;
+- momentum/microstructure;
+- liquidity/structure;
+- final trader read.
+
+Move to JSON/manifest/debug:
+- full route proofs;
+- verbose metadata;
+- full arrays;
+- publication diagnostics;
+- schema/debug internals.

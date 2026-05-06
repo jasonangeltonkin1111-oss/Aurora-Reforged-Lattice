@@ -50,3 +50,14 @@ If route ownership is unclear:
 ```text
 HOLD or TEST FIRST
 ```
+
+## ARL-RUN007 Owner-File Repair Rule
+
+When a flaw belongs to an existing owner, patch the owner file. Do not create a sibling route, duplicate helper, alternate composer, alternate scheduler, alternate writer, or shadow registry.
+
+A new route is allowed only if the current owner truly cannot own the responsibility and the report explains:
+- why the old owner cannot own it;
+- what data crosses the new boundary;
+- what must not cross;
+- how the route is tested;
+- how rollback works.

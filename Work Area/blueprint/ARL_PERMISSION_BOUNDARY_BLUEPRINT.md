@@ -59,3 +59,24 @@ Review permission means the data file can be studied.
 Trade permission means nothing unless explicitly built, tested, proven, and authorized later.
 
 Current ARL scope: review only.
+
+## ARL-RUN007 Permission Boundary Reminder
+
+Review quality is not trade permission.
+
+Forbidden wording in operator outputs:
+- buy now;
+- sell now;
+- enter;
+- execute;
+- signal confirmed;
+- prop-safe;
+- live-ready.
+
+Allowed wording:
+- review now;
+- check now;
+- candidate for deeper review;
+- excluded due to exposure;
+- insufficient data;
+- watch only.

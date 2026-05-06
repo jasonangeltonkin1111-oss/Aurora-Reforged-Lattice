@@ -319,3 +319,15 @@ What should I do with it now: check, watch, guard, or avoid?
 ```
 
 If not, the file is too weak.
+
+## ARL-RUN007 Enforcement Note
+
+RUN006 trader-data law is now a pre-work requirement for implementation planning.
+
+Future output work must build these as first-class outputs:
+- Market Board as operator battle board;
+- Symbol Trader Pack as full per-symbol trader data;
+- Dossier as selected-symbol readable review;
+- JSON/manifest/debug as metadata, proof, route, and diagnostic containers.
+
+Text files must answer trader questions first. Metadata belongs elsewhere unless it directly changes the operator decision.

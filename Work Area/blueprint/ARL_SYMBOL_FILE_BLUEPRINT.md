@@ -74,3 +74,15 @@ reason=waiting_market_state
 ```
 
 But it must not silently vanish.
+
+## ARL-RUN007 Symbol File Separation
+
+Per-symbol output must split readable trader review from machine truth:
+
+- `Symbol_Current.json` owns structured symbol truth and full arrays.
+- `Symbol_Trader_Pack.txt` owns readable per-symbol trader data.
+- `Symbol_Dossier.txt` owns selected-symbol narrative review.
+- `Manifest_Current.json` owns source/publication/readback proof.
+- `Debug_Current.json` owns verbose diagnostics and route details.
+
+Text files show the first two recent closed bars and first two recent closed trades only. Full arrays belong in JSON.

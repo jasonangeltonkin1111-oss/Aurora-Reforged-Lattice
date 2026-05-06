@@ -39,3 +39,13 @@ A module must later prove real use through source implementation, output contrac
 - grouped `input` fields visible in the EA properties window
 
 Do not add `ARL_Changelog.mqh`. Git and `office/` own history.
+
+## ARL-RUN007 MT5 State
+
+Active source root: `Work Area/mt5/`.
+
+Version: `1.004`.
+Run identity: `ARL-RUN007`.
+State: pre-work unification only; no runtime proof.
+
+RUN007 did not add HUD, trading, signal, execution, strategy formulas, or direct ASC archive migration. Compile must be performed in MetaEditor before any compile claim is made.

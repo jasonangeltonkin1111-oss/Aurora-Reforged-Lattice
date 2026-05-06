@@ -91,3 +91,14 @@ user_approval=
 ```
 
 Without this record, route change is invalid.
+
+## ARL-RUN007 Lock Policy Addendum
+
+Locked for implementation starts:
+
+- `Work Area/` is active root.
+- `Archives/` are Git-only inheritance evidence.
+- Git/office own change history.
+- MT5 source owns product identity, not changelog history.
+- RUN006 trader-data reference law is mandatory for operator-facing output design.
+- No route rewrites or duplicate owner modules may be created to avoid editing the real owner file.

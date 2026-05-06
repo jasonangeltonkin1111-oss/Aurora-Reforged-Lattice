@@ -189,3 +189,17 @@ Proof:
 ## Stage 99 — HUD deferred
 
 HUD remains out of scope until core system is stable and locked.
+
+## ARL-RUN007 Pre-Work Gate Before Implementation
+
+Before the first real implementation run, the system must prove the records are coherent:
+
+- Work Area root authority is explicit;
+- archive policy is clear;
+- version identity is aligned;
+- RUN006 trader-data references are present or absence is logged;
+- Git summary/description standard is documented;
+- Market Board, Symbol Trader Pack, and Dossier roles are separated;
+- MT5 scaffold stays no-HUD/no-trade/no-signal/no-execution.
+
+This is not a blocking runtime gate. It is a source-truth cleanup checkpoint so implementation does not start from poison.

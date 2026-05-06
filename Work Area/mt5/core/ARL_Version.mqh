@@ -4,7 +4,7 @@
 //+------------------------------------------------------------------+
 //| ARL_Version.mqh
 //| Aurora Reforged Lattice — MT5 scaffold
-//| Run: ARL-RUN004
+//| Run: ARL-RUN007
 //| Status: SCAFFOLD ONLY — no trading, no signal, no execution.
 //+------------------------------------------------------------------+
 // Owner: core/version identity
@@ -19,10 +19,10 @@
 #define ARL_PRODUCT_NAME        "Aurora Reforged Lattice"
 #define ARL_PRODUCT_SHORT_NAME  "ARL"
 #define ARL_PRODUCT_VERSION     "1.004"
-#define ARL_PRODUCT_RUN_ID      "ARL-RUN004"
-#define ARL_PRODUCT_CHANNEL     "SCAFFOLD"
+#define ARL_PRODUCT_RUN_ID      "ARL-RUN007"
+#define ARL_PRODUCT_CHANNEL     "PRE_WORK_UNIFICATION"
 #define ARL_PRODUCT_DATE        "2026-05-06"
-#define ARL_PRODUCT_STATE       "MT5_SCAFFOLD_ONLY_NO_RUNTIME_PROOF"
+#define ARL_PRODUCT_STATE       "PRE_WORK_UNIFICATION_NO_RUNTIME_PROOF"
 #define ARL_GIT_COMMIT_HINT     "SET_BY_GIT_OR_OFFICE_LEDGER"
 #define ARL_PERMISSION_TEXT     "REVIEW_ONLY_NO_TRADE_PERMISSION"
 

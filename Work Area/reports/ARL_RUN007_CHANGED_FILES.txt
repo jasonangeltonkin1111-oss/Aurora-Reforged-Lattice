@@ -1,0 +1,54 @@
+# ARL-RUN007 Changed Files
+
+## Added
+- Work Area/ARL_RUN007_CHANGED_FILES.txt
+- Work Area/ARL_RUN007_REPORT.md
+- Work Area/roadmap/runs/ARL_RUN007_PRE_WORK_UNIFICATION_PLAN.md
+
+## Changed
+- Work Area/blueprint/ARL_ACCOUNT_EXPOSURE_BLUEPRINT.md
+- Work Area/blueprint/ARL_ATOMIC_PUBLICATION_BLUEPRINT.md
+- Work Area/blueprint/ARL_DOSSIER_BLUEPRINT.md
+- Work Area/blueprint/ARL_DOSSIER_TRADER_DATA_BLUEPRINT.md
+- Work Area/blueprint/ARL_FINAL_ARCHITECTURE.md
+- Work Area/blueprint/ARL_MARKET_BOARD_BLUEPRINT.md
+- Work Area/blueprint/ARL_MARKET_BOARD_TRADER_DATA_STANDARD.md
+- Work Area/blueprint/ARL_OUTPUT_STYLE_GUIDE.md
+- Work Area/blueprint/ARL_PERMISSION_BOUNDARY_BLUEPRINT.md
+- Work Area/blueprint/ARL_REFRESH_AND_WARMUP_BLUEPRINT.md
+- Work Area/blueprint/ARL_SOURCE_TRUTH_AUTHORITY.md
+- Work Area/blueprint/ARL_SYMBOL_FILE_BLUEPRINT.md
+- Work Area/blueprint/ARL_SYMBOL_TRADER_PACK_BLUEPRINT.md
+- Work Area/blueprint/ARL_TRADER_DATA_OUTPUT_STANDARD.md
+- Work Area/mt5/ARL_Core.mq5
+- Work Area/mt5/MT5_INCLUDE_BOUNDARY_PLAN.md
+- Work Area/mt5/MT5_MODULE_OWNERSHIP.md
+- Work Area/mt5/MT5_SOURCE_HEADER_STANDARD.md
+- Work Area/mt5/MT5_VERSION_POLICY.md
+- Work Area/mt5/README.md
+- Work Area/office/ARL_ACCEPTANCE_TESTS.md
+- Work Area/office/ARL_BUILD_PLAN.md
+- Work Area/office/ARL_CHANGE_LEDGER.md
+- Work Area/office/ARL_DECISIONS.md
+- Work Area/office/ARL_LOCK_POLICY.md
+- Work Area/office/ARL_OFFICE_INDEX.md
+- Work Area/office/ARL_OPEN_QUESTIONS.md
+- Work Area/office/ARL_RESEARCH_LEDGER.md
+- Work Area/office/ARL_RISK_LEDGER.md
+- Work Area/office/ARL_TRADER_DATA_GUIDE.md
+- Work Area/office/ARL_TRADER_DATA_SAMPLE_REFERENCE_LEDGER.md
+- Work Area/roadmap/ARL_BUILD_SEQUENCE.md
+- Work Area/roadmap/ARL_CODEX_PROMPT_RULES.md
+- Work Area/roadmap/ARL_GPT_ZIP_WORKFLOW.md
+- Work Area/roadmap/ARL_NO_ROUTE_DRIFT_RULES.md
+- Work Area/roadmap/ARL_RESEARCH_TO_IMPLEMENTATION_PROTOCOL.md
+- Work Area/roadmap/ARL_RUN_PROTOCOL.md
+- Work Area/roadmap/ARL_TESTING_STRATEGY.md
+- Work Area/roadmap/ARL_TRADER_DATA_BUILD_GUIDE.md
+- Work Area/roadmap/acceptance/ACCEPTANCE_TRADER_DATA_OUTPUTS.md
+- Work Area/mt5/core/ARL_Version.mqh
+- Work Area/blueprint/samples/MarketBoard_TraderData.sample.txt
+- Work Area/blueprint/samples/Symbol_Dossier_TraderData.sample.txt
+- Work Area/blueprint/samples/Symbol_Trader_Pack.sample.txt
+- Work Area/blueprint/schemas/symbol_trader_pack.schema.md
+

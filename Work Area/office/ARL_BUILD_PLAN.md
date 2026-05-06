@@ -103,3 +103,20 @@ Keep EA product version at `1.004` because this run is maintenance/source-record
 
 Next implementation lane:
 After compile confirmation, implement the smallest runtime proof slice: heartbeat/status file publication with atomic write/readback, still no trading and no HUD.
+
+## ARL-RUN007 Build Plan Addendum — Pre-Work Unification
+
+Objective: make the current Work Area coherent before behavior implementation begins.
+
+Order:
+1. audit uploaded Work Area zip first;
+2. research official/primary sources and convert findings into constraints/tests/falsifiers;
+3. re-audit against research constraints;
+4. compare Git Work Area state after research;
+5. inspect Archives only as Git inheritance evidence when needed;
+6. patch owner files only;
+7. run static include and duplicate-function checks;
+8. compile only if MetaEditor is available;
+9. package changed/additional Work Area files, excluding Archives.
+
+This run must not add trading, signals, execution, HUD, strategy formulas, or direct ASC archive migration.

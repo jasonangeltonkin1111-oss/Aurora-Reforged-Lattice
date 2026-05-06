@@ -153,3 +153,9 @@ trade_permission: FALSE
 signal_permission: FALSE
 execution_permission: FALSE
 ```
+
+## ARL-RUN007 Trader-Data Standard Enforcement
+
+This file is mandatory reference material for the first real output implementation run.
+
+A future implementation fails if Market Board, Symbol Trader Pack, or Dossier text is rich in metadata but thin in trader data.
