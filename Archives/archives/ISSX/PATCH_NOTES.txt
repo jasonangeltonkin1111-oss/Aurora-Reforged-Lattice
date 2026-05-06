@@ -1,0 +1,28 @@
+ISSX patch bundle
+Patch signature: attach_recovery_contract_split_v2
+
+Implemented:
+- OnInit no longer fails on recoverable market-data wait conditions.
+- Wrapper/startup snapshot validation now uses Config.GetInt("lock_stale_after_sec").
+- Operator status JSON split from EA1 payload JSON.
+- Root log projection guarded against same-path self-copy.
+- EA1 core publish success separated from root projection degradation.
+- EA2-EA5 project/persist functions now return success and emit forensic logs.
+- Added build signature, schema fingerprint, cycle stage summary, and richer stage-registry diagnostics.
+
+New operator status file:
+- ISSX/market_status_<server>_<login>.json
+
+Existing EA1 payload file remains:
+- ISSX/ea1_market_<server>_<login>.json (or current stage alias path)
+
+Recommended next runtime checks:
+1) Attach on stale/non-ticking symbol and verify EA stays attached.
+2) Confirm market_status_*.json appears even while waiting for fresh ticks.
+3) Confirm payload JSON and status JSON are different files.
+4) Inspect log for:
+   - build|signature
+   - startup|market_wait_attach
+   - cycle|stage_summary
+   - ea2_publish / ea3_publish / ea4_publish / ea5_publish
+   - stage_registry|validation_fail
