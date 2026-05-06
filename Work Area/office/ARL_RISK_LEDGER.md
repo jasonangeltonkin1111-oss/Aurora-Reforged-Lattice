@@ -310,3 +310,31 @@ Risk: operator text files become metadata walls instead of battle-board trader d
 Mitigation: RUN006 trader-data references are now mandatory for Market Board, Symbol Trader Pack, and Dossier work.
 
 Falsifier: text output contains verbose route/proof/debug metadata while account exposure, trade history, market state, costs, volatility, ranking context, recent bars, or recent closed trades are thin or missing.
+
+---
+
+## RISK-030 — Agent drift before read-before-edit spine
+
+Risk:
+Future GPT, Codex, or automation-agent runs edit from stale assumptions, skip office/roadmap/blueprint/MT5 owner files, copy from Archives, or create duplicate source routes.
+
+Cause:
+No single mandatory instruction spine was visible at repository root and Work Area root before RUN008.
+
+Severity:
+High.
+
+Likelihood:
+High without prompt enforcement.
+
+Detection:
+- Agent patches source before listing mandatory files read.
+- Commit has vague summary or fake proof language.
+- Work Area zip includes Archives.
+- New route/writer appears instead of owner-file repair.
+
+Mitigation:
+RUN008 adds `AGENTS.md`, `WORK_AREA_INDEX.md`, `GPT_CODEX_README.md`, `office/ARL_MANDATORY_READ_INDEX.md`, roadmap agent/prompt/Git standards, blueprint output reference index, and MT5 agent implementation guide.
+
+Test / falsifier:
+A future serious run can begin without reading `AGENTS.md` and `ARL_MANDATORY_READ_INDEX.md`, or can patch MT5 behavior without reading MT5 owner/version/include files.

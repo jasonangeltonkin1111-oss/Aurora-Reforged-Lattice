@@ -38,3 +38,15 @@ Acceptance files define what must pass before a module can be considered complet
 ## Risks
 
 Risk files preserve ASC failure lessons and future blindspots.
+
+## ARL-RUN008 Agent Guidance Addendum
+
+RUN008 added roadmap guidance files that future prompts must reference:
+
+| File | Purpose |
+|---|---|
+| `ARL_GPT_CODEX_AGENT_GUIDE.md` | Operating guide for GPT zip workflow and Codex repository workflow. |
+| `ARL_PROMPT_MASTER_CHECKLIST.md` | Mandatory checklist for future prompt-building. |
+| `ARL_GIT_SUMMARY_DESCRIPTION_STANDARD.md` | Git Summary header and detailed Git Description standard. |
+
+These files do not authorize MT5 behavior changes. They make future implementation safer by forcing audit-first, research conversion, owner-file patching, proof honesty, and package/report discipline.

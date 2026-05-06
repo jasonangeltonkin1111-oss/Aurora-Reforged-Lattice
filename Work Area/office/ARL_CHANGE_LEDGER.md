@@ -122,3 +122,53 @@ Changed/added records:
 Version impact: `1.004` retained because no runtime behavior, trading, signal, execution, HUD, or strategy formulas were added.
 
 Proof boundary: static include scan and duplicate-function scan may be recorded by this run. No compile proof exists unless MetaEditor compile output is supplied.
+
+---
+
+## 2026-05-06 — ARL-RUN008 Index + GPT-Codex-Agent Guide System
+
+Run:
+ARL-RUN008-INDEX-GPT-CODEX-AGENT-GUIDE-SYSTEM
+
+Files added:
+- `AGENTS.md`
+- `Work Area/WORK_AREA_INDEX.md`
+- `Work Area/GPT_CODEX_README.md`
+- `Work Area/office/ARL_MANDATORY_READ_INDEX.md`
+- `Work Area/roadmap/ARL_GPT_CODEX_AGENT_GUIDE.md`
+- `Work Area/roadmap/ARL_PROMPT_MASTER_CHECKLIST.md`
+- `Work Area/roadmap/ARL_GIT_SUMMARY_DESCRIPTION_STANDARD.md`
+- `Work Area/blueprint/ARL_OUTPUT_REFERENCE_INDEX.md`
+- `Work Area/mt5/MT5_AGENT_IMPLEMENTATION_GUIDE.md`
+- `Work Area/ARL_RUN008_REPORT.md`
+
+Files changed:
+- `Work Area/office/ARL_OFFICE_INDEX.md`
+- `Work Area/office/ARL_CHANGE_LEDGER.md`
+- `Work Area/office/ARL_DECISIONS.md`
+- `Work Area/office/ARL_RESEARCH_LEDGER.md`
+- `Work Area/office/ARL_RISK_LEDGER.md`
+- `Work Area/roadmap/ARL_ROADMAP_INDEX.md`
+- `Work Area/blueprint/ARL_BLUEPRINT_INDEX.md`
+- `Work Area/mt5/README.md`
+
+Change type:
+Documentation / agent-guidance / repository instruction spine.
+
+Reason:
+Future GPT, Codex, and automation-agent runs needed a durable read-before-edit system, source authority map, prompt-master checklist, Git summary/description standard, and MT5 implementation boundary guide before real implementation work continues.
+
+Risks:
+- Guidance can still be skipped by an agent unless prompts explicitly enforce `AGENTS.md` and `ARL_MANDATORY_READ_INDEX.md`.
+- Git main may lag behind uploaded Work Area packages; contradictions must continue to be logged instead of silently resolved.
+- Documentation can become stale if future runs change source behavior without updating indexes.
+
+Tests required:
+- Confirm all new guide/index files exist.
+- Confirm mandatory-read paths are consistent.
+- Confirm no MT5 behavior source files changed.
+- Confirm product version remains unchanged.
+- Confirm output zip excludes Archives and binaries.
+
+Lock impact:
+No MT5 module locks created. This run creates guidance/control records only.

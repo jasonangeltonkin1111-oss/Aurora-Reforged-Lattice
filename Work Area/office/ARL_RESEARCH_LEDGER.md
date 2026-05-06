@@ -295,3 +295,38 @@ Research was performed before patching and converted into constraints.
 | Retry/backoff and observability | General engineering principle from scheduler/status-output practice | Retries must expose attempts, next due time, failure reason, and backoff state; no silent retry storms. | runtime, telemetry, roadmap | Future scheduler/status output exposes cadence and retry health. | Refresh stalls without due/backoff/error visibility. |
 
 Research rejected as ornamental if it did not become one of: constraint, affected file, acceptance test, or falsifier.
+
+---
+
+## 2026-05-06 — ARL-RUN008 Research Addendum
+
+Run:
+ARL-RUN008-INDEX-GPT-CODEX-AGENT-GUIDE-SYSTEM
+
+Research topic:
+Codex/agent instruction behavior, repository instruction-file conventions, Git message best-practice constraints, and documentation architecture patterns for repo maps and contributor guides.
+
+Findings converted into ARL requirements:
+
+1. Codex/agent behavior requirement:
+   - Create root `AGENTS.md` because Codex reads project instructions before work and can use repo-specific guidance for commands, tests, and expectations.
+   - Acceptance test: `AGENTS.md` exists at repository root and points to Work Area mandatory-read files.
+   - Falsifier: future agent starts from repo without a root instruction file or without mandatory read order.
+
+2. Repository instruction convention requirement:
+   - Treat `AGENTS.md` as a README-like file for coding agents, with setup/workflow, code/project conventions, constraints, and done/verification rules.
+   - Acceptance test: `AGENTS.md` includes active root, archive boundary, mandatory read list, patch rules, safety boundaries, evidence honesty, and output rules.
+   - Falsifier: instructions are vague enough that an agent can bypass office/roadmap/blueprint/MT5 owner files.
+
+3. Git commit-message requirement:
+   - Keep a clear summary/header and a detailed body explaining what changed and why.
+   - Acceptance test: `roadmap/ARL_GIT_SUMMARY_DESCRIPTION_STANDARD.md` defines Git Summary and Git Description sections.
+   - Falsifier: commits use a tiny vague subject or paste the full ChatGPT final answer into the message.
+
+4. Documentation architecture requirement:
+   - Add a Work Area index, mandatory-read index, roadmap-level agent guide, prompt-master checklist, output reference index, and MT5 implementation guide so agents do not have to infer folder authority.
+   - Acceptance test: each created guide maps owner files and says what cannot be claimed or changed.
+   - Falsifier: future prompt says only “continue work” or allows “inspect repo and decide” without a mandatory read list.
+
+Proof boundary:
+Research informs guide constraints only. It does not prove MT5 compile, runtime behavior, trading edge, execution safety, or prop-firm readiness.

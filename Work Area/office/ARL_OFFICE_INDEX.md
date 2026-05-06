@@ -47,3 +47,18 @@ RUN007 reference records:
 - `ARL_TRADER_DATA_GUIDE.md` — RUN006 trader-data-first law.
 - `ARL_TRADER_DATA_SAMPLE_REFERENCE_LEDGER.md` — mandatory sample/reference list.
 - `../ARL_RUN007_REPORT.md` — final report for this run.
+
+## ARL-RUN008 Office Index Addendum
+
+RUN008 adds the repository instruction spine that must be read before serious future work:
+
+- `../WORK_AREA_INDEX.md` — master Work Area map and source-authority ladder.
+- `../GPT_CODEX_README.md` — plain-English GPT/Codex workflow.
+- `ARL_MANDATORY_READ_INDEX.md` — office-controlled mandatory-read order.
+- `../roadmap/ARL_GPT_CODEX_AGENT_GUIDE.md` — roadmap-level GPT/Codex operating guide.
+- `../roadmap/ARL_PROMPT_MASTER_CHECKLIST.md` — prompt-building checklist.
+- `../roadmap/ARL_GIT_SUMMARY_DESCRIPTION_STANDARD.md` — Git summary/header and deep description standard.
+- `../blueprint/ARL_OUTPUT_REFERENCE_INDEX.md` — final product output reference index.
+- `../mt5/MT5_AGENT_IMPLEMENTATION_GUIDE.md` — MT5-specific agent implementation boundary guide.
+
+Root-level `AGENTS.md` is the top-level agent instruction file. It must be kept outside `Work Area/` but included in changed-files packages when changed.

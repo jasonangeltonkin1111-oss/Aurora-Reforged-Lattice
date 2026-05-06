@@ -253,3 +253,30 @@ Git summary format:
 Git description must include: mode, summary, why, what changed, files added, files changed, inspected-but-not-changed files, boundaries, version impact, evidence, risks, and next move.
 
 Why: tiny messages lose traceability; pasted full ChatGPT reports create noise. The correct middle path is a clean header and deep description.
+
+---
+
+## D020 — Repository instruction spine is mandatory before implementation
+
+Date: 2026-05-06
+
+Decision:
+Before any future serious GPT, Codex, or automation-agent implementation work, agents must read the root `AGENTS.md`, `Work Area/WORK_AREA_INDEX.md`, `Work Area/GPT_CODEX_README.md`, and `Work Area/office/ARL_MANDATORY_READ_INDEX.md` before patching.
+
+Reason:
+ARL now has office, roadmap, blueprint, trader-data reference law, MT5 scaffold, version policy, and archive boundaries. Without a mandatory instruction spine, future agents can drift into stale assumptions, direct archive copying, duplicate routes, sloppy Git messages, or false proof claims.
+
+Evidence / source:
+RUN008 zip audit found Work Area structure present and RUN006/RUN007 records present, but no root `AGENTS.md` and no single mandatory-read spine in the uploaded zip. External OpenAI Codex guidance states Codex reads `AGENTS.md` before work and can use it for project-specific commands and expectations.
+
+Affected files/modules:
+- `AGENTS.md`
+- `Work Area/WORK_AREA_INDEX.md`
+- `Work Area/GPT_CODEX_README.md`
+- `Work Area/office/ARL_MANDATORY_READ_INDEX.md`
+- roadmap prompt/agent/Git standards
+- blueprint output reference index
+- MT5 agent implementation guide
+
+Reversal condition:
+Only if ARL intentionally replaces this system with a stronger single source of agent instructions that preserves audit-first, read-before-edit, source authority, version, trader-data, package, and proof-honesty law.

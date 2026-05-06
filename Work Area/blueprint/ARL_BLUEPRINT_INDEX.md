@@ -70,3 +70,11 @@ authority_note: Blueprint defines desired final product behavior. It does not pr
 
 - `research/ARL_RESEARCH_BASIS.md`
 - `research/ARL_ASC_SAMPLE_LESSONS.md`
+
+## ARL-RUN008 Output Reference Addendum
+
+RUN008 added:
+
+- `ARL_OUTPUT_REFERENCE_INDEX.md`
+
+This file indexes final-product output references for Market Board, Symbol Trader Pack, Dossier, JSON, manifest, schemas, and trader-data-first law. Future output work must read it before changing trader-facing or structured output contracts.

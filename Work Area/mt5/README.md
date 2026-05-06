@@ -49,3 +49,11 @@ Run identity: `ARL-RUN007`.
 State: pre-work unification only; no runtime proof.
 
 RUN007 did not add HUD, trading, signal, execution, strategy formulas, or direct ASC archive migration. Compile must be performed in MetaEditor before any compile claim is made.
+
+## ARL-RUN008 MT5 Agent Guide Addendum
+
+RUN008 added `MT5_AGENT_IMPLEMENTATION_GUIDE.md`.
+
+Future MT5 implementation agents must read it before editing source. It reinforces module ownership, version policy, include boundaries, no changelog `.mqh`, no HUD/trading/signals/execution, no duplicate owners, no direct archive copy, and compile-proof honesty.
+
+RUN008 did not change MT5 source behavior. Product version remains `1.004`.
