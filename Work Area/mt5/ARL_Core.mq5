@@ -8,7 +8,7 @@
 #property strict
 #property copyright "Jason Angel Tonkin"
 #property link      "https://github.com/jasonangeltonkin1111-oss/Aurora-Reforged-Lattice-"
-#property version   "0.04"
+#property version   "1.004"
 #property description "Aurora Reforged Lattice"
 #property description "Version 0.0.4 | ARL-RUN004 | MT5 scaffold only"
 #property description "Review-only architecture. No trade, signal, execution, or HUD permission."
