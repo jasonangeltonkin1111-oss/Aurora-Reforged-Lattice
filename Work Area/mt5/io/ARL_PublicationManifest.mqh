@@ -4,8 +4,8 @@
 //+------------------------------------------------------------------+
 //| ARL_PublicationManifest
 //| Aurora Reforged Lattice — runtime IO foundation
-//| Run: ARL-RUN011
-//| Status: MANIFEST PAYLOAD/PUBLISH CALL ONLY.
+//| Run: ARL-RUN011R
+//| Status: MANIFEST PAYLOAD/PUBLISH CALL + FAILURE-LOUD DIAGNOSTICS ONLY.
 //+------------------------------------------------------------------+
 // Owner: io/publication manifest
 // Purpose: Owns Manifest_Current payload composition and publication call.

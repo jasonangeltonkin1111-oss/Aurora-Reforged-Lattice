@@ -185,3 +185,20 @@ The lifecycle path is missing: `OnTimer()` or the scheduler never calls the writ
 
 ### Falsifier
 `Status_Current.json` is expected, but `OnTimer()` has no status writer call or `InpARL_EnableFileWrites=false` during the smoke.
+
+
+---
+
+## ARL-RUN011R Failure Pattern — Compile-clean timer wiring can still produce no files
+
+Failure shape:
+The EA compiles and `OnTimer()` calls the writer, but no output files appear because the writer targets nested `FILE_COMMON` paths before the folder chain exists or before the operator knows the exact Common Files sandbox.
+
+Prevention rule:
+Any nested MQL5 file publication must create/check the full folder chain in the same sandbox mode used for writing, then log the exact relative path, expected absolute sandbox path, operation result, and `GetLastError()` on failure.
+
+Diagnostic split:
+A flat common-files probe may prove write permission, but it does not prove canonical status/manifest publication.
+
+Kill condition:
+If runtime logs cannot identify the sandbox, relative path, folder creation result, and file operation error, the run is not runtime-proven.

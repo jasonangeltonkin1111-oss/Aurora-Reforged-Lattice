@@ -1,7 +1,7 @@
 //+------------------------------------------------------------------+
 //| Aurora Reforged Lattice — ARL_Core.mq5
-//| Run: ARL-RUN011
-//| Status: RUNTIME IO FOUNDATION — no trading, no signal, no execution.
+//| Run: ARL-RUN011R
+//| Status: RUNTIME IO FOUNDATION REPAIR — no trading, no signal, no execution.
 //| Purpose: compile-visible runtime scaffold with bounded runtime IO foundation.
 //| Forbidden: trading, signals, execution, HUD, direct ASC migration.
 //+------------------------------------------------------------------+
@@ -10,7 +10,7 @@
 #property link      "https://github.com/jasonangeltonkin1111-oss/Aurora-Reforged-Lattice-"
 #property version   "1.006"
 #property description "Aurora Reforged Lattice"
-#property description "Version 1.006 | ARL-RUN011 | runtime output path verification"
+#property description "Version 1.006 | ARL-RUN011R repair | runtime file-write diagnostics"
 #property description "Review-only architecture. No trade, signal, execution, or HUD permission."
 
 #include "core/ARL_ResultCodes.mqh"
@@ -143,7 +143,11 @@ int OnInit()
    if(InpARL_PrintStartupSummary)
      {
       Print(ARL_Paths_DiagnosticLine());
+      Print("ARL expected Common Files status path: ", ARL_Paths_AbsoluteCommonFilesStatusPattern());
+      Print("ARL expected Common Files manifest path: ", ARL_Paths_AbsoluteCommonFilesManifestPattern());
       Print("ARL file writes input: InpARL_EnableFileWrites=", (InpARL_EnableFileWrites ? "true" : "false"));
+      if(!InpARL_EnableFileWrites)
+         Print("ARL file writes disabled: no runtime files will be written. Set InpARL_EnableFileWrites=true for smoke test.");
      }
 
    int timer_seconds = InpARL_TimerSeconds;

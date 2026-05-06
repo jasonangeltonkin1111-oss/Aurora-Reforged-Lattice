@@ -375,3 +375,22 @@ Official MQL5 file docs state `FILE_COMMON` locates files under the common folde
 
 Boundary:
 The path decision is source-inspected and research-supported. Actual file creation remains pending until the EA is compiled/attached with `InpARL_EnableFileWrites=true` and the files are observed on disk.
+
+
+---
+
+## DECISION — ARL-RUN011R keeps nested Common Files structure, but creates folders before writing
+
+Date: 2026-05-06
+
+Decision:
+Keep ARL's canonical nested output structure under `Aurora Reforged Lattice/Default/Current`, but require the IO owner to create the folder chain before every nested temp/current publication attempt.
+
+Reason:
+The user saw no files after RUN011 despite timer wiring. Current source used `FILE_COMMON` and nested paths but did not create the folder chain. A flat archive-style route would prove writing more easily but would create route drift. RUN011R keeps the ARL route and repairs the missing folder-chain contract.
+
+Boundary:
+The diagnostic flat probe `ARL_RuntimeWriteProbe.txt` is not status truth. It only distinguishes common-files write permission from nested-folder failure.
+
+Version decision:
+Product version stays `1.006`; source run headers and reports record `ARL-RUN011R` as a repair/diagnostic run.

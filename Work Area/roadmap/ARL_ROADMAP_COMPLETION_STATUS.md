@@ -119,11 +119,11 @@ A trading module cannot be production-ready from backtest alone.
 
 ## Current Whole-System Completion
 
-Last updated by: ARL-RUN011  
+Last updated by: ARL-RUN011R  
 Last updated date: 2026-05-06  
 Current active root: Work Area/  
-Current product version: 1.006 after RUN011 timer publication wiring; verify in source.  
-Current source truth warning: RUN010R compile was user-reported clean, but RUN011 changed source behavior and therefore needs a fresh MetaEditor compile plus MT5 runtime smoke.
+Current product version: 1.006 after RUN011 timer publication wiring; RUN011R kept product version at 1.006 and patched runtime folder-chain/diagnostic source only.  
+Current source truth warning: RUN011R changed file IO source behavior and therefore needs a fresh MetaEditor compile plus MT5 runtime smoke before runtime file creation can be claimed.
 
 ### Overall Completion Estimate
 
@@ -136,7 +136,7 @@ Reason:
 
 ```text
 The office, roadmap, blueprint, guide, prompt, and brain control layers are strong enough to guide implementation.
-The MT5 scaffold exists, RUN010R has user-reported clean compile evidence, and RUN011 now wires timer publication by source inspection. RUN011 still needs fresh compile and runtime output proof before runtime IO can be treated as smoked.
+The MT5 scaffold exists, RUN010R has user-reported clean compile evidence, RUN011 wired timer publication by source inspection, and RUN011R now adds common-files folder-chain creation/diagnostics by source inspection. RUN011R still needs fresh compile and runtime output proof before runtime IO can be treated as smoked.
 Core trading-data modules, account/exposure, universe, L1-L5, Market Board, Symbol Trader Pack, Dossier, runtime smoke proof, and live proof are not complete.
 ```
 
@@ -148,7 +148,7 @@ Core trading-data modules, account/exposure, universe, L1-L5, Market Board, Symb
 |---|---:|---:|---:|---|---|
 | Phase 0 | Archives / old-system preservation | 90% | 3 | INHERITANCE_ONLY | Archives exist in Git, but are not active source. |
 | Phase 1 | Foundation / control / scaffold | 73% | 2-4 | ACTIVE | Office, roadmap, blueprint, MT5 scaffold, guide spine, brain guides exist. RUN010R compile was user-reported clean; RUN011 needs fresh compile because source changed. |
-| Phase 2 | Runtime IO nervous system | 45% | 2-3 | IN_PROGRESS_SMOKE | Runtime IO package exists; RUN010R compile was user-reported clean; RUN011 source inspection wired OnTimer publication and path diagnostics. Fresh compile/runtime smoke pending. |
+| Phase 2 | Runtime IO nervous system | 47% | 2-3 | IN_PROGRESS_REPAIR | Runtime IO package exists; RUN010R compile was user-reported clean; RUN011 wired OnTimer publication; RUN011R source-inspected and patched common-files folder-chain creation plus failure-loud diagnostics. Fresh compile/runtime smoke pending. |
 | Phase 3 | Account + exposure + trade history | 10% | 3 | PLANNED | Blueprint/trader-data law exists; implementation not started. |
 | Phase 4 | Universe + symbol folders | 20% | 3 | SCAFFOLDED | MT5 scaffold exists; functional implementation not started. |
 | Phase 5 | L1 market state | 15% | 3 | SCAFFOLDED | Planned/scaffolded; no functional proof. |
@@ -177,9 +177,9 @@ Core trading-data modules, account/exposure, universe, L1-L5, Market Board, Symb
 | version identity | 70% | 3 | a.bcd law exists; RUN011 source identity aligned to 1.006 | compile/source alignment | NOT_LOCKED |
 | runtime heartbeat | 40% | 2-3 | OnTimer heartbeat path inspected and preserved | fresh compile, then runtime log | NOT_LOCKED |
 | scheduler | 35% | 2-3 | OnTimer scheduler path inspected and preserved | fresh compile, light OnTimer proof | NOT_LOCKED |
-| atomic file publisher | 40% | 2-3 | common-files staged publish/readback/promote path inspected; diagnostics improved | fresh compile + readback test | NOT_LOCKED |
-| Status_Current output | 40% | 2-3 | status payload includes path/mode fields and timer publication is wired by source inspection | fresh compile + runtime file output | NOT_LOCKED |
-| Manifest_Current output | 38% | 2-3 | manifest payload includes path/mode fields and status publication calls manifest owner | fresh compile + runtime file output | NOT_LOCKED |
+| atomic file publisher | 45% | 2-3 | common-files staged publish/readback/promote path inspected; RUN011R adds folder-chain creation and probe diagnostics | fresh compile + readback test | NOT_LOCKED |
+| Status_Current output | 42% | 2-3 | status payload includes path/mode fields, common/local diagnostics, and timer publication is wired by source inspection | fresh compile + runtime file output | NOT_LOCKED |
+| Manifest_Current output | 40% | 2-3 | manifest payload uses same publisher/path mode; folder-chain repair applies before manifest publish | fresh compile + runtime file output | NOT_LOCKED |
 | account snapshot | 10% | 3 | scaffold/blueprint | implement AccountInfo snapshot | NOT_STARTED |
 | position snapshot | 10% | 3 | scaffold/blueprint | implement PositionsTotal loop | NOT_STARTED |
 | order snapshot | 10% | 3 | scaffold/blueprint | implement OrdersTotal loop | NOT_STARTED |
@@ -397,3 +397,31 @@ Decision:
 
 Next:
 - Compile `ARL_Core.mq5`, attach with `InpARL_EnableFileWrites=true`, and verify the two files under the printed common files path.
+
+
+---
+
+## ARL-RUN011R Status Ledger
+
+Date: 2026-05-06
+
+Mode:
+AUDIT + RESEARCH + DEBUG + PATCH. Runtime smoke was not run in this environment.
+
+Evidence rank:
+- Source inspection/patch: 3
+- Official MQL5 research: external platform documentation converted into constraints/tests
+- Compile proof: not available
+- Runtime file proof: not available
+
+Completion update:
+- Phase 2 runtime IO nervous system moved from 45% to 47% because folder-chain creation and failure-loud diagnostics were patched in source.
+- Atomic file publisher moved from 40% to 45% because nested common-folder creation now exists before temp writes.
+- Status_Current moved from 40% to 42% because path diagnostics were expanded in payload/logs.
+- Manifest_Current moved from 38% to 40% because the same repaired publisher route now protects manifest publication.
+
+Boundary:
+These are source-evidence improvements only. Do not claim compile pass or runtime output until MetaEditor compile and MT5 Experts/file evidence exists.
+
+Next proof:
+Compile `Work Area/mt5/ARL_Core.mq5`, attach with `InpARL_EnableFileWrites=true`, then verify `Status_Current.json` and `Manifest_Current.json` under the exact Common Files path printed in Experts.

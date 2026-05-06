@@ -4,8 +4,8 @@
 //+------------------------------------------------------------------+
 //| ARL_FilePublisher
 //| Aurora Reforged Lattice — runtime IO foundation
-//| Run: ARL-RUN011
-//| Status: STAGED WRITE + READBACK + PROMOTE ONLY.
+//| Run: ARL-RUN011R
+//| Status: STAGED WRITE + FOLDER CHAIN + READBACK + PROMOTE ONLY.
 //+------------------------------------------------------------------+
 // Owner: io/file publisher
 // Purpose: Owns temp/write/flush/close/readback/promote/no-change publication.
@@ -26,9 +26,68 @@ struct ARL_FilePublishResult
    int bytes_written;
    int bytes_read;
    string payload_signature;
+   string folder_diagnostic;
   };
 
 bool ARL_FilePublisher_Init(){ return true; }
+
+bool g_arl_filepublisher_disabled_logged = false;
+bool g_arl_filepublisher_startup_diag_logged = false;
+bool g_arl_filepublisher_probe_attempted = false;
+string g_arl_filepublisher_last_printed_code = "";
+
+void ARL_FilePublisher_PrintStartupDiagnostics(const bool writes_enabled)
+  {
+   if(g_arl_filepublisher_startup_diag_logged)
+      return;
+   g_arl_filepublisher_startup_diag_logged = true;
+   Print("ARL runtime IO diagnostics | product=", ARL_PRODUCT_NAME, " | version=", ARL_PRODUCT_VERSION, " | run_id=", ARL_PRODUCT_RUN_ID);
+   Print("ARL runtime IO diagnostics | InpARL_EnableFileWrites=", (writes_enabled ? "true" : "false"), " | location_mode=", ARL_Paths_FileLocationMode());
+   Print("ARL runtime IO diagnostics | TERMINAL_COMMONDATA_PATH=", ARL_Paths_CommonDataPath());
+   Print("ARL runtime IO diagnostics | Common Files base=", ARL_Paths_CommonFilesBasePath());
+   Print("ARL runtime IO diagnostics | TERMINAL_DATA_PATH=", ARL_Paths_TerminalDataPath());
+   Print("ARL runtime IO diagnostics | Terminal local MQL5 Files base=", ARL_Paths_TerminalFilesBasePath());
+   Print("ARL runtime IO diagnostics | status relative=", ARL_Paths_StatusCurrent());
+   Print("ARL runtime IO diagnostics | manifest relative=", ARL_Paths_ManifestCurrent());
+   Print("ARL runtime IO diagnostics | expected common status path=", ARL_Paths_AbsoluteCommonFilesStatusPattern());
+   Print("ARL runtime IO diagnostics | expected common manifest path=", ARL_Paths_AbsoluteCommonFilesManifestPattern());
+  }
+
+bool ARL_FilePublisher_WriteCommonProbe(int &last_error)
+  {
+   last_error = 0;
+   if(g_arl_filepublisher_probe_attempted)
+      return true;
+   g_arl_filepublisher_probe_attempted = true;
+
+   string probe_path = "ARL_RuntimeWriteProbe.txt";
+   string probe_payload = "ARL runtime diagnostic probe | " + ARL_PRODUCT_VERSION + " | " + ARL_PRODUCT_RUN_ID + " | " + TimeToString(TimeCurrent(),TIME_DATE|TIME_SECONDS);
+   ResetLastError();
+   int handle = FileOpen(probe_path,FILE_WRITE|FILE_TXT|FILE_ANSI|FILE_COMMON|FILE_SHARE_READ);
+   if(handle == INVALID_HANDLE)
+     {
+      last_error = GetLastError();
+      Print("ARL runtime IO probe FAILED | path=", probe_path, " | mode=", ARL_Paths_FileLocationMode(), " | last_error=", last_error);
+      return false;
+     }
+   uint wrote = FileWriteString(handle,probe_payload);
+   FileFlush(handle);
+   FileClose(handle);
+   Print("ARL runtime IO probe OK | path=", probe_path, " | mode=", ARL_Paths_FileLocationMode(), " | bytes_written=", (int)wrote);
+   return true;
+  }
+
+void ARL_FilePublisher_PrintResultOnceOrOnFailure(const ARL_FilePublishResult &result)
+  {
+   if(result.ok && g_arl_filepublisher_last_printed_code == result.code)
+      return;
+   g_arl_filepublisher_last_printed_code = result.code;
+   Print("ARL publish result | code=", result.code, " | ok=", (result.ok ? "true" : "false"), " | final=", result.final_path, " | temp=", result.temp_path, " | last_error=", result.last_error);
+   if(result.folder_diagnostic != "")
+      Print("ARL publish folder diagnostic | ", result.folder_diagnostic);
+   if(result.message != "")
+      Print("ARL publish message | ", result.message);
+  }
 
 ARL_FilePublishResult ARL_FilePublisher_MakeResult(const bool ok,const string code,const string message,const string final_path,const string temp_path)
   {
@@ -44,6 +103,7 @@ ARL_FilePublishResult ARL_FilePublisher_MakeResult(const bool ok,const string co
    r.bytes_written = 0;
    r.bytes_read = 0;
    r.payload_signature = "";
+   r.folder_diagnostic = "";
    return r;
   }
 
@@ -91,19 +151,46 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
    ARL_FilePublishResult result = ARL_FilePublisher_MakeResult(false,"INIT","publication not completed",final_path,temp_path);
    result.payload_signature = ARL_PayloadHash_Signature(payload);
 
+   ARL_FilePublisher_PrintStartupDiagnostics(writes_enabled);
+
    if(!writes_enabled)
      {
       result.code = "WRITES_DISABLED";
-      result.message = "file writes disabled by input; final_path=" + final_path + "; temp_path=" + temp_path;
+      result.message = "file writes disabled by input; no files will be written; set InpARL_EnableFileWrites=true for runtime smoke; final_path=" + final_path + "; temp_path=" + temp_path;
       result.ok = false;
+      if(!g_arl_filepublisher_disabled_logged)
+        {
+         g_arl_filepublisher_disabled_logged = true;
+         Print("ARL runtime IO disabled by input. No files will be written. Set InpARL_EnableFileWrites=true for smoke test.");
+        }
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
       return result;
      }
+
+   int probe_error = 0;
+   ARL_FilePublisher_WriteCommonProbe(probe_error);
+
+   string folder_diagnostic = "";
+   int folder_error = 0;
+   if(!ARL_Paths_EnsureCurrentFolderChain(folder_diagnostic,folder_error))
+     {
+      result.code = "FOLDER_CHAIN_CREATE_FAILED";
+      result.message = "folder chain creation failed before nested write; final_path=" + final_path + "; temp_path=" + temp_path;
+      result.last_error = folder_error;
+      result.folder_diagnostic = folder_diagnostic;
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
+      return result;
+     }
+   result.folder_diagnostic = folder_diagnostic;
+   Print("ARL nested folder chain ready | ", folder_diagnostic);
+   Print("ARL publish attempt | final=", final_path, " | temp=", temp_path, " | mode=", ARL_Paths_FileLocationMode());
 
    if(StringFind(payload,required_token) < 0)
      {
       result.code = "REQUIRED_TOKEN_MISSING";
       result.message = "payload missing required token: " + required_token + "; final_path=" + final_path + "; temp_path=" + temp_path;
       result.ok = false;
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
       return result;
      }
 
@@ -120,6 +207,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
          result.code = "NO_CHANGE_SKIP";
          result.message = "current payload already matches requested payload; final_path=" + final_path;
          result.bytes_read = current_bytes;
+         ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
          return result;
         }
      }
@@ -135,6 +223,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
       result.message = "temp write failed; final_path=" + final_path + "; temp_path=" + temp_path;
       result.last_error = write_error;
       result.bytes_written = wrote;
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
       return result;
      }
    result.bytes_written = wrote;
@@ -148,6 +237,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
       result.message = "temp readback failed; final_path=" + final_path + "; temp_path=" + temp_path;
       result.last_error = readback_error;
       result.bytes_read = readback_bytes;
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
       return result;
      }
    result.bytes_read = readback_bytes;
@@ -156,6 +246,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
      {
       result.code = "TEMP_READBACK_MISMATCH";
       result.message = "temp readback did not match payload; final_path=" + final_path + "; temp_path=" + temp_path;
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
       return result;
      }
 
@@ -165,6 +256,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
       result.code = "PROMOTE_FAILED";
       result.message = "temp promote to current failed; final_path=" + final_path + "; temp_path=" + temp_path;
       result.last_error = GetLastError();
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
       return result;
      }
 
@@ -178,6 +270,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
       result.last_error = final_error;
       result.bytes_read = final_bytes;
       result.ok = false;
+      ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
       return result;
      }
 
@@ -185,6 +278,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
    result.code = "PUBLISHED";
    result.message = "temp written, read back, promoted, and final readback verified; final_path=" + final_path + "; temp_path=" + temp_path;
    result.bytes_read = final_bytes;
+   ARL_FilePublisher_PrintResultOnceOrOnFailure(result);
    return result;
   }
 
@@ -200,9 +294,10 @@ string ARL_FilePublisher_ResultJson(const ARL_FilePublishResult &r)
           ",\"no_change_skip\":" + (r.no_change_skip ? "true" : "false") +
           ",\"final_path\":\"" + r.final_path + "\"" +
           ",\"temp_path\":\"" + r.temp_path + "\"" +
-          ",\"payload_signature\":\"" + r.payload_signature + "\"}";
+          ",\"payload_signature\":\"" + r.payload_signature + "\"" +
+          ",\"folder_diagnostic\":\"" + r.folder_diagnostic + "\"}";
   }
 
-string ARL_FilePublisher_Contract(){ return "ACTIVE_STAGED_WRITE_READBACK_PROMOTE_NO_CHANGE_SKIP"; }
+string ARL_FilePublisher_Contract(){ return "ACTIVE_STAGED_WRITE_FOLDER_CHAIN_READBACK_PROMOTE_NO_CHANGE_SKIP"; }
 
 #endif // __IO_ARL_FILEPUBLISHER_MQH__

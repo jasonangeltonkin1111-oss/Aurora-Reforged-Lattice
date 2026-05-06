@@ -1,0 +1,14 @@
+Work Area/mt5/ARL_Core.mq5
+Work Area/mt5/io/ARL_Paths.mqh
+Work Area/mt5/io/ARL_FilePublisher.mqh
+Work Area/mt5/io/ARL_PublicationManifest.mqh
+Work Area/mt5/telemetry/ARL_StatusWriter.mqh
+Work Area/office/ARL_CHANGE_LEDGER.md
+Work Area/office/ARL_DECISIONS.md
+Work Area/office/ARL_RESEARCH_LEDGER.md
+Work Area/office/ARL_RISK_LEDGER.md
+Work Area/office/ARL_ACCEPTANCE_TESTS.md
+Work Area/roadmap/ARL_ROADMAP_COMPLETION_STATUS.md
+Work Area/brain/AURORA_FAILURE_PATTERNS_GUIDEBOOK.md
+Work Area/reports/ARL_RUN011R_REPORT.md
+Work Area/reports/ARL_RUN011R_CHANGED_FILES.txt

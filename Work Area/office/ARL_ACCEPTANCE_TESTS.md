@@ -363,3 +363,29 @@ Runtime smoke operator check:
 
 Falsifier:
 Clean compile but no timer publication call, files written under a different sandbox than reported, status/manifest missing path fields, output exists only as `.tmp`, or any permission flag becomes true.
+
+
+---
+
+## TEST-011R — Runtime file-write repair acceptance
+
+Scope:
+ARL-RUN011R common-files folder-chain creation, failure-loud diagnostics, and runtime smoke preparation.
+
+Source pass condition:
+- `ARL_Core.mq5` still calls `ARL_StatusWriter_Publish(...)` from `OnTimer()`.
+- `ARL_Paths.mqh` identifies `COMMON_FILES`, common data path, common files base, terminal data path, terminal files base, relative status path, relative manifest path, and expected Common Files status/manifest path patterns.
+- `ARL_Paths.mqh` creates `Aurora Reforged Lattice`, `Aurora Reforged Lattice/Default`, and `Aurora Reforged Lattice/Default/Current` using `FILE_COMMON` before nested publication.
+- `ARL_FilePublisher.mqh` uses the same `FILE_COMMON` mode for write/read/exist/delete/move and keeps `FILE_REWRITE` for promotion.
+- Failures include path, code, folder diagnostic, and `GetLastError()` where applicable.
+- Disabled writes clearly log that no files will be written and that smoke requires `InpARL_EnableFileWrites=true`.
+- No forbidden modules are changed.
+
+Compile pass condition:
+Exact MetaEditor output shows `0 errors` for `Work Area/mt5/ARL_Core.mq5` after RUN011R.
+
+Runtime pass condition:
+With `InpARL_EnableFileWrites=true`, Experts prints the exact Common Files path and confirms status/manifest publish OK; `Status_Current.json` and `Manifest_Current.json` exist under that printed path.
+
+Falsifier:
+Folder-chain creation is absent, `FileOpen()` fails without logged error, path diagnostics point to common files while user checks only local files, only the probe file exists, or any trading/signal/execution behavior appears.

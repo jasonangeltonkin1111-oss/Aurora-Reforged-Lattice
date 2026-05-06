@@ -459,3 +459,35 @@ Status payload, manifest payload, and startup log now expose `COMMON_FILES`, fin
 
 Falsifier:
 `FileOpen` writes to common files while `FileIsExist`, `FileDelete`, `FileMove`, or operator instructions check terminal-local files.
+
+
+---
+
+## R013 — Nested Common Files publication can fail silently without folder-chain creation
+
+Date: 2026-05-06
+
+Risk:
+`FileOpen()` on `Aurora Reforged Lattice/Default/Current/*.tmp` can fail if the `FILE_COMMON` folder chain does not exist, leaving no `Status_Current.json` or `Manifest_Current.json` despite clean compile and timer wiring.
+
+Severity:
+High for runtime IO proof.
+
+Mitigation:
+RUN011R creates `Aurora Reforged Lattice`, `Aurora Reforged Lattice/Default`, and `Aurora Reforged Lattice/Default/Current` level-by-level before nested writes, and logs folder operation results with `GetLastError()`.
+
+Falsifier:
+With `InpARL_EnableFileWrites=true`, Experts shows no folder-chain diagnostic or status/manifest publish attempt.
+
+## R014 — Flat diagnostic probe can become false source of truth if misused
+
+Date: 2026-05-06
+
+Risk:
+`ARL_RuntimeWriteProbe.txt` may prove only common-files write permission, not status/manifest publication.
+
+Mitigation:
+Probe is explicitly diagnostic-only. `Status_Current.json` and `Manifest_Current.json` remain the only runtime IO artifacts for this smoke.
+
+Falsifier:
+A report claims runtime IO success because only `ARL_RuntimeWriteProbe.txt` exists.

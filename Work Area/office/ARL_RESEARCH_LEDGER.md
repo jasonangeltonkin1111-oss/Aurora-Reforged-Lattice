@@ -427,3 +427,21 @@ Primary sources used:
 
 Proof boundary:
 Research converted into path constraints and tests only. It does not prove current RUN011 compile or runtime file creation.
+
+
+---
+
+## ARL-RUN011R Research Conversion — MQL5 Common Files folder-chain repair
+
+Date: 2026-05-06
+
+| Source | Finding | ARL constraint | Owner | Acceptance test | Falsifier |
+|---|---|---|---|---|---|
+| MQL5 File Functions overview | MQL5 file operations are sandboxed to terminal `MQL5\Files` or shared `Terminal\Common\Files`. | Operator instructions and logs must identify the active sandbox. | `mt5/io/ARL_Paths.mqh`, `mt5/io/ARL_FilePublisher.mqh` | Experts log prints common data path, common files base, terminal data path, and terminal files base. | User is told only to check terminal-local files while source uses `FILE_COMMON`. |
+| MQL5 `FILE_COMMON` / file flags | `FILE_COMMON` locates file operations in the shared common Files folder and must be used consistently with open/exist/move/delete. | Publisher must use one path mode consistently. | `mt5/io/ARL_FilePublisher.mqh` | Write/read/exist/delete/move all use `FILE_COMMON`. | Mixed common/local flags hide files or fail promotion. |
+| MQL5 `FolderCreate` | Folder creation is relative to the Files sandbox depending on `common_flag`; with `FILE_COMMON`, common Files is used. | Nested publication must create `root`, `root/Default`, and `root/Default/Current` before writing temp/current files. | `mt5/io/ARL_Paths.mqh` | Folder-chain diagnostic logs all three levels and error codes. | `FileOpen()` is called on nested temp path before folders are created. |
+| MQL5 `FileMove` | `FileMove` overwrite requires `FILE_REWRITE`; common move needs matching `FILE_COMMON` flag. | Staged promotion must keep `FILE_COMMON|FILE_REWRITE`. | `mt5/io/ARL_FilePublisher.mqh` | Temp write/readback/promote/final-readback route remains intact. | Current file is directly overwritten or promotion uses mismatched flags. |
+| MQL5 `ResetLastError` / `GetLastError` / `Print` | Reset before operations and read last error after failure; `Print` writes to EA log. | Folder and file failures must be failure-loud in Experts. | `mt5/io/ARL_FilePublisher.mqh`, `mt5/telemetry/ARL_StatusWriter.mqh` | Failure logs include code, path, mode, and `last_error`. | No file appears and Experts has no clear path/error code. |
+
+Proof boundary:
+Research constrains code and tests. It does not prove RUN011R compiles or writes files at runtime.

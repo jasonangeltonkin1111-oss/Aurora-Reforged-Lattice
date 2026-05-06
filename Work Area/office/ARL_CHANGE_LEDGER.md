@@ -283,3 +283,25 @@ No account scanning, universe implementation, market layers, indicators, ranking
 
 Proof boundary:
 User supplied RUN010R compile evidence for the incoming baseline: `0 errors, 0 warnings, 491 ms elapsed`. RUN011 changed source behavior after that compile, so current RUN011 source still requires MetaEditor compile and MT5 runtime smoke before runtime output proof can be claimed.
+
+
+---
+
+## ARL-RUN011R — Runtime file-write failure repair
+
+Date: 2026-05-06
+
+Changed:
+- `mt5/io/ARL_Paths.mqh`: added canonical output-folder helpers, expected absolute Common Files path patterns, and level-by-level `FILE_COMMON` folder-chain creation for `Aurora Reforged Lattice/Default/Current`.
+- `mt5/io/ARL_FilePublisher.mqh`: added startup diagnostics, flat `ARL_RuntimeWriteProbe.txt` common-files probe, pre-write folder-chain creation, publish attempt/result logging, and folder diagnostics in publish results.
+- `mt5/telemetry/ARL_StatusWriter.mqh`: added disabled-write logging, expanded path diagnostics in status payload, JSON path escaping, and failure-loud status/manifest result logs.
+- `mt5/io/ARL_PublicationManifest.mqh`: updated run header to RUN011R diagnostics scope; manifest continues through the single publisher route.
+- `mt5/ARL_Core.mq5`: added startup prints for expected Common Files status/manifest paths and disabled-write operator warning.
+- `roadmap/ARL_ROADMAP_COMPLETION_STATUS.md`: updated runtime IO source-evidence status only.
+
+Not changed:
+- No trading, signals, execution, HUD, account scanning, ranking, Market Board, Dossier, or archive migration.
+- Product version remained `1.006`.
+
+Proof boundary:
+Source patch only. Compile and runtime output remain unproven until user/agent runs MetaEditor and MT5 smoke.
