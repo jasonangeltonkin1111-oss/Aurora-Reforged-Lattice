@@ -305,3 +305,5 @@ Not changed:
 
 Proof boundary:
 Source patch only. Compile and runtime output remain unproven until user/agent runs MetaEditor and MT5 smoke.
+
+- 2026-05-06 ARL-RUN012: Runtime file output rescue updated folder-chain proof/preflight diagnostics and publish-result logging; runtime validation required in MT5 terminal.

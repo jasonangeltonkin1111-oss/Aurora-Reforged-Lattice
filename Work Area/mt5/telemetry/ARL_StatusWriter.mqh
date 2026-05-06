@@ -41,7 +41,7 @@ bool ARL_StatusWriter_Init()
    return true;
   }
 
-string ARL_StatusWriter_ComposePayload(const bool writes_enabled,const int timer_seconds,const int work_budget_ms)
+string ARL_StatusWriter_ComposePayload(const bool writes_enabled,const int timer_seconds,const int work_budget_ms,const bool allow_trading)
   {
    string payload = "{";
    payload += "\"product_name\":\"" + ARL_PRODUCT_NAME + "\",";
@@ -85,7 +85,7 @@ string ARL_StatusWriter_ComposePayload(const bool writes_enabled,const int timer
    return payload;
   }
 
-ARL_FilePublishResult ARL_StatusWriter_Publish(const bool writes_enabled,const int timer_seconds,const int work_budget_ms)
+ARL_FilePublishResult ARL_StatusWriter_Publish(const bool writes_enabled,const int timer_seconds,const int work_budget_ms,const bool allow_trading)
   {
    if(!writes_enabled && !g_arl_status_disabled_logged)
      {
@@ -93,7 +93,8 @@ ARL_FilePublishResult ARL_StatusWriter_Publish(const bool writes_enabled,const i
       Print("ARL StatusWriter: file writes disabled by input; status/manifest will not be written until InpARL_EnableFileWrites=true.");
      }
 
-   string payload = ARL_StatusWriter_ComposePayload(writes_enabled,timer_seconds,work_budget_ms);
+   Print("ARL publication preflight | ", ARL_FilePublisher_PreflightLine(writes_enabled,allow_trading));
+   string payload = ARL_StatusWriter_ComposePayload(writes_enabled,timer_seconds,work_budget_ms,allow_trading);
    string reason = "";
    if(!ARL_OutputContracts_ValidateStatusCurrent(payload,reason))
      {

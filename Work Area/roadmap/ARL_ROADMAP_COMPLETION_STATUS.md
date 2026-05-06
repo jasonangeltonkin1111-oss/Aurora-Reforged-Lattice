@@ -425,3 +425,5 @@ These are source-evidence improvements only. Do not claim compile pass or runtim
 
 Next proof:
 Compile `Work Area/mt5/ARL_Core.mq5`, attach with `InpARL_EnableFileWrites=true`, then verify `Status_Current.json` and `Manifest_Current.json` under the exact Common Files path printed in Experts.
+
+- 2026-05-06 ARL-RUN012: Runtime file output rescue updated folder-chain proof/preflight diagnostics and publish-result logging; runtime validation required in MT5 terminal.
