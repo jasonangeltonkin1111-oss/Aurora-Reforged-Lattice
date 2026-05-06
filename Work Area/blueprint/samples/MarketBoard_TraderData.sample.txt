@@ -1,0 +1,141 @@
+AURORA REFORGED LATTICE — MARKET BOARD
+Mode: REVIEW ONLY
+Trade Permission: FALSE
+Signal Permission: FALSE
+Execution Permission: FALSE
+
+Generated:
+  product_version: 1.006
+  run_id: ARL-RUN006
+  utc_time: 2026.05.06 16:42:11
+  board_state: READY
+  source_universe: MARKET_WATCH
+
+ACCOUNT SUMMARY
+  login: ***MASKED_IN_SAMPLE***
+  server: Upcomers-Server
+  currency: USD
+  balance: 100000.00
+  equity: 100214.30
+  floating_pnl: 214.30
+  margin: 1200.00
+  free_margin: 99014.30
+  account_trade_allowed: true
+  expert_trade_allowed: false
+
+ACCOUNT EXPOSURE
+  open_positions_count: 2
+  pending_orders_count: 1
+  exposure_guard_active: true
+  exposed_symbols: XAUUSD,NAS100
+
+ACCOUNT TRADE HISTORY SUMMARY
+  lookback_days: 7
+  closed_trades_count: 14
+  closed_trades_net_pnl: 438.70
+  wins: 9
+  losses: 5
+  win_rate_pct: 64.29
+  largest_win: 142.30
+  largest_loss: -61.40
+  symbols_traded: XAUUSD,NAS100,EURUSD,BTCUSD
+
+Recent Closed Trades — first two only:
+1. EURUSD | BUY | volume 0.30 | pnl 39.60 | duration 42 min
+2. XAUUSD | SELL | volume 0.10 | pnl 83.00 | duration 55 min
+
+SYSTEM HEALTH
+  warmup_state: READY
+  last_cycle_ms: 38
+  work_budget_ms: 50
+  active_l4_set_count: 42
+  retry_queue_size: 24
+  stale_output_detected: false
+
+OPERATOR COMMAND SURFACE
+  best_pick_now: BTCUSD
+  best_pick_context: highest board score, clean exposure, strong volatility, acceptable crypto friction
+  backup_pick: EURUSD
+  backup_context: excellent friction, clean exposure, top FOREX rank
+  avoid_right_now: NAS100
+  avoid_context: open position plus pending order
+  immediate_rotation: BTCUSD -> EURUSD -> US30 -> ETHUSD -> GBPUSD
+
+GLOBAL TOP 10
+Rank | Symbol | Major | Minor | Board | Surface | Deep | Friction | Spread/ATR | Exposure | Review
+1 | BTCUSD | CRYPTO | CRYPTO_MAJOR_COINS | 92.40 | 88.70 | 86.50 | 74.20 | 0.0744 | NONE | CHECK_NOW
+2 | EURUSD | FOREX | FOREX_MAJORS | 90.80 | 86.20 | 80.10 | 96.50 | 0.0095 | NONE | CHECK_NOW
+3 | XAUUSD | METALS | METALS_GOLD_SILVER | 89.60 | 87.80 | 83.40 | 82.10 | 0.0421 | OPEN_POSITION | GUARDED
+4 | NAS100 | INDICES | INDICES_US | 87.90 | 84.60 | 82.00 | 79.40 | 0.0581 | OPEN_AND_PENDING | GUARDED
+5 | ETHUSD | CRYPTO | CRYPTO_MAJOR_COINS | 85.10 | 80.40 | 78.20 | 72.30 | 0.0690 | NONE | CHECK_NOW
+6 | GBPUSD | FOREX | FOREX_MAJORS | 84.20 | 81.60 | 77.90 | 92.10 | 0.0182 | NONE | CHECK_NOW
+7 | US30 | INDICES | INDICES_US | 81.20 | 78.50 | 76.40 | 80.80 | 0.0610 | NONE | CHECK_NOW
+8 | USDJPY | FOREX | FOREX_MAJORS | 80.70 | 77.40 | 73.80 | 91.60 | 0.0141 | NONE | CHECK_NOW
+9 | XAGUSD | METALS | METALS_GOLD_SILVER | 77.90 | 75.30 | 72.00 | 78.00 | 0.0530 | NONE | WATCH
+10 | CADSGD | FOREX | FOREX_EXOTICS | 76.40 | 73.90 | 78.90 | 82.10 | 0.0220 | NONE | CHECK_NOW
+
+TOP 5 PER MAJOR BUCKET — TRADER DATA
+FOREX
+1. EURUSD | global 2 | board 90.80 | deep 80.10 | spread_to_atr 0.0095 | exposure NONE | review CHECK_NOW
+2. GBPUSD | global 6 | board 84.20 | deep 77.90 | spread_to_atr 0.0182 | exposure NONE | review CHECK_NOW
+3. USDJPY | global 8 | board 80.70 | deep 73.80 | spread_to_atr 0.0141 | exposure NONE | review CHECK_NOW
+4. CADSGD | global 10 | board 76.40 | deep 78.90 | spread_to_atr 0.0220 | exposure NONE | review CHECK_NOW
+5. USDZAR | global 31 | board 63.10 | deep 55.60 | spread_to_atr 0.0940 | exposure NONE | review GUARDED
+
+CRYPTO
+1. BTCUSD | global 1 | board 92.40 | deep 86.50 | spread_to_atr 0.0744 | exposure NONE | review CHECK_NOW
+2. ETHUSD | global 5 | board 85.10 | deep 78.20 | spread_to_atr 0.0690 | exposure NONE | review CHECK_NOW
+3. SOLUSD | global 13 | board 74.80 | deep 70.30 | spread_to_atr 0.0810 | exposure NONE | review WATCH
+4. XRPUSD | global 19 | board 70.20 | deep 67.40 | spread_to_atr 0.0885 | exposure NONE | review WATCH
+5. DOGEUSD | global 27 | board 66.40 | deep 61.90 | spread_to_atr 0.1120 | exposure NONE | review GUARDED
+
+METALS
+1. XAUUSD | global 3 | board 89.60 | deep 83.40 | spread_to_atr 0.0421 | exposure OPEN_POSITION | review GUARDED
+2. XAGUSD | global 9 | board 77.90 | deep 72.00 | spread_to_atr 0.0530 | exposure NONE | review WATCH
+bucket_capacity: 2
+bucket_target: 5
+bucket_complete: TRUE
+bucket_reason: available_rank_eligible_count_below_target
+
+BEST SYMBOLS TO CHECK NOW
+Best 3:
+1. BTCUSD | priority 94.10 | reason highest_board_clean_exposure
+2. EURUSD | priority 91.70 | reason excellent_friction_clean_rank
+3. US30 | priority 86.40 | reason clean_index_no_exposure
+
+Best 5:
+1. BTCUSD
+2. EURUSD
+3. US30
+4. ETHUSD
+5. GBPUSD
+
+Best 10:
+1. BTCUSD
+2. EURUSD
+3. US30
+4. ETHUSD
+5. GBPUSD
+6. USDJPY
+7. XAGUSD
+8. SOLUSD
+9. GER40
+10. CADSGD
+
+GUARDED / NOT FIRST CHOICE
+1. XAUUSD | reason open_position_exists | board 89.60 | exposure_load 35.00
+2. NAS100 | reason open_position_and_pending_order | board 87.90 | exposure_load 50.00
+3. USDZAR | reason exotic_friction_guarded | spread_to_atr 0.0940
+
+RETRY + SCHEDULE
+  confirmed_open_no_retry: 181
+  confirmed_closed_scheduled: 11
+  unknown_retry_queue: 24
+  next_l2_active_set_refresh: 2026.05.06 16:43:11 UTC
+  next_l5_active_refresh: 2026.05.06 16:45:00 UTC
+  next_l3_full_refresh: 2026.05.06 17:00:00 UTC
+  next_l4_group_refresh: 2026.05.06 17:05:00 UTC
+
+FINAL
+  review_permission: TRUE
+  trade_permission: FALSE

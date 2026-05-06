@@ -1,0 +1,218 @@
+AURORA REFORGED LATTICE — SYMBOL TRADER PACK
+Symbol: CADSGD
+Mode: TRADER REVIEW
+Trade Permission: FALSE
+
+============================================================
+1. QUICK TRADER SNAPSHOT
+============================================================
+
+symbol: CADSGD
+asset_class: FOREX
+major_bucket: FOREX
+minor_bucket: FOREX_EXOTICS
+
+review_state: CHECK_NOW
+global_rank: 10
+major_bucket_rank: 4
+minor_bucket_rank: 1
+
+board_score: 76.40
+surface_score: 73.90
+deep_score: 78.90
+clean_review_score: 81.20
+
+main_reason:
+  FOREX_EXOTICS leader with clean spread-to-ATR, no current exposure, and positive recent symbol history.
+
+main_caution:
+  Not a top-3 global pick. Exotic pair behavior can be broker/session sensitive.
+
+============================================================
+2. ACCOUNT + SYMBOL TRADE HISTORY
+============================================================
+
+Current Exposure:
+  open_positions_on_symbol: 0
+  pending_orders_on_symbol: 0
+  floating_pnl_symbol: 0.00
+  exposure_load_score: 0.00
+
+Symbol Closed Trade History:
+  lookback_days: 30
+  closed_trades: 4
+  net_pnl: 118.20
+  wins: 3
+  losses: 1
+  win_rate_pct: 75.00
+  avg_win: 44.80
+  avg_loss: -16.20
+  largest_win: 62.40
+  largest_loss: -16.20
+  last_trade_pnl: 31.70
+  last_trade_age_hours: 18.50
+
+Recent Closed Trades — first two only:
+1. BUY | volume 0.20 | entry 0.86942 | close 0.87100 | pnl 31.70 | duration 52 min
+2. SELL | volume 0.20 | entry 0.87210 | close 0.87002 | pnl 41.60 | duration 56 min
+
+============================================================
+3. MARKET STATE + COST
+============================================================
+
+market_state: OPEN
+tick_age_seconds: 0
+quote_session_open: true
+trade_session_open: true
+
+spread_points: 1.00
+spread_bps: 0.11
+atr_m15_points: 105.78
+spread_to_atr_m15: 0.00945
+friction_score: 82.10
+
+volume_min: 0.01
+volume_step: 0.01
+stops_level: 0
+freeze_level: 0
+
+cost_read:
+  Cost is clean relative to M15 ATR.
+
+============================================================
+4. VOLATILITY + RANGE
+============================================================
+
+ATR:
+  atr_m5_points: 42.60
+  atr_m15_points: 105.78
+  atr_h1_points: 260.40
+
+Range:
+  day_range_points: 312
+  current_position_in_day_range_pct: 61.40
+  distance_to_day_high_points: 84
+  distance_to_day_low_points: 228
+
+Scores:
+  volatility_score: 76.00
+  compression_score: 38.20
+  expansion_score: 61.80
+  late_move_risk_score: 31.00
+
+============================================================
+5. MOMENTUM + MICROSTRUCTURE
+============================================================
+
+Momentum:
+  momentum_score: 49.30
+  momentum_speed_score: 54.10
+  pressure_score: 51.60
+  burst_score: 50.70
+
+Tick Flow:
+  recent_ticks_used: 128
+  upticks: 57
+  downticks: 49
+  flat_ticks: 22
+  tick_bias_score: 53.80
+
+Spread Sampling:
+  spread_samples_used: 64
+  avg_spread_points: 1.10
+  max_spread_points: 2.00
+  spread_stability_score: 88.40
+
+Read:
+  Slight upward pressure, but not a strong momentum burst.
+
+============================================================
+6. LIQUIDITY + STRUCTURE
+============================================================
+
+Liquidity:
+  liquidity_score: 82.80
+  liquidity_proximity_score: 74.60
+  sweep_risk_score: 38.20
+
+Structure:
+  structure_score: 74.10
+  continuation_score: 69.80
+  reversal_risk_score: 38.20
+  move_age_score: 73.70
+
+Read:
+  Structure is usable. Reversal risk is not high, but momentum confirmation is not extreme.
+
+============================================================
+7. RECENT CLOSED BARS — FIRST TWO ONLY
+============================================================
+
+Timeframe: M15
+
+1. 2026.05.06 16:15 UTC
+   O: 0.87012
+   H: 0.87048
+   L: 0.86994
+   C: 0.87031
+   range_points: 54
+   body_points: 19
+   upper_wick_points: 17
+   lower_wick_points: 18
+   tick_volume: 814
+   spread_points_at_close: 1
+
+2. 2026.05.06 16:00 UTC
+   O: 0.86988
+   H: 0.87020
+   L: 0.86972
+   C: 0.87012
+   range_points: 48
+   body_points: 24
+   upper_wick_points: 8
+   lower_wick_points: 16
+   tick_volume: 766
+   spread_points_at_close: 1
+
+============================================================
+8. SETUP FIT
+============================================================
+
+scalp_fit_score: 72.40
+intraday_fit_score: 81.60
+swing_fit_score: 58.20
+
+execution_quality_score: 93.20
+participation_score: 100.00
+clean_review_score: 81.20
+risk_drag_score: 6.60
+
+Best use:
+  Intraday review candidate.
+
+Not ideal for:
+  Blind scalp entry without momentum confirmation.
+
+============================================================
+9. FINAL TRADER READ
+============================================================
+
+Status:
+  CHECK_NOW
+
+Why:
+  - minor bucket leader
+  - clean friction
+  - positive symbol trade history
+  - no open/pending exposure
+  - deep review complete
+  - spread-to-ATR is clean
+
+Caution:
+  - global rank 10, not best overall
+  - momentum is balanced, not explosive
+  - exotic pair conditions can change by broker/session
+
+Final:
+  review_permission: TRUE
+  trade_permission: FALSE
