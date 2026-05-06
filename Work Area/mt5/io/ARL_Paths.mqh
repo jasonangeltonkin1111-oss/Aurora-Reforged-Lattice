@@ -99,7 +99,22 @@ bool ARL_Paths_CreateFolderLevel(const string folder_name,string &diagnostic,int
    ResetLastError();
    bool ok = FolderCreate(folder_name,FILE_COMMON);
    last_error = GetLastError();
-   diagnostic += "folder='" + folder_name + "' ok=" + (ok ? "true" : "false") + " error=" + IntegerToString(last_error) + "; ";
+
+   bool exists = false;
+   bool already_exists_error = false;
+
+   if(!ok)
+     {
+      exists = FileIsExist(folder_name,FILE_COMMON);
+      already_exists_error = (last_error == ERR_FILE_ALREADY_EXISTS);
+      if(exists || already_exists_error)
+        {
+         ok = true;
+         last_error = 0;
+        }
+     }
+
+   diagnostic += "folder='" + folder_name + "' ok=" + (ok ? "true" : "false") + " error=" + IntegerToString(last_error) + " exists=" + (exists ? "true" : "false") + "; ";
    return ok;
   }
 
