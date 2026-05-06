@@ -1,0 +1,192 @@
+# ARL Decisions
+
+## Decision format
+
+Each decision must include:
+- Date
+- Decision
+- Reason
+- Evidence / source
+- Affected files/modules
+- Reversal condition
+
+---
+
+## D001 — Start ARL as a clean second-generation rebuild
+
+Date: 2026-05-06
+
+Decision:
+Aurora Reforged Lattice is a clean rebuild that preserves the high-level ASC design but does not directly inherit ASC source authority.
+
+Reason:
+ASC has useful architecture and dossier/board DNA, but also accumulated route drift, verbose diagnostics, stale/retained output risks, board-child sync issues, HUD bloat, and repair-on-repair complexity.
+
+Evidence / source:
+- Uploaded Market Board sample shows useful currentness and review authority concepts but also shows board/child alignment complexity and top5 sync uncertainty.
+- Uploaded CADSGD dossier shows useful numeric deep review, publication health, and section status, but is too verbose for ARL operator output.
+- Uploaded EURUSD SDP shows atomic publication concepts and L3/L4 owner-gap problems that ARL must solve by design.
+
+Affected:
+All ARL planning and migration.
+
+Reversal condition:
+Only if a later source inspection proves a specific ASC module can be migrated safely after simplification, compile proof, runtime proof, and lock registration.
+
+---
+
+## D002 — No HUD until core works
+
+Date: 2026-05-06
+
+Decision:
+HUD is excluded from all early ARL phases.
+
+Reason:
+The old system carried HUD complexity too early. ARL must first prove runtime, account, market state, specs, ranking, board publication, and dossiers.
+
+Affected:
+Roadmap, build plan, migration register.
+
+Reversal condition:
+HUD may be reconsidered only after ARL core publishes stable outputs and passes compile/runtime/output contract tests.
+
+---
+
+## D003 — Major/minor bucket means hierarchy, not forex-pair major/minor
+
+Date: 2026-05-06
+
+Decision:
+Major bucket = broad class. Minor bucket = subgroup inside that class.
+
+Examples:
+- Major: FOREX, CRYPTO, METALS, INDICES, COMMODITIES, STOCKS
+- Minor: FOREX_EXOTICS, FOREX_MAJORS, CRYPTO_ALTCOINS, CRYPTO_MAJOR_COINS, METALS_GOLD_SILVER, INDICES_US, STOCKS_TECH
+
+Reason:
+Earlier wording risked confusing bucket hierarchy with forex-pair vocabulary.
+
+Affected:
+Layer 4 / Bucket Ranking, Market Board, Dossier samples, bucket schema.
+
+Reversal condition:
+None. This is locked as naming law unless user explicitly changes the taxonomy.
+
+---
+
+## D004 — Internal layer names may exist, but operator outputs must use plain meanings
+
+Date: 2026-05-06
+
+Decision:
+Internal code may use Layer 1-5, but final operator-facing output should use readable names:
+- Market State
+- Broker & Symbol Specs
+- Surface Ranking
+- Bucket Ranking
+- Deep Review
+
+Reason:
+User specifically requested that dev language not leak into final product meaning.
+
+Affected:
+Market Board, Dossiers, samples, output contracts.
+
+Reversal condition:
+Only if operator output has both readable labels and optional internal trace fields in debug JSON.
+
+---
+
+## D005 — L3/L4 warmup must reach completion before READY
+
+Date: 2026-05-06
+
+Decision:
+Warmup cannot declare READY until Layer 3 / Surface Ranking and Layer 4 / Bucket Ranking publish complete committed snapshots.
+
+Reason:
+ASC samples showed danger of current-looking outputs while board/child alignment or promote status remained pending.
+
+Affected:
+Warmup contract, Scheduler, Market Board, acceptance tests.
+
+Reversal condition:
+None. Half-ready ranking is forbidden.
+
+---
+
+## D006 — Ready cadence
+
+Date: 2026-05-06
+
+Decision:
+After warmup READY:
+- L3 / Surface Ranking: every 20 minutes, universe-wide.
+- L4 / Bucket Ranking: every 20 minutes, offset 5 minutes after L3.
+- L2 / Broker & Symbol Specs: every 1 minute for active L4 set.
+- L5 / Deep Review: every 5 minutes for active L4 set.
+- L1 / Market State: event/schedule-based, retry only unknowns, schedule closed markets to next open.
+
+Reason:
+Prevents heavy full-universe recomputation while keeping active candidates fresh.
+
+Affected:
+Refresh Timing Model, Scheduler, Warmup, L3/L4 snapshot contract.
+
+Reversal condition:
+Runtime evidence proves the cadence misses key updates or is too heavy.
+
+---
+
+## D007 — Numeric-first output
+
+Date: 2026-05-06
+
+Decision:
+Operator outputs must be numeric-first. Labels are optional support.
+
+Reason:
+Old dossiers used useful numbers but too many qualitative labels. ARL should preserve scores and reduce wording.
+
+Affected:
+Market Board sample, Dossier sample, numeric style guide, output contracts.
+
+Reversal condition:
+Only if the user requests a more narrative operator mode after numeric mode is proven.
+
+---
+
+## D008 — Account and exposure are mandatory
+
+Date: 2026-05-06
+
+Decision:
+ARL must include account info, open positions, pending orders, and closed/deal history lookback in the board and dossiers.
+
+Reason:
+Ranking without account exposure is unsafe and can suggest symbols already carrying risk.
+
+Affected:
+Account module, Market Board, Dossiers, upload suggestion logic.
+
+Reversal condition:
+None. Account exposure is mandatory for review workflow.
+
+---
+
+## D009 — Fix owner modules, do not create bypass routes
+
+Date: 2026-05-06
+
+Decision:
+If a behavior breaks, fix the owning module. Do not create duplicate routes, bypass writers, shadow outputs, or emergency alternate files.
+
+Reason:
+ASC repair cycles accumulated route drift. ARL must prevent that from the start.
+
+Affected:
+Lock policy, migration register, future patch prompts.
+
+Reversal condition:
+A new route may only be created with explicit route-change record, tests, rollback plan, and user approval.
