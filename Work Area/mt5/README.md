@@ -2,7 +2,7 @@
 
 Run: `ARL-RUN004`  
 Status: **scaffold only**  
-Version: `0.0.4`
+Version: `1.004`
 
 This folder contains the first MT5 source scaffold for Aurora Reforged Lattice.
 

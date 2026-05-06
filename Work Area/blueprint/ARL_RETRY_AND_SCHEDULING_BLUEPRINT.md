@@ -85,3 +85,16 @@ retry_next_due_utc
 retry_max_attempts
 hard_absence_reason
 ```
+
+---
+
+## RUN005 Addendum — Retry Storm Boundary
+
+Future retry/backoff implementation must avoid retry storms:
+- no unbounded immediate retry loops
+- unknown/transient states use bounded backoff
+- confirmed terminal states stop retrying
+- retry counters must be visible in telemetry
+- failure reasons must be written as operator-readable data, not hidden in logs only
+
+RUN005 did not implement retry code. This is a constraint for future work, not proof.

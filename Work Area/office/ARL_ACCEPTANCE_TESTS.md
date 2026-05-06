@@ -224,3 +224,49 @@ Module can be locked only after:
 
 Falsifier:
 Module marked done without lock file or test evidence.
+
+---
+
+## TEST-006 — Version identity parity
+
+Scope:
+MT5 source identity and office records.
+
+Pass condition:
+- `mt5/ARL_Core.mq5` `#property version` matches `mt5/core/ARL_Version.mqh` `ARL_PRODUCT_VERSION`.
+- EA description uses the same version string.
+- MT5 README uses the same version string.
+- Office ledger records whether the run was a behavior bump or maintenance alignment.
+
+Falsifier:
+Any active identity file reports a different current version.
+
+---
+
+## TEST-007 — No-trade / no-HUD scaffold preservation
+
+Scope:
+Whole Work Area package.
+
+Pass condition:
+- No HUD module is added.
+- No trade, signal, execution, stop, target, lot, order-send, or prop-firm permission path is added.
+- `InpARL_AllowTrading` remains false by default and startup rejects true in scaffold mode.
+
+Falsifier:
+A source grep finds trading/execution/HUD behavior outside explicit no-permission boundary text.
+
+---
+
+## TEST-008 — Research proof honesty
+
+Scope:
+Run reports and office research ledger.
+
+Pass condition:
+- If live web research is unavailable, the run says so.
+- No uncited internet claim is treated as fresh evidence.
+- Future research-capable runs cite official/primary sources and convert findings into constraints/tests/falsifiers.
+
+Falsifier:
+Report says external research was completed when no live source access existed.

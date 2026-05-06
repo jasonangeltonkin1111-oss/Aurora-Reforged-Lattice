@@ -51,3 +51,19 @@ Archive files cannot be treated as:
 - signal proof
 - trading permission
 - current architecture authority
+
+---
+
+## RUN005 Addendum — Work Area Upload Authority
+
+For GPT repair passes, `Work Area/` is the active uploadable root.
+
+Authority rule:
+- Uploaded Work Area source is the repair baseline for that run.
+- Git is the external comparison source unless the user explicitly declares Git as the baseline.
+- Archives are inheritance evidence only.
+- Office and Git own change history.
+- MT5 source owns current product identity only.
+
+Version identity rule:
+Current product identity must agree across `ARL_Core.mq5`, `core/ARL_Version.mqh`, MT5 README, office ledger, and any active product metadata.

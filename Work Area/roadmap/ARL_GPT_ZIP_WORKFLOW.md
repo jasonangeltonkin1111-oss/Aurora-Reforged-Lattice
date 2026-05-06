@@ -75,3 +75,20 @@ Do not create:
 Return changed files in a zip preserving repo folder layout.
 
 Do not flatten files.
+
+---
+
+## RUN005 Workflow Patch — Work Area and Archives
+
+`Work Area/` is the active uploadable root. Uploaded zips should not contain `Archives/`.
+
+Archives are Git-only inheritance evidence and may be mined only for:
+- owner maps
+- known failure modes
+- useful output structures
+- migration candidates
+- test cases
+
+Archives must not be copied directly into active Work Area source.
+
+If web browsing is unavailable, GPT must say research is blocked and continue only with evidence it actually has.

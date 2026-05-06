@@ -55,3 +55,52 @@ Tests required:
 
 Lock impact:
 No source locks created yet.
+
+---
+
+## 2026-05-06 — ARL-RUN005 Work Area Foundation Alignment
+
+Run:
+ARL-RUN005-WORK-AREA-FOUNDATION-ALIGNMENT
+
+Files changed:
+- mt5/ARL_Core.mq5
+- mt5/core/ARL_Version.mqh
+- mt5/README.md
+- mt5/MT5_VERSION_POLICY.md
+- office/ARL_CHANGE_LEDGER.md
+- office/ARL_DECISIONS.md
+- office/ARL_RESEARCH_LEDGER.md
+- office/ARL_RISK_LEDGER.md
+- office/ARL_ACCEPTANCE_TESTS.md
+- office/ARL_BUILD_PLAN.md
+- office/ARL_OPEN_QUESTIONS.md
+- roadmap/ARL_RUN_PROTOCOL.md
+- roadmap/ARL_GPT_ZIP_WORKFLOW.md
+- roadmap/ARL_TESTING_STRATEGY.md
+- roadmap/ARL_CODEX_PROMPT_RULES.md
+- blueprint/ARL_SOURCE_TRUTH_AUTHORITY.md
+- blueprint/ARL_ATOMIC_PUBLICATION_BLUEPRINT.md
+- blueprint/ARL_RETRY_AND_SCHEDULING_BLUEPRINT.md
+- ARL_RUN005_REPORT.md
+
+Change type:
+Maintenance / source-truth alignment / documentation hardening.
+
+Reason:
+The uploaded Work Area zip had compiled scaffold evidence from the user, but product identity was internally inconsistent: `ARL_Core.mq5` declared `#property version "1.004"` while `core/ARL_Version.mqh`, the EA description, and MT5 README still reported `0.0.4`. That is a source-of-truth failure even before runtime logic exists.
+
+Risks:
+- Live internet research was requested but unavailable in this chat environment, so official-source research could not be freshly verified here.
+- MetaEditor compile was not available in this environment, so compile proof was not upgraded.
+- `ARL_Core.ex5` was present in the upload but was not modified; binary compile state cannot be verified here.
+
+Tests required:
+- Open `Work Area/mt5/ARL_Core.mq5` in MetaEditor and compile.
+- Confirm EA properties show `#property version` as `1.004`.
+- Confirm startup print from `ARL_VersionLine()` reports `1.004`.
+- Confirm no HUD/trading/signal/execution/risk permission was added.
+- Confirm output zip excludes Archives.
+
+Lock impact:
+No module lock created. This run aligns source identity and process records only.

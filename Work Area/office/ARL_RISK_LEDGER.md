@@ -260,3 +260,35 @@ Samples mask private fields. Runtime outputs stay local.
 
 Test / falsifier:
 Committed sample contains real account login.
+
+---
+
+## RISK-RUN005-001 — Product identity drift
+
+Status:
+Mitigated by RUN005 alignment, pending compile/runtime confirmation.
+
+Risk:
+Different files reported `1.004` and `0.0.4`, which would create false operator confidence and make Git/office/source records disagree.
+
+Control:
+`#property version`, EA description, `ARL_PRODUCT_VERSION`, MT5 README, version policy, and office ledger must be checked together on every source run.
+
+Falsifier:
+A grep over active Work Area source/docs finds stale active product version strings after the run, excluding sample numeric data such as `0.042`.
+
+---
+
+## RISK-RUN005-002 — Fake external research proof
+
+Status:
+Open.
+
+Risk:
+Mandatory internet research was requested, but the current chat environment did not provide live web browsing. Pretending research was performed would poison the evidence ladder.
+
+Control:
+RUN005 report must state external research was blocked and must not claim official-source proof.
+
+Falsifier:
+The report claims fresh official-source research or cites uncited web facts as if verified during the run.

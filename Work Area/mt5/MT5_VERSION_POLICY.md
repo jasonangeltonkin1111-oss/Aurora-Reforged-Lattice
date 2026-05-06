@@ -27,8 +27,8 @@ Use compact, searchable commit subjects:
 
 ```text
 ARL-RUN004: add MT5 source scaffold
-ARL-RUN005: add runtime heartbeat/status writer
-ARL-RUN006: implement account snapshot scaffold
+ARL-RUN005: align Work Area version identity and source records
+ARL-RUN006: add runtime heartbeat/status writer
 ```
 
 Keep each commit body structured:

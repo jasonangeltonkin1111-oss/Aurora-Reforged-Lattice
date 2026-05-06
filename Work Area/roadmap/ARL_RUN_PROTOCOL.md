@@ -89,3 +89,21 @@ Use one:
 - TEST FIRST
 
 Most early ARL work defaults to `TEST FIRST`.
+
+---
+
+## RUN005 Protocol Patch — Research Honesty and Version Parity
+
+If internet research is required but unavailable, the run must not pretend it was completed. It may continue only with local/source/Git analysis and must mark external research as blocked.
+
+Every source run must run a version parity check:
+
+```text
+mt5/ARL_Core.mq5 #property version
+mt5/ARL_Core.mq5 #property description version text
+mt5/core/ARL_Version.mqh ARL_PRODUCT_VERSION
+mt5/README.md Version
+Office change ledger version impact
+```
+
+A maintenance run may keep the EA version unchanged when it does not alter active product behavior. A behavior-changing source run must explicitly decide whether the a.bcd version advances.

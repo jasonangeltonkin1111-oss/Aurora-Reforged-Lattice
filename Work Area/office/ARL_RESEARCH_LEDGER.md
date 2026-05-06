@@ -241,3 +241,40 @@ Every visible Market Board symbol has matching per-symbol rank context.
 
 Falsifier:
 Per-symbol dossier shows L3/L4 unknown while board row has L3/L4 current.
+
+---
+
+## 2026-05-06 — ARL-RUN005 Research Status
+
+Status:
+LIVE INTERNET RESEARCH BLOCKED IN THIS CHAT ENVIRONMENT.
+
+Required research topics requested:
+- MQL5 `#property version` / EA description display
+- MQL5 `input group` behavior
+- MQL5 timer queue behavior
+- MQL5 file publication functions and atomic publication limits
+- MQL5 relative include behavior
+- MQL5 account/position/order/history separation
+- MQL5 `CopyBuffer` / indicator handle readiness
+- Git commit-message practices
+- release/versioning practices
+- retry/backoff practices
+- observability/health metrics principles
+
+Evidence rank:
+No fresh external-source evidence was produced inside RUN005 because web browsing was unavailable. Prior known doctrine and previous run notes may guide constraints, but they do not upgrade proof.
+
+Coding constraints retained despite blocked research:
+- Do not claim compile/runtime behavior from documentation alone.
+- Keep timer work slices light until MetaEditor/runtime evidence proves otherwise.
+- Keep file publication as temp/write/readback/promote until tested.
+- Keep account, positions, orders, and deal history as separate source owners.
+- Treat indicator values as unavailable until handles and buffers prove readiness.
+- Keep Git/office as change-history owner; do not create a changelog source module.
+
+Acceptance test:
+A future research-capable run must refresh official/primary sources and convert each finding into coding constraints, documentation constraints, acceptance tests, and falsifiers before implementing runtime IO/scheduler/account/indicator behavior.
+
+Falsifier:
+Any future run claims official research proof without cited sources or without converting research into tests and constraints.

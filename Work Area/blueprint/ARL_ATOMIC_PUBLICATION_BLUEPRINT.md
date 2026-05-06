@@ -72,3 +72,20 @@ Only promoted current with matching snapshot and readback can be current.
 ## ASC Lesson
 
 ASC already carried temp/readback/promote/no-change/last-good concepts. ARL keeps those concepts but makes them universal, simpler, and mandatory for all public outputs.
+
+---
+
+## RUN005 Addendum — Publication Proof Boundary
+
+RUN005 did not implement runtime publication.
+
+Future atomic publication work must prove:
+- temp file write
+- flush or close behavior appropriate to the file contract
+- readback validation
+- promote/move to current
+- manifest update
+- no-change skip behavior
+- last-good preservation on failure
+
+No runtime publication claim is valid until logs/files show the full sequence.

@@ -75,3 +75,31 @@ Codex must update:
 - No compile/live proof claimed.
 - Office files read and referenced in report.
 - Change ledger updated.
+
+---
+
+## ARL-RUN005 Build Plan Addendum — Foundation Alignment
+
+Purpose:
+Align Work Area source identity and process records after the MT5 scaffold compiled externally.
+
+Allowed:
+- Fix version identity drift.
+- Tighten office/Git ownership of change history.
+- Tighten no-HUD/no-trade boundaries.
+- Tighten acceptance tests.
+
+Forbidden:
+- HUD.
+- Trading.
+- Signals.
+- Execution.
+- Strategy formulas.
+- Runtime publication implementation.
+- Direct ASC source copy.
+
+Version impact:
+Keep EA product version at `1.004` because this run is maintenance/source-record alignment only.
+
+Next implementation lane:
+After compile confirmation, implement the smallest runtime proof slice: heartbeat/status file publication with atomic write/readback, still no trading and no HUD.

@@ -71,3 +71,15 @@ PASS/FAIL:
 EVIDENCE:
 NEXT ACTION:
 ```
+
+---
+
+## RUN005 Testing Addendum — Minimum Foundation Checks
+
+Before any runtime implementation run proceeds, confirm:
+
+1. Version parity: `#property version`, EA description, `ARL_PRODUCT_VERSION`, README, and office ledger agree.
+2. Compile proof: MetaEditor compile output exists for `Work Area/mt5/ARL_Core.mq5`.
+3. Runtime proof: startup log prints the same version from `ARL_VersionLine()`.
+4. No-permission proof: no HUD/trade/signal/execution/risk path was added.
+5. Packaging proof: output zip preserves `Work Area/` structure and excludes Archives.

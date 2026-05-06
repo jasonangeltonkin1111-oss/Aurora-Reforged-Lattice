@@ -66,3 +66,32 @@ Every Codex prompt should contain:
 ```text
 Do not invent proof. Do not claim compile, runtime, edge, or live readiness unless directly evidenced.
 ```
+
+---
+
+## RUN005 Prompt Rule Patch — No Fake Research, No Fake Proof
+
+Codex/GPT prompts must require proof language discipline:
+
+- Compile success requires actual compiler output.
+- Runtime success requires runtime log/output evidence.
+- Internet research requires actual source access and citations.
+- If source access is blocked, say blocked.
+- Do not use old assistant summaries as primary proof.
+- Do not paste giant ChatGPT answers into Git commit messages.
+
+Recommended Git commit shape:
+
+```text
+ARL-RUN005: align Work Area version identity and source records
+
+Mode:
+Scope:
+Files changed:
+Evidence:
+Compile result:
+Runtime result:
+Version impact:
+No-trade/no-HUD confirmation:
+Next run:
+```

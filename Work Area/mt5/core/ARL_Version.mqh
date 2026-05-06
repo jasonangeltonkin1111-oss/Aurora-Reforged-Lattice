@@ -18,7 +18,7 @@
 
 #define ARL_PRODUCT_NAME        "Aurora Reforged Lattice"
 #define ARL_PRODUCT_SHORT_NAME  "ARL"
-#define ARL_PRODUCT_VERSION     "0.0.4"
+#define ARL_PRODUCT_VERSION     "1.004"
 #define ARL_PRODUCT_RUN_ID      "ARL-RUN004"
 #define ARL_PRODUCT_CHANNEL     "SCAFFOLD"
 #define ARL_PRODUCT_DATE        "2026-05-06"

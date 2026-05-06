@@ -190,3 +190,45 @@ Lock policy, migration register, future patch prompts.
 
 Reversal condition:
 A new route may only be created with explicit route-change record, tests, rollback plan, and user approval.
+
+---
+
+## D007 — Work Area is the active uploadable source root
+
+Date: 2026-05-06
+
+Decision:
+`Work Area/` is the active source root for zip-first GPT repair passes. Archives must not be included in uploaded Work Area zips.
+
+Reason:
+The archive tree is too large for repeated upload workflows and must not pollute the current active source package. Archives are inheritance evidence only and should be read from Git when needed.
+
+Evidence / source:
+ARL-RUN005 uploaded zip inspection confirmed `Work Area/` as the only root and confirmed no `Archives/` folder inside the uploaded package.
+
+Affected files/modules:
+GPT zip workflow, source-truth authority, run protocol, packaging rules.
+
+Reversal condition:
+Only if the user explicitly changes the source-baseline workflow.
+
+---
+
+## D008 — Current EA product version remains 1.004 after RUN005
+
+Date: 2026-05-06
+
+Decision:
+Keep active EA product version at `1.004` for ARL-RUN005. Do not bump to `1.005`.
+
+Reason:
+RUN005 corrected identity drift and office/process records but did not add active product behavior, trading, signals, execution, HUD, strategy formulas, or runtime publication logic.
+
+Evidence / source:
+The changed MT5 source fields only align `#property version`, `#property description`, `ARL_PRODUCT_VERSION`, and README identity.
+
+Affected files/modules:
+`mt5/ARL_Core.mq5`, `mt5/core/ARL_Version.mqh`, `mt5/README.md`, `mt5/MT5_VERSION_POLICY.md`.
+
+Reversal condition:
+If a later run changes active MT5 behavior, version may advance by the a.bcd rule.

@@ -87,3 +87,12 @@ Should ARL-RUN002 scaffold compile or only create folder/files?
 Current recommendation:
 ARL-RUN002 = scaffold only.
 ARL-RUN003 = minimal compile/status proof.
+
+---
+
+## RUN005 Open Questions
+
+1. Can a future research-capable run refresh official MQL5/Git/retry/observability sources and cite them directly?
+2. Does MetaEditor compile still pass after version identity alignment?
+3. Should `ARL_Core.ex5` be excluded from future upload zips unless intentionally preserved as a known compiled artifact?
+4. Should RUN006 implement heartbeat/status publication, or should it first perform a pure compile-repair/validation pass in MetaEditor?
