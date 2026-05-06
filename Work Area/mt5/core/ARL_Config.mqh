@@ -19,4 +19,15 @@
 string ARL_DefaultUniverseMode(){ return "MARKET_WATCH_ONLY"; }
 string ARL_DefaultOutputScope(){ return "COMMON_FILES"; }
 
+enum ENUM_ARL_FILE_SANDBOX_MODE
+  {
+   ARL_FILE_SANDBOX_COMMON_FILES = 0,
+   ARL_FILE_SANDBOX_TERMINAL_LOCAL_FILES = 1
+  };
+
+int ARL_Config_FileSandboxMode()
+  {
+   return ARL_FILE_SANDBOX_COMMON_FILES;
+  }
+
 #endif // __CORE_ARL_CONFIG_MQH__

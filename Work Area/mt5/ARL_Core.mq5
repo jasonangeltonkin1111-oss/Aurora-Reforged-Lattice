@@ -148,6 +148,8 @@ int OnInit()
       Print("ARL startup proof | relative_folder_chain=", ARL_Paths_OutputRootFolder(), " -> ", ARL_Paths_ServerRelativeFolder(), " -> ", ARL_Paths_CurrentFolder());
       Print("ARL expected Common Files status path: ", ARL_Paths_AbsoluteCommonFilesStatusPattern());
       Print("ARL expected Common Files manifest path: ", ARL_Paths_AbsoluteCommonFilesManifestPattern());
+      Print("ARL expected Terminal local status path: ", ARL_Paths_AbsoluteTerminalFilesStatusPattern());
+      Print("ARL expected Terminal local manifest path: ", ARL_Paths_AbsoluteTerminalFilesManifestPattern());
       Print("ARL file writes input: InpARL_EnableFileWrites=", (InpARL_EnableFileWrites ? "true" : "false"), " | InpARL_AllowTrading=", (InpARL_AllowTrading ? "true" : "false"));
       if(!InpARL_EnableFileWrites)
          Print("ARL file writes disabled: no runtime files will be written. Set InpARL_EnableFileWrites=true for smoke test.");
