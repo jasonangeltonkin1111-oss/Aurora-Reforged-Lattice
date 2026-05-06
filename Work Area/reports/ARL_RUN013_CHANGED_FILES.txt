@@ -1,0 +1,6 @@
+Work Area/office/ARL_CHANGE_LEDGER.md
+Work Area/office/ARL_DECISIONS.md
+Work Area/office/ARL_RESEARCH_LEDGER.md
+Work Area/office/ARL_RISK_LEDGER.md
+Work Area/reports/ARL_RUN013_REPORT.md
+Work Area/reports/ARL_RUN013_CHANGED_FILES.txt
