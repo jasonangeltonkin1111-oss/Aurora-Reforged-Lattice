@@ -52,12 +52,16 @@ string ARL_Paths_TempFor(const string final_path)
 
 int ARL_Paths_CommonFlag()
   {
+   if(ARL_Config_FileSandboxMode() == ARL_FILE_SANDBOX_TERMINAL_LOCAL_FILES)
+      return 0;
    return FILE_COMMON;
   }
 
 string ARL_Paths_FileLocationMode()
   {
-   return "COMMON_FILES";
+   if(ARL_Paths_CommonFlag() == FILE_COMMON)
+      return "COMMON_FILES";
+   return "TERMINAL_LOCAL_FILES";
   }
 
 string ARL_Paths_CommonDataPath()
@@ -97,7 +101,8 @@ string ARL_Paths_AbsoluteCommonFilesManifestPattern()
 bool ARL_Paths_CreateFolderLevel(const string folder_name,string &diagnostic,int &last_error)
   {
    ResetLastError();
-   bool ok = FolderCreate(folder_name,FILE_COMMON);
+   int common_flag = ARL_Paths_CommonFlag();
+   bool ok = FolderCreate(folder_name,common_flag);
    last_error = GetLastError();
 
    bool exists = false;
@@ -105,7 +110,7 @@ bool ARL_Paths_CreateFolderLevel(const string folder_name,string &diagnostic,int
 
    if(!ok)
      {
-      exists = FileIsExist(folder_name,FILE_COMMON);
+      exists = FileIsExist(folder_name,common_flag);
       already_exists_error = (last_error == ERR_FILE_ALREADY_EXISTS);
       if(exists || already_exists_error)
         {
@@ -158,6 +163,16 @@ string ARL_Paths_DiagnosticLine()
           " | terminal_files_base=" + ARL_Paths_TerminalFilesBasePath() +
           " | status_current=" + ARL_Paths_StatusCurrent() +
           " | manifest_current=" + ARL_Paths_ManifestCurrent();
+  }
+
+string ARL_Paths_AbsoluteTerminalFilesStatusPattern()
+  {
+   return ARL_Paths_TerminalFilesBasePath() + "\\" + ARL_OUTPUT_ROOT_FOLDER + "\\" + ARL_Paths_ServerFolder() + "\\Current\\" + ARL_STATUS_CURRENT_FILE;
+  }
+
+string ARL_Paths_AbsoluteTerminalFilesManifestPattern()
+  {
+   return ARL_Paths_TerminalFilesBasePath() + "\\" + ARL_OUTPUT_ROOT_FOLDER + "\\" + ARL_Paths_ServerFolder() + "\\Current\\" + ARL_MANIFEST_CURRENT_FILE;
   }
 
 string ARL_Paths_Contract(){ return "COMMON_FILES_SANDBOX_CURRENT_ONLY_WITH_RUNTIME_FOLDER_CHAIN_DIAGNOSTICS"; }

@@ -54,6 +54,8 @@ void ARL_FilePublisher_PrintStartupDiagnostics(const bool writes_enabled)
    Print("ARL runtime IO diagnostics | manifest relative=", ARL_Paths_ManifestCurrent());
    Print("ARL runtime IO diagnostics | expected common status path=", ARL_Paths_AbsoluteCommonFilesStatusPattern());
    Print("ARL runtime IO diagnostics | expected common manifest path=", ARL_Paths_AbsoluteCommonFilesManifestPattern());
+   Print("ARL runtime IO diagnostics | expected terminal-local status path=", ARL_Paths_AbsoluteTerminalFilesStatusPattern());
+   Print("ARL runtime IO diagnostics | expected terminal-local manifest path=", ARL_Paths_AbsoluteTerminalFilesManifestPattern());
   }
 
 
@@ -65,8 +67,12 @@ string ARL_FilePublisher_PreflightLine(const bool writes_enabled,const bool allo
           + " | relative_current_folder=" + ARL_Paths_CurrentFolder()
           + " | status_final=" + ARL_Paths_StatusCurrent()
           + " | status_temp=" + ARL_Paths_TempFor(ARL_Paths_StatusCurrent())
+          + " | expected_common_status_abs=" + ARL_Paths_AbsoluteCommonFilesStatusPattern()
+          + " | expected_terminal_local_status_abs=" + ARL_Paths_AbsoluteTerminalFilesStatusPattern()
           + " | manifest_final=" + ARL_Paths_ManifestCurrent()
           + " | manifest_temp=" + ARL_Paths_TempFor(ARL_Paths_ManifestCurrent())
+          + " | expected_common_manifest_abs=" + ARL_Paths_AbsoluteCommonFilesManifestPattern()
+          + " | expected_terminal_local_manifest_abs=" + ARL_Paths_AbsoluteTerminalFilesManifestPattern()
           + " | writes_enabled=" + (writes_enabled ? "true" : "false")
           + " | allow_trading=" + (allow_trading ? "true" : "false");
   }
@@ -81,7 +87,7 @@ bool ARL_FilePublisher_WriteCommonProbe(int &last_error)
    string probe_path = "ARL_RuntimeWriteProbe.txt";
    string probe_payload = "ARL runtime diagnostic probe | " + ARL_PRODUCT_VERSION + " | " + ARL_PRODUCT_RUN_ID + " | " + TimeToString(TimeCurrent(),TIME_DATE|TIME_SECONDS);
    ResetLastError();
-   int handle = FileOpen(probe_path,FILE_WRITE|FILE_TXT|FILE_ANSI|FILE_COMMON|FILE_SHARE_READ);
+   int handle = FileOpen(probe_path,FILE_WRITE|FILE_TXT|FILE_ANSI|ARL_Paths_CommonFlag()|FILE_SHARE_READ);
    if(handle == INVALID_HANDLE)
      {
       last_error = GetLastError();
@@ -131,7 +137,7 @@ bool ARL_FilePublisher_ReadAll(const string path,string &content,int &bytes_read
    bytes_read = 0;
    last_error = 0;
    ResetLastError();
-   int handle = FileOpen(path,FILE_READ|FILE_TXT|FILE_ANSI|FILE_COMMON|FILE_SHARE_READ);
+   int handle = FileOpen(path,FILE_READ|FILE_TXT|FILE_ANSI|ARL_Paths_CommonFlag()|FILE_SHARE_READ);
    if(handle == INVALID_HANDLE)
      {
       last_error = GetLastError();
@@ -150,7 +156,7 @@ bool ARL_FilePublisher_WriteTemp(const string temp_path,const string payload,int
    bytes_written = 0;
    last_error = 0;
    ResetLastError();
-   int handle = FileOpen(temp_path,FILE_WRITE|FILE_TXT|FILE_ANSI|FILE_COMMON|FILE_SHARE_READ);
+   int handle = FileOpen(temp_path,FILE_WRITE|FILE_TXT|FILE_ANSI|ARL_Paths_CommonFlag()|FILE_SHARE_READ);
    if(handle == INVALID_HANDLE)
      {
       last_error = GetLastError();
@@ -223,7 +229,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
    string current_payload = "";
    int current_bytes = 0;
    int current_error = 0;
-   if(FileIsExist(final_path,FILE_COMMON) && ARL_FilePublisher_ReadAll(final_path,current_payload,current_bytes,current_error))
+   if(FileIsExist(final_path,ARL_Paths_CommonFlag()) && ARL_FilePublisher_ReadAll(final_path,current_payload,current_bytes,current_error))
      {
       if(ARL_PayloadHash_Equals(current_payload,payload))
         {
@@ -238,8 +244,8 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
         }
      }
 
-   if(FileIsExist(temp_path,FILE_COMMON))
-      FileDelete(temp_path,FILE_COMMON);
+   if(FileIsExist(temp_path,ARL_Paths_CommonFlag()))
+      FileDelete(temp_path,ARL_Paths_CommonFlag());
 
    int write_error = 0;
    int wrote = 0;
@@ -277,7 +283,7 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
      }
 
    ResetLastError();
-   if(!FileMove(temp_path,FILE_COMMON,final_path,FILE_COMMON|FILE_REWRITE))
+   if(!FileMove(temp_path,ARL_Paths_CommonFlag(),final_path,ARL_Paths_CommonFlag()|FILE_REWRITE))
      {
       result.code = "PROMOTE_FAILED";
       result.message = "temp promote to current failed; final_path=" + final_path + "; temp_path=" + temp_path;
