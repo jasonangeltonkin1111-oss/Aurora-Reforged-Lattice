@@ -1,16 +1,16 @@
 //+------------------------------------------------------------------+
 //| Aurora Reforged Lattice — ARL_Core.mq5
-//| Run: ARL-RUN009
-//| Status: RUNTIME IO FOUNDATION — no trading, no signal, no execution.
-//| Purpose: runtime heartbeat, bounded scheduler tick, and atomic status publication foundation.
+//| Run: ARL-RUN004
+//| Status: MT5 SCAFFOLD ONLY.
+//| Purpose: compile-visible skeleton for future GPT zip-audit/research/patch runs.
 //| Forbidden: trading, signals, execution, HUD, direct ASC migration.
 //+------------------------------------------------------------------+
 #property strict
 #property copyright "Jason Angel Tonkin"
-#property link      "https://github.com/jasonangeltonkin1111-oss/Aurora-Reforged-Lattice"
-#property version   "1.005"
+#property link      "https://github.com/jasonangeltonkin1111-oss/Aurora-Reforged-Lattice-"
+#property version   "1.004"
 #property description "Aurora Reforged Lattice"
-#property description "Version 1.005 | ARL-RUN009 | runtime IO foundation"
+#property description "Version 1.004 | ARL-RUN004 | MT5 scaffold only"
 #property description "Review-only architecture. No trade, signal, execution, or HUD permission."
 
 #include "core/ARL_ResultCodes.mqh"
@@ -112,7 +112,7 @@ input string InpARL_State          = ARL_PRODUCT_STATE;
 input group "ARL Runtime Scaffold"
 input int    InpARL_TimerSeconds   = ARL_DEFAULT_TIMER_SECONDS;
 input int    InpARL_WorkBudgetMs   = ARL_DEFAULT_WORK_BUDGET_MS;
-input bool   InpARL_EnableFileWrites = true;   // RUN009: runtime status/manifest publication only
+input bool   InpARL_EnableFileWrites = false;  // scaffold default: no runtime writes
 input bool   InpARL_PrintStartupSummary = true;
 
 input group "ARL Safety"
@@ -133,9 +133,6 @@ int OnInit()
    ARL_Bootstrap_Init();
    ARL_Heartbeat_Init();
    ARL_Scheduler_Init();
-   ARL_RuntimeMetrics_Init();
-   ARL_ErrorLedger_Init();
-   ARL_StatusWriter_Init();
 
    int timer_seconds = InpARL_TimerSeconds;
    if(timer_seconds < 1)
@@ -164,9 +161,6 @@ void OnTick()
 
 void OnTimer()
   {
-   uint cycle_start = GetTickCount();
    ARL_Heartbeat_Tick();
    ARL_Scheduler_Tick();
-   ARL_StatusWriter_Publish(InpARL_EnableFileWrites, InpARL_TimerSeconds, InpARL_WorkBudgetMs);
-   ARL_RuntimeMetrics_RecordCycle((int)(GetTickCount() - cycle_start));
   }
