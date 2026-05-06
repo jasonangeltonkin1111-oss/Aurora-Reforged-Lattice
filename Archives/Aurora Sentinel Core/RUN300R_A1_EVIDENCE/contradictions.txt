@@ -1,0 +1,16 @@
+RUN300R-A1 CONTRADICTION LEDGER
+
+| Claim A | Claim B | Source A | Source B | Evidence rank A | Evidence rank B | Which outranks? | Resolution | Pause required? |
+|---|---|---|---|---:|---:|---|---|---|
+| Active package is RUN299R-C1 | Available logs carry RUN238/RUN141 runtime identity | ASC_Version/control files | function_results/heartbeat | 3 | 7/8 old observed window | neither can prove combined runtime | Fresh identity-locked logs required | yes |
+| User sees no Market Board | Old logs show board attempted/skipped/failing, not necessarily unscheduled | screenshot/user context | logs | 2 | 7/8 old window | logs explain old-window behavior but not current RUN299R-C1 | Capture current tree + logs together | yes |
+| User suspects path mess | Source contract still writes Market Board to root server path | user context | ASC_MarketBoardWriter | 2 | 3 | source for path contract | Do not patch path without FileIO/path proof | yes |
+| SDP might not be scheduled | Old heartbeat shows deep child payload attached/running/cadence states and SDP files exist | user suspicion | heartbeat/evidence tree/source | 2 | 7/8 old window + 3 source | old evidence/source outrank suspicion for old window | Need fresh scheduler telemetry | yes |
+| Market Board path should be root | Market Board absent from root screenshot/package evidence | source path contract | screenshot/evidence root | 3 | 2 | source for expected path; screenshot for symptom only | Diagnose non-publication, not path mutation | yes |
+| L4 committed rows exist | Top10 batch held by missing L2 packets | heartbeat L4 trace | heartbeat top10 trace | 7/8 old | 7/8 old | contradiction within same runtime evidence | L2 packet proof remains required before child currentness | yes |
+| RUN299R-C1 compiled/repaired compile blocker | Runtime publication still failing/not proven | RUN299R_C1_REPORT/source | available old logs / missing fresh logs | 3/2 | 7/8 old window | compile repair does not prove runtime | Separate compile proof from live proof | yes |
+| Source package may seem mismatched | Source-zip authority cannot be inferred stale from mismatch alone | memory/report suspicion | RUN300R-A1 law/source files | 1/2 | 3 | active source package | HOLD, do not call zip outdated | yes |
+| File absent in root | Artifact could route elsewhere | screenshot/evidence root | source path contracts | 2 | 3 | source contract says Market Board root; SDP routed subfolders | Map contract before patch | yes |
+| File present/readback pending | Presence is not currentness proof | evidence tree | data contract/readback principle/source state | 2/7 old | 3 source + research | readback proof required | yes |
+| Source-context match | Runtime readback proof | code/report source fields | missing identity-locked runtime output | 3 | missing | missing evidence controls | Do not claim readiness | yes |
+| User wants fixing now | Audit required before source/path patch | user prompt | source/log contradictions | 2 | 3 + log evidence | audit wins | No patch in RUN300R-A1 | yes |

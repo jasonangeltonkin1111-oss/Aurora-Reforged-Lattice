@@ -1,0 +1,25 @@
+RUN300R-A1 LIVE LOG TRIAGE MAP
+
+Available logs inspected:
+- evidence/Upcomers-Server/Workbench/logs/function_results.log
+- evidence/Upcomers-Server/Workbench/logs/heartbeat_telemetry.log
+
+Decoded runtime window:
+- function_results: 782 rows, 2026.05.03 13:15:00 through 2026.05.03 13:29:43
+- heartbeat: 77 rows, 2026.05.03 13:15:01 through 2026.05.03 13:28:53
+
+Identity issue:
+- logs include old RUN238/RUN141 runtime identity tokens.
+- therefore logs cannot prove RUN299R-C1 live behavior.
+
+Old-window findings:
+- Market Board writer attempted/failing with required-token contract failure: missing_token=Operator Command Surface.
+- Heartbeat board_result includes skipped, failure, idle.
+- board_skip_reason includes write_budget_time_exhausted_pre_admission.
+- budget_state mostly budget_pressure; timer_pressure_state mostly timer_pressure_possible.
+- Top10 batch includes warmup_gate_hold, running, cadence_hold.
+- Early warmup rows show missing_packet for visible Top10 symbols.
+- Child work is present: top5_deep_child_payload_attached and deep_analysis_trigger_published appear.
+
+Diagnosis ceiling:
+Useful as old-window diagnosis; not current RUN299R-C1 proof.

@@ -1,0 +1,4 @@
+BOARD_CHILD_ALIGNMENT_DIAGNOSTIC_BEGIN: FOUND count=1 samples=Market Board.txt
+SYMBOL_IDENTITY_DIAGNOSTIC_BEGIN: FOUND count=511 samples=Symbol Data Packs/EURUSD_SYMBOL_DATA_PACK.txt, Symbol Data Packs/NZDCAD_SYMBOL_DATA_PACK.txt, Symbol Data Packs/XAUUSD_SYMBOL_DATA_PACK.txt, Symbol Data Packs/GlobalTop10/66.xhkg_SYMBOL_DATA_PACK.txt, Symbol Data Packs/GlobalTop10/BCHNUSD.nx_SYMBOL_DATA_PACK.txt
+DUPLICATE_ROUTE_DIAGNOSTIC_BEGIN: FOUND count=344 samples=Symbol Data Packs/EURUSD_SYMBOL_DATA_PACK.txt, Symbol Data Packs/NZDCAD_SYMBOL_DATA_PACK.txt, Symbol Data Packs/XAUUSD_SYMBOL_DATA_PACK.txt, Symbol Data Packs/GlobalTop10/66.xhkg_SYMBOL_DATA_PACK.txt, Symbol Data Packs/GlobalTop10/BCHNUSD.nx_SYMBOL_DATA_PACK.txt
+TOP5_BUCKET_COUNT_DIAGNOSTIC_BEGIN: FOUND count=1 samples=Market Board.txt

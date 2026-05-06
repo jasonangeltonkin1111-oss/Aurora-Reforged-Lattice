@@ -1,0 +1,86 @@
+RUN254R derived evidence inventory (created by audit; does not mutate runtime evidence)
+
+Upcomers-Server/Artifact Bundle Manifest.txt
+Upcomers-Server/Dossiers/GlobalTop10/_staging/AAVEUSD.nx.txt
+Upcomers-Server/Dossiers/GlobalTop10/_staging/EURUSD.txt
+Upcomers-Server/Dossiers/GlobalTop10/_staging/JPCJPY.c.txt
+Upcomers-Server/Dossiers/GlobalTop10/_staging/UKOIL.c.txt
+Upcomers-Server/Dossiers/Top5PerBucket/_family_manifest.txt
+Upcomers-Server/Dossiers/Top5PerBucket/_staging/_staging_manifest.txt
+Upcomers-Server/Dossiers/Top5PerBucket/_staging/crypto/AAVEUSD.nx.txt
+Upcomers-Server/Dossiers/Top5PerBucket/_staging/crypto/ADAUSD.nx.txt
+Upcomers-Server/Dossiers/Top5PerBucket/_staging/crypto/ALGOUSD.nx.txt
+Upcomers-Server/Dossiers/Top5PerBucket/_staging/crypto/APEUSD.nx.txt
+Upcomers-Server/Dossiers/Top5PerBucket/_staging/crypto/ATOMUSD.nx.txt
+Upcomers-Server/Dossiers/Top5PerBucket/_staging/energy/UKOIL.c.txt
+Upcomers-Server/Dossiers/Top5PerBucket/_staging/energy/USOIL.c.txt
+Upcomers-Server/Dossiers/Top5PerBucket/_staging/energy/XNGUSD.txt
+Upcomers-Server/Dossiers/Top5PerBucket/_staging/fx/EURUSD.txt
+Upcomers-Server/Dossiers/Top5PerBucket/_staging/fx/GBPUSD.txt
+Upcomers-Server/Dossiers/Top5PerBucket/_staging/fx/USDJPY.txt
+Upcomers-Server/Dossiers/Top5PerBucket/archive/20260503_2230/_archive_manifest.txt
+Upcomers-Server/Dossiers/Top5PerBucket/crypto/AAVEUSD.nx.txt
+Upcomers-Server/Dossiers/Top5PerBucket/crypto/ALGOUSD.nx.txt
+Upcomers-Server/Dossiers/Top5PerBucket/crypto/ATOMUSD.nx.txt
+Upcomers-Server/Dossiers/Top5PerBucket/crypto/_bucket_manifest.txt
+Upcomers-Server/Dossiers/Top5PerBucket/energy/USOIL.c.txt
+Upcomers-Server/Dossiers/Top5PerBucket/energy/_bucket_manifest.txt
+Upcomers-Server/Dossiers/Top5PerBucket/fx/EURUSD.txt
+Upcomers-Server/Dossiers/Top5PerBucket/fx/GBPUSD.txt
+Upcomers-Server/Dossiers/Top5PerBucket/fx/_bucket_manifest.txt
+Upcomers-Server/Dossiers/Top5PerBucket/indices/_bucket_manifest.txt
+Upcomers-Server/Market Board Archive/_latest_market_board_archive_manifest.txt
+Upcomers-Server/Market Board Archive/market_board_snapshot_slot_22.txt
+Upcomers-Server/Market Board.txt
+Upcomers-Server/Open Symbol Snapshot.txt
+Upcomers-Server/Scanner Status.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/crypto/AAVEUSD.nx_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/crypto/ADAUSD.nx_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/crypto/ALGOUSD.nx_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/crypto/APEUSD.nx_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/crypto/ATOMUSD.nx_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/energy/UKOIL.c_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/energy/USOIL.c_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/energy/XNGUSD_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/fx/EURUSD_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/fx/GBPUSD_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/fx/USDJPY_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/indices/DJCUSD.c_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/indices/JPCJPY.c_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/indices/NACUSD.c_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/indices/RUSS2000.c_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/Top5PerBucket/indices/SPCUSD.c_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/crypto/20260503_223213/AAVEUSD.nx_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/crypto/20260503_223213/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/crypto/20260503_223220/ADAUSD.nx_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/crypto/20260503_223220/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/crypto/20260503_223225/ALGOUSD.nx_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/crypto/20260503_223225/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/crypto/20260503_223228/APEUSD.nx_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/crypto/20260503_223228/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/crypto/20260503_223231/ATOMUSD.nx_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/crypto/20260503_223231/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/energy/20260503_223236/UKOIL.c_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/energy/20260503_223236/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/energy/20260503_223240/USOIL.c_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/energy/20260503_223240/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/energy/20260503_223243/XNGUSD_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/energy/20260503_223243/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/fx/20260503_223247/EURUSD_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/fx/20260503_223247/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/fx/20260503_223253/GBPUSD_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/fx/20260503_223253/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/fx/20260503_223256/USDJPY_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/fx/20260503_223256/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/indices/20260503_223259/DJCUSD.c_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/indices/20260503_223259/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/indices/20260503_223302/JPCJPY.c_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/indices/20260503_223302/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/indices/20260503_223306/NACUSD.c_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/indices/20260503_223306/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/indices/20260503_223310/RUSS2000.c_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/indices/20260503_223310/_archive_manifest.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/indices/20260503_223315/SPCUSD.c_SYMBOL_DATA_PACK.txt
+Upcomers-Server/Symbol Data Packs/archive/Top5PerBucket/indices/20260503_223315/_archive_manifest.txt
+Upcomers-Server/Workbench/logs/function_results.log
+Upcomers-Server/Workbench/logs/heartbeat_telemetry.log

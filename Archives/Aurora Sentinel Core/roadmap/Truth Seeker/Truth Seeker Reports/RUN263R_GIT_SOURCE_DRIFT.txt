@@ -1,0 +1,13 @@
+# RUN263R Git / Source-of-Truth Drift
+
+GitHub repository checked: `jasonangeltonkin1111-oss/Aurora-Sentinel-Scanner`, default branch `main`.
+
+GitHub `main` fetched `ASC_Version.mqh` reports RUN261R, package `TRUTH_SEEKER_RUN261R.zip`, and next source RUN262R. Search for a RUN262R Lite archive topology commit returned no commit, and branch search for RUN262 returned no branches.
+
+Uploaded source package reports:
+- ASC_VERSION_LABEL: RUN262R-LiteArchiveTopologyRepair
+- ASC_TRUTH_SEEKER_CURRENT_RUN: RUN262R
+- ASC_TRUTH_SEEKER_OUTPUT_PACKAGE_NAME: TRUTH_SEEKER_RUN262R.zip
+- ASC_TRUTH_SEEKER_NEXT_LIVE_PROOF_RUN: RUN263R_BOUNDED_LIVE_PROOF_AFTER_RUN261_RUN262
+
+Conclusion: Git main is behind the uploaded package/live artifact identity. If Git main is supposed to be source truth, deployment truth is broken. If the uploaded package is intended source truth, RUN262 must be committed/synced before treating Git as authoritative.

@@ -1,0 +1,799 @@
+#ifndef __ASC_CONSTANTS_MQH__
+#define __ASC_CONSTANTS_MQH__
+
+#define ASC_NAME                     "Aurora Sentinel Core"
+#define ASC_RUNTIME_ROOT_FOLDER      "Aurora Sentinel Core"
+#define ASC_MARKET_BOARD_FILE        "Market Board.txt"
+#define ASC_CURRENT_FOCUS_FILE       "Dossier.txt" // Backward-compatible alias only: Root Dossier.txt is the selected-symbol dossier surface; no independent legacy selected-symbol alias artifact exists.
+#define ASC_OPEN_SYMBOL_SNAPSHOT_FILE "Open Symbol Snapshot.txt"
+#define ASC_ARTIFACT_BUNDLE_MANIFEST_FILE "Artifact Bundle Manifest.txt"
+#define ASC_SCANNER_STATUS_FILE    "Scanner Status.txt"
+#define ASC_DOSSIER_FOLDER           "Dossiers"
+#define ASC_WORKBENCH_FOLDER         "Workbench"
+#define ASC_TEMP_FOLDER              "temp"
+#define ASC_FAILED_FOLDER            "failed"
+#define ASC_LOGS_FOLDER              "logs"
+#define ASC_FUNCTION_RESULT_LOGFILE  "function_results.log"
+#define ASC_HEARTBEAT_LOGFILE        "heartbeat_telemetry.log"
+
+// Truth Seeker RUN141R: Dossier-first / HUD-off operator workflow gate.
+// HUD source is retained for a later repair phase; runtime HUD work is disabled by default.
+#define ASC_HUD_ENABLED_DEFAULT false
+#define ASC_HUD_RUNTIME_DISABLED_BY_DEFAULT true
+#define ASC_OPERATOR_PRIMARY_SURFACE "dossier_folder"
+#define ASC_HUD_REPAIR_DEFERRED true
+#define ASC_HUD_OFF_WORKFLOW_TOKEN "RUN141R_dossier_first_hud_runtime_disabled_by_default"
+
+#define ASC_HEARTBEAT_SECONDS        1
+// L0 is identity/classification ownership (non-runtime cadence owner).
+// Runtime heartbeat cadence begins at L1 and remains 1-second lane-driven dispatch.
+#define ASC_L1_TICK_FRESHNESS_SEC    300
+#define ASC_SCAN_SYMBOL_BUDGET       224
+#define ASC_L1_BROAD_PACKET_TARGET   224
+#define ASC_L1_BURST_MAX_PER_HEARTBEAT 4
+#define ASC_L1_RECHECK_OPEN_SEC      60
+#define ASC_L1_RECHECK_CLOSED_SEC    300
+#define ASC_L1_RECHECK_UNCERTAIN_SEC 15
+#define ASC_L1_RECHECK_UNKNOWN_SEC   5
+#define ASC_L1_CONFIRMATION_RETRY_CAP 3
+#define ASC_L1_BOOTSTRAP_MAX_SECONDS 90
+#define ASC_L1_BOOTSTRAP_MIN_COVERAGE_PCT 95
+#define ASC_L1_BOOTSTRAP_UNKNOWN_PCT 2
+#define ASC_L1_UNCERTAIN_BACKOFF_MULTIPLIER 2
+#define ASC_WRITE_ARTIFACT_BUDGET    128
+#define ASC_BOOTSTRAP_DOSSIER_FLOOD_BUDGET 640
+#define ASC_BOOTSTRAP_DOSSIER_FLOOD_MIN_BUDGET 96
+#define ASC_WRITE_STARVATION_BEATS   2
+#define ASC_PARTIAL_WRITE_MIN_ASSESSED 48
+#define ASC_L1_WARMUP_UNKNOWN_MAX    0
+#define ASC_L1_WARMUP_UNCERTAIN_MAX  16
+#define ASC_L1_STALE_SYMBOL_MAX      24
+#define ASC_L1_PARTIAL_WRITE_BEATS   2
+#define ASC_L1_MIN_FULL_CYCLE_ASSESSED 64
+#define ASC_L1_READY_UNKNOWN_MAX    0
+#define ASC_L1_READY_UNCERTAIN_MAX  16
+#define ASC_L1_STALE_AGE_SEC        900
+#define ASC_DOSSIER_MIN_PUBLISH_INTERVAL_SEC 45
+#define ASC_DOSSIER_STRUCTURAL_DELTA_MIN 32
+#define ASC_WRITE_FAILURE_COOLDOWN_BASE_SEC 8
+#define ASC_WRITE_FAILURE_COOLDOWN_MAX_SEC 45
+#define ASC_DOSSIER_FAIL_CAP_PER_BEAT 3
+#define ASC_DOSSIER_FAIL_STREAK_THRESHOLD 2
+#define ASC_DOSSIER_BACKOFF_BASE_SEC 20
+#define ASC_DOSSIER_BACKOFF_MAX_SEC 180
+#define ASC_MARKET_BOARD_MAX_PUBLISH_AGE_SEC 60
+#define ASC_ESSENTIAL_FAIL_STREAK_THRESHOLD 2
+#define ASC_ESSENTIAL_BACKOFF_BASE_SEC 30
+#define ASC_ESSENTIAL_BACKOFF_MAX_SEC 300
+#define ASC_L2_PACKET_BUDGET_PER_HEARTBEAT 100
+// L2 internal cadence doctrine (single layer, two internal cadence families):
+// - L2-live: market-watch quote/day-structure/volatility-friction-liquidity truth.
+// - L2-slow: broker/spec/session/swap/margin metadata truth.
+#define ASC_L2_FRESH_AGE_SEC 5
+#define ASC_L2_AGING_AGE_SEC 20
+#define ASC_L2_STALE_AGE_SEC 60
+#define ASC_L2_DEGRADED_AGE_SEC 180
+#define ASC_L2_RECHECK_OPEN_SEC 10
+#define ASC_L2_RECHECK_AGING_SEC 5
+#define ASC_L2_RECHECK_REPAIR_SEC 2
+#define ASC_L2_SPEC_RECHECK_SEC 900
+#define ASC_L2_SPEC_STALE_AGE_SEC 21600
+#define ASC_L2_SPEC_DEGRADED_AGE_SEC 86400
+
+// L2-live aliases (doctrinal naming; behavior preserved by mapping to current constants).
+#define ASC_L2_LIVE_RECHECK_OPEN_SEC ASC_L2_RECHECK_OPEN_SEC
+#define ASC_L2_LIVE_RECHECK_AGING_SEC ASC_L2_RECHECK_AGING_SEC
+#define ASC_L2_LIVE_RECHECK_REPAIR_SEC ASC_L2_RECHECK_REPAIR_SEC
+#define ASC_L2_LIVE_MICRO_RETRY_WINDOW_MS 8
+#define ASC_L2_LIVE_MICRO_RETRY_MAX_ATTEMPTS 4
+#define ASC_L2_LIVE_ANALYTIC_STICKY_MAX_AGE_SEC 120
+
+// L2-slow aliases (doctrinal naming; behavior preserved by mapping to current constants).
+#define ASC_L2_SLOW_SPEC_RECHECK_SEC ASC_L2_SPEC_RECHECK_SEC
+#define ASC_L2_SLOW_SPEC_STALE_AGE_SEC ASC_L2_SPEC_STALE_AGE_SEC
+#define ASC_L2_SLOW_SPEC_DEGRADED_AGE_SEC ASC_L2_SPEC_DEGRADED_AGE_SEC
+#define ASC_L2_SLOW_BOOTSTRAP_RETRY_CAP 24
+
+
+// Truth Seeker RUN113R: dossier publication policy + cadence/performance proof tokens.
+#define ASC_DOSSIER_PUBLICATION_MODE "selected_and_families_only"
+#define ASC_ROOT_ALL_SYMBOL_DOSSIERS_ENABLED false
+#define ASC_ROOT_DIRECT_SYMBOL_DOSSIERS_COMPAT_ENABLED false
+#define ASC_ROOT_DIRECT_SYMBOL_DOSSIER_POLICY_RUN193 "direct_root_Dossiers_symbol_txt_disabled_by_default_toplist_children_and_current_focus_preserved"
+#define ASC_RUN193_ROOT_DIRECT_SYMBOL_SUPPRESSION_PATCH "source_gate_open_refresh_and_writer_level_noop_no_delete_no_fileio_no_child_topology_change"
+#define ASC_GLOBALTOP10_DOSSIERS_ENABLED true
+#define ASC_TOP5_PER_BUCKET_DOSSIERS_ENABLED true
+#define ASC_CURRENT_FOCUS_ENABLED true
+#define ASC_SELECTED_SYMBOL_DOSSIER_ENABLED true
+#define ASC_DIAGNOSTIC_ALL_SYMBOL_DOSSIERS_ENABLED false
+#define ASC_LEGACY_ALL_SYMBOL_DOSSIERS_RETAINED true
+#define ASC_LEGACY_ROOT_DOSSIER_CLEANUP_PENDING true
+#define ASC_ROOT_ALL_SYMBOL_DOSSIER_SKIP_REASON "root_all_symbol_dossier_skipped_policy"
+#define ASC_ROOT_DIRECT_SYMBOL_DOSSIER_SKIP_REASON_RUN193 "run193_direct_root_dossier_symbol_output_suppressed_policy"
+#define ASC_DOSSIER_SELECTED_OR_FAMILY_EXCEPTION_REASON "selected_or_family_exception"
+#define ASC_DIAGNOSTIC_ALL_SYMBOL_MODE_OFF_REASON "diagnostic_all_symbol_mode_off"
+#define ASC_MARKET_BOARD_PUBLISH_CADENCE_SEC 300
+#define ASC_MARKET_BOARD_ARCHIVE_ENABLED true
+#define ASC_MARKET_BOARD_ARCHIVE_CADENCE_SEC 3600
+#define ASC_MARKET_BOARD_ARCHIVE_RETENTION_SLOTS 48
+#define ASC_MARKET_BOARD_ARCHIVE_NO_CHANGE_SKIP true
+#define ASC_MARKET_BOARD_ARCHIVE_HISTORY_ONLY true
+#define ASC_L3_CANDIDATE_REFRESH_CADENCE_SEC 1800
+#define ASC_L4_SHORTLIST_REFRESH_CADENCE_SEC 1800
+#define ASC_GLOBALTOP10_REFRESH_CADENCE_SEC 300
+#define ASC_TOP5_PER_BUCKET_REFRESH_CADENCE_SEC 300
+#define ASC_L3_WARMUP_REFRESH_CADENCE_SEC 300
+#define ASC_L4_WARMUP_OFFSET_AFTER_L3_SEC 300
+#define ASC_L4_OFFSET_AFTER_L3_SEC 300
+#define ASC_ARTIFACT_SHELL_STATUS_REFRESH_CADENCE_SEC 300
+#define ASC_SDP_SHELL_STATUS_REFRESH_CADENCE_SEC 300
+#define ASC_DOSSIER_SHELL_STATUS_REFRESH_CADENCE_SEC 300
+#define ASC_GLOBAL_FAMILY_SHELL_STATUS_REFRESH_CADENCE_SEC 300
+#define ASC_RUN243_CADENCE_SNAPSHOT_SYNC_PATCH "core_timing_30m_l3_l4_5m_warmup_5m_artifact_status_public_snapshot_child_shell_sync_no_route_fileio_rank_formula_change"
+#define ASC_PERFORMANCE_SIDE_AUDIT_STATE "active"
+#define ASC_RUN113_SAFE_CLEANUP_PATCH "routine_root_all_symbol_dossier_gate_plus_cadence_widening"
+// Truth Seeker RUN114R: Top5PerBucket depth parity + staging/archive source contract.
+#define ASC_TOP5_DEPTH_PARITY_STATE_SOURCE_PATCHED "rank1_5_existing_deep_owner_attaches_when_ready_globaltop10_style_parity"
+#define ASC_TOP5_RANK_1_3_DEEP_ATTEMPTED true
+#define ASC_TOP5_RANK_4_5_DEEP_PENDING false
+#define ASC_TOP5_STAGING_ENABLED true
+#define ASC_TOP5_ARCHIVE_ENABLED true
+#define ASC_TOP5_PROMOTE_AFTER_VALIDATE true
+#define ASC_TOP5_ARCHIVE_PREVIOUS_ON_PROMOTE true
+#define ASC_TOP5_NO_FILE_DELETION true
+#define ASC_RUN114_SAFE_CLEANUP_PATCH "legacy_rank4_5_gate_superseded_by_RUN125R_rank1_5_deep_parity_and_manifest_write_skips_when_materially_equal"
+#define ASC_RUN115_SAFE_CLEANUP_PATCH "duplicate_policy_and_top5_proof_rows_signature_gated_with_skip_counters"
+#define ASC_RUN115_PROOF_UNCHANGED_SKIP_GUARD_SEC 60
+#define ASC_TRUTH_SEEKER_RUN115R_SCOPE "telemetry_logging_reduction_top5_root_dossier_performance_hardening"
+#define ASC_TRUTH_SEEKER_RUN115R_BOUNDARY "duplicate_root_policy_and_top5_functionresults_proof_rows_throttled_preserve_run117_tokens_no_fileio_hud_rank_formula_lane_or_execution_change"
+#define ASC_TRUTH_SEEKER_RUN115R_PROOF_BOUNDARY "telemetry_logging_performance_source_patched_live_unproven"
+#define ASC_TRUTH_SEEKER_RUN115R_PATCH_SUMMARY "root_dossier_policy_skip_logging_signature_guard_top5_duplicate_decision_guard_skip_counters_preserve_run117_proof_tokens"
+#define ASC_RUN116_SAFE_CLEANUP_PATCH "run117_exact_duplicate_skip_alias_tokens_and_top5_decision_target_path_signature_guard"
+#define ASC_RUN117_SAFE_CLEANUP_PATCH "top5_archive_staging_marker_manifests_no_delete_no_fileio_rank_or_lane_change"
+#define ASC_RUN118_SAFE_CLEANUP_PATCH "top5_snapshot_unchanged_rebuild_skip_active_archive_then_prune_staging_clear"
+#define ASC_RUN126_SAFE_CLEANUP_PATCH "top5_manifest_no_change_skip_and_quote_unavailable_owner_trace"
+#define ASC_RUN127_SAFE_CLEANUP_PATCH "top5_bucket_path_guard_before_body_build_and_run130_contract_lock_no_rank_fileio_hud_execution_change"
+#define ASC_RUN128_SAFE_CLEANUP_PATCH "currentness_actionability_source_local_helper_and_aggregate_tokens_no_per_symbol_spam"
+
+// Truth Seeker RUN067R: cross-artifact alignment and contradiction labels.
+// Advisory vocabulary only: no score/rank/selection/publication/execution behavior change.
+#define ASC_ALIGNMENT_ADVISORY_ONLY_LABEL "advisory_only"
+#define ASC_ALIGNMENT_NON_BLOCKING_LABEL "cannot_block_publication"
+#define ASC_ALIGNMENT_NO_TRADE_SIGNAL_LABEL "not_trade_permission_or_entry_signal"
+#define ASC_ALIGNMENT_NO_SCORE_RANK_CHANGE_LABEL "cannot_change_score_rank_or_selection"
+#define ASC_PROOF_SCOPE_SOURCE_SUPPORTED "source_supported"
+#define ASC_PROOF_SCOPE_RUNTIME_OBSERVED "runtime_observed"
+#define ASC_PROOF_SCOPE_SOURCE_PATCHED_LIVE_UNPROVEN "source_patched_live_unproven"
+#define ASC_PROOF_SCOPE_PRE_PATCH_LIVE_PROVEN_POST_PATCH_UNPROVEN "pre_patch_live_proven_post_patch_unproven"
+#define ASC_PROOF_SCOPE_SCENARIO_ABSENT_UNTESTED "scenario_absent_untested"
+#define ASC_PROOF_SCOPE_RETAINED_LAST_GOOD "retained_last_good"
+#define ASC_PROOF_SCOPE_UNAVAILABLE "unavailable"
+#define ASC_PROOF_SCOPE_PARTIAL "partial"
+#define ASC_PROOF_SCOPE_CURRENT "current"
+#define ASC_PROOF_SCOPE_ARCHIVE "archive"
+#define ASC_CONTRADICTION_MARKET_BOARD_VS_DOSSIER_MISMATCH "market_board_vs_dossier_mismatch"
+#define ASC_CONTRADICTION_CURRENT_FOCUS_VS_DOSSIER_MISMATCH "current_focus_vs_dossier_mismatch"
+#define ASC_CONTRADICTION_SCORE_VS_RANK_MISMATCH "score_vs_rank_mismatch"
+#define ASC_CONTRADICTION_STALE_SOURCE_PROJECTION "stale_source_projection"
+#define ASC_CONTRADICTION_SOURCE_SUPPORTED_NOT_RUNTIME_OBSERVED "source_supported_not_runtime_observed"
+#define ASC_CONTRADICTION_PRE_PATCH_LIVE_PROVEN_POST_PATCH_UNPROVEN "pre_patch_live_proven_post_patch_unproven"
+#define ASC_CONTRADICTION_DEEP_ANALYSIS_OVERCLAIM "deep_analysis_overclaim"
+#define ASC_CONTRADICTION_PORTFOLIO_HISTORY_ACTIVE_EXPOSURE_CONFUSION "portfolio_history_vs_active_exposure_confusion"
+#define ASC_CONTRADICTION_GLOBALTOP10_CURRENT_ARCHIVE_CONFUSION "globaltop10_current_vs_archive_confusion"
+#define ASC_CONTRADICTION_UNAVAILABLE_AS_CLEAN_TRUTH "unavailable_as_clean_truth"
+#define ASC_CONTRADICTION_RETAINED_LAST_GOOD_AS_CURRENT "retained_last_good_as_current"
+#define ASC_CONTRADICTION_TRADE_PERMISSION_FALSEHOOD_MISSING "trade_permission_falsehood_missing"
+#define ASC_CONTRADICTION_ENTRY_SIGNAL_FALSEHOOD_MISSING "entry_signal_falsehood_missing"
+
+// Truth Seeker RUN092R: Market Board <-> GlobalTop10 <-> Dossier alignment contradiction classes.
+// Advisory/proof vocabulary only: no rank/order/formula/FileIO/HUD/execution behavior change.
+#define ASC_CONTRADICTION_BOARD_TOP_SYMBOL_MISSING_CHILD "board_top_symbol_missing_child"
+#define ASC_CONTRADICTION_BOARD_RANK_CHILD_RANK_MISMATCH "board_rank_child_rank_mismatch"
+#define ASC_CONTRADICTION_BOARD_SYMBOL_CHILD_SYMBOL_MISMATCH "board_symbol_child_symbol_mismatch"
+#define ASC_CONTRADICTION_BOARD_SIGNATURE_CHILD_SIGNATURE_MISMATCH "board_signature_child_signature_mismatch"
+#define ASC_CONTRADICTION_CHILD_CURRENTNESS_WEAKER_THAN_BOARD "child_currentness_weaker_than_board"
+#define ASC_CONTRADICTION_CHILD_PARTIAL_BUT_BOARD_COMPLETE "child_partial_but_board_complete"
+#define ASC_CONTRADICTION_DOSSIER_SYMBOL_MISMATCH "dossier_symbol_mismatch"
+#define ASC_CONTRADICTION_DOSSIER_SOURCE_RUN_MISMATCH "dossier_source_run_mismatch"
+#define ASC_CONTRADICTION_DOSSIER_SECTION_INCOMPLETE_BUT_CHILD_COMPLETE "dossier_section_incomplete_but_child_complete"
+#define ASC_CONTRADICTION_DEEP_PENDING_BUT_BOARD_IMPLIES_DEEP_COMPLETE "deep_pending_but_board_implies_deep_complete"
+#define ASC_CONTRADICTION_RETAINED_CHILD_MARKED_CURRENT "retained_child_marked_current"
+#define ASC_CONTRADICTION_STALE_DOSSIER_MARKED_CURRENT "stale_dossier_marked_current"
+
+// Truth Seeker RUN093R: selected-symbol Dossier <-> Current Focus mirror contradiction classes.
+// Advisory/proof vocabulary only: no rank/order/formula/FileIO/HUD/execution behavior change.
+#define ASC_CONTR_CF_NONE_BUT_CURRENT "selected_symbol_none_but_current_focus_current"
+#define ASC_CONTR_CF_KNOWN_BUT_MISSING "selected_symbol_known_but_current_focus_missing"
+#define ASC_CONTRADICTION_CURRENT_FOCUS_SYMBOL_MISMATCH "current_focus_symbol_mismatch"
+#define ASC_CONTRADICTION_CURRENT_FOCUS_SOURCE_RUN_MISMATCH "current_focus_source_run_mismatch"
+#define ASC_CONTRADICTION_SELECTED_DOSSIER_SOURCE_RUN_MISMATCH "selected_dossier_source_run_mismatch"
+#define ASC_CONTR_CF_NEWER_THAN_DOSSIER "current_focus_newer_than_source_dossier_unproven"
+#define ASC_CONTR_CF_RICHER_THAN_DOSSIER "current_focus_richer_than_source_dossier_unproven"
+#define ASC_CONTR_CF_THINNER_NO_DEGRADE "current_focus_thinner_than_source_dossier_without_degradation"
+#define ASC_CONTR_DOSSIER_PARTIAL_CF_COMPLETE "source_dossier_partial_but_current_focus_complete"
+#define ASC_CONTRADICTION_DEEP_PENDING_BUT_CURRENT_FOCUS_COMPLETE "deep_pending_but_current_focus_complete"
+#define ASC_CONTRADICTION_RETAINED_CURRENT_FOCUS_MARKED_CURRENT "retained_current_focus_marked_current"
+#define ASC_CONTRADICTION_STALE_CURRENT_FOCUS_MARKED_CURRENT "stale_current_focus_marked_current"
+#define ASC_CONTRADICTION_CURRENT_FOCUS_TRUTH_OWNER_DRIFT "current_focus_truth_owner_drift"
+#define ASC_CONTRADICTION_MIRROR_RELATION_MISSING "mirror_relation_missing"
+#define ASC_CONTRADICTION_SELECTED_SYMBOL_NONE_NOT_FAILURE_MISSING "selected_symbol_none_not_failure_missing"
+
+
+// Truth Seeker RUN093R re-anchor: Phase 2A hydration classification and first-publish queue proof vocabulary.
+// Advisory/proof vocabulary only: no FileIO rewrite, HUD rewrite, rank/order/formula, strategy, execution, lot sizing, or SL/TP behavior change.
+#define ASC_DOSSIER_HYDRATION_CLASS_CLOSED_L0_L2 "CLOSED_L0_L2"
+#define ASC_DOSSIER_HYDRATION_CLASS_OPEN_L0_L4 "OPEN_L0_L4"
+#define ASC_DOSSIER_HYDRATION_CLASS_TOP10_L0_L6 "TOP10_L0_L6"
+#define ASC_DOSSIER_HYDRATION_CLASS_SELECTED_L0_L6 "SELECTED_L0_L6"
+#define ASC_DOSSIER_HYDRATION_CLASS_STALLED "STALLED"
+#define ASC_DOSSIER_HYDRATION_CLASS_INCOMPLETE "INCOMPLETE"
+#define ASC_DOSSIER_HYDRATION_CLASS_DEPENDENCY_BLOCKED "DEPENDENCY_BLOCKED"
+#define ASC_DOSSIER_HYDRATION_CLASS_TAXONOMY "CLOSED_L0_L2,OPEN_L0_L4,TOP10_L0_L6,SELECTED_L0_L6,STALLED,INCOMPLETE,DEPENDENCY_BLOCKED"
+#define ASC_DOSSIER_3KB_REASON_CLOSED_COMPACT_HONEST "closed_compact_honest"
+#define ASC_DOSSIER_3KB_REASON_OPEN_HYDRATION_INCOMPLETE "open_hydration_incomplete"
+#define ASC_DOSSIER_3KB_REASON_UNAVAILABLE_GARBAGE_SHELL "unavailable_garbage_shell"
+#define ASC_DOSSIER_3KB_REASON_DEPENDENCY_BLOCKED "dependency_blocked"
+#define ASC_DOSSIER_3KB_REASON_WRITE_BUDGET_LEFTOVER "write_budget_leftover"
+#define ASC_DOSSIER_3KB_REASON_PUBLICATION_INTERRUPTED "publication_interrupted"
+#define ASC_DOSSIER_3KB_REASON_STALLED_DUE_RETRY "stalled_due_retry"
+#define ASC_DOSSIER_3KB_REASON_RETAINED_LAST_GOOD_COMPACT "retained_last_good_compact"
+#define ASC_DOSSIER_3KB_REASON_UNKNOWN_REQUIRES_REVIEW "unknown_requires_review"
+#define ASC_DOSSIER_3KB_REASON_TAXONOMY "closed_compact_honest,open_hydration_incomplete,unavailable_garbage_shell,dependency_blocked,write_budget_leftover,publication_interrupted,stalled_due_retry,retained_last_good_compact,unknown_requires_review"
+#define ASC_WARMUP_FIRST_PUBLISH_STATE_TAXONOMY "startup_warmup_active,l1_coverage_complete,l2_snapshot_minimum_complete,l3_committed_complete,l4_shortlist_settled,globaltop10_first_publish_armed,globaltop10_first_publish_released,warmup_timeout_fail_open,warmup_timeout_degraded_publish,post_warmup_steady"
+#define ASC_DOSSIER_QUEUE_PROOF_TAXONOMY "pending,servicing,completed,stalled,resume_required,dependency_blocked,degraded_timeout_release,source_supported_runtime_unproven,root_all_symbol_dossiers_disabled_by_policy,selected_and_family_dossiers_required,family_dossier_backfill_required,root_flood_not_required,root_flood_required,root_flood_incomplete,queue_resume_required,queue_progressing,queue_stalled"
+#define ASC_RUN094_PHASE2A_PROOF_BOUNDARY "source_patched_phase2a_live_unproven_until_RUN095R"
+#define ASC_RUN094_PHASE2A_REQUIRED_QUEUE_FIELDS "queue_active,queue_cursor,queue_remaining,queue_completed,queue_stalled,backfill_pending,last_completed_symbol,last_failed_symbol,retry_count,stall_reason,dependency_block_reason,write_budget_used,max_write_budget"
+#define ASC_RUN094_WARMUP_FIRST_PUBLISH_REQUIRED_FIELDS "max_warmup_seconds,max_heartbeat_count,max_retry_cycles,minimum_useful_publish_threshold,l2_unavailable_count,l3_committed_count,l4_shortlist_settled,first_publish_status,degraded_first_publish_reason,no_freeze_escape_available,later_refresh_not_blocked_by_first_latch"
+#define ASC_RUN094_FUNCTION_RESULTS_AGGREGATE_SCOPE "one_bounded_phase2a_aggregate_line_no_per_symbol_spam"
+
+
+// Truth Seeker RUN146R: Dossier-first selected/family proof repair tokens.
+#define ASC_RUN146R_SCOPE "targeted_repair_dossier_first_queue_backfill_archive_current_family_proof"
+#define ASC_RUN146R_BOUNDARY "source_patch_no_live_no_rank_formula_fileio_hud_heartbeat_strategy_execution_change"
+#define ASC_RUN146R_PATCH_SUMMARY "selected_family_required_policy_root_flood_false_missing_repair_archive_current_proof_tokens_phase7_child_boundary"
+#define ASC_RUN146R_RESEARCH_CONSTRAINTS "official_mql5_timer_events_do_not_stack_fileflush_frequent_calls_slow_symbolinfotick_time_evidence_symbolinfosessionquote_trade_no_invented_session_truth"
+#define ASC_DOSSIER_REQUIRED_POLICY_SELECTED_FAMILY "selected_and_family_dossiers_required"
+#define ASC_DOSSIER_ROOT_DISABLED_BY_POLICY "root_all_symbol_dossiers_disabled_by_policy"
+#define ASC_DOSSIER_ROOT_FLOOD_NOT_REQUIRED "root_flood_not_required"
+#define ASC_DOSSIER_FAMILY_BACKFILL_REQUIRED "family_dossier_backfill_required"
+#define ASC_DOSSIER_QUEUE_PROGRESSING "queue_progressing"
+#define ASC_DOSSIER_QUEUE_STALLED "queue_stalled"
+#define ASC_DOSSIER_QUEUE_RESUME_REQUIRED "queue_resume_required"
+#define ASC_TOP_FAMILY_ARCHIVE_PROOF_TAXONOMY "top5_archive_present,top5_archive_missing,top5_archive_disabled_by_policy,globaltop10_archive_present,globaltop10_archive_missing,globaltop10_archive_disabled_by_policy,stale_tmp_detected,stale_tmp_quarantined,cleanup_pending,cleanup_not_attempted"
+
+// Truth Seeker RUN107R: Top5PerBucket source contract/skeleton constants.
+// Source contract only: no child Dossier hydration, no promoted current family, no rank/order/formula change.
+#define ASC_TOP5_BUCKET_FAMILY_ID "top5_per_bucket"
+#define ASC_TOP5_BUCKET_FAMILY_DISPLAY "Top5PerBucket"
+#define ASC_TOP5_BUCKET_PATH_FRAGMENT "Dossiers/Top5PerBucket"
+#define ASC_TOP5_BUCKET_FAMILY_MANIFEST "_family_manifest.txt"
+#define ASC_TOP5_BUCKET_BUCKET_MANIFEST "_bucket_manifest.txt"
+#define ASC_TOP5_BUCKET_STAGING_FOLDER "_staging"
+#define ASC_TOP5_BUCKET_ARCHIVE_FOLDER "archive"
+#define ASC_TOP5_BUCKET_STATE_NOT_STARTED "not_started"
+#define ASC_TOP5_BUCKET_STATE_SKELETON_READY "skeleton_ready"
+#define ASC_TOP5_BUCKET_STATE_QUEUED "queued"
+#define ASC_TOP5_BUCKET_STATE_PARTIAL "partial"
+#define ASC_TOP5_BUCKET_STATE_PROMOTED_CURRENT "promoted_current"
+#define ASC_TOP5_BUCKET_STATE_DEGRADED "degraded"
+#define ASC_TOP5_BUCKET_STATE_BLOCKED "blocked"
+#define ASC_TOP5_BUCKET_STATE_EMPTY_SOURCE "empty_source"
+#define ASC_TOP5_BUCKET_HYDRATION_RANK1_3 "BUCKET5_RANK1_3_L0_L6"
+#define ASC_TOP5_BUCKET_HYDRATION_RANK4_5 "BUCKET5_RANK4_5_L0_L6"
+#define ASC_TOP5_BUCKET_SAFETY_CLOSED_RETAINED "closed_retained_not_actionable"
+#define ASC_TOP5_BUCKET_SAFETY_UNCERTAIN "uncertain_not_actionable"
+#define ASC_TOP5_BUCKET_SAFETY_STALE "stale_not_current"
+#define ASC_TOP5_BUCKET_CANONICAL_IDS "fx,indices,stocks,metals,energy,crypto,rates,volatility,commodities,funds_etfs,unknown"
+#define ASC_TOP5_BUCKET_DYNAMIC_SUBFAMILY_READINESS "contract_ready_writer_deferred"
+#define ASC_TOP5_BUCKET_CADENCE_SEC 600
+#define ASC_TOP5_BUCKET_MAX_CHILD_QUEUE_PER_BEAT 1
+#define ASC_TOP5_BUCKET_PROOF_BOUNDARY "top5_lifecycle_marketboard_sync_source_patched_live_unproven"
+
+// Truth Seeker RUN068R: Layer-3 Candidate Filtering truth-purity labels.
+// Advisory/projection vocabulary only: no L3 score, admission, L4 rank, Top10, publication, or execution behavior change.
+#define ASC_L3_MEANING_CANDIDATE_RANKING_SUPPORT_ONLY "candidate_ranking_support_only"
+#define ASC_L3_SCOPE_LIGHTWEIGHT_CANDIDATE_SUPPORT "lightweight_candidate_support"
+#define ASC_L3_SOURCE_OWNER_CANDIDATE_FILTERING "Candidate Filtering"
+#define ASC_L3_SOURCE_OWNER_SELECTION_FILTER "ASC_SelectionFilter"
+#define ASC_L3_TO_L4_AUTHORITY_COMMITTED_SUPPORT_ONLY "committed_l3_support_only"
+#define ASC_L4_CONSUMES_L3_SUPPORT_ONLY "true"
+#define ASC_ARTIFACT_PROJECTION_PROJECTION_ONLY "projection_only"
+#define ASC_ARTIFACT_PROJECTION_CONSUMER_ONLY "consumer_only"
+#define ASC_ARTIFACT_PROJECTION_MIRROR_ONLY "mirror_only"
+#define ASC_WRITERS_DO_NOT_OWN_L3_TRUTH "true"
+#define ASC_FALSEHOOD_TRADE_PERMISSION_FALSE "false"
+#define ASC_FALSEHOOD_ENTRY_SIGNAL_FALSE "false"
+#define ASC_FALSEHOOD_EXECUTION_PERMISSION_FALSE "false"
+#define ASC_FALSEHOOD_FINAL_RANK_FALSE "false"
+#define ASC_FALSEHOOD_STRATEGY_EDGE_PROOF_FALSE "false"
+#define ASC_FALSEHOOD_COMPLETE_EVIDENCE_FALSE "false"
+#define ASC_FALSEHOOD_FRESH_EVIDENCE_WHEN_STALE_FALSE "false"
+#define ASC_FALSEHOOD_CLEAN_EVIDENCE_WHEN_PARTIAL_OR_UNAVAILABLE_FALSE "false"
+#define ASC_L3_BEHAVIOR_CHANGE_NONE "no"
+
+// Truth Seeker RUN069R: Layer-4 Shortlist Selection authority truth-purity labels.
+// Advisory/projection vocabulary only: no L4 formula, order, Top10, Market Board, FileIO, HUD, or execution behavior change.
+#define ASC_L4_MEANING_SHORTLIST_PRIORITY_ORDERING_ONLY "shortlist_priority_ordering_only"
+#define ASC_L4_SCOPE_CONTEXTUAL_PRIORITY_SUPPORT "contextual_priority_support"
+#define ASC_L4_RANK_VALIDITY_SCOPE_CONTEXTUAL_PRIORITY_ORDERING_SUPPORT "contextual_priority_ordering_support"
+#define ASC_L4_SCORE_VS_RANK_MISMATCH_ADVISORY_ONLY "advisory_only"
+#define ASC_L4_RANK_MAY_DIFFER_FROM_RAW_L3_SCORE "true"
+#define ASC_L4_NOT_DEEP_ANALYSIS_TRUE "true"
+#define ASC_L4_SELECTED_SYMBOL_REQUIRES_L5_FOR_DEPTH_TRUE "true"
+#define ASC_L4_L5_NOT_IMPLIED_BY_RANK_TRUE "true"
+#define ASC_WRITERS_DO_NOT_OWN_L4_TRUTH "true"
+#define ASC_EXPOSURE_OPEN_POSITIONS_ACTIVE "open_positions_are_active_exposure"
+#define ASC_EXPOSURE_PENDING_ORDERS_FUTURE "pending_orders_are_future_exposure"
+#define ASC_EXPOSURE_CLOSED_HISTORY_CONTEXT_ONLY "closed_history_context_only"
+#define ASC_EXPOSURE_CLOSED_HISTORY_NOT_ACTIVE "closed_history_not_active_exposure"
+#define ASC_L4_BEHAVIOR_CHANGE_NONE "no"
+
+
+// Truth Seeker RUN070R: Layer-5 Deep Selective Analysis truth-purity labels.
+// Advisory/projection vocabulary only: no L5 strategy formula, CopyRates/CopyTicks loop, timeframe, score, rank, Top10, GlobalTop10, Market Board, HUD, FileIO, or execution behavior change.
+#define ASC_L5_MEANING_DEEP_SELECTED_SYMBOL_ANALYSIS_ONLY "deep_selected_symbol_analysis_only"
+#define ASC_L5_SCOPE_SELECTED_SYMBOL_DEPTH_CONTEXT "selected_symbol_depth_context"
+#define ASC_L5_RUNS_SELECTED_SYMBOL_ONLY "true"
+#define ASC_L5_NOT_MARKET_BOARD_TRUTH_OWNER "true"
+#define ASC_L5_NOT_GLOBALTOP10_TRUTH_OWNER "true"
+#define ASC_L5_NOT_COMPLETE_EVIDENCE "true"
+#define ASC_L5_NOT_DECISIVE_WHEN_PARTIAL "true"
+#define ASC_L5_BUILT_DOES_NOT_MEAN_FRESH "true"
+#define ASC_L5_LAWFUL_DOES_NOT_MEAN_COMPLETE_SUPPORT "true"
+#define ASC_WRITERS_DO_NOT_OWN_L5_TRUTH "true"
+#define ASC_L5_BEHAVIOR_CHANGE_NONE "no"
+
+// Truth Seeker RUN071R: selected-symbol Dossier contradiction/proof-boundary surface.
+// Advisory/projection vocabulary only: no truth ownership, publication blocker, trade permission, entry signal, execution decision, veto, GlobalTop10, rank, score, FileIO, HUD, or FunctionResults behavior change.
+#define ASC_DOSSIER_CONTRADICTION_SECTION_NAME "Selected-Symbol Contradiction & Proof Boundaries"
+#define ASC_DOSSIER_CONTRADICTION_SURFACE_ADVISORY_ONLY "advisory_only"
+#define ASC_DOSSIER_CONTRADICTION_PUBLICATION_BLOCKER_FALSE "false"
+#define ASC_DOSSIER_CONTRADICTION_VETO_POWER_FALSE "false"
+#define ASC_DOSSIER_CONTRADICTION_TRUTH_OWNER_FALSE "false"
+#define ASC_DOSSIER_CONTRADICTION_ARTIFACT_PROJECTION_ONLY "projection_only"
+#define ASC_DOSSIER_CONTRADICTION_BEHAVIOR_CHANGE_NONE "no"
+
+// Truth Seeker RUN072R: Market Board contradiction/proof-boundary surface.
+// Advisory/projection vocabulary only: no Market Board order, rank, Top10, GlobalTop10, FileIO, FunctionResults, HUD, strategy, or execution behavior change.
+#define ASC_MARKET_BOARD_CONTRADICTION_SECTION_NAME "Market Board Contradiction & Proof Boundaries"
+#define ASC_MARKET_BOARD_CONTRADICTION_SURFACE_ADVISORY_ONLY "advisory_only"
+#define ASC_MARKET_BOARD_CONTRADICTION_PUBLICATION_BLOCKER_FALSE "false"
+#define ASC_MARKET_BOARD_ORDER_CHANGE_FALSE "false"
+#define ASC_MARKET_BOARD_RANK_CHANGE_FALSE "false"
+#define ASC_MARKET_BOARD_TOP10_CHANGE_FALSE "false"
+#define ASC_MARKET_BOARD_TRADE_PERMISSION_FALSE "false"
+#define ASC_MARKET_BOARD_ENTRY_SIGNAL_FALSE "false"
+#define ASC_MARKET_BOARD_EXECUTION_PERMISSION_FALSE "false"
+#define ASC_MARKET_BOARD_FINAL_TRADE_DECISION_FALSE "false"
+#define ASC_MARKET_BOARD_STRATEGY_EDGE_PROOF_FALSE "false"
+#define ASC_MARKET_BOARD_VETO_POWER_FALSE "false"
+#define ASC_MARKET_BOARD_TRUTH_OWNER_FALSE "false"
+#define ASC_MARKET_BOARD_ARTIFACT_PROJECTION_ONLY "projection_only"
+#define ASC_MARKET_BOARD_SUMMARY_PROJECTION_ONLY "true"
+#define ASC_MARKET_BOARD_OPTIONAL_SECTION_TRUE "true"
+#define ASC_MARKET_BOARD_FAIL_SOFT_TRUE "true"
+#define ASC_MARKET_BOARD_BASE_PUBLISH_INDEPENDENT_TRUE "true"
+#define ASC_MARKET_BOARD_NO_REQUIRED_TOKEN_DEPENDENCY_TRUE "true"
+#define ASC_MARKET_BOARD_NO_FILEIO_CHANGE_TRUE "true"
+#define ASC_MARKET_BOARD_NO_MANIFEST_PROMOTION_CHANGE_TRUE "true"
+#define ASC_MARKET_BOARD_LIMITATIONS_VISIBLE_TRUE "true"
+#define ASC_MARKET_BOARD_BEHAVIOR_CHANGE_NONE "no"
+
+// Truth Seeker RUN073R: selected-symbol Dossier mirror/readback closure; old legacy selected-symbol alias wording is an alias only.
+// Advisory/projection vocabulary only: no truth ownership, recompute, selection, rank, Top10, FileIO, FunctionResults, HUD, dispatcher lane, publication gate, strategy, or execution behavior change.
+#define ASC_CURRENT_FOCUS_ROLE_DOSSIER_DERIVATIVE_MIRROR "dossier_derivative_mirror"
+#define ASC_CURRENT_FOCUS_TRUTH_OWNER_FALSE "false"
+#define ASC_CURRENT_FOCUS_RECOMPUTES_TRUTH_FALSE "false"
+#define ASC_CURRENT_FOCUS_SELECTS_SYMBOL_FALSE "false"
+#define ASC_CURRENT_FOCUS_CHANGES_RANK_FALSE "false"
+#define ASC_CURRENT_FOCUS_CHANGES_TOP10_FALSE "false"
+#define ASC_CURRENT_FOCUS_PUBLICATION_BLOCKER_FALSE "false"
+#define ASC_CURRENT_FOCUS_ARTIFACT_PROJECTION_MIRROR_ONLY "mirror_only"
+#define ASC_CURRENT_FOCUS_SELECTED_SYMBOL_REQUIRED_TRUE "true"
+#define ASC_CURRENT_FOCUS_SELECTED_SYMBOL_NONE_STATUS "source_supported_runtime_unobserved"
+#define ASC_CURRENT_FOCUS_SELECTED_SYMBOL_NONE_NOT_FAILURE_TRUE "true"
+#define ASC_CURRENT_FOCUS_SELECTED_SYMBOL_NONE_NOT_LIVE_PROOF_TRUE "true"
+#define ASC_CURRENT_FOCUS_ONLY_FOR_SELECTED_SYMBOL_TRUE "true"
+#define ASC_CURRENT_FOCUS_SAME_SYMBOL_READBACK_REQUIRED_TRUE "true"
+#define ASC_CURRENT_FOCUS_CROSS_SYMBOL_OVERWRITE_FORBIDDEN_TRUE "true"
+#define ASC_CURRENT_FOCUS_PROTECTED_SAME_SYMBOL_READBACK_TRUE "true"
+#define ASC_CURRENT_FOCUS_RICHER_SAME_SYMBOL_PAYLOAD_PRESERVED_TRUE "true"
+#define ASC_CURRENT_FOCUS_POORER_PAYLOAD_CANNOT_OVERWRITE_RICHER_TRUE "true"
+#define ASC_CURRENT_FOCUS_DOSSIER_CONTRADICTION_RECOGNIZED_TRUE "true"
+#define ASC_CURRENT_FOCUS_BOARD_CONTEXT_ONLY_TRUE "true"
+#define ASC_CURRENT_FOCUS_OPTIONAL_SECTION_TRUE "true"
+#define ASC_CURRENT_FOCUS_FAIL_SOFT_TRUE "true"
+#define ASC_CURRENT_FOCUS_NO_FILEIO_CHANGE_TRUE "true"
+#define ASC_CURRENT_FOCUS_NO_MANIFEST_PROMOTION_CHANGE_TRUE "true"
+#define ASC_CURRENT_FOCUS_NO_NEW_PUBLICATION_LANE_TRUE "true"
+#define ASC_CURRENT_FOCUS_NO_DISPATCHER_HEAVY_LANE_TRUE "true"
+#define ASC_CURRENT_FOCUS_BEHAVIOR_CHANGE_NONE "no"
+#define ASC_CURRENT_FOCUS_DERIVATIVE_ONLY_TRUE "true"
+#define ASC_CURRENT_FOCUS_MIRROR_RELATION_SELECTED_SYMBOL_DOSSIER "selected_symbol_dossier_derivative"
+#define ASC_CURRENT_FOCUS_MIRROR_STATE_TAXONOMY "no_selected_symbol,selected_symbol_known,mirror_pending,mirror_current,mirror_stale,mirror_degraded,mirror_failed,mirror_retained_last_good"
+#define ASC_DOSSIER_SECTION_COMPLETENESS_TAXONOMY "absent,scaffold_only,partial,degraded,complete,not_applicable,runtime_unproven_until_RUN100R"
+#define ASC_DEEP_SECTION_STATE_TAXONOMY "not_requested,queued,pending,history_unavailable,degraded,complete,expired,retry_exhausted,runtime_unproven_until_RUN100R"
+
+
+// RUN098R Phase 3A Logging Spine: bounded aggregate evidence only.
+// No FileIO/HUD/rank/formula/strategy/execution drift is authorized by these constants.
+#define ASC_PHASE3A_LOGGING_SPINE_STATUS "live_output_audited_source_repaired_phase3a_pending_RUN101R"
+#define ASC_PHASE3A_BOUNDED_LOGGING_CONTRACT "heartbeat=aggregate_only;state_change=queue_backfill_stall_transition_only;artifact_publication=manifest_scanner_status_dossier_current_focus_market_board_summary_only;functionresults=one_major_cycle_or_state_transition_aggregate;never=per_symbol_per_timeframe_per_section_spam"
+#define ASC_PHASE3A_FUNCTIONRESULTS_REQUIRED_FIELDS "source_run_id,active_roadmap_phase,phase3a_logging_spine_status,phase2a_carry_forward_status,hydration_class_counts,three_kb_reason_counts,queue_state,backfill_state,stall_state,heartbeat_budget_state,manifest_identity_state,currentness_state,globaltop10_child_state,current_focus_mirror_state,market_board_alignment_state,contradiction_count,worst_contradiction_severity,proof_debt_count,requires_operator_review,no_trade_signal_boundary,no_execution_boundary"
+#define ASC_PHASE3A_HEARTBEAT_REQUIRED_FIELDS "heartbeat_id,beat_utc,mode,lane,sublane,phase3a_heartbeat_telemetry,active_lane,major_work_type,elapsed_ms,budget_ms,budget_state,queue_remaining,backfill_remaining,dossier_write_count,globaltop10_child_work_count,scanner_status_write,functionresults_write,deferred_work_count,skipped_due_budget_count,side_yield,side_yield_reason,readback_deferred,readback_pending,manifest_yield,sweep_yield,ui_priority_side_reduced,post_publish_elapsed_ms,side_duty_count_this_beat,hud_click_file_read_blocked,hud_priority_cache_only,current_focus_refresh_deferred,current_focus_cache_stale,deep_parse_deferred,hud_priority_render_ms,hud_cache_refresh_pending,timer_pressure_state,no_freeze_state,requires_operator_review,scan_budget,write_budget,packet_target,packet_completed,bursts,due_selected,retry_selected,scanned,l2_processed,l2_admitted,l2_changed,l2_due,scan_streak,write_streak,written,write_failures,deferred_scan,deferred_write,deep_ms,board_compose_ms,board_publish_ms,dossier_compose_ms,dossier_publish_ms,manifest_compose_ms,manifest_publish_ms,write_queue_ms,artifact_attempted,write_bottleneck_family,write_bottleneck_reason,top10_ms,side_duty_ms,dossier_sweep_ms,dossier_sweep_symbols,dossier_sweep_reads,heartbeat_ms,heartbeat_budget_ms,lane_p50_ms,lane_p95_ms,ui_priority,wake_hot,wake_warm,wake_calm,wake_dormant,l2_live_entitled,dossier_open_entitled,retention_only,layer1_readiness_trace,shortlist_publication_trace,lane_reason,defer,yield,bundle_trace,manual_refresh_trace,forced_downstream_trace,top10_batch_trace,l3_trace,l4_trace"
+#define ASC_PHASE3A_DOSSIER_EVIDENCE_FIELDS "symbol,hydration_class,expected_layer_range,actual_layer_range,file_size_bucket,section_count_bucket,three_kb_reason,currentness_state,dependency_block_reason,write_result_state,queue_state,top10_membership,selected_current_focus_relation,deep_state"
+#define ASC_PHASE3A_SUPPORT_BOUNDARY_TAXONOMY "clean_full_fresh_support,partial_support,historical_only_support,carry_pass,dependency_blocked,unavailable"
+#define ASC_PHASE3A_CONTRADICTION_SEVERITY_TAXONOMY "none,cosmetic,operator_confusing,truth_threatening,trading_dangerous,compile_runtime_blocker"
+#define ASC_PHASE3A_PERMISSION_PLACEHOLDER_TAXONOMY "not_evaluated_yet,future_phase_required,no_strategy_permission_claim"
+#define ASC_PHASE3A_NO_SPAM_BOUNDARY "no_per_symbol_functionresults_rows;no_per_timeframe_rows;no_per_section_rows;aggregate_or_state_change_only;no_heartbeat_blocking_log_loop"
+#define ASC_PHASE3A_RUN100_CAPTURE_CONTRACT "Workbench/logs/function_results.log;Workbench/logs/heartbeat_telemetry.log;Scanner Status.txt if generated;Market Board.txt if generated;Dossiers/GlobalTop10/;Dossier.txt;Artifact Bundle Manifest.txt;roadmap/Truth Seeker/TRUTH_SEEKER_ACTIVE_ROADMAP_LOG.md;roadmap/Truth Seeker/TRUTH_SEEKER_RUN100R_LIVE_EXTREME_AUDIT_CODE_REPAIR_REPORT.md;mt5/core/ASC_Version.mqh"
+#define ASC_PHASE3A_HEARTBEAT_PROOF_LINE "phase3a_heartbeat_telemetry=present"
+#define ASC_PHASE3A_FUNCTIONRESULTS_GREP_TARGET "run099_phase3a_logging_spine_aggregate_proof=present"
+
+
+// Truth Seeker RUN133R: Phase 5 non-executing horizon taxonomy + Siam permission vocabulary foundation.
+// Scanner context only: no direction, no entry timing, no sizing, no order placement, no strategy execution.
+#define ASC_PHASE5_HORIZON_TAXONOMY "horizon_unknown,horizon_scalp,horizon_intraday,horizon_session,horizon_multisession,horizon_swing_restricted,horizon_not_applicable,horizon_insufficient_evidence"
+#define ASC_PHASE5_SETUP_MODE_TAXONOMY "setup_mode_unknown,setup_mode_pullback,setup_mode_retest,setup_mode_breakout,setup_mode_rejection,setup_mode_continuation,setup_mode_no_trade,setup_mode_insufficient_evidence"
+#define ASC_PHASE5_PERMISSION_STATE_TAXONOMY "permission_unknown,permission_review_only,permission_blocked,permission_limited,permission_pending_refresh,permission_not_actionable,permission_context_ready,permission_insufficient_evidence"
+#define ASC_PHASE5_BLOCKER_LIMITER_TAXONOMY "blocker_sync_mismatch,blocker_missing_dossier,blocker_role_mismatch,blocker_stale_dossier,blocker_sample_insufficient,blocker_spread_risk,blocker_correlation_cluster,blocker_quote_unavailable,blocker_currentness_unproven,blocker_session_unavailable,blocker_alignment_pending,blocker_no_selected_symbol,blocker_rank_not_permission"
+#define ASC_PHASE5_SAFETY_BOUNDARY_TAXONOMY "no_signal,no_entry,no_direction,no_order,no_lot,no_sl_tp,no_execution,scanner_context_only,dossier_required,currentness_required,sync_required,selected_current_required"
+#define ASC_PHASE5_EDGE_GATE_TAXONOMY "permission_blocked_sync_mismatch,permission_blocked_missing_dossier,permission_blocked_role_mismatch,permission_review_pullback_preferred,permission_blocked_breakout_context_weak,permission_blocked_spread_risk,permission_limited_sample_insufficient,permission_limited_correlation_cluster,permission_future_pending_expiry_required,friction_guard_required,cluster_review_required,dossier_required_for_deep_review,confidence_cap_sample_insufficient"
+#define ASC_PHASE5_EXECUTION_ENABLED false
+#define ASC_PHASE5_BUY_SELL_OUTPUT_ENABLED false
+#define ASC_PHASE5_RANK_IS_PERMISSION false
+#define ASC_PHASE5_SOURCE_READY_TRUE "true"
+#define ASC_PHASE5_SOURCE_BOUNDARY_TEXT "Permission context is not trade authorization; horizon context is not entry timing; setup mode is review vocabulary, not a signal."
+
+// Truth Seeker RUN134R: Phase 5 non-executing Strategy Permission System surfaces/gates.
+// Source-ready review context only: no rank/order/formula, FileIO, HUD, heartbeat, or execution behavior change.
+#define ASC_PHASE5_PERMISSION_OUTPUT_STATE_TAXONOMY "permission_context_ready,permission_review_only,permission_blocked_sync_mismatch,permission_blocked_missing_dossier,permission_blocked_role_mismatch,permission_blocked_stale_dossier,permission_limited_sample_insufficient,permission_blocked_spread_risk,permission_limited_correlation_cluster,permission_pending_refresh,permission_not_actionable,permission_insufficient_evidence"
+#define ASC_PHASE5_STRATEGY_PERMISSION_GATE_TAXONOMY "sync_gate,dossier_presence_gate,dossier_role_freshness_gate,currentness_tick_evidence_gate,sample_sufficiency_gate,spread_friction_gate,correlation_cluster_gate,setup_mode_review_gate,horizon_context_gate,no_signal_boundary_gate"
+#define ASC_PHASE5_PERMISSION_SYSTEM_SOURCE_READY "phase5_strategy_permission_system_source_ready=true"
+#define ASC_PHASE5_PERMISSION_CONTEXT_ONLY_TEXT "Review context only; permission context is not trade authorization; ranking is attention only."
+#define ASC_PHASE5_PERMISSION_GATE_BOUNDARY_TEXT "Sync, dossier presence, dossier role/freshness, currentness/tick evidence, sample sufficiency, spread/friction, correlation cluster, setup mode, horizon context, and no-signal boundaries must be satisfied before review-context-ready wording."
+#define ASC_TRUTH_SEEKER_RUN134R_SCOPE "phase5_strategy_permission_system_surfaces_gates_without_execution"
+#define ASC_TRUTH_SEEKER_RUN134R_BOUNDARY "source_patch_2_phase5_permission_gates_scanner_context_only_no_rank_formula_fileio_hud_heartbeat_strategy_execution_change"
+#define ASC_TRUTH_SEEKER_RUN134R_PROOF_BOUNDARY "source_patched_live_unproven_until_RUN135_after_RUN134B"
+#define ASC_TRUTH_SEEKER_RUN134R_PATCH_SUMMARY "added_compact_non_executing_strategy_permission_gate_helpers_and_scanner_marketboard_dossier_surfaces_for_sync_dossier_currentness_sample_friction_correlation_setup_horizon_no_signal_boundaries"
+#define ASC_TRUTH_SEEKER_RUN134R_RESEARCH_CONSTRAINTS "official_mql5_timer_queue_fileflush_symbolinfotick_mqltick_git_gitattributes_windows_max_path_docs_compact_no_flush_heavy_no_broad_renormalization"
+
+
+// Truth Seeker RUN137R: Phase 6 Regime Awareness and Strategy Permission foundation.
+// Source-ready vocabulary only: no strategy execution, no trade direction, no entry, no sizing, no orders, no rank/order/formula change.
+#define ASC_PHASE6_REGIME_CONTEXT_TAXONOMY "regime_unknown,regime_trend,regime_acceleration,regime_pullback,regime_range,regime_rotation,regime_reversal,regime_exhaustion,regime_transition,regime_chop,regime_low_liquidity,regime_news_or_event_risk,regime_insufficient_evidence,regime_conflict"
+#define ASC_PHASE6_STRATEGY_SETUP_TAXONOMY "strategy_continuation,strategy_pullback,strategy_breakout,strategy_range_rotation,strategy_reversal,strategy_value_reversion,strategy_no_trade,strategy_insufficient_evidence"
+#define ASC_PHASE6_COMPATIBILITY_STATE_TAXONOMY "regime_compatible,regime_limited,regime_conflict,regime_blocked,regime_pending_refresh,regime_currentness_unproven,regime_sample_insufficient,regime_not_applicable,regime_review_required"
+#define ASC_PHASE6_BLOCKER_LIMITER_TAXONOMY "blocker_regime_unknown,blocker_regime_conflict,blocker_regime_stale,blocker_regime_currentness_unproven,blocker_regime_sample_insufficient,blocker_strategy_contradicts_regime,blocker_setup_mode_contradicts_regime,blocker_horizon_contradicts_regime,blocker_range_chop_blocks_breakout,blocker_trend_blocks_value_reversion,blocker_low_liquidity_limits_strategy"
+#define ASC_PHASE6_SAFETY_BOUNDARY_TAXONOMY "regime_label_is_not_signal,strategy_label_requires_regime_support,setup_label_requires_regime_support,conflict_state_blocks_permission_context,review_context_only,no_execution"
+#define ASC_PHASE6_SOURCE_READY_TOKEN "phase6_regime_compatibility_source_ready=true"
+#define ASC_PHASE6_STRATEGY_REQUIRES_REGIME_TOKEN "strategy_label_requires_regime_support=true"
+#define ASC_PHASE6_CONFLICT_BLOCKS_PERMISSION_TOKEN "regime_conflict_blocks_permission_context=true"
+#define ASC_PHASE6_REGIME_LABEL_NOT_SIGNAL_TOKEN "regime_label_is_not_signal=true"
+#define ASC_PHASE6_PERMISSION_GATE_EXTENSION "regime_compatibility_gate=required;regime_unknown_blocks_or_limits_permission_context=true;regime_stale_blocks_or_limits_permission_context=true;regime_conflict_blocks_permission_context=true;regime_sample_insufficient_limits_permission_context=true;strategy_setup_horizon_must_not_contradict_regime=true"
+#define ASC_PHASE6_COMPATIBILITY_RULES "continuation_requires_trend_acceleration_or_supported_pullback;pullback_requires_trend_or_continuation_support;breakout_requires_expansion_or_acceleration_support;range_rotation_requires_range_or_rotation_support;reversal_requires_exhaustion_transition_or_reversal_support;value_reversion_requires_stretched_range_or_mean_reversion_support;unknown_stale_conflicting_regime_blocks_or_limits_permission_context"
+#define ASC_PHASE6_EXECUTION_ENABLED false
+
+// Truth Seeker RUN138R: Phase 6 regime compatibility gate wiring into non-executing permission surfaces.
+// Compact text-only gates: no writer-owned regime calculation, no strategy execution, no direction, no entry, no sizing, no orders, no rank/order/formula change.
+// RUN139B: ASC_TRUTH_SEEKER_RUN138R_* run metadata macro ownership is ASC_Version.mqh only.
+#define ASC_PHASE6_GATE_WIRING_SOURCE_READY_TOKEN "phase6_regime_gates_source_ready=true"
+#define ASC_PHASE6_LIVE_PROOF_CLAIM_FALSE_TOKEN "phase6_live_proof_claim=false"
+#define ASC_PHASE6_UNKNOWN_REGIME_BLOCKS_CLEAN_PERMISSION_TOKEN "unknown_regime_blocks_clean_permission=true"
+#define ASC_PHASE6_STALE_REGIME_PENDING_REFRESH_TOKEN "stale_regime_pending_refresh=true"
+#define ASC_PHASE6_CURRENTNESS_UNPROVEN_LIMITS_PERMISSION_TOKEN "currentness_unproven_limits_permission=true"
+#define ASC_PHASE6_SAMPLE_INSUFFICIENT_CAPS_CONFIDENCE_TOKEN "sample_insufficient_caps_regime_confidence=true"
+#define ASC_PHASE6_LOW_LIQUIDITY_LIMITS_STRATEGY_TOKEN "low_liquidity_limits_strategy_context=true"
+#define ASC_PHASE6_SETUP_REQUIRES_REGIME_TOKEN "setup_label_requires_regime_support=true"
+#define ASC_PHASE6_GATE_UNKNOWN_LINE "regime_unknown|regime_review_required|blocker_regime_unknown|permission_limited_regime_unknown"
+#define ASC_PHASE6_GATE_STALE_CURRENTNESS_LINE "regime_pending_refresh|blocker_regime_stale|blocker_regime_currentness_unproven|permission_pending_refresh"
+#define ASC_PHASE6_GATE_STRATEGY_CONFLICT_LINE "regime_conflict|blocker_strategy_contradicts_regime|blocker_setup_mode_contradicts_regime|regime_conflict_blocks_permission_context"
+#define ASC_PHASE6_GATE_BREAKOUT_RANGE_CHOP_LINE "blocker_range_chop_blocks_breakout|regime_conflict|breakout_requires_expansion_or_acceleration_support"
+#define ASC_PHASE6_GATE_CONTINUATION_PULLBACK_LINE "continuation_pullback_requires_trend_acceleration_or_supported_pullback|else_regime_limited_or_regime_conflict"
+#define ASC_PHASE6_GATE_REVERSAL_VALUE_REVERSION_LINE "reversal_value_reversion_requires_exhaustion_transition_range_or_reversion_support|else_regime_review_required_limited_or_conflict"
+#define ASC_PHASE6_GATE_LOW_LIQUIDITY_EVENT_RISK_LINE "blocker_low_liquidity_limits_strategy|regime_limited|event_risk_limits_strategy_context"
+#define ASC_PHASE6_GATE_SAMPLE_INSUFFICIENT_LINE "regime_sample_insufficient|regime_limited|permission_insufficient_evidence"
+#define ASC_PHASE6_GATE_NO_SIGNAL_LINE "regime_label_is_not_signal|review_context_only|no_execution"
+
+// Truth Seeker RUN139R: Phase 6 closeout/source lock and RUN140 live-proof contract decision.
+// RUN139B: ASC_TRUTH_SEEKER_RUN139R_* run metadata macro ownership is ASC_Version.mqh only.
+#define ASC_PHASE6_SOURCE_LOCKED_TOKEN "phase6_regime_compatibility_source_locked=true"
+#define ASC_PHASE6_LIVE_PROOF_REQUIRED_TOKEN "phase6_live_proof_required=true"
+#define ASC_PHASE6_REGIME_GATE_SURFACE_READY_TOKEN "phase6_regime_gate_surface_ready=true"
+#define ASC_PHASE6_SOURCE_LOCK_STATUS_TOKEN "phase6_closeout_status=SOURCE_LOCKED_LIVE_PENDING"
+#define ASC_PHASE6_EXECUTION_DISABLED_TOKEN "phase6_execution_enabled=false"
+#define ASC_PHASE6_RUN140_CONTRACT_TOKEN "run140_live_contract_required=phase6_regime_gate_visibility_permission_surface_validation_no_signal"
+#define ASC_PHASE6_SOURCE_ONLY_CLOSE_ALLOWED_TOKEN "phase6_source_only_close_allowed=false"
+
+// Truth Seeker RUN142R: Phase 7 Session Awareness and Timing Quality foundation.
+// Source-ready vocabulary only: no session signal, no entry timing, no execution, no rank/order/formula, FileIO, HUD, or heartbeat behavior change.
+#define ASC_PHASE7_SESSION_STATE_TAXONOMY "session_unknown,session_open_confirmed,session_closed_confirmed,session_uncertain,session_pending_refresh,session_unavailable,session_broker_schedule_missing,session_transition_window,session_outside_expected_hours"
+#define ASC_PHASE7_SESSION_BLOCK_LIMIT_GATE_TAXONOMY "session_unknown=session_evidence_required_for_review,session_unavailable=session_evidence_required_for_review,session_broker_schedule_missing=session_evidence_required_for_review,session_closed_confirmed=permission_blocked_session_closed,session_uncertain=permission_limited_session_uncertain,session_pending_refresh=permission_pending_session_refresh,session_transition_window=permission_limited_session_transition"
+#define ASC_PHASE7_TIMING_QUALITY_TAXONOMY "timing_unknown,timing_fresh,timing_recent,timing_aging,timing_stale,timing_expired,timing_conflict,timing_currentness_unproven,timing_pending_refresh,timing_unavailable"
+#define ASC_PHASE7_QUOTE_TICK_FRESHNESS_TAXONOMY "quote_tick_fresh,quote_tick_recent,quote_tick_aging,quote_tick_stale,quote_tick_missing,quote_time_unavailable"
+#define ASC_PHASE7_TIMING_BLOCK_LIMIT_GATE_TAXONOMY "timing_unknown=timing_quality_required_for_review,timing_stale=permission_limited_timing_stale,timing_expired=permission_blocked_timing_expired,timing_currentness_unproven=timing_quality_required_for_review,timing_pending_refresh=permission_pending_session_refresh,timing_conflict=permission_limited_timing_stale,quote_tick_missing=timing_quality_required_for_review,quote_time_unavailable=timing_quality_required_for_review"
+#define ASC_PHASE7_PERMISSION_REVIEW_IMPACT_TAXONOMY "permission_limited_timing_stale,permission_blocked_timing_expired,permission_pending_session_refresh,permission_limited_session_uncertain,permission_blocked_session_closed,permission_limited_session_transition,timing_quality_required_for_review,session_evidence_required_for_review"
+#define ASC_PHASE7_SAFETY_BOUNDARY_TAXONOMY "session_label_is_not_signal,timing_label_is_not_entry,session_context_is_review_only,timing_context_is_review_only,no_execution"
+#define ASC_PHASE7_SESSION_AWARENESS_SOURCE_READY_TOKEN "phase7_session_awareness_source_ready=true"
+#define ASC_PHASE7_TIMING_QUALITY_SOURCE_READY_TOKEN "phase7_timing_quality_source_ready=true"
+#define ASC_PHASE7_SESSION_LABEL_NOT_SIGNAL_TOKEN "session_label_is_not_signal=true"
+#define ASC_PHASE7_TIMING_LABEL_NOT_ENTRY_TOKEN "timing_label_is_not_entry=true"
+#define ASC_PHASE7_SESSION_EVIDENCE_REQUIRED_TOKEN "session_evidence_required_for_review=true"
+#define ASC_PHASE7_TIMING_QUALITY_REQUIRED_TOKEN "timing_quality_required_for_review=true"
+#define ASC_PHASE7_EXECUTION_ENABLED_TOKEN "phase7_execution_enabled=false"
+#define ASC_PHASE7_SESSION_TIMING_BOUNDARY_TEXT "Session context is review-only. Timing quality is not entry timing. Session/timing evidence is required before clean permission context."
+#define ASC_PHASE7_PERMISSION_GATE_EXTENSION "session_evidence_gate=required;timing_quality_gate=required;session_closed_blocks_permission_context=true;session_uncertain_or_pending_refresh_limits_permission_context=true;session_transition_limits_permission_context=true;quote_tick_missing_limits_permission_context=true;timing_conflict_limits_permission_context=true;timing_stale_limits_permission_context=true;timing_expired_blocks_permission_context=true;timing_currentness_unproven_pending_refresh=true"
+#define ASC_PHASE7_REVIEW_CONTEXT_CLEANNESS_RULE "clean_permission_context=false_until_session_and_timing_evidence_current;unknown_stale_expired_closed_uncertain_pending_unavailable_conflict_limited_or_blocked=true"
+#define ASC_PHASE7_NO_ENTRY_BOUNDARY_RULE "session_label_is_not_signal;timing_quality_is_not_entry_timing;review_context_only;no_execution;no_order_advice"
+#define ASC_PHASE7_RUN143_SOURCE_PATCH_TOKEN "run143r_phase7_gate_wiring_source_patch_2_live_unproven_until_RUN145=true"
+#define ASC_PHASE7_SOURCE_ONLY_PROOF_BOUNDARY "source_patched_live_unproven_until_RUN145_no_live_claim_RUN143R"
+
+// Truth Seeker RUN144R: Phase 7 closeout/source lock and RUN145 live-proof contract finalization.
+// Compact source-lock tokens only: no session trade timing, no execution, no rank/order/formula, FileIO, HUD, or heartbeat behavior change.
+#define ASC_PHASE7_SESSION_TIMING_SOURCE_LOCKED_TOKEN "phase7_session_timing_source_locked=true"
+#define ASC_PHASE7_LIVE_PROOF_REQUIRED_TOKEN "phase7_live_proof_required=true"
+#define ASC_PHASE7_SESSION_TIMING_GATE_SURFACE_READY_TOKEN "phase7_session_timing_gate_surface_ready=true"
+#define ASC_PHASE7_SESSION_TIMING_CONTEXT_REVIEW_ONLY_TOKEN "session_timing_context_review_only=true"
+#define ASC_PHASE7_UNKNOWN_SESSION_BLOCKS_CLEAN_PERMISSION_TOKEN "unknown_session_blocks_clean_permission=true"
+#define ASC_PHASE7_CLOSED_SESSION_BLOCKS_CLEAN_PERMISSION_TOKEN "closed_session_blocks_clean_permission=true"
+#define ASC_PHASE7_STALE_TIMING_BLOCKS_CLEAN_PERMISSION_TOKEN "stale_timing_blocks_clean_permission=true"
+#define ASC_PHASE7_EXPIRED_TIMING_BLOCKS_CLEAN_PERMISSION_TOKEN "expired_timing_blocks_clean_permission=true"
+#define ASC_PHASE7_CURRENTNESS_UNPROVEN_LIMITS_SESSION_TIMING_TOKEN "currentness_unproven_limits_session_timing=true"
+#define ASC_PHASE7_QUOTE_TICK_MISSING_LIMITS_TIMING_CONTEXT_TOKEN "quote_tick_missing_limits_timing_context=true"
+#define ASC_PHASE7_TIMING_CONFLICT_BLOCKS_CLEAN_PERMISSION_TOKEN "timing_conflict_blocks_clean_permission=true"
+#define ASC_PHASE7_RUN145_LIVE_CONTRACT_TOKEN "run145_live_contract_required=hud_off_dossier_first_phase5_phase6_phase7_session_timing_gate_validation_no_signal"
+#define ASC_PHASE7_SOURCE_LOCK_STATUS_TOKEN "phase7_closeout_status=SOURCE_LOCKED_LIVE_PENDING"
+#define ASC_PHASE7_RUN144_SOURCE_PATCH_TOKEN "run144r_phase7_closeout_source_lock_live_unproven_until_RUN145=true"
+#define ASC_PHASE7_RUN144_PROOF_BOUNDARY "source_locked_live_unproven_until_RUN145_no_live_claim_RUN144R"
+#define ASC_PHASE7_RUN145_LIVE_EVIDENCE_CONTRACT "source_identity;hud_off;dossier_first;phase5_gates;phase6_gates;phase7_tokens;session_unknown_unavailable_closed_uncertain_pending_transition;timing_stale_expired_currentness_unproven_tick_missing_conflict;no_signal_no_entry_no_execution;artifact_outputs_present;bounded_timer_pressure"
+
+// Truth Seeker RUN148R: Phase 8 Candidate Filtering truth foundation.
+// Vocabulary/proof only: no L3 score formula, L4 rank formula, Market Board order, FileIO, HUD, heartbeat, strategy, or execution behavior change.
+#define ASC_PHASE8_CF_INPUT_STATE_TAXONOMY "cf_input_unknown,cf_input_available,cf_input_missing,cf_input_stale,cf_input_unavailable,cf_input_pending_refresh,cf_input_conflict,cf_input_sample_insufficient,cf_input_currentness_unproven"
+#define ASC_PHASE8_CF_BLOCKER_STATE_TAXONOMY "cf_blocker_none,cf_blocker_market_closed,cf_blocker_session_uncertain,cf_blocker_timing_stale,cf_blocker_regime_conflict,cf_blocker_spread_friction,cf_blocker_sample_insufficient,cf_blocker_currentness_unproven,cf_blocker_missing_dossier,cf_blocker_missing_quote,cf_blocker_missing_classification,cf_blocker_unknown"
+#define ASC_PHASE8_CF_REVIEW_STATE_TAXONOMY "cf_review_ready,cf_review_limited,cf_review_pending,cf_review_blocked,cf_review_not_applicable,cf_review_unknown"
+#define ASC_PHASE8_CF_SAFETY_BOUNDARY_TAXONOMY "cf_score_is_not_signal,cf_candidate_is_not_trade,cf_review_is_not_permission,cf_context_is_not_execution,cf_no_buy_sell,cf_no_entry,cf_no_order"
+#define ASC_PHASE8_CF_SOURCE_READY_TOKEN "phase8_candidate_filtering_truth_source_ready=true"
+#define ASC_PHASE8_CF_GATES_SOURCE_READY_TOKEN "phase8_candidate_filtering_truth_gates_source_ready=true"
+#define ASC_PHASE8_CF_SURFACE_READY_TOKEN "phase8_candidate_filtering_surface_ready=true"
+#define ASC_PHASE8_CF_LIVE_PROOF_REQUIRED_TOKEN "phase8_live_proof_required=true"
+#define ASC_PHASE8_CF_RUN150_REPAIR_CONTRACT_TOKEN "run150_live_research_source_repair_contract_ready=true"
+#define ASC_PHASE8_CF_REPORT_ONLY_FORBIDDEN_WHEN_PATCHABLE_TOKEN "run150_report_only_forbidden_when_safe_patchable_gap_exists=true"
+#define ASC_PHASE8_CF_CONTEXT_READY_TOKEN "candidate_filtering_truth_context_ready=true"
+#define ASC_PHASE8_CF_SCORE_NOT_SIGNAL_TOKEN "candidate_filtering_score_is_not_signal=true"
+#define ASC_PHASE8_CF_RANK_NOT_SIGNAL_TOKEN "candidate_filtering_rank_is_not_signal=true"
+#define ASC_PHASE8_CF_REVIEW_NOT_PERMISSION_TOKEN "candidate_filtering_review_is_not_permission=true"
+#define ASC_PHASE8_CF_CANDIDATE_NOT_TRADE_TOKEN "candidate_filtering_candidate_is_not_trade=true"
+#define ASC_PHASE8_CF_CONTEXT_NOT_EXECUTION_TOKEN "candidate_filtering_context_is_not_execution=true"
+#define ASC_PHASE8_CF_BLOCKER_REQUIRED_TOKEN "candidate_filtering_blocker_required_for_rejection=true"
+#define ASC_PHASE8_CF_INPUTS_REQUIRE_FRESHNESS_TOKEN "candidate_filtering_inputs_require_freshness=true"
+#define ASC_PHASE8_CF_INPUTS_HAVE_FRESHNESS_STATE_TOKEN "candidate_filtering_inputs_have_freshness_state=true"
+#define ASC_PHASE8_CF_MISSING_INPUT_STATE_TOKEN "candidate_filtering_missing_input_state=cf_input_missing"
+#define ASC_PHASE8_CF_PENDING_REFRESH_STATE_TOKEN "candidate_filtering_pending_refresh_state=cf_input_pending_refresh"
+#define ASC_PHASE8_CF_STALE_INPUT_STATE_TOKEN "candidate_filtering_stale_input_state=cf_input_stale"
+#define ASC_PHASE8_CF_UNAVAILABLE_INPUT_STATE_TOKEN "candidate_filtering_unavailable_input_state=cf_input_unavailable"
+#define ASC_PHASE8_CF_CONFLICT_STATE_TOKEN "candidate_filtering_conflict_state=cf_input_conflict"
+#define ASC_PHASE8_CF_CURRENTNESS_UNPROVEN_STATE_TOKEN "candidate_filtering_currentness_unproven_state=cf_input_currentness_unproven"
+#define ASC_PHASE8_CF_REVIEW_ONLY_TOKEN "candidate_filtering_review_only=true"
+#define ASC_PHASE8_CF_EXECUTION_ENABLED_TOKEN "phase8_execution_enabled=false"
+#define ASC_PHASE8_CF_MISSING_LIMITS_REVIEW_TOKEN "candidate_filtering_missing_inputs_block_or_limit_review=true"
+#define ASC_PHASE8_CF_STALE_LIMITS_REVIEW_TOKEN "candidate_filtering_stale_inputs_block_or_limit_review=true"
+#define ASC_PHASE8_CF_UNAVAILABLE_LIMITS_REVIEW_TOKEN "candidate_filtering_unavailable_inputs_block_or_limit_review=true"
+#define ASC_PHASE8_CF_CURRENTNESS_LIMITS_REVIEW_TOKEN "candidate_filtering_currentness_unproven_inputs_block_or_limit_review=true"
+#define ASC_PHASE8_CF_CONFLICT_LIMITS_REVIEW_TOKEN "candidate_filtering_conflict_inputs_block_or_limit_review=true"
+#define ASC_PHASE8_CF_SAMPLE_LIMITS_REVIEW_TOKEN "candidate_filtering_sample_insufficient_inputs_limit_review=true"
+#define ASC_PHASE8_CF_SPREAD_FRICTION_LIMITS_REVIEW_TOKEN "candidate_filtering_spread_friction_blocker_limits_review=true"
+#define ASC_PHASE8_CF_SESSION_LIMITS_REVIEW_TOKEN "candidate_filtering_market_closed_or_session_uncertain_blocks_or_limits_review=true"
+#define ASC_PHASE8_CF_REVIEW_READY_REQUIRES_EVIDENCE_TOKEN "candidate_filtering_review_ready_requires_positive_evidence=true"
+#define ASC_PHASE8_CF_NO_BUY_SELL_TOKEN "candidate_filtering_buy_sell_output=false"
+#define ASC_PHASE8_CF_NO_ENTRY_TOKEN "candidate_filtering_entry_output=false"
+#define ASC_PHASE8_CF_NO_ORDER_TOKEN "candidate_filtering_order_output=false"
+#define ASC_PHASE8_CF_BOUNDARY_TEXT "Candidate Filtering context is review-only. Candidate score is not signal. Candidate review is not permission. Missing, stale, unavailable, or currentness-unproven inputs block or limit review."
+#define ASC_PHASE8_CF_NO_FORMULA_DRIFT_TOKEN "candidate_filtering_score_formula_changed=false"
+#define ASC_PHASE8_CF_NO_RANK_DRIFT_TOKEN "candidate_filtering_rank_order_formula_changed=false"
+#define ASC_PHASE8_CF_NO_PER_SYMBOL_SPAM_TOKEN "candidate_filtering_phase8_per_symbol_proof_rows=false"
+
+// Truth Seeker RUN151R: runtime proof bundle completeness and missing runtime surface capture hardening after RUN150 HOLD.
+// Compact evidence-only tokens: no FileIO rewrite, no heartbeat cadence change, no rank/order/formula, HUD, strategy, or execution behavior change.
+#define ASC_RUN151_PROOF_BUNDLE_REQUIRED_TOKEN "proof_bundle_required=true"
+#define ASC_RUN151_EVIDENCE_PACKAGE_BLOCKER_TOKEN "evidence_package_blocker=true"
+#define ASC_RUN151_MISSING_RUNTIME_SURFACE_TOKEN "missing_runtime_surface"
+#define ASC_RUN151_SOURCE_GAP_UNPROVEN_TOKEN "source_gap_unproven"
+#define ASC_RUN151_SAFE_PATCH_NOT_CONFIRMED_TOKEN "safe_patch_not_confirmed"
+#define ASC_RUN151_UPLOAD_REQUIRED_SURFACE_TOKEN "upload_required_surface"
+#define ASC_RUN151_LIVE_PHASE_PASS_BLOCKED_TOKEN "live_phase_pass_blocked_by_evidence_package"
+#define ASC_RUN151_DO_NOT_PATCH_BLIND_TOKEN "do_not_patch_blind_from_missing_upload=true"
+#define ASC_RUN151_MISSING_SURFACE_HOLD_NOT_FAIL_TOKEN "missing_surface_means_HOLD_not_FAIL=true"
+#define ASC_RUN151_CAPTURE_CHECKLIST_READY_TOKEN "runtime_capture_checklist_ready=true"
+#define ASC_RUN151_PROOF_BUNDLE_COMPACT_TOKEN "proof_bundle_compact=true"
+#define ASC_RUN151_NO_HEAVY_SCAN_TOKEN "proof_bundle_no_heavy_directory_scan_every_beat=true"
+#define ASC_RUN151_NO_FLUSH_LOOP_TOKEN "proof_bundle_no_new_fileflush_loop=true"
+#define ASC_RUN151_RUN155_CONTRACT_TOKEN "run155_live_research_source_repair_contract_seeded=true"
+#define ASC_RUN151_NEXT_LIVE_RUN_TOKEN "next_live_run=RUN155R"
+#define ASC_RUN151_REPAIR_SCOPE_TOKEN "run151r_targeted_evidence_package_repair_1_after_RUN150_HOLD=true"
+#define ASC_RUN151_PROOF_BOUNDARY "source_patched_live_unproven_until_RUN155_complete_runtime_evidence_package_required"
+#define ASC_RUN151_CAPTURE_REQUIREMENTS "Scanner Status.txt;Market Board.txt;Market Board Archive/_latest_market_board_archive_manifest.txt;Dossiers/Top5PerBucket/_family_manifest.txt;Dossiers/Top5PerBucket/_staging/_staging_manifest.txt;Dossiers/Top5PerBucket/archive/_archive_manifest.txt;Dossiers/GlobalTop10/_family_manifest.txt;Dossiers/GlobalTop10/archive;Dossiers;Dossier.txt_if_selected_symbol_present;Artifact Bundle Manifest.txt;Workbench/logs/function_results.log;Workbench/logs/heartbeat_telemetry.log;stale_tmp_or_cleanup_proof;runtime_error_logs_if_any"
+
+
+// Truth Seeker RUN152R: deterministic proof bundle and Phase 8 surface readiness hardening.
+#define ASC_RUN152_REPAIR_SCOPE_TOKEN "run152r_targeted_evidence_package_repair_2_after_RUN150_HOLD_RUN151_PASS=true"
+#define ASC_RUN152_PROOF_COMPLETE_TRUE_RULE_TOKEN "proof_bundle_complete_true_requires_all_mandatory_surfaces_or_policy_not_applicable=true"
+#define ASC_RUN152_EVIDENCE_BLOCKER_CONDITIONAL_TOKEN "evidence_package_blocker_equals_missing_mandatory_surface=true"
+#define ASC_RUN152_FIRST_MISSING_HARDENED_TOKEN "first_missing_surface_hardened=true"
+#define ASC_RUN152_MISSING_COUNT_HARDENED_TOKEN "missing_surface_count_hardened=true"
+#define ASC_RUN152_MISSING_LIST_HARDENED_TOKEN "missing_surface_compact_list_hardened=true"
+#define ASC_RUN152_EXACT_PATH_CHECKLIST_TOKEN "exact_runtime_package_path_checklist_hardened=true"
+#define ASC_RUN152_DECISION_MAPPING_TOKEN "proof_bundle_decision_mapping_hardened=true"
+#define ASC_RUN152_PHASE8_READINESS_TOKEN "phase8_candidate_filtering_surface_readiness_hardened=true"
+#define ASC_RUN152_RUN155_PREFLIGHT_TOKEN "run155_live_package_preflight_contract_strengthened=true"
+#define ASC_RUN152_SELECTED_NONE_EXCEPTION_TOKEN "selected_none_current_focus_not_applicable_not_failure=true"
+#define ASC_RUN152_DISABLED_BY_POLICY_EXCEPTION_TOKEN "disabled_by_policy_surface_not_failure=true"
+#define ASC_RUN152_OPTIONAL_SURFACE_NON_BLOCKING_TOKEN "optional_runtime_surface_missing_not_blocking=true"
+#define ASC_RUN152_NO_RECURSIVE_SCAN_TOKEN "proof_bundle_no_recursive_runtime_scan=true"
+#define ASC_RUN152_NO_PER_BEAT_SCAN_TOKEN "proof_bundle_no_broad_per_beat_scan=true"
+#define ASC_RUN152_DECISION_PASS_READY "proof_bundle_pass_ready"
+#define ASC_RUN152_DECISION_HOLD_MISSING_SURFACE "proof_bundle_hold_missing_surface"
+#define ASC_RUN152_DECISION_HOLD_MISSING_LOGS "proof_bundle_hold_missing_logs"
+#define ASC_RUN152_DECISION_HOLD_MISSING_TELEMETRY "proof_bundle_hold_missing_telemetry"
+#define ASC_RUN152_DECISION_HOLD_MISSING_PHASE_GATE_SURFACE "proof_bundle_hold_missing_phase_gate_surface"
+#define ASC_RUN152_DECISION_HOLD_RUNTIME_UPLOAD_INCOMPLETE "proof_bundle_hold_runtime_upload_incomplete"
+#define ASC_RUN152_DECISION_FAIL_CORRUPT_SURFACE "proof_bundle_fail_corrupt_surface"
+#define ASC_RUN152_DECISION_FAIL_SIGNAL_LEAKAGE "proof_bundle_fail_signal_leakage"
+#define ASC_RUN152_DECISION_FAIL_PROTECTED_DRIFT "proof_bundle_fail_protected_drift"
+
+// Truth Seeker RUN153R: proof-bundle closeout, Phase 8 readiness final check, and compact two-lane roadmap audit boundary.
+// Compact audit tokens only: source completion is not live proof; no per-phase runtime wall, no FileIO/heartbeat/rank/formula/HUD/strategy change.
+#define ASC_RUN153_REPAIR_SCOPE_TOKEN "run153r_phase8_evidence_readiness_continuation=true"
+#define ASC_RUN153_PROOF_BUNDLE_CLOSEOUT_TOKEN "proof_bundle_closeout_checked=true"
+#define ASC_RUN153_PHASE8_FINAL_CHECK_TOKEN "phase8_candidate_filtering_surface_final_check_complete=true"
+#define ASC_RUN153_RUN155_READINESS_TOKEN "run155_live_package_contract_final_check_pending_RUN154=true"
+#define ASC_RUN153_TWO_LANE_AUDIT_REQUIRED_TOKEN "roadmap_two_lane_audit_required=true"
+#define ASC_RUN153_SOURCE_LANE_REQUIRED_TOKEN "roadmap_audit_source_lane_required=true"
+#define ASC_RUN153_LIVE_LANE_REQUIRED_TOKEN "roadmap_audit_live_lane_required=true"
+#define ASC_RUN153_SOURCE_NOT_LIVE_PROOF_TOKEN "source_completion_not_live_proof=true"
+#define ASC_RUN153_LIVE_REQUIRES_RUNTIME_EVIDENCE_TOKEN "live_completion_requires_runtime_evidence=true"
+#define ASC_RUN153_NO_INFLATED_PROGRESS_TOKEN "roadmap_audit_no_inflated_progress=true"
+#define ASC_RUN153_PHASE8_STATUS_TOKEN "phase8_status=SOURCE_PATCHED_LIVE_UNPROVEN_until_RUN155_complete_runtime_bundle"
+#define ASC_RUN153_PHASE9_STATUS_TOKEN "phase9_status=NOT_STARTED"
+#define ASC_RUN153_AUDIT_RUNTIME_COMPACT_TOKEN "roadmap_audit_runtime_token_compact=true"
+#define ASC_RUN153_NO_AUDIT_WALL_TOKEN "roadmap_audit_no_per_phase_runtime_wall=true"
+#define ASC_RUN153_NO_FORMULA_ORDER_DRIFT_TOKEN "run153_no_l3_l4_marketboard_top5_globaltop10_formula_order_change=true"
+
+
+// Truth Seeker RUN154R: Phase 8 source closeout and RUN155 live contract finalization.
+// Compact preflight/audit tokens only: no FileIO/heartbeat/rank/formula/HUD/strategy/execution behavior change.
+#define ASC_RUN154_REPAIR_SCOPE_TOKEN "run154r_phase8_source_closeout_run155_contract_finalization=true"
+#define ASC_RUN154_RUN155_PREFLIGHT_REQUIRED_TOKEN "run155_preflight_required=true"
+#define ASC_RUN154_PROOF_BUNDLE_REQUIRED_FOR_LIVE_PASS_TOKEN "proof_bundle_complete_required_for_live_pass=true"
+#define ASC_RUN154_MISSING_MANDATORY_SURFACE_BLOCKS_PASS_TOKEN "missing_mandatory_surface_blocks_live_pass=true"
+#define ASC_RUN154_SOURCE_NOT_LIVE_PROOF_TOKEN "source_completion_not_live_proof=true"
+#define ASC_RUN154_LIVE_REQUIRES_RUNTIME_EVIDENCE_TOKEN "live_completion_requires_runtime_evidence=true"
+#define ASC_RUN154_REPORT_ONLY_FORBIDDEN_IF_PATCHABLE_TOKEN "report_only_live_forbidden_if_patchable_source_gap=true"
+#define ASC_RUN154_SAFE_PATCH_REQUIRED_WHEN_PATCHABLE_TOKEN "safe_patch_required_when_patchable_live_blocker=true"
+#define ASC_RUN154_PHASE8_LIVE_REQUIRES_COMPLETE_BUNDLE_TOKEN "phase8_live_proof_requires_complete_bundle=true"
+#define ASC_RUN154_PHASE9_START_BLOCKED_TOKEN "phase9_start_blocked_until_phase8_live_decision=true"
+#define ASC_RUN154_PHASE8_LIVE_DECISION_REQUIRED_TOKEN "phase8_live_decision_required_before_phase9=true"
+#define ASC_RUN154_PHASE8_SOURCE_READY_NOT_COMPLETE_TOKEN "phase8_source_ready_does_not_equal_phase8_complete=true"
+#define ASC_RUN154_PHASE8_LIVE_PROVEN_ONLY_AFTER_RUN155_TOKEN "phase8_live_proven_only_after_RUN155_PASS=true"
+#define ASC_RUN154_OPERATOR_PACKAGE_LOCK_TOKEN "run155_operator_package_required_surfaces_locked=true"
+#define ASC_RUN154_OPERATOR_PACKAGE_SURFACES_TOKEN "run155_upload_requires_scanner_status_manifest_dossiers_current_focus_if_selected_marketboard_current_archive_top5_current_staging_archive_globaltop10_current_archive_functionresults_heartbeat_workbench_logs_stale_tmp_proof"
+#define ASC_RUN154_NO_FORMULA_ORDER_DRIFT_TOKEN "run154_no_l3_l4_marketboard_top5_globaltop10_formula_order_change=true"
+#define ASC_RUN154_NO_FILEIO_HEARTBEAT_DRIFT_TOKEN "run154_no_fileio_heartbeat_cadence_change=true"
+#define ASC_RUN154_NO_SIGNAL_EXECUTION_DRIFT_TOKEN "run154_no_strategy_execution_buy_sell_entry_sltp_lot_order_change=true"
+
+// Truth Seeker RUN156R: speed/truth-fill repair seed after RUN155 HOLD WITH PATCH.
+// Compact contract tokens only: no FileIO rewrite, heartbeat cadence change, rank/order/formula change, HUD repair, or execution behavior.
+#define ASC_RUN156_REPAIR_SCOPE_TOKEN "run156r_speed_truth_fill_repair_after_RUN155_hold_with_patch=true"
+#define ASC_RUN156_RUN155_HOLD_ABSORBED_TOKEN "run155_decision_absorbed=HOLD_WITH_SOURCE_PATCH"
+#define ASC_RUN156_OPERATOR_CLARIFICATION_ABSORBED_TOKEN "operator_clarification_slow_fill_not_source_missing_absorbed=true"
+#define ASC_RUN156_SLOW_FILL_PRIMARY_BLOCKER_TOKEN "slow_top5_bucket_fill_primary_blocker=true"
+#define ASC_RUN156_FILL_STATE_CLASSIFICATION_TOKEN "fill_state_classification=present,missing,not_yet_hydrated,fill_in_progress,run_ended_before_completion,queue_pending,queue_progressing,queue_stalled,disabled_by_policy,selected_none_not_applicable,source_gap_suspected,source_gap_confirmed"
+#define ASC_RUN156_FILL_IN_PROGRESS_NOT_MISSING_TOKEN "fill_in_progress_is_not_missing=true"
+#define ASC_RUN156_RUN_ENDED_NOT_SOURCE_FAILURE_TOKEN "run_ended_before_completion_is_not_source_failure=true"
+#define ASC_RUN156_NOT_YET_HYDRATED_NOT_SOURCE_GAP_TOKEN "not_yet_hydrated_is_not_source_gap=true"
+#define ASC_RUN156_QUEUE_PROGRESSING_NOT_STALLED_TOKEN "queue_progressing_is_not_queue_stalled=true"
+#define ASC_RUN156_MISSING_ALONE_NOT_SOURCE_BUG_TOKEN "missing_file_alone_is_not_source_bug_proof=true"
+#define ASC_RUN156_L4_SYNC_LAW_TOKEN "l4_top5_globaltop10_sync_law_seeded=true"
+#define ASC_RUN156_L4_SHARED_EPOCH_TOKEN "l4_membership_snapshot_epoch_shared_where_available=true"
+#define ASC_RUN156_L4_STATIC_MEMBERSHIP_SEC 1200
+#define ASC_RUN156_L4_STATIC_MEMBERSHIP_TOKEN "l4_membership_static_seconds=1200"
+#define ASC_RUN156_DISPLAYED_INFO_REFRESH_SEC 300
+#define ASC_RUN156_DISPLAYED_INFO_REFRESH_TOKEN "displayed_symbol_info_refresh_seconds=300"
+#define ASC_RUN156_L2_DISPLAYED_REFRESH_TOKEN "l2_displayed_symbol_refresh_seconds=300"
+#define ASC_RUN156_L5_DISPLAYED_REFRESH_TOKEN "l5_displayed_symbol_refresh_seconds=300_where_available"
+#define ASC_RUN156_L6_DISPLAYED_REFRESH_TOKEN "l6_displayed_symbol_refresh_seconds=300"
+#define ASC_RUN156_TOP5_INFO_REPRINT_TOKEN "top5_per_bucket_per_symbol_info_reprint_seconds=300"
+#define ASC_RUN156_GLOBALTOP10_INFO_REPRINT_TOKEN "globaltop10_per_symbol_info_reprint_seconds=300"
+#define ASC_RUN156_BUCKET_FILL_TARGET_SEC 120
+#define ASC_RUN156_BUCKET_FILL_TARGET_TOKEN "bucket_fill_target_seconds=120"
+#define ASC_RUN156_BUCKET_FILL_PROGRESS_FIELDS_TOKEN "bucket_fill_progress_fields=bucket_fill_elapsed_seconds,buckets_total,buckets_with_visible_info,buckets_pending,buckets_stalled,top5_membership_epoch,globaltop10_membership_epoch,l4_membership_age_seconds,displayed_symbol_info_age_seconds,displayed_symbol_info_refresh_due,l2_displayed_refresh_due,l5_displayed_refresh_due,l6_displayed_refresh_due"
+#define ASC_RUN156_FAST_INFO_REFRESH_LAW_TOKEN "fast_info_refresh_law_seeded=true"
+#define ASC_RUN156_STATIC_MEMBERSHIP_FRESH_INFO_DISTINCTION_TOKEN "static_l4_membership_does_not_mean_stale_symbol_truth=true"
+#define ASC_RUN156_HUD_INSTANT_CONSUMER_DEFERRED_TOKEN "future_hud_instant_consumer_rule_deferred_hud_off_now=true"
+#define ASC_RUN156_NO_FORMULA_ORDER_DRIFT_TOKEN "run156_no_l3_l4_marketboard_top5_globaltop10_formula_order_change=true"
+#define ASC_RUN156_NO_FILEIO_HEARTBEAT_DRIFT_TOKEN "run156_no_fileio_heartbeat_cadence_change=true"
+#define ASC_RUN156_NO_SIGNAL_EXECUTION_DRIFT_TOKEN "run156_no_strategy_execution_buy_sell_entry_sltp_lot_order_change=true"
+#define ASC_RUN156_NO_HEAVY_SCAN_TOKEN "run156_no_recursive_or_heavy_directory_scan_every_beat=true"
+#define ASC_RUN156_NO_FLUSH_LOOP_TOKEN "run156_no_new_fileflush_loop=true"
+#define ASC_RUN156_PHASE8_LIVE_UNPROVEN_TOKEN "phase8_status=SOURCE_PATCHED_LIVE_UNPROVEN_after_RUN156_until_RUN160_live_bundle"
+#define ASC_RUN156_PHASE9_BLOCKED_TOKEN "phase9_status=NOT_STARTED_BLOCKED_BY_PHASE8_LIVE_PROOF"
+#define ASC_RUN156_NEXT_LIVE_TOKEN "next_live_run=RUN160R_unless_operator_explicitly_authorizes_extraordinary_re_run"
+
+// Truth Seeker RUN157R: speed/truth-fill owner wiring + guidebook brain foundation.
+// Compact owner-map/source-ready tokens only: no FileIO rewrite, heartbeat cadence change, rank/order/formula change, HUD repair, or execution behavior.
+#define ASC_RUN157_REPAIR_SCOPE_TOKEN "run157r_speed_truth_fill_owner_wiring_guidebook_foundation=true"
+#define ASC_RUN157_GUIDEBOOK_BRAIN_FOUNDATION_TOKEN "guidebook_brain_foundation_created_or_updated=true"
+#define ASC_RUN157_GUIDEBOOK_SOURCE_LIVE_SEPARATION_TOKEN "guidebooks_do_not_create_live_proof=true"
+#define ASC_RUN157_TRADING_BRAIN_NO_SIGNAL_TOKEN "trading_brain_signal_leakage=false"
+#define ASC_RUN157_REFRESH_OWNER_MAP_TOKEN "refresh_cadence_owner_map=source_ready"
+#define ASC_RUN157_L4_SNAPSHOT_EPOCH_TOKEN "l4_snapshot_epoch_owner=ASC_Dispatcher_committed_l4_last_built_utc"
+#define ASC_RUN157_L4_MEMBERSHIP_STATIC_UNTIL_TOKEN "l4_membership_static_until_owner=ASC_Dispatcher_committed_l4_next_recheck_utc"
+#define ASC_RUN157_TOP5_EPOCH_TOKEN "top5_l4_epoch_owner=ASC_Top5BucketSnapshotId_from_committed_l4"
+#define ASC_RUN157_GLOBALTOP10_EPOCH_TOKEN "globaltop10_l4_epoch_owner=ASC_Top10RunFullFamilyManifest_committed_l4_snapshot"
+#define ASC_RUN157_TOP5_GLOBALTOP10_EPOCH_MATCH_TOKEN "top5_globaltop10_epoch_match_required=true"
+#define ASC_RUN157_L4_MEMBERSHIP_REFRESH_DUE_TOKEN "l4_membership_refresh_due_owner=ASC_Dispatcher_due_clock"
+#define ASC_RUN157_L4_STATIC_INFO_INDEPENDENT_TOKEN "l4_info_refresh_independent=true"
+#define ASC_RUN157_DISPLAYED_SET_SOURCE_TOKEN "displayed_symbol_set_source=L4_snapshot"
+#define ASC_RUN157_L2_DISPLAYED_REFRESH_OWNER_TOKEN "l2_displayed_refresh_due_owner=ASC_OpenSymbolSnapshotEngine_SymbolInfoTick"
+#define ASC_RUN157_L5_DISPLAYED_REFRESH_OWNER_TOKEN "l5_displayed_refresh_due_owner=ASC_DeepSelectiveAnalysisEngine_where_available"
+#define ASC_RUN157_L6_DISPLAYED_REFRESH_OWNER_TOKEN "l6_displayed_refresh_due_owner=ASC_FunctionResults_and_manifest_evidence"
+#define ASC_RUN157_DISPLAYED_INFO_STATE_TOKEN "displayed_symbol_info_states=info_age_seconds,stale,refresh_pending,refresh_progressing,refresh_complete,not_available,not_hidden"
+#define ASC_RUN157_BUCKET_FILL_PROGRESS_OWNER_TOKEN "bucket_fill_progress_owner=ASC_ScannerStatusWriter_and_manifest_aggregate_counters"
+#define ASC_RUN157_BUCKET_FILL_TARGET_MET_LIVE_REQUIRED_TOKEN "bucket_fill_target_met_requires_runtime_evidence=true"
+#define ASC_RUN157_NO_CHANGE_PROOF_SPAM_GUARD_TOKEN "no_change_rewrites_and_proof_spam_must_not_steal_timer_budget=true"
+#define ASC_RUN157_PHASE8_LIVE_UNPROVEN_TOKEN "phase8_status=SOURCE_PATCHED_LIVE_UNPROVEN_after_RUN157_until_RUN160_live_bundle"
+#define ASC_RUN157_NEXT_LIVE_TOKEN "next_live_run=RUN160R_unless_operator_explicitly_authorizes_extraordinary_re_run"
+
+// Truth Seeker RUN158R: displayed-symbol 5-minute reprint implementation + queue/progress telemetry hardening.
+// Compact implementation/projection tokens only: no FileIO rewrite, heartbeat cadence change, rank/order/formula change, HUD repair, or execution behavior.
+#define ASC_RUN158_REPAIR_SCOPE_TOKEN "run158r_displayed_symbol_5min_reprint_queue_progress_telemetry=true"
+#define ASC_RUN158_DISPLAYED_SET_SOURCE_TOKEN "displayed_symbol_set_source=L4_snapshot"
+#define ASC_RUN158_DISPLAYED_SET_COMPONENTS_TOKEN "displayed_symbol_set_components=top5perbucket,globaltop10,selected_symbol,current_focus,market_board_l4_snapshot"
+#define ASC_RUN158_DISPLAYED_SET_NOT_RANK_OWNER_TOKEN "displayed_symbol_set_not_rank_owner=true"
+#define ASC_RUN158_DISPLAYED_SET_CONTEXT_ONLY_TOKEN "displayed_symbol_set_refresh_context_only=true"
+#define ASC_RUN158_DISPLAYED_SET_NO_REORDER_TOKEN "displayed_symbol_set_no_reorder_no_selection_no_formula_change=true"
+#define ASC_RUN158_DISPLAYED_INFO_REFRESH_SEC 300
+#define ASC_RUN158_DISPLAYED_INFO_REFRESH_TOKEN "displayed_symbol_info_refresh_seconds=300"
+#define ASC_RUN158_DISPLAYED_INFO_REPRINT_ONLY_TOKEN "displayed_symbol_info_reprint_only_not_selection=true"
+#define ASC_RUN158_DISPLAYED_INFO_NOT_HIDDEN_TOKEN "displayed_symbol_info_not_hidden=true"
+#define ASC_RUN158_DISPLAYED_INFO_NO_CHANGE_SKIP_TOKEN "displayed_symbol_info_no_change_skip_active=true"
+#define ASC_RUN158_L2_DISPLAYED_REFRESH_TOKEN "l2_displayed_refresh_seconds=300"
+#define ASC_RUN158_L2_DISPLAYED_NOT_FULL_UNIVERSE_TOKEN "l2_displayed_refresh_not_full_universe=true"
+#define ASC_RUN158_L5_DISPLAYED_REFRESH_TOKEN "l5_displayed_refresh_seconds=300_where_available"
+#define ASC_RUN158_L5_DEFER_HEAVY_BUDGET_TOKEN "l5_displayed_refresh_deferred_heavy_budget=true"
+#define ASC_RUN158_L6_DISPLAYED_EVIDENCE_REFRESH_TOKEN "l6_displayed_evidence_refresh_seconds=300"
+#define ASC_RUN158_L6_PROOF_NOT_HIDDEN_TOKEN "l6_displayed_proof_not_hidden=true"
+#define ASC_RUN158_BUCKET_FILL_PROGRESS_TELEMETRY_TOKEN "bucket_fill_progress_telemetry=elapsed,total,visible,pending,stalled,percent"
+#define ASC_RUN158_DISPLAYED_PROGRESS_TELEMETRY_TOKEN "displayed_symbols_progress_telemetry=total,current,pending,stale,missing,due_count,percent"
+#define ASC_RUN158_QUEUE_PRIORITY_TOKEN "queue_priority_displayed_symbols_before_noncritical_reprint=true"
+#define ASC_RUN158_NO_DIRTY_LOOP_TOKEN "no_change_reprint_dirty_loop_guard=metadata_only_no_flush_loop"
+#define ASC_RUN158_PHASE8_LIVE_UNPROVEN_TOKEN "phase8_status=SOURCE_PATCHED_LIVE_UNPROVEN_after_RUN158_until_RUN160_live_bundle"
+#define ASC_RUN158_NEXT_LIVE_TOKEN "next_live_run=RUN160R_unless_operator_explicitly_authorizes_extraordinary_re_run"
+
+// Truth Seeker RUN159R: speed/truth-fill source closeout + RUN160 live contract finalization.
+// Compact closeout/contract tokens only: no FileIO rewrite, heartbeat cadence change, rank/order/formula change, HUD repair, or execution behavior.
+#define ASC_RUN159_REPAIR_SCOPE_TOKEN "run159r_speed_truth_fill_source_closeout_run160_live_contract=true"
+#define ASC_RUN159_BUCKET_FILL_SOURCE_READY_TOKEN "bucket_fill_source_readiness=closed_for_RUN160_measurement"
+#define ASC_RUN159_BUCKET_FILL_TARGET_MEASURABLE_TOKEN "bucket_fill_target_measurable_requires_runtime_counters=true"
+#define ASC_RUN159_BUCKET_FILL_TARGET_MET_RUNTIME_ONLY_TOKEN "bucket_fill_target_met_runtime_evidence_only=true"
+#define ASC_RUN159_BUCKET_FILL_TARGET_MISSED_RUNTIME_ONLY_TOKEN "bucket_fill_target_missed_runtime_evidence_only=true"
+#define ASC_RUN159_BUCKET_FILL_RUNTIME_FIELDS_TOKEN "bucket_fill_runtime_fields=bucket_fill_window_start_utc,bucket_fill_elapsed_seconds,buckets_total,buckets_with_visible_info,buckets_pending,buckets_stalled,bucket_fill_percent,bucket_fill_target_measurable,bucket_fill_target_met,bucket_fill_target_missed,bucket_fill_in_progress,bucket_fill_not_yet_hydrated,bucket_fill_run_ended_before_completion"
+#define ASC_RUN159_BUCKET_FILL_HONEST_BLOCKER_TOKEN "target_missed_but_honest_is_HOLD_not_FAIL_hidden_blank_shells_are_FAIL"
+#define ASC_RUN159_SOURCE_NOT_LIVE_PROOF_TOKEN "source_readiness_does_not_equal_runtime_target_met=true"
+#define ASC_RUN159_RUN160_CONTRACT_TOKEN "run160_live_contract_finalized=true"
+#define ASC_RUN159_RUN160_NO_REPORT_ONLY_TOKEN "run160_no_report_only_if_safe_patchable_blocker_exists=true"
+#define ASC_RUN159_RUN160_SAFE_PATCH_TOKEN "run160_safe_patch_required_if_patchable_blocker=true"
+#define ASC_RUN159_RUN160_CAPTURE_TOKEN "run160_upload_requires_scanner_status_manifest_dossiers_market_board_current_archive_top5_current_staging_archive_globaltop10_current_archive_current_focus_if_selected_functionresults_heartbeat_workbench_logs_stale_tmp_staging_proof"
+#define ASC_RUN159_RUN160_ACCEPTANCE_TOKEN "run160_acceptance=complete_bundle_false_missing_l4_sync_5min_refresh_2min_bucket_fill_no_signal_no_formula_drift_no_fileio_heartbeat_hud_regression"
+#define ASC_RUN159_RUN160_HOLD_FAIL_TOKEN "run160_hold_on_incomplete_runtime_package_fail_on_signal_or_protected_drift=true"
+#define ASC_RUN159_GUIDEBOOK_DISTILLED_TOKEN "run159_guidebooks_updated_with_durable_lessons_only=true"
+#define ASC_RUN159_NO_FORMULA_ORDER_DRIFT_TOKEN "run159_no_l3_l4_marketboard_top5_globaltop10_formula_order_change=true"
+#define ASC_RUN159_NO_FILEIO_HEARTBEAT_DRIFT_TOKEN "run159_no_fileio_heartbeat_cadence_change=true"
+#define ASC_RUN159_NO_SIGNAL_EXECUTION_DRIFT_TOKEN "run159_no_strategy_execution_buy_sell_entry_sltp_lot_order_change=true"
+#define ASC_RUN159_NO_HEAVY_SCAN_TOKEN "run159_no_recursive_or_heavy_directory_scan_every_beat=true"
+#define ASC_RUN159_NO_FLUSH_LOOP_TOKEN "run159_no_new_fileflush_loop=true"
+#define ASC_RUN159_PHASE8_LIVE_UNPROVEN_TOKEN "phase8_status=SOURCE_PATCHED_LIVE_UNPROVEN_after_RUN159_until_RUN160_live_bundle"
+#define ASC_RUN159_PHASE9_BLOCKED_TOKEN "phase9_status=NOT_STARTED_BLOCKED_BY_PHASE8_LIVE_PROOF"
+#define ASC_RUN159_NEXT_LIVE_TOKEN "next_live_run=RUN160R_unless_operator_explicitly_authorizes_extraordinary_re_run"
+
+#endif

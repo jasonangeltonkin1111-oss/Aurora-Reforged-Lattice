@@ -1,0 +1,121 @@
+RUN258R OUTPUT ROOT FOLDER LISTINGS
+NOTE: The root below is the packaged evidence folder only. It is NOT proven as the active MT5 terminal output root because terminal data/common Files proof is missing.
+
+## evidence/Upcomers-Server
+exists=True
+child_count=4
+latest_modified_time=2026-05-03 09:29:42
+latest_modified_file=evidence/Upcomers-Server/Open Symbol Snapshot.txt
+identity_sample=source_run_id=RUN238R
+- dir	Dossiers	size=80	mtime=2026-05-03 13:35:36
+- file	Open Symbol Snapshot.txt	size=55564	mtime=2026-05-03 09:29:42
+- dir	Symbol Data Packs	size=80	mtime=2026-05-03 13:35:36
+- dir	Workbench	size=60	mtime=2026-05-03 13:35:36
+
+## evidence/Upcomers-Server/Workbench/logs
+exists=True
+child_count=2
+latest_modified_time=2026-05-03 09:29:42
+latest_modified_file=evidence/Upcomers-Server/Workbench/logs/function_results.log
+identity_sample=source_run_id=RUN238R
+- file	function_results.log	size=8094000	mtime=2026-05-03 09:29:42
+- file	heartbeat_telemetry.log	size=1034788	mtime=2026-05-03 09:28:56
+
+## evidence/Upcomers-Server/Dossiers
+exists=True
+child_count=2
+latest_modified_time=2026-05-03 09:27:58
+latest_modified_file=evidence/Upcomers-Server/Dossiers/GlobalTop10/_family_manifest.txt
+identity_sample=source_run_id=RUN238R
+- dir	GlobalTop10	size=80	mtime=2026-05-04 01:41:41
+- dir	Top5PerBucket	size=100	mtime=2026-05-04 01:41:41
+
+## evidence/Upcomers-Server/Dossiers/GlobalTop10
+exists=True
+child_count=2
+latest_modified_time=2026-05-03 09:27:58
+latest_modified_file=evidence/Upcomers-Server/Dossiers/GlobalTop10/_family_manifest.txt
+identity_sample=source_run_id=RUN238R
+- file	AAVEUSD.nx.txt	size=525926	mtime=2026-05-03 09:27:38
+- file	_family_manifest.txt	size=13596	mtime=2026-05-03 09:27:58
+
+## evidence/Upcomers-Server/Dossiers/GlobalTop10/_staging
+exists=False
+child_count=0
+latest_modified_time=n/a
+latest_modified_file=n/a
+identity_sample=n/a
+
+## evidence/Upcomers-Server/Dossiers/Top5PerBucket
+exists=True
+child_count=3
+latest_modified_time=2026-05-03 09:27:02
+latest_modified_file=evidence/Upcomers-Server/Dossiers/Top5PerBucket/_family_manifest.txt
+identity_sample=source_run_id=RUN238R
+- file	_family_manifest.txt	size=16812	mtime=2026-05-03 09:27:02
+- dir	_staging	size=60	mtime=2026-05-04 01:41:41
+- dir	crypto	size=80	mtime=2026-05-04 01:41:41
+
+## evidence/Upcomers-Server/Dossiers/Top5PerBucket/crypto
+exists=True
+child_count=2
+latest_modified_time=2026-05-03 09:27:00
+latest_modified_file=evidence/Upcomers-Server/Dossiers/Top5PerBucket/crypto/AAVEUSD.nx.txt
+identity_sample=source_run_id=RUN238R
+- file	AAVEUSD.nx.txt	size=528684	mtime=2026-05-03 09:27:00
+- file	_bucket_manifest.txt	size=11220	mtime=2026-05-03 09:26:54
+
+## evidence/Upcomers-Server/Dossiers/Top5PerBucket/_staging
+exists=True
+child_count=1
+latest_modified_time=2026-05-03 09:27:02
+latest_modified_file=evidence/Upcomers-Server/Dossiers/Top5PerBucket/_staging/_staging_manifest.txt
+identity_sample=source_run_id=RUN238R
+- file	_staging_manifest.txt	size=1426	mtime=2026-05-03 09:27:02
+
+## evidence/Upcomers-Server/Symbol Data Packs
+exists=True
+child_count=2
+latest_modified_time=2026-05-03 09:28:24
+latest_modified_file=evidence/Upcomers-Server/Symbol Data Packs/Top5PerBucket/crypto/AAVEUSD.nx_SYMBOL_DATA_PACK.txt
+identity_sample=Source Run: RUN238R
+- dir	GlobalTop10	size=60	mtime=2026-05-04 01:41:41
+- dir	Top5PerBucket	size=60	mtime=2026-05-03 13:35:36
+
+## evidence/Upcomers-Server/Symbol Data Packs/GlobalTop10
+exists=True
+child_count=1
+latest_modified_time=2026-05-03 09:28:00
+latest_modified_file=evidence/Upcomers-Server/Symbol Data Packs/GlobalTop10/AAVEUSD.nx_SYMBOL_DATA_PACK.txt
+identity_sample=Source Run: RUN238R
+- file	AAVEUSD.nx_SYMBOL_DATA_PACK.txt	size=429796	mtime=2026-05-03 09:28:00
+
+## evidence/Upcomers-Server/Symbol Data Packs/Top5PerBucket
+exists=True
+child_count=1
+latest_modified_time=2026-05-03 09:28:24
+latest_modified_file=evidence/Upcomers-Server/Symbol Data Packs/Top5PerBucket/crypto/AAVEUSD.nx_SYMBOL_DATA_PACK.txt
+identity_sample=Source Run: RUN238R
+- dir	crypto	size=60	mtime=2026-05-04 01:41:41
+
+## evidence/Upcomers-Server/Symbol Data Packs/Top5PerBucket/crypto
+exists=True
+child_count=1
+latest_modified_time=2026-05-03 09:28:24
+latest_modified_file=evidence/Upcomers-Server/Symbol Data Packs/Top5PerBucket/crypto/AAVEUSD.nx_SYMBOL_DATA_PACK.txt
+identity_sample=Source Run: RUN238R
+- file	AAVEUSD.nx_SYMBOL_DATA_PACK.txt	size=428346	mtime=2026-05-03 09:28:24
+
+## evidence/Upcomers-Server/Symbol Data Packs/archive
+exists=False
+child_count=0
+latest_modified_time=n/a
+latest_modified_file=n/a
+identity_sample=n/a
+
+## evidence/Upcomers-Server/Symbol Data Packs/_previous_state_cache
+exists=False
+child_count=0
+latest_modified_time=n/a
+latest_modified_file=n/a
+identity_sample=n/a

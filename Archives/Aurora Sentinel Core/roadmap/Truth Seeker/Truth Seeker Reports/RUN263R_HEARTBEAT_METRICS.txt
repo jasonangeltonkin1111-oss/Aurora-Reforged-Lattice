@@ -1,0 +1,26 @@
+# RUN263R Heartbeat Metrics
+
+Source: Workbench/logs/heartbeat_telemetry.log
+
+Rows sampled: 22
+First heartbeat UTC: 2026.05.04 08:17:07
+Last heartbeat UTC: 2026.05.04 08:19:00
+Source run IDs: {'RUN262R': 22}
+Budget states: {'budget_pressure': 18, 'within_budget': 4}
+
+| Metric | Count | Max | Avg | >880ms | >2000ms | >5000ms | Nonzero |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| elapsed_ms | 22 | 1886 | 1218.5 | 18 | 0 | 0 | 22 |
+| heartbeat_ms | 22 | 1886 | 1218.5 | 18 | 0 | 0 | 22 |
+| side_duty_ms | 22 | 6733 | 932.7 | 6 | 4 | 1 | 22 |
+| deep_analysis_trigger_ms | 22 | 1705 | 583.0 | 8 | 0 | 0 | 8 |
+| top5_deep_child_payload_ms | 22 | 1337 | 450.3 | 8 | 0 | 0 | 8 |
+| archive_history_write_ms | 22 | 1023 | 160.4 | 2 | 0 | 0 | 6 |
+| top10_ms | 22 | 0 | 0.0 | 0 | 0 | 0 | 0 |
+| board_publish_ms | 22 | 189 | 8.6 | 0 | 0 | 0 | 1 |
+| manifest_publish_ms | 22 | 0 | 0.0 | 0 | 0 | 0 | 0 |
+| dossier_publish_ms | 22 | 0 | 0.0 | 0 | 0 | 0 | 0 |
+
+Presence sweep states: {('true', 'false', 'true'): 22}
+Deep trigger states: {('false', 'false', 'false'): 14, ('true', 'true', 'false'): 8}
+Timestamped archive states: {('false', 'false', '0'): 16, ('true', 'true', '0'): 6}

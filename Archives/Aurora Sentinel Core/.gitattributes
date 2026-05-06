@@ -1,0 +1,30 @@
+# Aurora Sentinel Core — stable line endings
+# Keep source/control files LF-stable across Windows/Git/Codex runs.
+
+* text=auto
+
+# MQL5 source
+*.mq5 text eol=lf
+*.mqh text eol=lf
+
+# Roadmap / docs / reports / text outputs
+*.md text eol=lf
+*.txt text eol=lf
+*.csv text eol=lf
+*.log text eol=lf
+
+# Scripts
+*.sh text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Archives / binaries
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.ex5 binary
+*.pdf binary

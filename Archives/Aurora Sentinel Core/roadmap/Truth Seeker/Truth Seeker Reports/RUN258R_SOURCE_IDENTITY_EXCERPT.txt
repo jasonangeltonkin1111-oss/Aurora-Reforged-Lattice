@@ -1,0 +1,235 @@
+RUN258R SOURCE IDENTITY EXCERPT — source inspection only, not compile/runtime proof
+input_package=Aurora Sentinel Core(573).zip
+package_source_path=mt5/AuroraSentinelCore.mq5
+
+--- ASC_Version.mqh excerpt ---
+1: #ifndef __ASC_VERSION_MQH__
+2: #define __ASC_VERSION_MQH__
+3: 
+4: #define ASC_VERSION_LABEL "RUN255R-IdentityDeploymentProofRepair"
+5: #define ASC_VERSION_DATE  "2026-05-04"
+6: #define ASC_TRUTH_SEEKER_ACTIVE_ROADMAP_FILE "roadmap/Truth Seeker/TRUTH_SEEKER_ACTIVE_ROADMAP_LOG.md"
+7: #define ASC_TRUTH_SEEKER_CURRENT_CAMPAIGN "Campaign2_Symbol_Data_Pack_Lite"
+8: #define ASC_TRUTH_SEEKER_CURRENT_RUN "RUN255R"
+9: #define ASC_TRUTH_SEEKER_NEXT_SOURCE_RUN "RUN256R_AFTER_RUN255_IDENTITY_SMOKE_PROOF"
+10: #define ASC_TRUTH_SEEKER_NEXT_LIVE_PROOF_RUN "RUN256R_AFTER_IDENTITY_DEPLOYMENT_PROOF"
+11: #define ASC_TRUTH_SEEKER_SECOND_FOLLOWUP_LIVE_PROOF_RUN "RUN256R_IDENTITY_ALIGNED_BREATHING_OR_ROUTE_ISOLATION"
+12: #define ASC_TRUTH_SEEKER_OUTPUT_PACKAGE_NAME "TRUTH_SEEKER_RUN255R.zip"
+13: #define ASC_TRUTH_SEEKER_FORBIDDEN_PACKAGE_SUFFIXES "CHANGED_FILES_WINDOWS_SAFE,REPORT_ONLY_WINDOWS_SAFE,_2,_copy,final,fixed,updated,new"
+14: #define ASC_TRUTH_SEEKER_FULL_ROADMAP_PROGRESS_LABEL "FULL_TRUTH_SEEKER_ROADMAP_PROGRESS"
+15: #define ASC_TRUTH_SEEKER_CURRENT_LANE_PROGRESS_LABEL "CURRENT_FOUNDATION_PROOF_CONTRACT_LANE_PROGRESS"
+73: #define ASC_TRUTH_SEEKER_RUN252R_PATCH_SUMMARY "normalized_siam_readiness_section_coherence_session_scope_duplicate_route_absence_no_sample_and_permission_labels_replaced_stale_live_proof_tokens_with_RUN253"
+74: #define ASC_TRUTH_SEEKER_RUN252R_DECISION "TEST_FIRST"
+75: #define ASC_TRUTH_SEEKER_RUN252R_EVIDENCE_CEILING "class3_source_inspection_patch_external_research_constraints_no_metaeditor_compile_no_runtime_live_output_proof"
+76: #define ASC_TRUTH_SEEKER_RUN255R_SEED "identity_deployment_proof_repair_after_RUN254_source_runtime_contradiction_no_route_or_parity_patch"
+77: #define ASC_TRUTH_SEEKER_RUN255R_SCOPE "identity_telemetry_only_prove_source_package_compiled_ex5_active_terminal_output_root_artifact_lineage"
+78: #define ASC_TRUTH_SEEKER_RUN255R_BOUNDARY "debug_patch_identity_telemetry_only_no_fileio_no_final_path_no_route_membership_no_l3_l4_no_hud_no_dossier_architecture_no_signal_trade_no_generated_output"
+79: #define ASC_TRUTH_SEEKER_RUN255R_PATCH_SUMMARY "added_compile_visible_RUN255_identity_and_runtime_deployment_identity_lines_to_Experts_OnInit_OnDeinit_and_heartbeat_telemetry_identity_keys"
+80: #define ASC_TRUTH_SEEKER_RUN255R_DECISION "TEST_FIRST"
+81: #define ASC_TRUTH_SEEKER_RUN255R_EVIDENCE_CEILING "class3_source_identity_patch_no_metaeditor_compile_no_active_terminal_or_fresh_output_proof"
+82: #define ASC_TRUTH_SEEKER_RUN253R_SEED "live_proof_after_RUN250_RUN251_RUN252_source_gates_verify_artifact_refresh_globaltop10_top5_parity_archive_heartbeat_siam_fields_no_signal_permission"
+83: 
+84: #define ASC_TRUTH_SEEKER_RUN246R_SCOPE "globaltop10_final_route_publication_restoration_resolve_stage_promote_artifact_context_repair_manifest_upload_root_token_contract_no_live"
+762: 
+763: string ASC_SourceRunId()
+764:   {
+765:    return ASC_TRUTH_SEEKER_CURRENT_RUN;
+766:   }
+767: 
+768: string ASC_SourceVersionLabel()
+769:   {
+770:    return ASC_VERSION_LABEL;
+771:   }
+772: 
+773: string ASC_SourceIdentityToken()
+
+--- AuroraSentinelCore.mq5 runtime identity excerpt ---
+126:       && (g_timer_runtime_heartbeat_count % ASC_HEARTBEAT_RESULT_SAMPLE_HEARTBEATS) == 0)
+127:       return true;
+128:    return false;
+129:   }
+130: 
+131: string ASC_RuntimeDeploymentIdentityLine(const string lifecycle,const string output_root_hint="")
+132:   {
+133:    string server_root_hint = output_root_hint;
+134:    if(StringLen(server_root_hint) <= 0)
+135:       server_root_hint = ASC_ServerRootPath();
+136: 
+137:    string line = "runtime_deployment_identity";
+138:    line += " lifecycle=" + lifecycle;
+139:    line += " source_run_id=" + ASC_SourceRunId();
+140:    line += " source_version=" + ASC_SourceVersionLabel();
+141:    line += " source_identity_token=" + ASC_SourceIdentityToken();
+142:    line += " compiled_mq5_file=" + string(__FILE__);
+219: 
+220:    ASC_TraderControls controls;
+221:    ASC_LoadTraderControlsFromInputs(controls);
+222:    ASC_ApplyTraderControls(controls);
+223: 
+224:    ASC_LogInfo("AuroraSentinelCore", "OnInit", "global", ASC_RuntimeDeploymentIdentityLine("OnInit_pre_bootstrap", ASC_ServerRootPath()));
+225:    ASC_LogInfo("AuroraSentinelCore", "OnInit", "global", "Runtime boot starting.");
+226: 
+227:    ASC_FunctionResult init_result = ASC_BootstrapRuntime(g_runtime_state);
+228:    ASC_LogFunctionResult(init_result);
+229: 
+238:      }
+239: 
+240:    ASC_HudInit();
+241:    if(!g_asc_trader_controls.hud_enabled)
+242:       ASC_LogInfo("AuroraSentinelCore", "OnInit", "global", "hud_runtime_enabled=false operator_primary_surface=dossier_folder hud_repair_deferred=true");
+243:    ASC_LogInfo("AuroraSentinelCore", "OnInit", "global", ASC_RuntimeDeploymentIdentityLine("OnInit_post_bootstrap", g_runtime_state.server_root));
+244:    ASC_LogInfo("AuroraSentinelCore", "OnInit", "global", "Runtime boot complete and heartbeat timer active.");
+245:    return INIT_SUCCEEDED;
+246:   }
+247: 
+248: void OnDeinit(const int reason)
+249:   {
+250:    EventKillTimer();
+251:    ASC_HudShutdown();
+252:    g_runtime_state.posture = ASC_RUNTIME_STOPPED;
+253:    string message = StringFormat("Runtime deinit. reason=%d", reason);
+254:    ASC_LogInfo("AuroraSentinelCore", "OnDeinit", "global", ASC_RuntimeDeploymentIdentityLine("OnDeinit", g_runtime_state.server_root));
+255:    ASC_LogInfo("AuroraSentinelCore", "OnDeinit", "global", message);
+256:   }
+257: 
+258: void OnTick()
+259:   {
+260:    g_runtime_state.last_tick_utc = ASC_RuntimeUtcNow();
+
+--- Dispatcher heartbeat identity excerpt ---
+5136:    body += "Board Signature: " + ASC_TextOrUnavailable(source_signature) + "\n";
+5137:    body += "Derived From Board Signature: " + ASC_TextOrUnavailable(source_signature) + "\n";
+5138:    body += ASC_ArtifactIdentityLine("globaltop10_family", family_state) + "\n";
+5139:    body += "source_run_id=" + ASC_SourceRunId() + " | source_identity_token=" + ASC_SourceIdentityToken() + " | artifact_written_by_run=" + ASC_SourceRunId() + " | artifact_schema_version=" + ASC_ArtifactSchemaVersion() + " | build_identity_present=true\n";
+5140:    body += ASC_ArtifactAlignmentContractLine("globaltop10_family",
+5141:                                              family_role,
+5142:                                              source_signature,
+5202:    required_tokens[3] = "Children:";
+5203:    required_tokens[4] = "Derived From Board Signature:";
+5204:    required_tokens[5] = "stale_current_guard:";
+5205:    required_tokens[6] = "source_run_id=";
+5206:    required_tokens[7] = "artifact_written_by_run=";
+5207:    required_tokens[8] = "artifact_schema_version=";
+5208:    required_tokens[9] = "build_identity_present=true";
+5209:    required_tokens[10] = "RUN092 Alignment Contract";
+5408:    string body = "Top5PerBucket Archive Manifest\n";
+5409:    body += "artifact_family=Top5PerBucket\n";
+5410:    body += "artifact_family_id=top5_per_bucket\n";
+5411:    body += "source_run_id=" + ASC_VERSION_LABEL + "\n";
+5412:    body += "archive_state=materialized_marker\n";
+5413:    body += "archive_phase=" + ASC_TextOrUnavailable(phase) + "\n";
+5414:    body += "archive_slot=" + ASC_Top10ArchiveCadenceSlotLabel(now_utc) + "\n";
+5463:    string body = "Top5PerBucket Staging Manifest\n";
+5464:    body += "artifact_family=Top5PerBucket\n";
+5465:    body += "artifact_family_id=top5_per_bucket\n";
+5466:    body += "source_run_id=" + ASC_VERSION_LABEL + "\n";
+5467:    body += "staging_state=cleared_after_promote\n";
+5468:    body += "staging_phase=" + ASC_TextOrUnavailable(phase) + "\n";
+5469:    body += "staging_path=" + ASC_TextOrUnavailable(ASC_Top5BucketFamilyStagingDirectory(state)) + "\n";
+6133:    body += "artifact_family_id=" + ASC_TOP5_BUCKET_FAMILY_ID + "\n";
+6134:    body += "family_state=" + ASC_TextOrUnavailable(state.top5_bucket_family_state) + "\n";
+6135:    body += "path=" + ASC_TOP5_BUCKET_PATH_FRAGMENT + "\n";
+6136:    body += "source_run_id=" + ASC_SourceRunId() + "\n";
+6137:    body += "bucket_count=" + IntegerToString(MathMax(0, state.top5_bucket_count)) + "\n";
+6138:    body += "bucket_child_target_count=" + IntegerToString(MathMax(0, state.top5_bucket_child_target_count)) + "\n";
+6139:    body += "bucket_child_written_count=" + IntegerToString(MathMax(0, state.top5_bucket_child_written_count)) + "\n";
+6395:    body += "top5_no_broad_file_deletion=true\n";
+6396:    body += "last_symbol=" + ASC_TextOrUnavailable(state.top5_bucket_last_symbol) + "\n";
+6397:    body += "last_error=" + ASC_TextOrUnavailable(state.top5_bucket_last_error) + "\n";
+6398:    body += "source_run_id=" + ASC_SourceRunId() + "\n";
+6399:    body += "market_board_snapshot_id=" + ASC_Top5BucketSnapshotId(state) + "\n";
+6400:    body += "l4_committed_snapshot_id=" + ASC_Top5BucketSnapshotId(state) + "\n";
+6401:    body += "top5_bucket_snapshot_id=" + ASC_Top5BucketSnapshotId(state) + "\n";
+6433:    required[4] = "bucket_rank_source=MarketBoard/L4";
+6434:    required[5] = "closed_symbols_actionable=false";
+6435:    required[6] = "rank_formula_change=false";
+6436:    required[7] = "source_run_id=" + ASC_SourceRunId();
+6437:    required[8] = "top5_depth_parity_state=";
+6438:    required[9] = "top5_bucket_staging_ready=true";
+6439:    required[10] = "top5_bucket_archive_ready=true";
+6564:    payload += "actionability_basis=L1_open_confirmed_non_stale_non_degraded_required;MarketBoard_L4_rank_is_not_actionability;no_trade_or_execution_signal\n";
+6565:    payload += "closed_symbols_actionable=false\n";
+6566:    payload += "rank_formula_change=false\ntrade_signal=false\nexecution_change=false\n";
+6567:    payload += "source_run_id=" + ASC_SourceRunId() + "\n";
+6568:    payload += "currentness_state=" + ASC_TextOrUnavailable(state.top5_bucket_family_state) + "\n";
+6569:    string depth_parity_state = ASC_Top5BucketDepthParityState(bucket_rank, false);
+6570:    bool top5_rank_1_5_deep_attempted = false;
+6617:    required_tokens[n + 6] = "rank_formula_change=false";
+6618:    required_tokens[n + 7] = "trade_signal=false";
+6619:    required_tokens[n + 8] = "execution_change=false";
+6620:    required_tokens[n + 9] = "source_run_id=" + ASC_SourceRunId();
+6621:    required_tokens[n + 10] = "deep_pending=true";
+6622:    required_tokens[n + 11] = "proof_boundary=";
+6623:    required_tokens[n + 12] = "top5_depth_parity_state=";
+7925:    payload += "alignment_status: pending_refresh_child_derived_from_board_signature\n";
+7926:    payload += "stale_current_guard: child_is_not_clean_current_unless_family_manifest_matches_current_board_signature\n";
+7927:    payload += ASC_ArtifactIdentityLine("globaltop10_child", "deferred_l5_pending") + "\n";
+7928:    payload += "source_run_id=" + ASC_SourceRunId() + " | source_identity_token=" + ASC_SourceIdentityToken() + " | artifact_written_by_run=" + ASC_SourceRunId() + " | artifact_schema_version=" + ASC_ArtifactSchemaVersion() + " | build_identity_present=true\n";
+7929:    payload += ASC_Run081RBuildIdentityToken() + "\n";
+7930:    payload += ASC_Run082RBuildIdentityToken() + "\n";
+7931: 
+7938:    required_tokens[n + 4] = "deep_completed: no";
+7939:    required_tokens[n + 5] = "derived_from_board_signature:";
+7940:    required_tokens[n + 6] = "stale_current_guard:";
+7941:    required_tokens[n + 7] = "source_run_id=";
+7942:    required_tokens[n + 8] = "artifact_written_by_run=";
+7943:    required_tokens[n + 9] = "artifact_schema_version=";
+7944:    required_tokens[n + 10] = "build_identity_present=true";
+7945: 
+10211:                                               active_focus_has_payload);
+10212: 
+10213:    string active_board_payload = "";
+10214:    string active_board_source_run_id = "";
+10215:    if(active_board_exists && active_board_has_payload && ASC_ReadTextFile(state.market_board_path, active_board_payload))
+10216:       active_board_source_run_id = ASC_ExtractPipeTokenValue(active_board_payload, "source_run_id");
+10217: 
+10218:    string active_focus_payload = "";
+10219:    string active_focus_source_run_id = "";
+10220:    if(active_focus_exists && active_focus_has_payload && ASC_ReadTextFile(state.current_focus_path, active_focus_payload))
+10221:       active_focus_source_run_id = ASC_ExtractPipeTokenValue(active_focus_payload, "source_run_id");
+10222: 
+10223:    bool active_board_source_match = (StringLen(active_board_source_run_id) > 0 && active_board_source_run_id == ASC_SourceRunId());
+10224:    bool active_focus_source_match = (StringLen(active_focus_source_run_id) > 0 && active_focus_source_run_id == ASC_SourceRunId());
+10225:    bool active_focus_source_mismatch = (active_focus_exists && active_focus_has_payload && StringLen(active_focus_source_run_id) > 0 && !active_focus_source_match);
+10226: 
+10227:    string active_family_divergence = ASC_ManifestActiveArtifactFieldFamilyDivergence(active_board_publication_id,
+10228:                                                                                   active_focus_publication_id,
+10389:    body += ASC_ProofBundleDecisionMappingLine() + "\n";
+10390:    body += "Roadmap Two-Lane Audit Boundary: " + ASC_RoadmapTwoLaneAuditBoundaryLine() + "\n";
+10391:    body += ASC_Run155LiveContractSeedBlock();
+10392:    body += "RUN100 Current Focus Source Identity Audit: expected_source_run_id=" + ASC_SourceRunId()
+10393:            + " | active_current_focus_source_run_id=" + ASC_TextOrUnavailable(active_focus_source_run_id)
+10394:            + " | active_current_focus_source_identity_match=" + (active_focus_source_match ? "yes" : "no")
+10395:            + " | active_current_focus_source_mismatch=" + (active_focus_source_mismatch ? "yes" : "no")
+10396:            + " | active_market_board_source_run_id=" + ASC_TextOrUnavailable(active_board_source_run_id)
+10397:            + " | active_market_board_source_identity_match=" + (active_board_source_match ? "yes" : "no")
+10398:            + " | contradiction_if_focus_mismatch=true"
+10399:            + " | proof_boundary=artifact_payload_source_run_id_readback_no_rank_formula_strategy_execution_change\n";
+10400:    body += ASC_ManifestProofClassLedgerLine(state,
+10401:                                             active_board_exists,
+10402:                                             active_board_has_payload,
+12199:       compact_line += "\t" + ASC_LaneToText(telemetry.lane);
+12200:       compact_line += "\t" + ASC_SublaneToText(telemetry.sublane);
+12201:       compact_line += "\tphase3a_heartbeat_telemetry=present";
+12202:       compact_line += "\tsource_run_id=" + ASC_SourceRunId();
+12203:       compact_line += "\tsource_version=" + ASC_SourceVersionLabel();
+12204:       compact_line += "\tartifact_written_by_run=" + ASC_SourceRunId();
+12205:       compact_line += "\tproof_emit_gate=sample_compact_300hb";
+12206:       compact_line += "\theartbeat_detail_build_avoided=true";
+12207:       compact_line += "\telapsed_ms=" + IntegerToString(telemetry.heartbeat_duration_ms);
+12260:    line += "\t" + ASC_LaneToText(telemetry.lane);
+12261:    line += "\t" + ASC_SublaneToText(telemetry.sublane);
+12262:    line += "\tphase3a_heartbeat_telemetry=present";
+12263:    line += "\tsource_run_id=" + ASC_SourceRunId();
+12264:    line += "\tsource_version=" + ASC_SourceVersionLabel();
+12265:    line += "\tartifact_written_by_run=" + ASC_SourceRunId();
+12266:    line += "\tproof_emit_gate=" + proof_emit_reason;
+12267:    line += "\theartbeat_detail_build_avoided=steady_state_non_sample";
+12268:    line += "\tactive_lane=" + ASC_LaneToText(telemetry.lane);
+12858:       payload += "hydration_class=" + top5_origin_hydration + "\n";
+12859:       payload += "closed_symbols_actionable=false\n";
+12860:       payload += "rank_formula_change=false\ntrade_signal=false\nexecution_change=false\n";
+12861:       payload += "source_run_id=" + ASC_SourceRunId() + "\n";
+12862:       payload += "deep_pending=false\n";
+12863:       payload += "depth_parity_state=deep_payload_attached\n";
+12864:       payload += "deep_payload_available=true\n";

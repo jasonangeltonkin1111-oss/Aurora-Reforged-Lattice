@@ -1,0 +1,42 @@
+RUN257R_OUTPUT_ROOT_FOLDER_LISTINGS
+NOTE: This lists packaged evidence/Upcomers-Server only. It is not a proven active terminal common Files root.
+
+[evidence/Upcomers-Server] exists=True child_count=4 latest_modified=2026-05-03 09:29:42 identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN141R, RUN102R, RUN092
+  DIR  2026-05-03 13:35:36          0 Dossiers
+  FILE 2026-05-03 09:29:42      55564 Open Symbol Snapshot.txt
+  DIR  2026-05-03 13:35:36          0 Symbol Data Packs
+  DIR  2026-05-03 13:35:36          0 Workbench
+
+[evidence/Upcomers-Server/Workbench/logs] exists=True child_count=2 latest_modified=2026-05-03 09:29:42 identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN141R, RUN125, RUN124R
+  FILE 2026-05-03 09:29:42    8094000 function_results.log
+  FILE 2026-05-03 09:28:56    1034788 heartbeat_telemetry.log
+
+[evidence/Upcomers-Server/Dossiers] exists=True child_count=2 latest_modified=2026-05-03 09:27:58 identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN141R, RUN102R, RUN092
+  DIR  2026-05-04 01:41:41          0 GlobalTop10
+  DIR  2026-05-04 01:41:41          0 Top5PerBucket
+
+[evidence/Upcomers-Server/Dossiers/GlobalTop10] exists=True child_count=2 latest_modified=2026-05-03 09:27:58 identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN141R, RUN102R, RUN092
+  FILE 2026-05-03 09:27:58      13596 _family_manifest.txt
+  FILE 2026-05-03 09:27:38     525926 AAVEUSD.nx.txt
+
+[evidence/Upcomers-Server/Dossiers/GlobalTop10/_staging] exists=False child_count=0 latest_modified=n/a identity_sample=no sample / missing
+
+[evidence/Upcomers-Server/Dossiers/Top5PerBucket] exists=True child_count=3 latest_modified=2026-05-03 09:27:02 identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN125R, RUN157, RUN160
+  FILE 2026-05-03 09:27:02      16812 _family_manifest.txt
+  DIR  2026-05-04 01:41:41          0 _staging
+  DIR  2026-05-04 01:41:41          0 crypto
+
+[evidence/Upcomers-Server/Symbol Data Packs] exists=True child_count=2 latest_modified=2026-05-03 09:28:24 identity_sample=RUN238R-CompileGateRepairBeforeLiveProof, RUN238R, RUN162R, RUN236R, RUN233R
+  DIR  2026-05-04 01:41:41          0 GlobalTop10
+  DIR  2026-05-03 13:35:36          0 Top5PerBucket
+
+[evidence/Upcomers-Server/Symbol Data Packs/GlobalTop10] exists=True child_count=1 latest_modified=2026-05-03 09:28:00 identity_sample=RUN238R-CompileGateRepairBeforeLiveProof, RUN238R, RUN162R, RUN236R, RUN233R
+  FILE 2026-05-03 09:28:00     429796 AAVEUSD.nx_SYMBOL_DATA_PACK.txt
+
+[evidence/Upcomers-Server/Symbol Data Packs/Top5PerBucket] exists=True child_count=1 latest_modified=2026-05-03 09:28:24 identity_sample=RUN238R-CompileGateRepairBeforeLiveProof, RUN238R, RUN162R, RUN236R, RUN233R
+  DIR  2026-05-04 01:41:41          0 crypto
+
+[evidence/Upcomers-Server/Symbol Data Packs/archive] exists=False child_count=0 latest_modified=n/a identity_sample=no sample / missing
+
+[evidence/Upcomers-Server/Symbol Data Packs/_previous_state_cache] exists=False child_count=0 latest_modified=n/a identity_sample=no sample / missing
+

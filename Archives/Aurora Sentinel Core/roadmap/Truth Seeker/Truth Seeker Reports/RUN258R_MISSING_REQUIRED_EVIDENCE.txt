@@ -1,0 +1,26 @@
+RUN258R_MISSING_REQUIRED_EVIDENCE
+
+- Full MetaEditor compile transcript for RUN255R source
+- Exact operator-side .mq5 path compiled in MetaEditor
+- Exact produced .ex5 output path
+- Compile timestamp
+- Compile error count
+- Compile warning count
+- EX5 modified time after compile
+- EA reattach/restart proof after compile
+- Experts attach/init window
+- Journal attach/init window
+- Experts runtime_deployment_identity line
+- Experts source_run_id=RUN255R runtime proof
+- Experts source_version=RUN255R-IdentityDeploymentProofRepair runtime proof
+- Active terminal data folder path from File -> Open Data Folder
+- Active MQL5 folder path
+- Active Experts folder path
+- Common Files root path
+- Proven active Aurora output root path
+- Fresh Scanner Status from proven output root showing RUN255R
+- Fresh Market Board from proven output root showing RUN255R
+- Fresh Artifact Bundle Manifest from proven output root showing RUN255R
+- Fresh FunctionResults excerpt from proven output root showing RUN255R
+- Fresh heartbeat_telemetry excerpt from proven output root showing RUN255R
+- Multiple MT5 terminals/output roots ruled out

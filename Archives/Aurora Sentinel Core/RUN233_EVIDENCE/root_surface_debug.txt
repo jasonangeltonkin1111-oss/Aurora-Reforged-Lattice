@@ -1,0 +1,7 @@
+RUN233 root surface debug
+Scanner Status.txt: MISSING in uploaded live root.
+Artifact Bundle Manifest.txt: MISSING in uploaded live root.
+Scanner Status classification: validation_failed. Writer was called; FunctionResults reports missing_token=Runtime Proof Bundle Capture Checklist.
+Artifact Manifest classification: validation_failed. Writer was called; FunctionResults reports missing_token=UPLOAD_ROOT_REQUIRED=server_root_or_export_root.
+Patch: ASC_RuntimeCaptureChecklistBlock now emits Runtime Proof Bundle Capture Checklist and UPLOAD_ROOT_REQUIRED=server_root_or_export_root.
+Boundary: no FileIO/path/timing/route/Market Board/Dossier/SDP/HUD/strategy/signal/execution/risk change.

@@ -1,0 +1,17 @@
+RUN256R_MISSING_REQUIRED_EVIDENCE
+
+Missing hard gates:
+- Full MetaEditor compile output after RUN255R.
+- Exact .mq5 source file path compiled.
+- Exact .ex5 output path.
+- Compile timestamp, error count, warning count.
+- Experts attach/init window containing runtime_deployment_identity.
+- Journal attach/init window.
+- MT5 terminal/build, broker/server, chart symbol/timeframe.
+- Terminal data folder path from File -> Open Data Folder.
+- Common Files/output root path from the same active terminal.
+- Fresh Scanner Status, Market Board, Artifact Bundle Manifest from proven output root.
+- Fresh FunctionResults and heartbeat rows showing RUN255R identity.
+- Output root/folder listings from proven active terminal root.
+
+Consequence: identity stitch is not proven; route/parity/breathing cannot be lawfully diagnosed.

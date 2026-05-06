@@ -1,0 +1,14 @@
+| Risk | Area | Evidence | Severity | Likelihood | Detectability | Priority | Cheapest next test | Recommended run |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| source-of-truth drift | version/report/package | RUN294 source identity; missing RUN295/RUN292 reports | 5 | 4 | 2 | 80 | source identity/control reconciliation | RUN297R |
+| roadmap bloat | prompt/doctrine | huge multi-module prompt; many historical rules | 4 | 5 | 2 | 80 | convert doctrine to tests or delete | RUN297R/RUN298R |
+| placeholder/fake-proof | SDP/Dossier/Siam | placeholder_owner/reason fields; no current live hydration | 4 | 4 | 2 | 64 | static placeholder completeness + wording downgrade | RUN299R |
+| runtime refresh/timer | OnTimer/Dispatcher | 17k-line dispatcher; old heartbeat pressure evidence | 5 | 4 | 3 | 60 | bounded refresh telemetry live proof | RUN300R |
+| family/parity | Board/Dossier/SDP | source_context_only; no current readback | 5 | 4 | 3 | 60 | same-snapshot readback compare | RUN300R |
+| file publication | FileIO/writers | atomic write exists; current publish not live-proven | 5 | 3 | 3 | 45 | manifest + readback proof | RUN300R |
+| compile | include/signature seams | 104 MQL files; 260 includes; no missing/cycles; large changed callsites | 4 | 3 | 3 | 36 | MetaEditor compile after static hardening | RUN298R/RUN300R |
+| prompt injection | evidence/logs/prompts | old reports/prompts contain instructions | 4 | 3 | 3 | 36 | evidence quarantine table enforced | RUN297R |
+| data hydration | OpenSymbolSnapshot/ATR/session | central owner exists but live broker availability unknown | 4 | 3 | 3 | 36 | asset-class hydration readback | RUN300R |
+| permission/trading | review outputs/semi-auto | exact positive scan finds negated phrases but no granted permission | 5 | 2 | 4 | 20 | forbidden positive grep in source + generated output | RUN300R |
+| prop-firm/execution | future deployment | no execution proof; review-only outputs | 5 | 1 | 4 | 10 | keep no-trade boundary | defer |
+| HUD compile/runtime | HUD manager/cache | 16k-line HUD manager; dormant duplicate cache helper | 3 | 2 | 4 | 12 | compile seam check if HUD touched | RUN298R |

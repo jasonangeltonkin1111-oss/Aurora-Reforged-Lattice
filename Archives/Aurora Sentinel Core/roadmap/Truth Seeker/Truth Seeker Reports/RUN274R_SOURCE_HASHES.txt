@@ -1,0 +1,3 @@
+122be65edfb83a8f5c5581a7c727f64813df0107b95bad8186c079ce5e0edd07  mt5/core/ASC_Version.mqh
+de570330ceba213fcbe4d10bde20411928ba17c71cc0e57dd42dfb25ae9adbb8  mt5/artifacts/ASC_MarketBoardWriter.mqh
+08d18fce6b0c0c4666b6f5f16745c1425ac9e79e634b0bb807dd12aa23114e93  roadmap/Truth Seeker/Truth Seeker Reports/RUN273R_REPORT.md

@@ -1,0 +1,255 @@
+# ASC Menu and Testability Plan
+
+## Purpose
+
+This file defines the foundation-stage MT5 properties menu shape and the staged verification order for the active ASC runtime.
+
+It exists so the EA menu, the flat runtime, and the future semantic MT5 layout can grow without later retrofits or renaming churn.
+
+## Menu law
+
+The EA properties menu must be:
+- grouped by ownership
+- human-readable
+- stable enough for later layers
+- explicit about what is active now versus reserved later
+- free of phase/dev jargon
+
+## Active menu groups now
+
+### Runtime
+Owns:
+- heartbeat interval
+- universe sync interval
+- bounded symbol budget
+
+### Scheduler
+Owns:
+- fairness budget
+- due pacing
+- bounded work progression
+
+### Market Status Detection
+Owns:
+- fresh tick threshold
+- open-market recheck cadence
+- uncertain-state burst limits
+- fast and slow uncertain rechecks
+- closed-market pacing windows
+- unknown-state pacing
+
+### Recovery & Persistence
+Owns:
+- runtime save cadence
+- scheduler save cadence
+- summary save cadence
+- dossier repair on boot
+- last-good preservation policy
+
+### Logging & Attention
+Owns:
+- verbosity
+- scheduler decision logging
+- recovery logging
+- dossier repair logging
+- attention visibility thresholds
+
+### Dossiers & Publication
+Owns:
+- due-based dossier writing toggle
+- inclusion of pending layer placeholders
+- publication metadata stability
+- snapshot adapter invalidation policy later
+
+### Explorer HUD
+Owns:
+- explorer visibility
+- explorer refresh cadence
+- explorer density
+- breadcrumb visibility
+- safe scroll step size
+- focus downgrade timeout later
+
+## Reserved menu groups for later capabilities
+
+These groups should already exist in menu design even when their logic is pending.
+
+### Open Symbol Snapshot
+Active for bounded open-symbol snapshot behavior, with controls still intentionally narrow, such as:
+- Reserved: Snapshot M1 Bars
+- Reserved: Snapshot M5 Bars
+- Reserved: Snapshot M15 Bars
+- Reserved: Snapshot Focus Refresh Seconds
+
+### Deep Selective Analysis (Reserved)
+Reserved for Deep Selective Analysis controls and deeper ATR/history cadence scaffolding such as:
+- Reserved: ATR Refresh Seconds
+- Reserved: Deep H1 Bars
+- Reserved: Deep H4 Bars
+- Reserved: Deep D1 Bars
+- Reserved: Deep Focus Refresh Ceiling Seconds
+
+### Future Selection / Ranking (Pending)
+Active Candidate Filtering controls remain intentionally minimal for bounded eligibility truth, while Shortlist Selection controls stay reserved for later selected-set limits.
+
+## Menu naming rules
+
+Use labels like:
+- `Heartbeat Interval Seconds`
+- `Runtime Save Interval Seconds`
+- `Reserved: M15 Bars`
+
+Do not use labels like:
+- `Phase 1 Budget`
+- `Worker Burst`
+- `Packet Count`
+- `Temp Layer Settings`
+
+## Reserved-control honesty rule
+
+If a menu group is not active yet:
+- keep the group in the menu
+- mark the control as Reserved or Pending
+- keep naming final and stable
+- do not pretend the feature is already implemented
+
+## Flat runtime ownership mapping
+
+In the active flat runtime surface, the menu should map approximately as:
+- `AuroraSentinel_Foundation.mq5` -> input groups and input-to-settings wiring
+- `ASC_Common.mqh` -> settings structs and shared types
+- `ASC_MarketState.mqh` -> scheduler pacing consumption of market-state settings
+- `ASC_Persistence.mqh` -> continuity metadata and save cadence consumers
+- `ASC_Dossiers.mqh` -> dossier placeholder policy
+- `ASC_Logging.mqh` -> verbosity and domain logging behavior
+
+## Testability law
+
+Future implementation must be able to prove the refresh and explorer boundaries, not merely claim them.
+The minimum observable proofs are:
+- focused symbol or stat views do not trigger full-universe recomputation
+- focus exit lowers work back to the non-focused cadence
+- unchanged fields and sections do not rewrite unnecessarily
+- expensive fields do not churn on every redraw
+- HUD buttons do not perform hidden heavy compute
+- action handlers stay navigation-scoped and do not trigger heavy classification, dossier rebuild, or deep refresh work
+- adapter snapshots are reused until invalidated by owned state change or stale expiry
+- retained chart objects and component-local state diffing reduce unnecessary property churn on hot render paths
+- chart-size/layout measurement refresh is explicit and bounded rather than re-queried as a cold path on every render
+- downgrade events preserve last-good truth instead of blanking valid surfaces casually
+
+## Staged build and verification order
+
+### Stage 1 — Paths and logger
+Pass means:
+- server path resolves
+- root folders exist
+- logger writes without spam
+
+### Stage 2 — Runtime shell and menu wiring
+Pass means:
+- grouped inputs load into one runtime settings surface
+- timer uses configured heartbeat interval
+- settings summary logs once on init
+
+### Stage 3 — Continuity restore and repair
+Pass means:
+- runtime continuity loads when present
+- `.last-good` fallback is attempted when needed
+- missing dossiers are queued for repair honestly
+
+### Stage 4 — Market State Detection heartbeat
+Pass means:
+- open / closed / uncertain / unknown states advance under bounded work
+- fairness cursor prevents head-of-list starvation
+- degraded mode is logged when the budget cap binds
+- opening the explorer does not change the whole-universe heartbeat cost
+
+### Stage 5 — Canonical publication
+Pass means:
+- dossiers write atomically
+- runtime, scheduler, and summary continuity files carry schema and generated-at metadata
+- future-capability sections remain Reserved or Pending rather than missing
+- unchanged publication sections are not rewritten without cause
+
+### Stage 6 — Explorer boundary verification
+Pass means:
+- button clicks route through one action surface
+- explorer redraw reuses prepared snapshots unless they are invalidated
+- retained HUD objects are reused where possible instead of blind recreate/delete churn
+- render batches minimize synchronous chart/object queries and skip redundant property writes where correctness allows
+- focus entry elevates only the authorized focused surface
+- focus exit or focus change removes elevated work promptly
+- no explorer action triggers history pulls, bucket rebuilds, or heavy recomputation unless a later active capability explicitly owns and schedules that work
+
+## Foundation test matrix summary
+
+The minimum foundation pass should verify:
+1. first run with no files
+2. restart with intact files
+3. restart with partial continuity and `.last-good` fallback
+4. missing dossier repair
+5. long market-closed cadence behavior
+6. bounded-work pressure on a large universe
+7. stale tick versus trade-session ambiguity
+8. folder/path failure visibility
+9. atomic write failure visibility
+10. focus entry/exit does not change unrelated symbol cadence
+11. explorer redraw does not churn expensive fields
+12. snapshot reuse until invalidation
+
+## Final rule
+
+The menu and staged test order are part of the foundation design, not optional polish.
+A runtime that cannot be configured cleanly or verified in sequence is not hardened enough for future layer expansion.
+
+## Logging verification signals
+
+A healthy Market State Detection test run should make it easy to find:
+- one init settings summary
+- one recovery outcome line
+- dossier repair queue lines when files are missing
+- scheduler decision lines only when debug logging is enabled
+- bounded-work warnings only when the heartbeat cap binds
+- save and restore events for runtime, scheduler, summary, and dossiers
+- explicit focus elevation / downgrade signals once focus-scoped refresh exists
+- snapshot reuse or invalidation traces when explorer boundary diagnostics are enabled
+
+
+## Debug observability lane for explorer and warmup verification
+
+Use this lane only with `Log Verbosity` set to `Debug`. It exists to verify where explorer latency occurs, whether batch promotion preserves last-good truth, whether warmup exits on the right evidence, and whether Open Only stays tied to non-zero-open bucket truth.
+
+### Debug procedure
+
+1. Start the EA with Explorer HUD enabled and `Log Verbosity = Debug`.
+2. Let the runtime boot through warmup until at least one prepared batch promotes.
+3. Watch the log for `warmup-state transition` lines while initial assessed share and compressed primary-bucket readiness move.
+4. Navigate across Overview, Buckets, Bucket Detail, Symbol Detail, and back again to trigger `page-switch latency over threshold` and `render time over threshold` lines when navigation is materially slow.
+5. Toggle `Open Only` on and off while primary buckets contain a mix of open and closed symbols. The debug lane should report visible Open Only bucket counts and should only emit an anomaly line when a zero-open bucket would have been shown.
+6. Leave the terminal idle long enough for repeated hydration/controller passes without meaningful truth changes. If a batch is promoted again with identical batch truth, the log should emit `unchanged batch rewritten` so churn can be traced.
+7. Create bounded-work pressure by enlarging the symbol universe or lowering the per-heartbeat budget. The runtime should emit `bounded-work backlog severity bucket` with watch/elevated/severe posture rather than only raw counts.
+
+### Expected debug signals
+
+- `prep phase summary over threshold` behavior appears through the prepared diagnostics summary when prep, classify, sort, reorder, or promote phases cross their debug thresholds, and the line now declares whether prep or HUD render is dominant.
+- `render time over threshold` shows total HUD render time, the paired prep time, the current view, and whether HUD or prep is dominant.
+- `page-switch latency over threshold` shows the action name plus nav-to-render latency so slow page switches can be separated from pure prep or pure render cost.
+- `unchanged batch rewritten` signals prepared-state churn when a promoted batch matches active or last-good batch truth.
+- `batch promotion preserved last-good truth` confirms that rolling promotion kept prior last-good truth intact when a new batch promoted.
+- `filter-visible bucket count changed unexpectedly` or `filter-visible bucket count under Open Only = 0` are the key signals for verifying that Open Only never shows zero-open buckets.
+- `warmup-state transition` states the exact readiness evidence used for mode changes: minimum assessed threshold, assessed counts, primary assessed counts, primary batch readiness, background hydration state, and readiness percent.
+- `bounded-work backlog severity bucket` bins pressure into `within-budget`, `watch`, `elevated`, or `severe` so backlog posture can be seen quickly.
+
+### Interpretation guide
+
+- If `page-switch latency over threshold` fires while prep is low and render is high, investigate HUD object churn first.
+- If prepared summaries show `dominant=prep`, investigate classification, bucket rebuild, sort, reorder, or promotion work before tuning HUD layout.
+- If `unchanged batch rewritten` fires repeatedly without corresponding market-state or classification movement, prepared-state reuse is still too churn-heavy.
+- If a `warmup-state transition` reaches steady mode before compressed primary buckets are ready, that is a bug. If it never transitions despite the logged criteria being met, that is also a bug.
+- If `filter-visible bucket count changed unexpectedly` fires under Open Only, treat it as an ownership/truth regression until disproved.
+
+## Version bump discipline
+
+Every meaningful edit to the wrapper, menu, or explorer contract must bump version.
+Use a patch bump for non-breaking fixes and polish, a minor bump for meaningful subsystem expansion, and a major bump only for architectural revision.

@@ -1,0 +1,548 @@
+CODEX PROMPT CREATION GUIDE
+AURORA SENTINEL SCANNER
+HIGH-SUCCESS PROMPT SYSTEM
+
+======================================================================
+0. CORE RULE
+======================================================================
+
+Never try to write a “perfect” giant Codex prompt.
+Write the SMALLEST prompt that can safely complete ONE bounded pass.
+
+Target:
+- one pass type only
+- one subsystem seam only
+- one success condition only
+- one stop gate only
+
+Codex reliability comes from:
+1. correct pass classification
+2. exact source-of-truth framing
+3. bounded scope
+4. explicit deliverables
+5. explicit non-goals
+6. explicit stop gate
+7. review after every landed slice
+
+======================================================================
+1. BEFORE WRITING ANY CODEX PROMPT
+======================================================================
+
+GPT must silently classify the task first.
+
+Choose exactly one:
+
+A. PRODUCER problem
+- upstream truth owner is wrong, missing, duplicated, or drifting
+
+B. ADAPTER problem
+- dossier section formatting/consumption is wrong
+- upstream truth exists but consumer wiring is wrong
+
+C. COMPOSER / PRODUCT MODE problem
+- open vs closed mode
+- section inclusion / exclusion
+- shell vs canonical surface
+- section order / field label ownership
+
+D. PUBLICATION / ROUTING problem
+- startup shell flood
+- canonical continuation
+- selected-symbol/current-focus pair path
+- deep-trigger pair upgrade
+- atomic write / validate / promote
+
+E. VALIDATION problem
+- missing proof
+- missing counters
+- broker comparison gap
+- mismatch ledger gap
+- regression trap gap
+
+If more than one class appears:
+- do NOT combine them
+- choose the earliest blocking layer
+- make the prompt for that layer only
+
+======================================================================
+2. DEFAULT PASS ORDER RULE
+======================================================================
+
+When uncertain, use this order:
+
+1. Audit-only
+2. Design-only
+3. Implementation-only
+4. Hardening-review-only
+
+Never skip straight to implementation when:
+- owner path is unclear
+- caller path is unclear
+- shell vs canonical path is unclear
+- compile-reachable truth is unclear
+
+======================================================================
+3. PASS TAXONOMY
+======================================================================
+
+Every Codex prompt must declare exactly one pass type.
+
+----------------------------------------------------------------------
+A. AUDIT-ONLY
+----------------------------------------------------------------------
+
+Use when:
+- the active path is unclear
+- a regression must be explained
+- shell vs canonical routing is unclear
+- producer ownership is suspected but not proven
+
+Must do:
+- read only
+- map only
+- prove only
+- contradict assumptions
+- no patching
+
+Must output:
+- FACTS
+- ASSUMPTIONS / INFERENCES
+- FILES READ
+- ACTIVE OWNER PATH
+- ACTIVE CALLER PATH
+- FAILURE MAP
+- RISKS
+- WHAT MUST WAIT
+- STOP GATE
+
+----------------------------------------------------------------------
+B. DESIGN-ONLY
+----------------------------------------------------------------------
+
+Use when:
+- active code is understood
+- next change is non-trivial
+- contract/state/model/boundary must be defined before patching
+
+Must do:
+- define target contract
+- define target state model
+- define routing/product-mode behavior
+- define what is intentionally untouched
+- no patching
+
+Must output:
+- FACTS
+- ASSUMPTIONS / INFERENCES
+- FILES READ
+- TARGET CONTRACT / MODEL
+- DELTA VS CURRENT HEAD
+- RISKS
+- WHAT MUST WAIT
+- STOP GATE
+
+----------------------------------------------------------------------
+C. IMPLEMENTATION-ONLY
+----------------------------------------------------------------------
+
+Use when:
+- owner path is proven
+- caller path is proven
+- target seam is small enough
+- success condition is concrete
+
+Must do:
+- patch only the bounded seam
+- keep source-of-truth unchanged unless the pass is explicitly producer-focused
+- avoid unrelated cleanup
+- avoid doc-first completion
+
+Must output:
+- FACTS
+- ASSUMPTIONS / INFERENCES
+- FILES READ
+- FILES CHANGED
+- EXACT CALLER-PATH DELTA
+- EXACT OWNER-PATH IMPACT
+- RISKS
+- WHAT MUST WAIT
+- STOP GATE
+
+----------------------------------------------------------------------
+D. HARDENING-REVIEW-ONLY
+----------------------------------------------------------------------
+
+Use when:
+- the user already tested and committed a slice
+- we need regression detection
+- we need tiny reinforcement, not redesign
+
+Must do:
+- inspect landed result only
+- confirm no drift
+- identify small hardening only if explicitly allowed
+
+Must output:
+- FACTS
+- ASSUMPTIONS / INFERENCES
+- FILES READ
+- FILES CHANGED (if any)
+- REGRESSION FINDINGS
+- RISKS
+- WHAT MUST WAIT
+- STOP GATE
+
+======================================================================
+4. SOURCE-OF-TRUTH BLOCK
+======================================================================
+
+Every prompt should contain a strict source-of-truth block near the top.
+
+Use this pattern:
+
+REPO
+- Repository: <repo>
+- Branch: current HEAD
+- Use the REAL repository files at current HEAD as the ONLY source of truth.
+- Do NOT trust prior summaries, prior prompts, office wording, roadmap wording,
+  blueprint wording, screenshots, archive memory, or chat assumptions unless
+  verified in the actual files.
+- Files are authority.
+- Compile-reachable code outranks stale wording when contradictions exist.
+
+This block must always appear before mission or task instructions.
+
+======================================================================
+5. SCOPE WALL BLOCK
+======================================================================
+
+Every prompt must contain a scope wall.
+
+Use this pattern:
+
+IN SCOPE
+- <exact seam only>
+
+OUT OF SCOPE
+- <explicit list>
+
+For Aurora-Sentinel-Scanner, out-of-scope examples should often include:
+- HUD redesign
+- Market Board redesign
+- unrelated performance work
+- office/blueprint rewrites
+- giant dossier surface rewrite
+- Layer 5 background widening
+- cross-layer cleanup
+- opportunistic refactors
+
+If the prompt cannot name what is out of scope,
+the prompt is too vague.
+
+======================================================================
+6. REQUIRED PROOF BLOCK
+======================================================================
+
+Every prompt must force Codex to prove the active path before acting.
+
+Use this pattern:
+
+YOU MUST PROVE FROM FILES
+1. active owner file(s)
+2. active caller path(s)
+3. active contract/packet path
+4. active publication path
+5. active validation/readback path
+6. all relevant fallback paths
+7. whether the issue is producer / adapter / composer / publication / validation
+
+If this proof is not possible from files,
+Codex must stop and report that block instead of guessing.
+
+======================================================================
+7. ANTI-FAILURE RULES
+======================================================================
+
+Every prompt should include these rules.
+
+- Do NOT mix audit, design, and implementation casually.
+- Do NOT “fix everything.”
+- Do NOT treat dossier as a truth owner.
+- Do NOT treat HUD as a truth owner.
+- Do NOT treat Market Board as a truth owner.
+- Do NOT widen Layer 5 into a background universe service.
+- Do NOT rewrite docs first and pretend runtime changed.
+- Do NOT confuse shell fallback with canonical product.
+- Do NOT accept “composer exists” as proof that runtime routes through it.
+- Do NOT silently leave fallback paths alive and call the pass complete.
+- Do NOT broaden scope because related issues are visible.
+- Do NOT patch files outside the stated seam unless absolutely required, and if
+  required, explain exactly why.
+
+======================================================================
+8. SUCCESS CRITERIA BLOCK
+======================================================================
+
+Every implementation prompt must define success concretely.
+
+Use this pattern:
+
+SUCCESS CRITERIA
+- exactly which route changes
+- exactly which files change
+- exactly what remains untouched
+- exactly which fallback is removed, reduced, or preserved
+- exactly how compile-reachable behavior differs after the patch
+- exactly what the user should test next
+
+Bad success criterion:
+- “make dossiers better”
+
+Good success criterion:
+- “ordinary dossier continuation no longer emits full shell artifacts when canonical
+  composition succeeds”
+
+======================================================================
+9. STOP GATE BLOCK
+======================================================================
+
+Every prompt must end with a stop gate.
+
+Use this pattern:
+
+STOP GATE
+- stop after this bounded slice
+- do not continue into later phases
+- do not start a second seam
+- wait for operator test / commit / review
+
+This is mandatory.
+A Codex prompt without a stop gate is unsafe.
+
+======================================================================
+10. PREFERRED PROMPT SHAPE
+======================================================================
+
+Structure the prompt like a high-quality GitHub issue.
+
+Order:
+1. Repo/source-of-truth block
+2. Pass type
+3. Mission
+4. Why this pass exists
+5. In scope
+6. Out of scope
+7. Required files to read
+8. Required proof
+9. Required deliverables
+10. Success criteria
+11. Stop gate
+
+This works better than loose conversational prompting.
+
+======================================================================
+11. ASK-MODE FIRST RULE
+======================================================================
+
+For any task that is not obviously tiny, GPT should make an Ask-mode prompt first.
+
+Ask-mode prompt should request:
+- active path proof
+- design delta
+- contradiction map
+- bounded implementation plan
+
+Then only after that should GPT generate a Code-mode prompt.
+
+Use Ask first when:
+- routing is unclear
+- ownership is unclear
+- more than 3 files may need edits
+- fallback behavior exists
+- the repo has prior drift
+- the pass touches dispatcher/composer/writer logic
+
+======================================================================
+12. ENVIRONMENT / CONTEXT RULES
+======================================================================
+
+A strong Codex prompt assumes environment matters.
+
+GPT should include or request:
+- repo already connected
+- tests / compile command if known
+- startup/setup steps if needed
+- relevant file paths
+- relevant docs snippets
+- known constraints from AGENTS.md or project rules
+
+If the repo supports AGENTS.md, GPT should make sure the prompt assumes those
+persistent rules exist and are obeyed.
+
+Persistent context should include:
+- naming laws
+- pass taxonomy
+- repo workflow
+- non-negotiable architecture rules
+- Layer 5 restrictions
+- “files are authority”
+- stop/test/commit/review cadence
+
+======================================================================
+13. TASK SIZE RULE
+======================================================================
+
+Do not give Codex giant, multi-hour rewrite prompts.
+
+Preferred task size:
+- one seam
+- roughly one engineer-hour scale
+- small-to-moderate file set
+- a few hundred lines of code at most unless the pass is extremely mechanical
+
+If a task is larger:
+- split into phases
+- write the next prompt for the first safe slice only
+
+======================================================================
+14. AURORA-SPECIFIC PROMPT FILTER
+======================================================================
+
+Before finalizing any Codex prompt for this repo, GPT must check:
+
+1. Is this really a producer problem first?
+2. Is this prompt accidentally turning dossier into truth owner?
+3. Is this prompt accidentally turning HUD into truth owner?
+4. Is this prompt accidentally widening Layer 5?
+5. Is this prompt accidentally letting shell fallback remain the visible product?
+6. Is this prompt missing proof requirements?
+7. Is this prompt missing a stop gate?
+8. Is this prompt broad enough to create drift?
+
+If any answer is “yes”:
+- rewrite the prompt narrower
+
+======================================================================
+15. DELIVERABLE FORMAT TO FORCE ON CODEX
+======================================================================
+
+For every pass, require this exact output format:
+
+1. FACTS
+- only direct file truth
+- only compile-reachable truth
+- only proven mappings
+
+2. ASSUMPTIONS / INFERENCES
+- anything not directly proven
+- any proposal not yet implemented
+
+3. FILES READ
+
+4. FILES CHANGED
+- implementation/review passes only
+
+5. ACTIVE OWNER PATH
+- owner file
+- caller path
+- proof chain
+
+6. RISKS
+- what remains unsafe
+
+7. WHAT MUST WAIT
+- what later phases own
+
+8. STOP GATE
+- operator test
+- operator commit
+- review before next pass
+
+======================================================================
+16. WHEN GPT SHOULD REFUSE TO WRITE A CODEX PROMPT YET
+======================================================================
+
+GPT should NOT write an implementation prompt yet if:
+- owner path is still disputed
+- user is mixing multiple phases
+- the request says “fix everything”
+- the request spans producer + adapter + composer + publication together
+- the issue is still only described by symptoms
+- the repo truth has not been re-read from files
+
+In those cases, GPT should write:
+- an audit-only prompt
+or
+- a design-only prompt
+
+======================================================================
+17. MINI TEMPLATE FOR GPT TO FILL
+======================================================================
+
+Use this as the base template every time:
+
+PASS TYPE
+- <audit-only / design-only / implementation-only / hardening-review-only>
+
+REPO
+- Repository: <repo>
+- Branch: current HEAD
+- Use the REAL repository files at current HEAD as the ONLY source of truth.
+- Files are authority.
+- Compile-reachable code outranks stale wording when contradictions exist.
+
+MISSION
+- <one bounded mission only>
+
+WHY THIS PASS EXISTS
+- <one paragraph max>
+
+IN SCOPE
+- <exact seam>
+
+OUT OF SCOPE
+- <explicit exclusions>
+
+REQUIRED READS
+- <exact files>
+
+YOU MUST PROVE FROM FILES
+1. <owner path>
+2. <caller path>
+3. <contract path>
+4. <publication path>
+5. <validation path>
+
+REQUIRED DELIVERABLES
+- FACTS
+- ASSUMPTIONS / INFERENCES
+- FILES READ
+- FILES CHANGED (if implementation/review)
+- ACTIVE OWNER PATH
+- RISKS
+- WHAT MUST WAIT
+- STOP GATE
+
+SUCCESS CRITERIA
+- <concrete behavioral delta>
+
+STOP GATE
+- stop after this slice
+- do not widen scope
+- wait for operator test / commit / review
+
+======================================================================
+18. FINAL PRINCIPLE
+======================================================================
+
+The best Codex prompt is not the longest prompt.
+It is the clearest bounded prompt with:
+- one mission
+- one seam
+- one proof chain
+- one success condition
+- one stop gate
+
+For Aurora Sentinel Scanner:
+RECOVER THE CORRECT LAYER.
+DO NOT LET THE DOSSIER SURFACE ABSORB UPSTREAM FAILURE.

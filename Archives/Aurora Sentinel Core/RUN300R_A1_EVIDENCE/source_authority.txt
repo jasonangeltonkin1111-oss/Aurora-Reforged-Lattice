@@ -1,0 +1,9 @@
+RUN300R-A1 SOURCE AUTHORITY MAP
+
+Active source package: /mnt/data/Aurora Sentinel Core(624).zip
+Extracted root inspected: Aurora Sentinel Core
+Source identity: mt5/core/ASC_Version.mqh declares RUN299R-C1 and package TRUTH_SEEKER_RUN299R_C1.zip.
+Control identity: office/*.md and roadmap active log align with RUN299R-C1.
+Runtime evidence mismatch: available evidence/Upcomers-Server/Workbench/logs function_results and heartbeat logs are 2026-05-03 rows with RUN238/RUN141 runtime identity tokens.
+Authority decision: source files are authority for static source/path facts; available logs are runtime evidence only for their old observed window and do not prove RUN299R-C1 runtime behavior.
+No stale-zip claim made.

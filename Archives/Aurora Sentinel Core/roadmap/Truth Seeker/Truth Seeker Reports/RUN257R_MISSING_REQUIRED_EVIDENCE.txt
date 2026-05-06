@@ -1,0 +1,38 @@
+RUN257R_MISSING_REQUIRED_EVIDENCE
+
+Hard missing gates:
+- Full MetaEditor compile transcript after RUN255R source.
+- Exact .mq5 source file path compiled.
+- Exact .ex5 output path produced.
+- Compile timestamp, error count, and warning count.
+- If compile failed: exact file/line/error list.
+- MT5 terminal name/build.
+- Broker/server.
+- Chart symbol/timeframe where EA is attached.
+- File -> Open Data Folder path proof.
+- Exact terminal data folder path.
+- Exact common Files path.
+- Exact Aurora output root path from the active terminal.
+- Proof whether multiple MT5 installations exist.
+- Proof whether multiple terminals are open.
+- Proof whether multiple Aurora output roots exist.
+- EX5 modified time after compile.
+- Confirmation EA was removed/re-attached or MT5 restarted after compile.
+- Experts attach/init window.
+- Journal attach/init window.
+- Experts runtime_deployment_identity line.
+- Experts source_run_id=RUN255R.
+- Experts source_version=RUN255R-IdentityDeploymentProofRepair.
+- Fresh Scanner Status from proven output root.
+- Fresh Market Board from proven output root.
+- Fresh Artifact Bundle Manifest from proven output root.
+- Fresh FunctionResults excerpt showing RUN255R.
+- Fresh heartbeat_telemetry excerpt showing RUN255R.
+- Output root folder listing from proven output root, not merely packaged evidence copy.
+- Workbench/logs folder listing from proven output root.
+- Dossiers/GlobalTop10 listing from proven output root.
+- Dossiers/Top5PerBucket listing from proven output root.
+- SDP/GlobalTop10 listing from proven output root.
+- SDP/Top5PerBucket listing from proven output root.
+
+Consequence: identity stitch is not proven. Breathing, GlobalTop10, Top5, and Main/Lite behavior cannot be lawfully classified as RUN255/RUN257 behavior. The packaged evidence still functions only as old context and must not be treated as fresh RUN255 proof.

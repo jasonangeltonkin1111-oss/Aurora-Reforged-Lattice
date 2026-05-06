@@ -1,0 +1,23 @@
+RUN258R PATH / DEPLOYMENT PROOF STATUS
+Generated: 2026-05-04 06:01:47
+
+Input package observed: Aurora Sentinel Core(573).zip
+Extracted package root observed locally: /mnt/data/run258_work/Aurora Sentinel Core
+Source file present inside package: mt5/AuroraSentinelCore.mq5
+ASC_Version.mqh present inside package: mt5/core/ASC_Version.mqh
+
+Important distinction:
+- The package contains an .mq5 source file path inside the zip/extraction tree.
+- The package does NOT contain an operator-captured MetaEditor compile transcript proving that this path was compiled.
+- The package does NOT contain a produced .ex5 output path.
+- The package does NOT contain EX5 modified time proof.
+- The package does NOT contain File -> Open Data Folder proof.
+- The package does NOT contain common Files root proof.
+- The package does NOT contain active Aurora output root proof linked to terminal paths.
+
+Candidate files found by name/path scan:
+- roadmap/Truth Seeker/Truth Seeker Reports/RUN213R_COMPILE_REPAIR_REPORT.md | size=14272 | mtime=2026-05-01 09:55:58
+- roadmap/Truth Seeker/Truth Seeker Reports/TRUTH_SEEKER_RUN095R_COMPILE_REPAIR_REPORT.md | size=24670 | mtime=2026-04-28 05:48:42
+- roadmap/Truth Seeker/Truth Seeker Reports/TRUTH_SEEKER_RUN099B_COMPILE_REPAIR_REPORT.md | size=20785 | mtime=2026-04-28 07:10:10
+- roadmap/Truth Seeker/Truth Seeker Reports/TRUTH_SEEKER_RUN105B_HUD_COMPILE_REPAIR_REPORT.md | size=16710 | mtime=2026-04-28 09:20:32
+- roadmap/Truth Seeker/Truth Seeker Reports/TRUTH_SEEKER_RUN124B_COMPILE_REPAIR_REPORT.md | size=18610 | mtime=2026-04-29 03:21:30

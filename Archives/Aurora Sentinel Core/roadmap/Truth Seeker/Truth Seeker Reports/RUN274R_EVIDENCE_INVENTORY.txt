@@ -1,0 +1,33 @@
+RUN274R EVIDENCE INVENTORY
+
+Uploaded package: Aurora Sentinel Core(591).zip
+Extracted root: Aurora Sentinel Core
+
+Required evidence status:
+1. MetaEditor compile output for RUN273R source: MISSING
+2. Experts log excerpt showing EA attach/init with RUN273R identity: MISSING
+3. Journal log excerpt showing attach/init/runtime context: MISSING
+4. Fresh Upcomers-Server runtime folder after RUN273 compile/attach: NOT PROVEN; folder exists but content identifies older runtime lineage.
+5. Market Board output: MISSING from evidence/Upcomers-Server; old RUN263R Market Board exists only under evidence/RUN263R.
+6. FunctionResults log: PRESENT but dated 2026.05.03 and identifies RUN238R/RUN262R lineage, not RUN273R.
+7. Heartbeat telemetry: PRESENT but dated 2026.05.03 and not RUN273-proven.
+8. Scanner Status: MISSING from current evidence/Upcomers-Server; old RUN263R Scanner Status exists only under evidence/RUN263R.
+9. Artifact Bundle Manifest: MISSING from current evidence/Upcomers-Server.
+10. Dossiers/GlobalTop10 final folder listing: PRESENT but only 1 child file observed.
+11. Dossiers/Top5PerBucket final folder listing by bucket: PRESENT but only crypto/AAVEUSD.nx.txt observed.
+12. Symbol Data Packs/GlobalTop10 final folder listing: PRESENT but only 1 child file observed.
+13. Symbol Data Packs/Top5PerBucket final folder listing by bucket: PRESENT but only crypto/AAVEUSD.nx_SYMBOL_DATA_PACK.txt observed.
+14. Symbol Data Packs archive listing: MISSING / not observed.
+15. Top5 reconcile/prune lines: PARTIAL/OLD; FunctionResults contains older SymbolDataPackReconciliationObservability lines, but not RUN273 proof.
+
+Key static source findings:
+- RUN273 exact SIAM block body and required token array are present in mt5/artifacts/ASC_MarketBoardWriter.mqh.
+- Old SIAM_SAFE_DOSSIER_REQUEST_BLOCK token is absent from active mt5 source.
+- ASC_Version.mqh identifies RUN273R and package TRUTH_SEEKER_RUN273R.zip.
+
+Key runtime blocker findings:
+- No RUN273 compile transcript exists in the uploaded evidence.
+- No RUN273 Experts/Journal attach/init evidence exists.
+- No current Market Board output exists to read back SIAM_DOSSIER_REQUEST_BLOCK_BEGIN/END.
+- Current evidence logs/manifests identify older runtime lineage, especially RUN238R/RUN262R.
+- Manifests claim wider Top5/Top10 child counts than the actual uploaded final folders contain.

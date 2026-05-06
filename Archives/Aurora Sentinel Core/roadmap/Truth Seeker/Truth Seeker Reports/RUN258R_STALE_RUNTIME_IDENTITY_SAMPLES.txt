@@ -1,0 +1,50 @@
+RUN258R STALE/UNPROVEN RUNTIME IDENTITY SAMPLES
+These are decoded samples from packaged evidence. They are old context, not active terminal proof.
+
+### evidence/Upcomers-Server/Dossiers/GlobalTop10/AAVEUSD.nx.txt | size=525926 | mtime=2026-05-03 09:27:38
+source_run_id: 10_child_operator_schema_v1 Artifact Identity: artifact_family_id=dossier | artifact_state=Fresh | source_run_id=RUN238R | source_version=RUN238R-CompileGateRepairBeforeLiveProof | source_identity_token=RUN141R|d
+source_version: _v1 Artifact Identity: artifact_family_id=dossier | artifact_state=Fresh | source_run_id=RUN238R | source_version=RUN238R-CompileGateRepairBeforeLiveProof | source_identity_token=RUN141R|dossier_first_hud_off|hud_
+artifact_written_by_run: me_disabled_by_default_scanner_truth_outputs_preserved|compile_claim_not_made_live_claim_not_made | artifact_written_by_run=RUN238R | artifact_schema_version=ASC_ARTIFACT_SCHEMA_V1 | build_identity_present=true | fake_hash=
+RUN238R: tor_schema_v1 Artifact Identity: artifact_family_id=dossier | artifact_state=Fresh | source_run_id=RUN238R | source_version=RUN238R-CompileGateRepairBeforeLiveProof | source_identity_token=RUN141R|dossier_f
+RUN141R: ce_run_id=RUN238R | source_version=RUN238R-CompileGateRepairBeforeLiveProof | source_identity_token=RUN141R|dossier_first_hud_off|hud_runtime_disabled_by_default_scanner_truth_outputs_preserved|compile_claim
+
+### evidence/Upcomers-Server/Dossiers/GlobalTop10/_family_manifest.txt | size=13596 | mtime=2026-05-03 09:27:58
+source_run_id: Identity: artifact_family_id=globaltop10_family | artifact_state=promoted_degraded_first_publish | source_run_id=RUN238R | source_version=RUN238R-CompileGateRepairBeforeLiveProof | source_identity_token=RUN141R|d
+source_version: ly_id=globaltop10_family | artifact_state=promoted_degraded_first_publish | source_run_id=RUN238R | source_version=RUN238R-CompileGateRepairBeforeLiveProof | source_identity_token=RUN141R|dossier_first_hud_off|hud_
+artifact_written_by_run: me_disabled_by_default_scanner_truth_outputs_preserved|compile_claim_not_made_live_claim_not_made | artifact_written_by_run=RUN238R | artifact_schema_version=ASC_ARTIFACT_SCHEMA_V1 | build_identity_present=true | fake_hash=
+RUN238R: 4:DASHUSD.nx;05:XMRUSD.nx;06:EOSUSD.nx;07:MELUSD.nx;08:ATOMUSD.nx;09:BCHNUSD.nx;10:LTCEUR.nx;|build=RUN238R-CompileGateRepairBeforeLiveProof|run=RUN238R Board Epoch UTC: 2026.05.03 13:27:06 Board Signature
+RUN141R: ce_run_id=RUN238R | source_version=RUN238R-CompileGateRepairBeforeLiveProof | source_identity_token=RUN141R|dossier_first_hud_off|hud_runtime_disabled_by_default_scanner_truth_outputs_preserved|compile_claim
+
+### evidence/Upcomers-Server/Dossiers/Top5PerBucket/_family_manifest.txt | size=16812 | mtime=2026-05-03 09:27:02
+source_run_id: ST artifact_family_id=top5_per_bucket family_state=promoted_current path=Dossiers/Top5PerBucket source_run_id=RUN238R bucket_count=1 bucket_child_target_count=5 bucket_child_written_count=5 bucket_child_pe
+RUN238R: amily_id=top5_per_bucket family_state=promoted_current path=Dossiers/Top5PerBucket source_run_id=RUN238R bucket_count=1 bucket_child_target_count=5 bucket_child_written_count=5 bucket_child_pending_co
+
+### evidence/Upcomers-Server/Dossiers/Top5PerBucket/_staging/_staging_manifest.txt | size=1426 | mtime=2026-05-03 09:27:02
+source_run_id: Top5PerBucket Staging Manifest artifact_family=Top5PerBucket artifact_family_id=top5_per_bucket source_run_id=RUN238R-CompileGateRepairBeforeLiveProof staging_state=cleared_after_promote staging_phase=cleare
+RUN238R: Staging Manifest artifact_family=Top5PerBucket artifact_family_id=top5_per_bucket source_run_id=RUN238R-CompileGateRepairBeforeLiveProof staging_state=cleared_after_promote staging_phase=cleared_after_
+
+### evidence/Upcomers-Server/Dossiers/Top5PerBucket/crypto/AAVEUSD.nx.txt | size=528684 | mtime=2026-05-03 09:27:00
+source_run_id: nt_focus_operator_schema_v1 Artifact Identity: artifact_family_id=dossier | artifact_state=Fresh | source_run_id=RUN238R | source_version=RUN238R-CompileGateRepairBeforeLiveProof | source_identity_token=RUN141R|d
+source_version: _v1 Artifact Identity: artifact_family_id=dossier | artifact_state=Fresh | source_run_id=RUN238R | source_version=RUN238R-CompileGateRepairBeforeLiveProof | source_identity_token=RUN141R|dossier_first_hud_off|hud_
+artifact_written_by_run: me_disabled_by_default_scanner_truth_outputs_preserved|compile_claim_not_made_live_claim_not_made | artifact_written_by_run=RUN238R | artifact_schema_version=ASC_ARTIFACT_SCHEMA_V1 | build_identity_present=true | fake_hash=
+RUN238R: tor_schema_v1 Artifact Identity: artifact_family_id=dossier | artifact_state=Fresh | source_run_id=RUN238R | source_version=RUN238R-CompileGateRepairBeforeLiveProof | source_identity_token=RUN141R|dossier_f
+RUN141R: ce_run_id=RUN238R | source_version=RUN238R-CompileGateRepairBeforeLiveProof | source_identity_token=RUN141R|dossier_first_hud_off|hud_runtime_disabled_by_default_scanner_truth_outputs_preserved|compile_claim
+
+### evidence/Upcomers-Server/Dossiers/Top5PerBucket/crypto/_bucket_manifest.txt | size=11220 | mtime=2026-05-03 09:26:54
+source_run_id: revious_on_promote=true top5_no_broad_file_deletion=true last_symbol=ATOMUSD.nx last_error=none source_run_id=RUN238R market_board_snapshot_id=l4_rev=5|l4_pass=2026.05.03 13:26:55|board_pass=Not yet observed|
+RUN238R: mote=true top5_no_broad_file_deletion=true last_symbol=ATOMUSD.nx last_error=none source_run_id=RUN238R market_board_snapshot_id=l4_rev=5|l4_pass=2026.05.03 13:26:55|board_pass=Not yet observed|signatur
+
+### evidence/Upcomers-Server/Symbol Data Packs/GlobalTop10/AAVEUSD.nx_SYMBOL_DATA_PACK.txt | size=429796 | mtime=2026-05-03 09:28:00
+RUN238R: Data Pack Lite Symbol: AAVEUSD.nx Server Root: Aurora Sentinel Core\Upcomers-Server Source Run: RUN238R Build: RUN238R-CompileGateRepairBeforeLiveProof Publication State: atomic_writer_foundation_ready
+
+### evidence/Upcomers-Server/Symbol Data Packs/Top5PerBucket/crypto/AAVEUSD.nx_SYMBOL_DATA_PACK.txt | size=428346 | mtime=2026-05-03 09:28:24
+RUN238R: Data Pack Lite Symbol: AAVEUSD.nx Server Root: Aurora Sentinel Core\Upcomers-Server Source Run: RUN238R Build: RUN238R-CompileGateRepairBeforeLiveProof Publication State: atomic_writer_foundation_ready
+
+### evidence/Upcomers-Server/Workbench/logs/function_results.log | size=8094000 | mtime=2026-05-03 09:29:42
+source_run_id: urce_support | claim_evidence_runtime_proof=deferred_to_run050 | functionresults_aggregate_identity=source_run_id=RUN238R | source_identity_token=RUN141R|dossier_first_hud_off|hud_runtime_disabled_by_default_scann
+artifact_written_by_run: me_disabled_by_default_scanner_truth_outputs_preserved|compile_claim_not_made_live_claim_not_made | artifact_written_by_run=RUN238R | artifact_schema_version=ASC_ARTIFACT_SCHEMA_V1 | build_identity_present=true | claim_evid
+RUN238R: claim_evidence_runtime_proof=deferred_to_run050 | functionresults_aggregate_identity=source_run_id=RUN238R | source_identity_token=RUN141R|dossier_first_hud_off|hud_runtime_disabled_by_default_scanner_truth
+RUN141R: ferred_to_run050 | functionresults_aggregate_identity=source_run_id=RUN238R | source_identity_token=RUN141R|dossier_first_hud_off|hud_runtime_disabled_by_default_scanner_truth_outputs_preserved|compile_claim
+
+### evidence/Upcomers-Server/Workbench/logs/heartbeat_telemetry.log | size=1034788 | mtime=2026-05-03 09:28:56
+RUN238R: 4:DASHUSD.nx;05:XMRUSD.nx;06:EOSUSD.nx;07:MELUSD.nx;08:ATOMUSD.nx;09:BCHNUSD.nx;10:LTCEUR.nx;|build=RUN238R-CompileGateRepairBeforeLiveProof|run=RUN238R | derived_from_board_signature=unavailable l3_trace=re

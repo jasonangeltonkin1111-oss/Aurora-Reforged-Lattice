@@ -1,0 +1,11 @@
+RUN233 live root/output evidence
+Market Board.txt: FOUND
+Open Symbol Snapshot.txt: FOUND
+Scanner Status.txt: MISSING
+Artifact Bundle Manifest.txt: MISSING
+Workbench/logs/function_results.log: FOUND
+Workbench/logs/heartbeat_telemetry.log: FOUND
+
+Root files:
+Market Board.txt
+Open Symbol Snapshot.txt

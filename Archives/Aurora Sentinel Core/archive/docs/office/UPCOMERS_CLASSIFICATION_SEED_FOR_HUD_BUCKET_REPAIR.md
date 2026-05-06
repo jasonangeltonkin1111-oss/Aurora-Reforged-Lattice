@@ -1,0 +1,969 @@
+# Upcomers Server — Canonical Classification Seed for HUD Bucket Repair
+
+This file is a seed classification system derived from the uploaded Upcomers dossier universe only. It is intended as the immediate source for Codex during HUD/classification repair. It is not the final internet-verified stock taxonomy. Its job is to stop bucket collapse, give every symbol a lawful immediate bucket, and provide a stable migration bridge into the later sector/industry rebuild.
+
+## Hard laws
+- Every symbol must land in exactly one immediate main bucket.
+- No symbol may disappear from the HUD because classification is unresolved.
+- Main bucket is mandatory now; deeper sector/industry refinement may remain pending.
+- Stocks require a later deeper hierarchy: Region → Sector → Industry → Sub-Industry.
+- Layer 3 ordering must govern every bucket scope; Layer 4 promoted/shortlisted symbols must always sit on top of Layer 3 ordering.
+- Unknown / Needs Review must be visible buckets when confidence is insufficient.
+
+## Universe summary
+- Total symbols: 1202
+- Stocks / HK Stocks / HK Main Board / H-share / Red-chip review: 121
+- Stocks / Global Equities Review / US / ADR / Canada / Europe / ETF / REIT split pending: 1024
+- Crypto / USD Crypto Pairs / Layer-2 coin-family pending: 30
+- Indices / Index CFDs / Regional benchmarks: 15
+- Crypto / EUR Crypto Pairs / Layer-2 coin-family pending: 4
+- Crypto / GBP Crypto Pairs / Layer-2 coin-family pending: 2
+- Crypto / JPY Crypto Pairs / Layer-2 coin-family pending: 4
+- Energy / Oil CFDs / Benchmarks: 2
+
+## Canonical immediate bucket system for HUD repair
+
+### Main buckets
+- Forex
+- Indices
+- Stocks
+- Metals
+- Energy
+- Crypto
+- Rates
+- Volatility
+- Commodities
+- Funds / ETFs
+- Unknown / Needs Review
+
+### Immediate assignment rules for this Upcomers universe
+- `*.xhkg` → Stocks / HK Stocks / HK Main Board / H-share / Red-chip review
+- `*.nx` → Crypto / <quote-currency> Crypto Pairs / Layer-2 coin-family pending
+- `*.c` with oil benchmark naming → Energy / Oil CFDs / Benchmarks
+- remaining `*.c` → Indices / Index CFDs / Regional benchmarks
+- unsuffixed symbols in this bundle → Stocks / Global Equities Review / US-ADR-Canada-Europe-ETF-REIT split pending
+
+## Required next-step sub-hierarchy for stocks
+- Region/Venue: US Stocks, HK Stocks, Canada, Europe, UK, ADR / International, ETF / Fund, REIT / Yield Vehicles, Needs Review
+- Sector: Information Technology, Financials, Health Care, Industrials, Consumer Discretionary, Consumer Staples, Energy, Materials, Utilities, Real Estate, Communication Services
+- Industry: to be added from external verification in later pass
+
+## Inventory by immediate bucket
+
+## Stocks / HK Stocks / HK Main Board / H-share / Red-chip review
+Count: 121
+
+- `1.xhkg` — CK Hutchison Holdings Ltd
+- `101.xhkg` — Hang Lung Properties Ltd
+- `1024.xhkg` — Kuaishou Technology
+- `1038.xhkg` — CK Infrastructure Holdings Ltd
+- `1044.xhkg` — Hengan Intl Group Co Ltd
+- `1055.xhkg` — China Southern Airlines Co Ltd
+- `1088.xhkg` — China Shenhua Energy Co Ltd
+- `1093.xhkg` — CSPC Pharmaceutical Group Ltd
+- `11.xhkg` — Hang Seng Bank Ltd
+- `1109.xhkg` — China Resources Land Ltd
+- `1113.xhkg` — CK Asset Holdings Ltd
+- `1128.xhkg` — Wynn Macau Ltd
+- `1177.xhkg` — Sino Biopharmaceutical Ltd
+- `1186.xhkg` — China Railway Construction Corp Ltd
+- `1193.xhkg` — China Resources Gas Group Ltd
+- `12.xhkg` — Henderson Land Development Co Ltd
+- `1211.xhkg` — BYD Co Ltd
+- `1288.xhkg` — Agricultural Bank Of China Ltd
+- `1299.xhkg` — AIA Group Ltd
+- `1339.xhkg` — People's Insurance Co Group of China Ltd
+- `135.xhkg` — Kunlun Energy Co Ltd
+- `1398.xhkg` — Ind & Comm Bank of China Ltd / ICBC
+- `144.xhkg` — China Merchants Port Holding Co Ltd
+- `151.xhkg` — Want Want China Holdings Ltd
+- `16.xhkg` — Sun Hung Kai Properties Ltd
+- `1658.xhkg` — Postal Savings Bank Of China
+- `168.xhkg` — Tsingtao Brewery Co Ltd - Class H
+- `17.xhkg` — New World Development Co Ltd
+- `175.xhkg` — Geely Automobile Holdings Ltd
+- `1800.xhkg` — China Communications Construction Co Ltd
+- `1810.xhkg` — Xiaomi Corp
+- `1816.xhkg` — CGN Power Co Ltd
+- `1876.xhkg` — Budweiser Brewing Co APAC Ltd
+- `1898.xhkg` — China Coal Energy Co Ltd
+- `19.xhkg` — Swire Pacific Ltd - Class A
+- `1928.xhkg` — Sands China Ltd
+- `1972.xhkg` — Swire Properties Ltd
+- `1997.xhkg` — Wharf Real Estate Investment Co Ltd
+- `2.xhkg` — CLP Holdings Ltd
+- `2007.xhkg` — Country Garden Holdings Co Ltd
+- `2009.xhkg` — BBMG Corp
+- `2015.xhkg` — Li Auto Inc - Class A
+- `2018.xhkg` — AAC Technologies Holdings Inc
+- `2020.xhkg` — Anta Sports Products Ltd
+- `2202.xhkg` — China Vanke Co Ltd - Class H
+- `2269.xhkg` — WuXi Biologics (Cayman) Inc
+- `2313.xhkg` — Shenzhou International Group Holdings Ltd
+- `2318.xhkg` — Ping An Insurance Group Co of China Ltd - Class H
+- `2319.xhkg` — China Mengniu Dairy Co Ltd
+- `2331.xhkg` — Li Ning Co Ltd
+- `2333.xhkg` — Great Wall Motor Co Ltd - Class H
+- `2382.xhkg` — Sunny Optical Technology Group Co Ltd
+- `2388.xhkg` — BOC Hong Kong Holdings Ltd
+- `2628.xhkg` — China Life Insurance Co Ltd - Class H
+- `267.xhkg` — CITIC Ltd
+- `2688.xhkg` — ENN Energy Holdings Ltd
+- `27.xhkg` — Galaxy Entertainment Group Ltd
+- `288.xhkg` — WH Group Ltd
+- `2899.xhkg` — Zijin Mining Group Co Ltd - Class H
+- `291.xhkg` — China Resources Beer Holdings Co Ltd
+- `3.xhkg` — Hong Kong & China Gas Co Ltd / Towngas
+- `316.xhkg` — Oriental Overseas International Ltd
+- `3188.xhkg` — Chinaamc Etf Series - Ch-Hkd
+- `3328.xhkg` — Bank of Communications Co Ltd - Class H
+- `3668.xhkg` — YANKUANG ENERGY GROUP COMPANY LIMITED
+- `3690.xhkg` — Meituan - Class B
+- `3692.xhkg` — Hansoh Pharmaceutical Group Co Ltd
+- `388.xhkg` — Hong Kong Exchanges & Clearing Ltd
+- `3968.xhkg` — China Merchants Bank Co Ltd - Class H
+- `3988.xhkg` — Bank Of China Ltd - Class H
+- `5.xhkg` — HSBC Holdings Plc
+- `600188.c` — Yanzhou Coal Mining Co Ltd / H shares?
+- `600585.c` — Anhui Conch Cement Co Ltd?
+- `6030.xhkg` — Citic Securities Co Ltd - Class H
+- `6098.xhkg` — Country Garden Services Holdings Co Ltd
+- `6618.xhkg` — JD Health International Inc
+- `6690.xhkg` — Haitian International Holdings Ltd
+- `6862.xhkg` — Haitong Securities Co Ltd - Class H
+- `688.xhkg` — China Overseas Land & Investment Ltd
+- `700.xhkg` — Tencent Holdings Ltd
+- `762.xhkg` — China Unicom (Hong Kong) Ltd
+- `763.xhkg` — ZTE Corp - Class H
+- `772.xhkg` — China Literature Ltd
+- `788.xhkg` — China Tower Corp Ltd - Class H
+- `8.xhkg` — PCCW Ltd
+- `823.xhkg` — Link Real Estate Investment Trust
+- `836.xhkg` — China Resources Power Holdings Co Ltd
+- `857.xhkg` — PetroChina Co Ltd - Class H
+- `868.xhkg` — Xinyi Glass Holdings Ltd
+- `881.xhkg` — Zhongsheng Group Holdings Ltd
+- `883.xhkg` — CNOOC Ltd
+- `902.xhkg` — Huaneng Power International Inc - Class H
+- `909.xhkg` — Ming Yuan Cloud Group Holdings Ltd
+- `914.xhkg` — Anhui Conch Cement Co Ltd - Class H
+- `916.xhkg` — China Longyuan Power Group Corp Ltd - Class H
+- `939.xhkg` — China Construction Bank Corp - Class H
+- `941.xhkg` — China Mobile Ltd
+- `960.xhkg` — Longfor Group Holdings Ltd
+- `9618.xhkg` — JD.com Inc - Class A
+- `9626.xhkg` — Bilibili Inc - Class Z
+- `9633.xhkg` — Nongfu Spring Co Ltd - Class H
+- `9636.xhkg` — Jd Logistics Inc
+- `9666.xhkg` — JinkoSolar Holding Co Ltd
+- `968.xhkg` — Xinyi Solar Holdings Ltd
+- `9698.xhkg` — Genscript Biotech Corp
+- `9866.xhkg` — NIO Inc - Class A
+- `9888.xhkg` — Baidu Inc - Class A
+- `9888n.xhkg` — Baidu Inc - Class A
+- `9899.xhkg` — NetEase Inc
+- `992.xhkg` — Lenovo Group Ltd
+- `9961.xhkg` — Trip.com Group Ltd
+- `9988.xhkg` — Alibaba Group Holding Ltd
+- `9999.xhkg` — NetEase Inc
+- `9999n.xhkg` — NetEase Inc
+- `AIA.c` — AIA Group Ltd CFD
+- `ALBEM.c` — Albemarle Corp CFD
+- `AMT.c` — American Tower Corp CFD
+- `BKNG.c` — Booking Holdings Inc CFD
+- `CKISF.c` — CK Infrastructure Holdings Ltd CFD
+- `COIN.c` — Coinbase Global Inc CFD
+- `FASTN.c` — Fastenal Co CFD
+- `META.c` — Meta Platforms Inc CFD
+- `MOBILE.c` — Mobile TeleSystems PJSC CFD
+- `NVIDIA.c` — NVIDIA Corp CFD
+- `PAYX.c` — Paychex Inc CFD
+- `PEP.c` — PepsiCo Inc CFD
+- `PFE.c` — Pfizer Inc CFD
+- `PG.c` — Procter & Gamble Co CFD
+- `UPS.c` — United Parcel Service Inc CFD
+
+## Stocks / Global Equities Review / US / ADR / Canada / Europe / ETF / REIT split pending
+Count: 1024
+
+- `A` — Agilent Technologies Inc
+- `AA` — Alcoa Corp
+- `AAL` — American Airlines Group Inc
+- `AAP` — Advance Auto Parts Inc
+- `AAPL` — Apple
+- `ABBV` — AbbVie Inc
+- `ABNB` — Airbnb Inc
+- `ABR` — Arbor Realty Trust Inc
+- `ABT` — Abbott Laboratories
+- `ACAD` — ACADIA Pharmaceuticals Inc
+- `ACB` — Aurora Cannabis Inc
+- `ACGL` — Arch Capital Group Ltd
+- `ACM` — Aecom
+- `ACN` — Accenture Plc
+- `ADBE` — Adobe Inc
+- `ADI` — Analog Devices Inc
+- `ADM` — Archer-Daniels-Midland Co
+- `ADP` — Automatic Data Processing Inc
+- `ADSGn` — Adidas Salomon
+- `ADSK` — Autodesk Inc
+- `ADT` — ADT Inc
+- `AEE` — Ameren Corp
+- `AEM` — Agnico Eagle Mines Ltd
+- `AEO` — American Eagle Outfitters Inc
+- `AEP` — American Electri Power
+- `AER` — AerCap Holdings NV
+- `AES` — AES Corp
+- `AFG` — American Financial Group Inc
+- `AFL` — Aflac Inc
+- `AFRM` — Affirm Holdings Inc
+- `AG` — First Majestic Silver Corp
+- `AGCO` — AGCO Corp
+- `AGNC` — Agnc Investment Corp
+- `AGO` — Assured Guaranty Ltd
+- `AIG` — American International Group
+- `AIRF` — Air France - Klm
+- `AIZ` — Assurant Inc
+- `AJG` — Arthur J Gallagher & Co
+- `AKAM` — Akamai Technologies Inc
+- `ALB` — Albemarle Corp
+- `ALGN` — Align Technology Inc
+- `ALK` — Alaska Air Group Inc
+- `ALL` — Allstate Corp
+- `ALLE` — Allegion Plc
+- `AMAT` — Applied Materials Inc
+- `AMD` — Advanced Micro Devices Inc
+- `AMG` — Affiliated Managers Group
+- `AMGN` — Amgen Inc
+- `AMP` — Ameriprise Financial Inc
+- `AMZN` — Amazon
+- `AN` — AutoNation Inc
+- `ANET` — Arista Networks Inc
+- `ANF` — Abercrombie & Fitch Co
+- `AON` — Aon Plc
+- `AOS` — A O Smith Corp
+- `APA` — APA Corp
+- `APD` — Air Products and Chemicals Inc
+- `APH` — Amphenol Corp
+- `APLS` — Apellis Pharmaceuticals Inc
+- `APO` — Apollo Global Management Inc
+- `APP` — AppLovin Corp
+- `APPF` — Appfolio Inc
+- `APTV` — Aptiv Plc
+- `AR` — Antero Resources Corp
+- `ARE` — Alexandria Real Estate Equities Inc
+- `ARM` — Arm Holdings Plc ADR
+- `ARRY` — Array Technologies Inc
+- `ARW` — Arrow Electronics Inc
+- `ASAN` — Asana Inc
+- `ASML` — ASML Holding NV
+- `ASTS` — AST SpaceMobile Inc
+- `ATGE` — Adtalem Global Education Inc
+- `ATI` — ATI Inc
+- `ATO` — Atmos Energy Corp
+- `ATR` — AptarGroup Inc
+- `ATUS` — Altice USA Inc
+- `AU` — AngloGold Ashanti Plc
+- `AVB` — AvalonBay Communities Inc
+- `AVGO` — Broadcom Inc
+- `AVY` — Avery Dennison Corp
+- `AWI` — Armstrong World Industries Inc
+- `AXON` — Axon Enterprise Inc
+- `AXP` — American Express
+- `AZN` — AstraZeneca Plc ADR
+- `BA` — Boeing
+- `BAC` — Bank of America
+- `BABA` — Alibaba Group Holding Ltd ADR
+- `BAERs` — Julius Baer
+- `BALL` — Ball Corp
+- `BAM` — Brookfield Asset Management Ltd
+- `BAMI` — Banco BPM
+- `BAP` — Credicorp Ltd
+- `BARN` — Barry Callebaut
+- `BAX` — Baxter International Inc
+- `BB` — BlackBerry Ltd
+- `BBD` — Banco Bradesco SA ADR
+- `BBWI` — Bath & Body Works Inc
+- `BBY` — Best Buy
+- `BDX` — Becton Dickinson
+- `BEAN` — Belimo Holding AG
+- `BEN` — Franklin Resources Inc
+- `BG` — Bunge Global SA
+- `BGNE` — BeiGene Ltd ADR
+- `BHC` — Bausch Health Companies Inc
+- `BIDU` — Baidu ADR
+- `BIIB` — Biogen Inc
+- `BILL` — Bill Holdings Inc
+- `BIO` — Bio-Rad Laboratories Inc
+- `BK` — Bank of New York Mellon
+- `BKNG` — Booking Holdings Inc
+- `BKR` — Baker Hughes Co
+- `BLK` — BlackRock Inc
+- `BLND` — Blend Labs Inc
+- `BLX` — Banco Latinoamericano de Comercio Exterior SA
+- `BMRN` — BioMarin Pharmaceutical Inc
+- `BMY` — Bristol-Myers Squibb
+- `BNP` — BNP Paribas ADR
+- `BNR` — Brenntag SE
+- `BNTX` — BioNTech SE ADR
+- `BOH` — Bank of Hawaii Corp
+- `BOL` — BOLIDEN AB
+- `BOSS` — Hugo Boss AG
+- `BP` — BP PLC ADR
+- `BPOP` — Popular Inc
+- `BPSO` — BPER Banca
+- `BR` — Broadridge Financial Solutions Inc
+- `BRKb` — Berkshire Hathaway Inc - Class B
+- `BRKR` — Bruker Corp
+- `BRO` — Brown & Brown Inc
+- `BSX` — Boston Scientific Corp
+- `BTI` — British American Tobacco Plc ADR
+- `BTRW` — Barratt Redrow Plc
+- `BURL` — Burlington Stores Inc
+- `BVI` — Bureau Veritas SA
+- `BWA` — BorgWarner Inc
+- `BX` — Blackstone Inc
+- `BXMT` — Blackstone Mortgage Trust Inc
+- `BXP` — Boston Properties Inc
+- `C` — Citigroup
+- `CAH` — Cardinal Health Inc
+- `CARR` — Carrier Global Corp
+- `CBOE` — Cboe Global Markets Inc
+- `CBRE` — CBRE Group Inc
+- `CCEP` — Coca-Cola Europacific Partners Plc
+- `CCI` — Crown Castle Inc
+- `CCJ` — Cameco Corp
+- `CCL` — Carnival Corp
+- `CDAY` — Ceridian HCM Holding Inc
+- `CDNS` — Cadence Design Systems Inc
+- `CDW` — CDW Corp
+- `CE` — Celanese Corp
+- `CEG` — Constellation Energy Corp
+- `CERN` — Cerner Corp
+- `CF` — CF Industries Holdings Inc
+- `CG` — Carlyle Group Inc
+- `CGNX` — Cognex Corp
+- `CHD` — Church & Dwight Co Inc
+- `CHFNs` — Swiss Franc? / Needs review
+- `CHKP` — Check Point Software Technologies Ltd
+- `CHTR` — Charter Communications Inc
+- `CI` — Cigna
+- `CINF` — Cincinnati Financial Corp
+- `CL` — Colgate-Palmolive
+- `CLDX` — Celldex Therapeutics Inc
+- `CLX` — Clorox Co
+- `CMA` — Comerica Inc
+- `CMCSA` — Comcast Corp - Class A
+- `CME` — CME Group Inc
+- `CMI` — Cummins Inc
+- `CMS` — CMS Energy Corp
+- `CNA` — CNA Financial Corp
+- `CNH` — CNH Industrial NV
+- `CNP` — CenterPoint Energy Inc
+- `CNQ` — Canadian Natural Resources Ltd
+- `CNS` — Cohen & Steers Inc
+- `COF` — Capital One Financial
+- `COHR` — Coherent Corp
+- `COIN` — Coinbase Global Inc
+- `COLB` — Columbia Banking System Inc
+- `COO` — Cooper Companies Inc
+- `COP` — ConocoPhillips
+- `COST` — Costco Wholesale Corp
+- `CPB` — Campbell Soup Co
+- `CPNG` — Coupang Inc
+- `CPRI` — Capri Holdings Ltd
+- `CPT` — Camden Property Trust
+- `CRG` — CRH Plc ADR
+- `CRH` — CRH Plc
+- `CRM` — Salesforce
+- `CRNC` — Cerence Inc
+- `CSCO` — Cisco
+- `CSX` — CSX Corp
+- `CTAS` — Cintas Corp
+- `CTRA` — Coterra Energy Inc
+- `CTSH` — Cognizant Technology Solutions Corp
+- `CTVA` — Corteva Inc
+- `CVS` — CVS Health
+- `CVX` — Chevron
+- `CYBR` — CyberArk Software Ltd
+- `CZR` — Caesars Entertainment Inc
+- `D` — Dominion Energy Inc
+- `DASH` — DoorDash Inc
+- `DB1Gn` — Deutsche Boerse AG
+- `DBK` — Deutsche Bank AG
+- `DD` — DuPont de Nemours Inc
+- `DDOG` — Datadog Inc
+- `DE` — Deere
+- `DELL` — Dell Technologies Inc - Class C
+- `DFILF` — DAI-ICHI LIFE HOLDINGS INC?
+- `DG` — Dollar General Corp
+- `DGE` — Diageo ADR
+- `DGX` — Quest Diagnostics Inc
+- `DHC` — Diversified Healthcare Trust
+- `DHI` — D R Horton Inc
+- `DHR` — Danaher Corp
+- `DIA` — SPDR Dow Jones Industrial Average ETF Trust
+- `DIS` — Disney
+- `DJI` — Dow Jones Industrial Average ETF proxy? / Needs review
+- `DKNG` — DraftKings Inc
+- `DLR` — Digital Realty Trust Inc
+- `DLTR` — Dollar Tree
+- `DOC` — Healthpeak Properties Inc
+- `DOCN` — DigitalOcean Holdings Inc
+- `DOLE` — Dole Plc
+- `DOV` — Dover Corp
+- `DOW` — Dow Inc
+- `DPW` — Deutsche Post AG
+- `DRI` — Darden Restaurants Inc
+- `DT` — Dynatrace Inc
+- `DTEGn` — Deutsche Telekom AG
+- `DUK` — Duke Energy Corp
+- `DVN` — Devon Energy Corp
+- `DXCM` — Dexcom Inc
+- `EA` — Electronic Arts Inc
+- `EBAY` — eBay
+- `ECL` — Ecolab Inc
+- `ED` — Consolidated Edison Inc
+- `EDEN` — Edenred
+- `EEFT` — Euronet Worldwide Inc
+- `EFX` — Equifax Inc
+- `EHC` — Encompass Health Corp
+- `EIX` — Edison International
+- `EL` — Estee Lauder Companies Inc - Class A
+- `ELI` — Eli Lilly? / Needs review
+- `ELV` — Elevance Health Inc
+- `EMN` — Eastman Chemical Co
+- `EMR` — Emerson Electric Co
+- `ENEL` — Enel SpA
+- `ENGI` — Engie SA
+- `ENI` — Eni SpA ADR
+- `ENR` — Siemens Energy AG
+- `EOAN` — E.ON SE
+- `EPD` — Enterprise Products Partners LP
+- `EQIX` — Equinix Inc
+- `EQR` — Equity Residential
+- `EQT` — EQT Corp
+- `ERIC` — Ericsson ADR
+- `ERICb` — Ericsson? / Needs review
+- `ES` — Eversource Energy
+- `ESS` — Essex Property Trust Inc
+- `ETR` — Entergy Corp
+- `EUX` — Euronext NV
+- `EW` — Edwards Lifesciences Corp
+- `EWBC` — East West Bancorp Inc
+- `EXAS` — Exact Sciences Corp
+- `EXC` — Exelon Corp
+- `EXPD` — Expeditors International of Washington Inc
+- `EXPE` — Expedia Group Inc
+- `EXPN` — Experian PLC
+- `EXR` — Extra Space Storage Inc
+- `F` — Ford
+- `FANG` — Diamondback Energy Inc
+- `FAST` — Fastenal Co
+- `FBHS` — Fortune Brands Home & Security Inc
+- `FCX` — Freeport-McMoRan Inc
+- `FDS` — FactSet Research Systems Inc
+- `FDX` — FedEx Corp
+- `FE` — FirstEnergy Corp
+- `FERG` — Ferguson Enterprises Inc
+- `FFIV` — F5 Inc
+- `FHN` — First Horizon Corp
+- `FICO` — Fair Isaac Corp
+- `FIS` — Fidelity National Information Services Inc
+- `FITB` — Fifth Third Bancorp
+- `FI` — Fiserv Inc
+- `FIVE` — Five Below Inc
+- `FLT` — Fleetcor Technologies Inc
+- `FMC` — FMC Corp
+- `FMX` — Fomento Economico Mexicano SAB ADR
+- `FND` — Floor & Decor Holdings Inc
+- `FOXA` — Fox Corp - Class A
+- `FRA` — Franco-Nevada? / Needs review
+- `FRC` — First Republic Bank?
+- `FRE` — Fresenius SE? / Needs review
+- `FRPT` — Freshpet Inc
+- `FRT` — Federal Realty Investment Trust
+- `FSLR` — First Solar Inc
+- `FTI` — TechnipFMC Plc
+- `FTNT` — Fortinet Inc
+- `FTV` — Fortive Corp
+- `FUTU` — Futu Holdings Ltd ADR
+- `FWONK` — Liberty Media Formula One Series C
+- `G` — Genpact Ltd
+- `GAP` — Gap Inc
+- `GDDY` — GoDaddy Inc
+- `GD` — General Dynamics
+- `GE` — GE Aerospace
+- `GEBN` — Geberit AG
+- `GFS` — GLOBALFOUNDRIES Inc
+- `GILD` — Gilead Sciences Inc
+- `GIS` — General Mills Inc
+- `GLD` — SPDR Gold Shares
+- `GLEN` — Glencore Plc
+- `GLW` — Corning Inc
+- `GM` — General Motors Co
+- `GME` — GameStop Corp
+- `GMI` — Greatbatch? / Needs review
+- `GOOGL` — Alphabet Inc - Class A
+- `GOOS` — Canada Goose Holdings Inc
+- `GPC` — Genuine Parts Co
+- `GPN` — Global Payments Inc
+- `GRMN` — Garmin Ltd
+- `GS` — Goldman Sachs
+- `GSK` — GSK Plc ADR
+- `GWW` — W W Grainger Inc
+- `HAL` — Halliburton Co
+- `HAS` — Hasbro Inc
+- `HBAN` — Huntington Bancshares Inc
+- `HCA` — HCA Healthcare Inc
+- `HD` — Home Depot
+- `HDB` — HDFC Bank Ltd ADR
+- `HEI` — HEICO Corp
+- `HES` — Hess Corp
+- `HIG` — Hartford Financial Services Group Inc
+- `HII` — Huntington Ingalls Industries Inc
+- `HLT` — Hilton Worldwide Holdings Inc
+- `HOLX` — Hologic Inc
+- `HON` — Honeywell International Inc
+- `HOOD` — Robinhood Markets Inc
+- `HPQ` — HP Inc
+- `HRL` — Hormel Foods Corp
+- `HSBA` — HSBC Holdings Plc UK line
+- `HST` — Host Hotels & Resorts Inc
+- `HSY` — Hershey Co
+- `HUBB` — Hubbell Inc
+- `HUM` — Humana Inc
+- `HWM` — Howmet Aerospace Inc
+- `IAG` — IAG / needs venue review
+- `IBM` — IBM
+- `IBN` — ICICI Bank Ltd ADR
+- `ICE` — Intercontinental Exchange Inc
+- `IDXX` — IDEXX Laboratories Inc
+- `IEX` — IDEX Corp
+- `IFF` — International Flavors & Fragrances Inc
+- `ILMN` — Illumina Inc
+- `INCY` — Incyte Corp
+- `INFY` — Infosys ADR
+- `INGA` — ING Groep NV
+- `INTC` — Intel
+- `INTU` — Intuit Inc
+- `INVH` — Invitation Homes Inc
+- `IP` — International Paper Co
+- `IPG` — Interpublic Group of Companies Inc
+- `IQV` — IQVIA Holdings Inc
+- `IR` — Ingersoll Rand Inc
+- `IRM` — Iron Mountain Inc
+- `ISRG` — Intuitive Surgical Inc
+- `IT` — Gartner Inc
+- `ITRK` — Intertek Group Plc
+- `ITUB` — Itau Unibanco Banco Holding SA ADR
+- `IVR` — Invesco Mortgage Capital Inc
+- `IVZ` — Invesco Ltd
+- `JAZZ` — Jazz Pharmaceuticals Plc
+- `JD` — JD.com ADR
+- `JKHY` — Jack Henry & Associates Inc
+- `JNJ` — Johnson & Johnson
+- `JNPR` — Juniper Networks Inc
+- `JPM` — JPMorgan Chase
+- `JSDA` — JD Sports Fashion Plc? / Needs review
+- `K` — Kellanova
+- `KDP` — Keurig Dr Pepper Inc
+- `KEY` — KeyCorp
+- `KEYS` — Keysight Technologies Inc
+- `KHC` — Kraft Heinz Co
+- `KIM` — Kimco Realty Corp
+- `KLAC` — KLA Corp
+- `KMB` — Kimberly-Clark Corp
+- `KMI` — Kinder Morgan Inc
+- `KMX` — CarMax Inc
+- `KO` — Coca-Cola
+- `KR` — Kroger Co
+- `KSS` — Kohl's Corp
+- `KTOS` — Kratos Defense & Security Solutions Inc
+- `L` — Loews Corp
+- `LDOS` — Leidos Holdings Inc
+- `LEN` — Lennar Corp - Class A
+- `LHX` — L3Harris Technologies Inc
+- `LIN` — Linde Plc
+- `LKQ` — LKQ Corp
+- `LLY` — Eli Lilly
+- `LMT` — Lockheed Martin
+- `LNG` — Cheniere Energy Inc
+- `LNT` — Alliant Energy Corp
+- `LOW` — Lowe's Cos Inc
+- `LPLA` — LPL Financial Holdings Inc
+- `LRCX` — Lam Research Corp
+- `LSE` — London Stock Exchange Group Plc
+- `LSPD` — Lightspeed Commerce Inc
+- `LSTR` — Landstar System Inc
+- `LULU` — lululemon athletica inc
+- `LUV` — Southwest Airlines Co
+- `LVS` — Las Vegas Sands Corp
+- `LXP` — LXP Industrial Trust
+- `LYB` — LyondellBasell Industries NV
+- `LYV` — Live Nation Entertainment Inc
+- `MA` — Mastercard
+- `MAERSKb` — AP Moller - Maersk B
+- `MAR` — Marriott International Inc - Class A
+- `MAS` — Masco Corp
+- `MCD` — McDonald's
+- `MCK` — McKesson Corp
+- `MCO` — Moody's Corp
+- `MDB` — MongoDB Inc
+- `MDLZ` — Mondelez International Inc - Class A
+- `MDT` — Medtronic Plc
+- `MELI` — MercadoLibre Inc
+- `MET` — MetLife Inc
+- `META` — Meta Platforms Inc - Class A
+- `MFC` — Manulife Financial Corp
+- `MGM` — MGM Resorts International
+- `MHK` — Mohawk Industries Inc
+- `MKC` — McCormick & Co Inc
+- `MKL` — Markel Group Inc
+- `MKTX` — MarketAxess Holdings Inc
+- `MLM` — Martin Marietta Materials Inc
+- `MMC` — Marsh & McLennan
+- `MMM` — 3M Co
+- `MNDI` — Mondi Plc
+- `MNST` — Monster Beverage Corp
+- `MO` — Altria Group Inc
+- `MPC` — Marathon Petroleum Corp
+- `MPWR` — Monolithic Power Systems Inc
+- `MRK` — Merck & Co Inc
+- `MRNA` — Moderna Inc
+- `MRNA.m` — Moderna? / Needs review
+- `MRO` — Marathon Oil Corp
+- `MRVL` — Marvell Technology Inc
+- `MS` — Morgan Stanley
+- `MSCI` — MSCI Inc
+- `MSFT` — Microsoft
+- `MSI` — Motorola Solutions Inc
+- `MT` — ArcelorMittal SA ADR
+- `MTB` — M&T Bank Corp
+- `MTD` — Mettler-Toledo International Inc
+- `MU` — Micron Technology Inc
+- `MUV2n` — Munich Re
+- `NCLH` — Norwegian Cruise Line Holdings Ltd
+- `NDAQ` — Nasdaq Inc
+- `NDSN` — Nordson Corp
+- `NEE` — NextEra Energy Inc
+- `NEM` — Newmont Corp
+- `NESN` — Nestle SA
+- `NET` — Cloudflare Inc
+- `NFLX` — Netflix
+- `NICE` — NICE Ltd ADR
+- `NKE` — Nike
+- `NKT` — NKT A/S? / Needs review
+- `NMRK` — Newmark Group Inc
+- `NOC` — Northrop Grumman
+- `NOW` — ServiceNow
+- `NQ` — Nuveen? / Needs review
+- `NRG` — NRG Energy Inc
+- `NSC` — Norfolk Southern Corp
+- `NTAP` — NetApp Inc
+- `NTRS` — Northern Trust Corp
+- `NUE` — Nucor Corp
+- `NVDA` — NVIDIA
+- `NVO` — Novo Nordisk ADR
+- `NWG` — NatWest Group Plc ADR
+- `NWSA` — News Corp - Class A
+- `NXPI` — NXP Semiconductors NV
+- `ODFL` — Old Dominion Freight Line Inc
+- `OKE` — ONEOK Inc
+- `OLN` — Olin Corp
+- `OMC` — Omnicom Group Inc
+- `ON` — ON Semiconductor Corp
+- `ORCL` — Oracle
+- `ORLY` — O'Reilly Automotive Inc
+- `OSK` — Oshkosh Corp
+- `OTIS` — Otis Worldwide Corp
+- `OTLY` — Oatly Group AB ADR
+- `OXY` — Occidental Petroleum Corp
+- `PANW` — Palo Alto Networks Inc
+- `PARA` — Paramount Global - Class B
+- `PAYC` — Paycom Software Inc
+- `PAYX` — Paychex Inc
+- `PBCT` — People's United Financial Inc?
+- `PBR` — Petroleo Brasileiro Petrobras SA ADR
+- `PCAR` — PACCAR Inc
+- `PCG` — PG&E Corp
+- `PDD` — PDD Holdings Inc ADR
+- `PEAK` — Healthpeak Properties Inc
+- `PEG` — Public Service Enterprise Group Inc
+- `PEP` — PepsiCo
+- `PFE` — Pfizer
+- `PFG` — Principal Financial Group Inc
+- `PG` — Procter & Gamble
+- `PGR` — Progressive Corp
+- `PH` — Parker-Hannifin Corp
+- `PHM` — PulteGroup Inc
+- `PKG` — Packaging Corp of America
+- `PKI` — PerkinElmer Inc
+- `PLD` — Prologis Inc
+- `PM` — Philip Morris International Inc
+- `PNC` — PNC Financial Services Group Inc
+- `PNR` — Pentair Plc
+- `PNW` — Pinnacle West Capital Corp
+- `PODD` — Insulet Corp
+- `POOL` — Pool Corp
+- `PPG` — PPG Industries Inc
+- `PPL` — PPL Corp
+- `PRU` — Prudential Financial Inc
+- `PSA` — Public Storage
+- `PSX` — Phillips 66
+- `PTC` — PTC Inc
+- `PTE` — PGE Polska? / Needs review
+- `PUB` — Publicis Groupe SA
+- `PUM` — Puma SE
+- `PVH` — PVH Corp
+- `QCOM` — Qualcomm
+- `QGEN` — QIAGEN NV
+- `QRVO` — Qorvo Inc
+- `RACE` — Ferrari NV
+- `RBLX` — Roblox Corp
+- `RCL` — Royal Caribbean Cruises Ltd
+- `REG` — Regency Centers Corp
+- `REGN` — Regeneron Pharmaceuticals Inc
+- `REL` — RELX Plc
+- `REN` — Renishaw? / Needs review
+- `RF` — Regions Financial Corp
+- `RHHBY` — Roche Holding ADR
+- `RHM` — Rheinmetall AG
+- `RJF` — Raymond James Financial Inc
+- `RL` — Ralph Lauren Corp
+- `RMD` — ResMed Inc
+- `RNG` — RingCentral Inc
+- `ROG` — Roche Holding? / Needs review
+- `ROK` — Rockwell Automation Inc
+- `ROL` — Rollins Inc
+- `ROP` — Roper Technologies Inc
+- `ROST` — Ross Stores Inc
+- `RPRX` — Royalty Pharma Plc
+- `RSG` — Republic Services Inc
+- `RTX` — RTX Corp
+- `RWE` — RWE AG ADR
+- `RY` — Royal Bank of Canada
+- `SAB` — Banca? / Needs review
+- `SAF` — Safran SA
+- `SAIA` — Saia Inc
+- `SAN` — Banco Santander ADR
+- `SANM` — Sanmina Corp
+- `SAP` — SAP ADR
+- `SBUX` — Starbucks
+- `SCHN` — Schindler? / Needs review
+- `SCHW` — Charles Schwab Corp
+- `SCMN` — Swisscom AG
+- `SE` — Sea Ltd ADR
+- `SEB` — Seaboard Corp / or Skandinaviska? Needs review
+- `SEDG` — SolarEdge Technologies Inc
+- `SFER` — Salvatore Ferragamo? / Needs review
+- `SGE` — Sage Group? / Needs review
+- `SGSN` — SGS SA
+- `SHL` — Siemens Healthineers ADR? / Needs review
+- `SHOP` — Shopify Inc
+- `SIEGn` — Siemens AG
+- `SIVB` — SVB Financial Group?
+- `SJM` — J M Smucker Co
+- `SKA` — Skanska AB? / Needs review
+- `SLAB` — Silicon Laboratories Inc
+- `SLF` — Sun Life Financial Inc
+- `SLHN` — Swiss Life Holding AG
+- `SNA` — Snap-on Inc
+- `SNAP` — Snap Inc
+- `SNPS` — Synopsys Inc
+- `SNV` — Synovus Financial Corp
+- `SO` — Southern Co
+- `SOLB` — Solvay? / Needs review
+- `SONY` — Sony ADR
+- `SOUN` — SoundHound AI Inc
+- `SPGI` — S&P Global Inc
+- `SPG` — Simon Property Group Inc
+- `SPOT` — Spotify Technology SA
+- `SPSC` — SPS Commerce Inc
+- `SQ` — Block Inc
+- `SSNC` — SS&C Technologies Holdings Inc
+- `STAN` — Standard Chartered PLC
+- `STE` — Steris Plc
+- `STLA` — Stellantis NV
+- `STNE` — StoneCo Ltd
+- `STT` — State Street Corp
+- `STX` — Seagate Technology Holdings Plc
+- `STZ` — Constellation Brands Inc - Class A
+- `SU` — Suncor Energy Inc
+- `SWKS` — Skyworks Solutions Inc
+- `SWK` — Stanley Black & Decker Inc
+- `SWKSN` — Skyworks? / Needs review
+- `SYF` — Synchrony Financial
+- `SYK` — Stryker Corp
+- `SYY` — Sysco Corp
+- `T` — AT&T Inc
+- `TAK` — Takeda Pharmaceutical ADR
+- `TD` — Toronto-Dominion Bank
+- `TDG` — TransDigm Group Inc
+- `TDY` — Teledyne Technologies Inc
+- `TEF` — Telefonica ADR
+- `TEL` — TE Connectivity Plc
+- `TER` — Teradyne Inc
+- `TFC` — Truist Financial Corp
+- `TFX` — Teleflex Inc
+- `TGT` — Target
+- `TJX` — TJX Companies Inc
+- `TMO` — Thermo Fisher Scientific Inc
+- `TMUS` — T-Mobile US Inc
+- `TOST` — Toast Inc
+- `TPR` — Tapestry Inc
+- `TRGP` — Targa Resources Corp
+- `TRMB` — Trimble Inc
+- `TROW` — T Rowe Price Group Inc
+- `TRP` — TC Energy Corp
+- `TRU` — TransUnion
+- `TRV` — Travelers Companies Inc
+- `TSCO` — Tractor Supply Co
+- `TSLA` — Tesla
+- `TSM` — Taiwan Semiconductor Manufacturing ADR
+- `TT` — Trane Technologies Plc
+- `TTD` — Trade Desk Inc - Class A
+- `TTWO` — Take-Two Interactive Software Inc
+- `TXN` — Texas Instruments
+- `TXT` — Textron Inc
+- `TYL` — Tyler Technologies Inc
+- `UAL` — United Airlines Holdings Inc
+- `UBER` — Uber Technologies Inc
+- `UBSG` — UBS Group AG
+- `UCB` — UCB SA? / Needs review
+- `UHALb` — U-Haul Holding Co - Class B
+- `UL` — Unilever PLC ADR
+- `ULTA` — Ulta Beauty Inc
+- `UMBF` — UMB Financial Corp
+- `UNH` — UnitedHealth Group
+- `UNP` — Union Pacific Corp
+- `UPS` — United Parcel Service Inc - Class B
+- `URI` — United Rentals Inc
+- `USB` — US Bancorp
+- `UTHR` — United Therapeutics Corp
+- `V` — Visa
+- `VALE` — Vale SA ADR
+- `VAR` — Varian Medical Systems?
+- `VEEV` — Veeva Systems Inc - Class A
+- `VFC` — V F Corp
+- `VIE` — Veolia? / Needs review
+- `VICI` — VICI Properties Inc
+- `VMC` — Vulcan Materials Co
+- `VOD` — Vodafone Group ADR
+- `VOW3` — Volkswagen AG Pref
+- `VRSK` — Verisk Analytics Inc
+- `VRSN` — VeriSign Inc
+- `VRTX` — Vertex Pharmaceuticals Inc
+- `VTR` — Ventas Inc
+- `VTRS` — Viatris Inc
+- `VZ` — Verizon
+- `WAB` — Westinghouse Air Brake Technologies Corp
+- `WAT` — Waters Corp
+- `WBA` — Walgreens Boots Alliance Inc
+- `WBD` — Warner Bros Discovery Inc
+- `WCN` — Waste Connections Inc
+- `WDAY` — Workday Inc - Class A
+- `WDC` — Western Digital Corp
+- `WELL` — Welltower Inc
+- `WFC` — Wells Fargo
+- `WHR` — Whirlpool Corp
+- `WM` — Waste Management Inc
+- `WMB` — Williams Companies Inc
+- `WMT` — Walmart
+- `WOLT` — Wolters Kluwer NV
+- `WPP` — WPP PLC ADR
+- `WRB` — W R Berkley Corp
+- `WST` — West Pharmaceutical Services Inc
+- `WTW` — Willis Towers Watson Plc
+- `WY` — Weyerhaeuser Co
+- `WYNN` — Wynn Resorts Ltd
+- `XEL` — Xcel Energy Inc
+- `XOM` — Exxon Mobil
+- `XPEV` — XPeng Inc ADR
+- `XYL` — Xylem Inc
+- `YUM` — Yum! Brands Inc
+- `ZBH` — Zimmer Biomet Holdings Inc
+- `ZBRA` — Zebra Technologies Corp - Class A
+- `ZM` — Zoom Communications Inc
+- `ZS` — Zscaler Inc
+- `ZTS` — Zoetis Inc
+
+## Crypto / USD Crypto Pairs / Layer-2 coin-family pending
+Count: 30
+
+- `AAVEUSD.nx` — Aave
+- `ADAUSD.nx` — Cardano
+- `ALGOUSD.nx` — Algorand
+- `APEUSD.nx` — ApeCoin / US dollar
+- `ATOMUSD.nx` — Cosmos
+- `BCHNUSD.nx` — BITCOIN CASH NODE vs US Dollar
+- `BTCUSD.nx` — BITCOINS VS USD
+- `DASHUSD.nx` — DASH VS USD
+- `DOGEUSD.nx` — DOGECOIN VS USD
+- `DOTUSD.nx` — Polkadot
+- `EOSUSD.nx` — EOS VS USD
+- `FILUSD.nx` — Filecoin
+- `GALAUSD.nx` — Gala
+- `IOTAUSD.nx` — IOTA VS USD
+- `LINKUSD.nx` — Chainlink
+- `LTCUSD.nx` — LITECOIN VS USD
+- `MELUSD.nx` — Melania VS USD
+- `NEOUSD.nx` — NEO VS USD
+- `SHBUSD.nx` — Shiba Inu
+- `SOLUSD.nx` — Solana
+- `TRPUSD.nx` — Trump VS USD
+- `TRXUSD.nx` — TRON VS USD
+- `UNIUSD.nx` — Uniswap
+- `USDTUSD.nx` — Tether VS USD
+- `XLMUSD.nx` — STELLAR LUMENS VS USD
+- `XMRUSD.nx` — MONERO VS USD
+- `XRPUSD.nx` — Ripple vs US Dollar
+- `XTZUSD.nx` — Tezos
+- `ZECUSD.nx` — ZCASH VS USD
+- `ETHUSD.nx` — ETHEREUM VS USD
+
+## Crypto / EUR Crypto Pairs / Layer-2 coin-family pending
+Count: 4
+
+- `BTCEUR.nx` — BITCOINS VS EURO
+- `ETHEUR.nx` — ETHEREUM VS EURO
+- `LTCEUR.nx` — LITECOIN VS EURO
+- `XRPEUR.nx` — RIPPLE VS EURO
+
+## Crypto / GBP Crypto Pairs / Layer-2 coin-family pending
+Count: 2
+
+- `BTCGBP.nx` — BITCOINS VS GBP
+- `ETHGBP.nx` — ETHEREUM VS GBP
+
+## Crypto / JPY Crypto Pairs / Layer-2 coin-family pending
+Count: 4
+
+- `BTCJPY.nx` — BITCOINS VS JPY
+- `ETHJPY.nx` — ETHEREUM VS JPY
+- `LTCJPY.nx` — LITECOIN VS Japanese Yen
+- `XRPJPY.nx` — Ripple VS JPY
+
+## Indices / Index CFDs / Regional benchmarks
+Count: 15
+
+- `AXCAUD.c` — ASX 200 Index (SPI) CFD
+- `CHCUSD.c` — China 50 Index CFD
+- `DJCUSD.c` — Dow Jones 30 Index CFD
+- `EXCEUR.c` — Euro Stoxx 50 Index CFD
+- `FRCEUR.c` — France 40 Index CFD
+- `GECEUR.c` — DAX 30 Index CFD
+- `HKCHKD.c` — Hang Seng Index CFD
+- `INCUSD.c` — India 50 Index CFD
+- `JPCJPY.c` — Nikkei Index CFD
+- `NACUSD.c` — NASDAQ 100 E-mini derived CFD
+- `RUSS2000.c` — Russel 2000 Index CFD
+- `SGCSGD.c` — MSCI Singapore Index CFD
+- `SPCUSD.c` — S&P 500 Index CFD
+- `TWCUSD.c` — Taiwan Index CFD
+- `UKCGBP.c` — UK 100 Index CFD
+
+## Energy / Oil CFDs / Benchmarks
+Count: 2
+
+- `UKOIL.c` — Crude Oil Brent
+- `USOIL.c` — West Texas Intermediate Crude Oil

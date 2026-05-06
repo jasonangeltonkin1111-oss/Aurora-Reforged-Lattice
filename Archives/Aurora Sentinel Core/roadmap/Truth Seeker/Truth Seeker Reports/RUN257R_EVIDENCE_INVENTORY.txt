@@ -1,0 +1,58 @@
+RUN257R_EVIDENCE_INVENTORY
+Current run: RUN257R
+Primary mode: LIVE EVIDENCE REVIEW
+Secondary mode: DEPLOYMENT AUDIT
+Source baseline inspected: RUN255R identity telemetry patch
+Source patch applied in RUN257R: no
+Final evidence classification: evidence insufficient for identity stitch; HOLD
+
+SOURCE IDENTITY INSPECTION
+- mt5/core/ASC_Version.mqh ASC_TRUTH_SEEKER_CURRENT_RUN=RUN255R
+- mt5/core/ASC_Version.mqh ASC_VERSION_LABEL=RUN255R-IdentityDeploymentProofRepair
+- mt5/core/ASC_Version.mqh ASC_TRUTH_SEEKER_SOURCE_IDENTITY_TOKEN=RUN255R|identity_deployment_proof|source_package_to_compiled_ex5_to_active_terminal_to_output_root_to_artifact_lineage|compile_hash_not_claimed
+- mt5/AuroraSentinelCore.mq5 ASC_RuntimeDeploymentIdentityLine present=True
+- mt5/AuroraSentinelCore.mq5 runtime_deployment_identity emitted=True
+- mt5/runtime/ASC_Dispatcher.mqh heartbeat source_run_id field present=True
+- mt5/runtime/ASC_Dispatcher.mqh heartbeat source_version field present=True
+- mt5/runtime/ASC_Dispatcher.mqh heartbeat artifact_written_by_run field present=True
+
+COMPILE / DEPLOYMENT EVIDENCE SEARCH
+- Full MetaEditor compile transcript found: no
+- Exact .mq5 path compiled found: no
+- Exact .ex5 output path found: no
+- Experts attach/init log found: no
+- Journal attach/init log found: no
+- Terminal data folder proof found: no
+- Common Files / active output root proof found: no
+- Candidate paths matching compile/metaeditor/expert/journal/terminal keywords:
+  - roadmap/Truth Seeker/Truth Seeker Reports/RUN213R_COMPILE_REPAIR_REPORT.md
+  - roadmap/Truth Seeker/Truth Seeker Reports/TRUTH_SEEKER_RUN095R_COMPILE_REPAIR_REPORT.md
+  - roadmap/Truth Seeker/Truth Seeker Reports/TRUTH_SEEKER_RUN099B_COMPILE_REPAIR_REPORT.md
+  - roadmap/Truth Seeker/Truth Seeker Reports/TRUTH_SEEKER_RUN105B_HUD_COMPILE_REPAIR_REPORT.md
+  - roadmap/Truth Seeker/Truth Seeker Reports/TRUTH_SEEKER_RUN124B_COMPILE_REPAIR_REPORT.md
+
+PACKAGED EVIDENCE FILES
+- evidence/Upcomers-Server/Dossiers/GlobalTop10/AAVEUSD.nx.txt | bytes=525926 | mtime=2026-05-03 09:27:38 | identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN141R, RUN102R, RUN092, RUN093
+- evidence/Upcomers-Server/Dossiers/GlobalTop10/_family_manifest.txt | bytes=13596 | mtime=2026-05-03 09:27:58 | identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN141R, RUN102R, RUN092, RUN081R
+- evidence/Upcomers-Server/Dossiers/Top5PerBucket/_family_manifest.txt | bytes=16812 | mtime=2026-05-03 09:27:02 | identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN125R, RUN157, RUN160
+- evidence/Upcomers-Server/Dossiers/Top5PerBucket/_staging/_staging_manifest.txt | bytes=1426 | mtime=2026-05-03 09:27:02 | identity_sample=RUN238R-CompileGateRepairBeforeLiveProof, RUN238R, RUN118
+- evidence/Upcomers-Server/Dossiers/Top5PerBucket/crypto/AAVEUSD.nx.txt | bytes=528684 | mtime=2026-05-03 09:27:00 | identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN141R, RUN102R, RUN092, RUN093
+- evidence/Upcomers-Server/Dossiers/Top5PerBucket/crypto/_bucket_manifest.txt | bytes=11220 | mtime=2026-05-03 09:26:54 | identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN157, RUN160
+- evidence/Upcomers-Server/Open Symbol Snapshot.txt | bytes=55564 | mtime=2026-05-03 09:29:42 | identity_sample=no identity token found in sample
+- evidence/Upcomers-Server/Symbol Data Packs/GlobalTop10/AAVEUSD.nx_SYMBOL_DATA_PACK.txt | bytes=429796 | mtime=2026-05-03 09:28:00 | identity_sample=RUN238R-CompileGateRepairBeforeLiveProof, RUN238R, RUN162R, RUN236R, RUN233R, RUN235R
+- evidence/Upcomers-Server/Symbol Data Packs/Top5PerBucket/crypto/AAVEUSD.nx_SYMBOL_DATA_PACK.txt | bytes=428346 | mtime=2026-05-03 09:28:24 | identity_sample=RUN238R-CompileGateRepairBeforeLiveProof, RUN238R, RUN162R, RUN236R, RUN233R, RUN235R
+- evidence/Upcomers-Server/Workbench/logs/function_results.log | bytes=8094000 | mtime=2026-05-03 09:29:42 | identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN141R, RUN125, RUN124R, RUN205R
+- evidence/Upcomers-Server/Workbench/logs/heartbeat_telemetry.log | bytes=1034788 | mtime=2026-05-03 09:28:56 | identity_sample=RUN238R-CompileGateRepairBeforeLiveProof, RUN238R
+
+FOLDER INVENTORY
+- evidence/Upcomers-Server | exists=True | child_count=4 | latest_modified=2026-05-03 09:29:42 | identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN141R, RUN102R, RUN092
+- evidence/Upcomers-Server/Workbench/logs | exists=True | child_count=2 | latest_modified=2026-05-03 09:29:42 | identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN141R, RUN125, RUN124R
+- evidence/Upcomers-Server/Dossiers | exists=True | child_count=2 | latest_modified=2026-05-03 09:27:58 | identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN141R, RUN102R, RUN092
+- evidence/Upcomers-Server/Dossiers/GlobalTop10 | exists=True | child_count=2 | latest_modified=2026-05-03 09:27:58 | identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN141R, RUN102R, RUN092
+- evidence/Upcomers-Server/Dossiers/GlobalTop10/_staging | exists=False | child_count=0 | latest_modified=n/a | identity_sample=no sample / missing
+- evidence/Upcomers-Server/Dossiers/Top5PerBucket | exists=True | child_count=3 | latest_modified=2026-05-03 09:27:02 | identity_sample=RUN238R, RUN238R-CompileGateRepairBeforeLiveProof, RUN125R, RUN157, RUN160
+- evidence/Upcomers-Server/Symbol Data Packs | exists=True | child_count=2 | latest_modified=2026-05-03 09:28:24 | identity_sample=RUN238R-CompileGateRepairBeforeLiveProof, RUN238R, RUN162R, RUN236R, RUN233R
+- evidence/Upcomers-Server/Symbol Data Packs/GlobalTop10 | exists=True | child_count=1 | latest_modified=2026-05-03 09:28:00 | identity_sample=RUN238R-CompileGateRepairBeforeLiveProof, RUN238R, RUN162R, RUN236R, RUN233R
+- evidence/Upcomers-Server/Symbol Data Packs/Top5PerBucket | exists=True | child_count=1 | latest_modified=2026-05-03 09:28:24 | identity_sample=RUN238R-CompileGateRepairBeforeLiveProof, RUN238R, RUN162R, RUN236R, RUN233R
+- evidence/Upcomers-Server/Symbol Data Packs/archive | exists=False | child_count=0 | latest_modified=n/a | identity_sample=no sample / missing
+- evidence/Upcomers-Server/Symbol Data Packs/_previous_state_cache | exists=False | child_count=0 | latest_modified=n/a | identity_sample=no sample / missing

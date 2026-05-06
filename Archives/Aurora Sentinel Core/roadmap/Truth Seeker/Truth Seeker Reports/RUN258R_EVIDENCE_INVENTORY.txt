@@ -1,0 +1,32 @@
+RUN258R_EVIDENCE_INVENTORY
+generated=2026-05-04 06:01:47
+Scope: evidence/package audit only; no source patch; no generated output editing.
+
+## Source/control identity
+- mt5/core/ASC_Version.mqh | exists=True | size=146129 | mtime=2026-05-03 21:32:34
+- mt5/AuroraSentinelCore.mq5 | exists=True | size=17501 | mtime=2026-05-03 21:32:34
+- mt5/runtime/ASC_Dispatcher.mqh | exists=True | size=1014439 | mtime=2026-05-03 21:32:34
+- roadmap/Truth Seeker/Guidebooks/AURORA_GUIDEBOOK_INDEX.md | exists=True | size=25244 | mtime=2026-05-03 21:32:34
+- roadmap/Truth Seeker/Guidebooks/AURORA_CODING_BRAIN_GUIDEBOOK.md | exists=True | size=38656 | mtime=2026-05-03 21:32:34
+- roadmap/Truth Seeker/Guidebooks/AURORA_TRADING_BRAIN_GUIDEBOOK.md | exists=True | size=23600 | mtime=2026-05-03 21:32:34
+- roadmap/Truth Seeker/Truth Seeker Reports/RUN257R_REPORT.md | exists=True | size=23817 | mtime=2026-05-04 03:54:12
+
+## Packaged runtime evidence files
+- evidence/Upcomers-Server/Dossiers/GlobalTop10/AAVEUSD.nx.txt | size=525926 | mtime=2026-05-03 09:27:38 | identity_tokens=source_run_id, source_version, artifact_written_by_run, RUN238R, RUN141R
+- evidence/Upcomers-Server/Dossiers/GlobalTop10/_family_manifest.txt | size=13596 | mtime=2026-05-03 09:27:58 | identity_tokens=source_run_id, source_version, artifact_written_by_run, RUN238R, RUN141R
+- evidence/Upcomers-Server/Dossiers/Top5PerBucket/_family_manifest.txt | size=16812 | mtime=2026-05-03 09:27:02 | identity_tokens=source_run_id, RUN238R
+- evidence/Upcomers-Server/Dossiers/Top5PerBucket/_staging/_staging_manifest.txt | size=1426 | mtime=2026-05-03 09:27:02 | identity_tokens=source_run_id, RUN238R
+- evidence/Upcomers-Server/Dossiers/Top5PerBucket/crypto/AAVEUSD.nx.txt | size=528684 | mtime=2026-05-03 09:27:00 | identity_tokens=source_run_id, source_version, artifact_written_by_run, RUN238R, RUN141R
+- evidence/Upcomers-Server/Dossiers/Top5PerBucket/crypto/_bucket_manifest.txt | size=11220 | mtime=2026-05-03 09:26:54 | identity_tokens=source_run_id, RUN238R
+- evidence/Upcomers-Server/Open Symbol Snapshot.txt | size=55564 | mtime=2026-05-03 09:29:42 | identity_tokens=no required identity token found in sampled decode
+- evidence/Upcomers-Server/Symbol Data Packs/GlobalTop10/AAVEUSD.nx_SYMBOL_DATA_PACK.txt | size=429796 | mtime=2026-05-03 09:28:00 | identity_tokens=RUN238R
+- evidence/Upcomers-Server/Symbol Data Packs/Top5PerBucket/crypto/AAVEUSD.nx_SYMBOL_DATA_PACK.txt | size=428346 | mtime=2026-05-03 09:28:24 | identity_tokens=RUN238R
+- evidence/Upcomers-Server/Workbench/logs/function_results.log | size=8094000 | mtime=2026-05-03 09:29:42 | identity_tokens=source_run_id, artifact_written_by_run, RUN238R, RUN141R
+- evidence/Upcomers-Server/Workbench/logs/heartbeat_telemetry.log | size=1034788 | mtime=2026-05-03 09:28:56 | identity_tokens=RUN238R
+
+## RUN258 generated report/evidence files
+- roadmap/Truth Seeker/Truth Seeker Reports/RUN258R_SOURCE_IDENTITY_EXCERPT.txt | size=16167 | mtime=2026-05-04 06:01:47
+- roadmap/Truth Seeker/Truth Seeker Reports/RUN258R_STALE_RUNTIME_IDENTITY_SAMPLES.txt | size=7615 | mtime=2026-05-04 06:01:47
+- roadmap/Truth Seeker/Truth Seeker Reports/RUN258R_PATH_PROOF_STATUS.txt | size=1572 | mtime=2026-05-04 06:01:47
+- roadmap/Truth Seeker/Truth Seeker Reports/RUN258R_OUTPUT_ROOT_FOLDER_LISTINGS.txt | size=4715 | mtime=2026-05-04 06:01:47
+- roadmap/Truth Seeker/Truth Seeker Reports/RUN258R_REPORT.md | size=41337 | mtime=2026-05-04 06:01:47

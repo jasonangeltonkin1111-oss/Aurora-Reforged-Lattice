@@ -1,0 +1,36 @@
+# RUN263R Output Root Folder Listing
+
+Root: Upcomers-Server(148)/Upcomers-Server
+
+| File | Size bytes | Source / timestamp sample |
+|---|---:|---|
+| `Dossiers/Top5PerBucket/_family_manifest.txt` | 21022 | source_run_id=RUN262R |
+| `Dossiers/Top5PerBucket/_staging/_staging_manifest.txt` | 1392 | source_run_id=RUN262R-LiteArchiveTopologyRepair |
+| `Dossiers/Top5PerBucket/_staging/crypto/AAVEUSD.nx.txt` | 529328 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:08 UTC |
+| `Dossiers/Top5PerBucket/_staging/crypto/ADAUSD.nx.txt` | 515358 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:13 UTC |
+| `Dossiers/Top5PerBucket/_staging/crypto/ALGOUSD.nx.txt` | 516946 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:15 UTC |
+| `Dossiers/Top5PerBucket/_staging/crypto/APEUSD.nx.txt` | 514848 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:17 UTC |
+| `Dossiers/Top5PerBucket/_staging/crypto/ATOMUSD.nx.txt` | 514586 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:18 UTC |
+| `Dossiers/Top5PerBucket/_staging/energy/UKOIL.c.txt` | 537458 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:20 UTC |
+| `Dossiers/Top5PerBucket/_staging/energy/USOIL.c.txt` | 537004 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:22 UTC |
+| `Dossiers/Top5PerBucket/_staging/energy/XNGUSD.txt` | 510708 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:25 UTC |
+| `Dossiers/Top5PerBucket/archive/20260504_0810/_archive_manifest.txt` | 2264 | source_run_id=RUN262R-LiteArchiveTopologyRepair |
+| `Dossiers/Top5PerBucket/crypto/AAVEUSD.nx.txt` | 529324 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:08 UTC |
+| `Dossiers/Top5PerBucket/crypto/ADAUSD.nx.txt` | 515354 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:13 UTC |
+| `Dossiers/Top5PerBucket/crypto/ALGOUSD.nx.txt` | 516942 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:15 UTC |
+| `Dossiers/Top5PerBucket/crypto/APEUSD.nx.txt` | 514844 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:17 UTC |
+| `Dossiers/Top5PerBucket/crypto/ATOMUSD.nx.txt` | 514582 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:18 UTC |
+| `Dossiers/Top5PerBucket/crypto/_bucket_manifest.txt` | 13840 | source_run_id=RUN262R |
+| `Dossiers/Top5PerBucket/energy/UKOIL.c.txt` | 537454 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:20 UTC |
+| `Dossiers/Top5PerBucket/energy/USOIL.c.txt` | 537000 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:22 UTC |
+| `Dossiers/Top5PerBucket/energy/XNGUSD.txt` | 510704 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:25 UTC |
+| `Dossiers/Top5PerBucket/energy/_bucket_manifest.txt` | 13652 | source_run_id=RUN262R |
+| `Dossiers/Top5PerBucket/fx/_bucket_manifest.txt` | 13616 | source_run_id=RUN262R |
+| `Dossiers/Top5PerBucket/indices/_bucket_manifest.txt` | 13756 | source_run_id=RUN262R |
+| `Market Board Archive/_latest_market_board_archive_manifest.txt` | 10926 | source_run_id=RUN262R |
+| `Market Board Archive/market_board_snapshot_slot_32.txt` | 10458 | source_run_id=RUN262R |
+| `Market Board.txt` | 501470 | source_run_id=RUN262R | Publication UTC: 2026.05.04 08:17:31 UTC |
+| `Open Symbol Snapshot.txt` | 205710 | Publication UTC: 2026.05.04 08:18:28 UTC |
+| `Scanner Status.txt` | 249934 | Source Run ID: RUN262R | Publication UTC: 2026.05.04 08:18:58 UTC |
+| `Workbench/logs/function_results.log` | 3400704 | source_run_id=RUN262R |
+| `Workbench/logs/heartbeat_telemetry.log` | 453842 | source_run_id=RUN262R |

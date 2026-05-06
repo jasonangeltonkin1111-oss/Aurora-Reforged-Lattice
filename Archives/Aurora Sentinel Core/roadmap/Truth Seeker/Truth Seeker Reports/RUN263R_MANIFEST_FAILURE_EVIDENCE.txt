@@ -1,0 +1,43 @@
+# RUN263R Manifest Failure Evidence
+
+Source: Workbench/logs/function_results.log
+
+| Timestamp UTC | Function | State | Code | Proof Status | Detail excerpt |
+|---|---|---|---|---|---|
+| 2026.05.04 08:17:31 | ASC_WriteArtifactBundleManifest | state=error | code=2001 | proof_status=insufficient_evidence | detail=Failed to publish Artifact Bundle Manifest: required token contract failed missing_token=no_change_reprint_dirty_loop_guard=metadata_only_no_flush_loop \| claim_evidence_status=contradiction_pending \| claim_evidence_support=cross_artifact.alignment_witness;dossier=missing_or_unverified;current_focus=missing_or_unverified;market_board=visible;global_top10=missing_or_unverified;manifest=missing_or_unverified;divergence=selected_symbol_child_missing;artifact_publication_ce_status=insufficient_evidence;operator_surface.claim_boundary;surface_claim_boundary=contradiction_pending;surface_targets=dossier.operator_snapshot,current_focus.summary,market_board.compression,hud.truth_surface;surface_scope=proof_metadata_only;proof_boundary=metadata_only_no_operator_text_rewrite;runtime_proof=deferred_to_run050 \| claim_evidence_runtime_proof=deferred_to_run050 \| evidence_availability_boundar |
+| 2026.05.04 08:17:44 | ASC_WriteArtifactBundleManifest | state=error | code=2001 | proof_status=insufficient_evidence | detail=Failed to publish Artifact Bundle Manifest: required token contract failed missing_token=no_change_reprint_dirty_loop_guard=metadata_only_no_flush_loop \| claim_evidence_status=contradiction_pending \| claim_evidence_support=cross_artifact.alignment_witness;dossier=missing_or_unverified;current_focus=missing_or_unverified;market_board=visible;global_top10=missing_or_unverified;manifest=missing_or_unverified;divergence=selected_symbol_child_missing;artifact_publication_ce_status=insufficient_evidence;operator_surface.claim_boundary;surface_claim_boundary=contradiction_pending;surface_targets=dossier.operator_snapshot,current_focus.summary,market_board.compression,hud.truth_surface;surface_scope=proof_metadata_only;proof_boundary=metadata_only_no_operator_text_rewrite;runtime_proof=deferred_to_run050 \| claim_evidence_runtime_proof=deferred_to_run050 \| evidence_availability_boundar |
+| 2026.05.04 08:18:04 | ASC_WriteArtifactBundleManifest | state=error | code=2001 | proof_status=insufficient_evidence | detail=Failed to publish Artifact Bundle Manifest: required token contract failed missing_token=no_change_reprint_dirty_loop_guard=metadata_only_no_flush_loop \| claim_evidence_status=contradiction_pending \| claim_evidence_support=cross_artifact.alignment_witness;dossier=missing_or_unverified;current_focus=missing_or_unverified;market_board=visible;global_top10=missing_or_unverified;manifest=missing_or_unverified;divergence=selected_symbol_child_missing;artifact_publication_ce_status=insufficient_evidence;operator_surface.claim_boundary;surface_claim_boundary=contradiction_pending;surface_targets=dossier.operator_snapshot,current_focus.summary,market_board.compression,hud.truth_surface;surface_scope=proof_metadata_only;proof_boundary=metadata_only_no_operator_text_rewrite;runtime_proof=deferred_to_run050 \| claim_evidence_runtime_proof=deferred_to_run050 \| evidence_availability_boundar |
+| 2026.05.04 08:18:28 | ASC_WriteArtifactBundleManifest | state=error | code=2001 | proof_status=insufficient_evidence | detail=Failed to publish Artifact Bundle Manifest: required token contract failed missing_token=no_change_reprint_dirty_loop_guard=metadata_only_no_flush_loop \| claim_evidence_status=contradiction_pending \| claim_evidence_support=cross_artifact.alignment_witness;dossier=missing_or_unverified;current_focus=missing_or_unverified;market_board=visible;global_top10=missing_or_unverified;manifest=missing_or_unverified;divergence=selected_symbol_child_missing;artifact_publication_ce_status=insufficient_evidence;operator_surface.claim_boundary;surface_claim_boundary=contradiction_pending;surface_targets=dossier.operator_snapshot,current_focus.summary,market_board.compression,hud.truth_surface;surface_scope=proof_metadata_only;proof_boundary=metadata_only_no_operator_text_rewrite;runtime_proof=deferred_to_run050 \| claim_evidence_runtime_proof=deferred_to_run050 \| evidence_availability_boundar |
+
+## Source occurrence of missing token
+Occurrences of `no_change_reprint_dirty_loop_guard=metadata_only_no_flush_loop` in uploaded RUN262 source: 1
+- `mt5/runtime/ASC_Dispatcher.mqh:10829`: `required_tokens[142] = "no_change_reprint_dirty_loop_guard=metadata_only_no_flush_loop";`
+
+## Source excerpt around active required token
+```text
+10817:    required_tokens[130] = "displayed_symbol_set_source=L4_snapshot";
+10818:    required_tokens[131] = "displayed_symbol_set_not_rank_owner=true";
+10819:    required_tokens[132] = "displayed_symbol_info_refresh_seconds=300";
+10820:    required_tokens[133] = "displayed_symbol_info_last_refresh_utc=";
+10821:    required_tokens[134] = "displayed_symbol_info_next_due_utc=";
+10822:    required_tokens[135] = "displayed_symbol_info_age_seconds=";
+10823:    required_tokens[136] = "displayed_symbol_info_refresh_due=";
+10824:    required_tokens[137] = "l2_displayed_refresh_not_full_universe=true";
+10825:    required_tokens[138] = "l5_displayed_refresh_deferred_heavy_budget=true";
+10826:    required_tokens[139] = "l6_displayed_proof_not_hidden=true";
+10827:    required_tokens[140] = "bucket_fill_percent=";
+10828:    required_tokens[141] = "displayed_symbols_refresh_progress_percent=";
+10829:    required_tokens[142] = "no_change_reprint_dirty_loop_guard=metadata_only_no_flush_loop";
+10830:    required_tokens[143] = "source_run_id=";
+10831:    required_tokens[144] = "source_version=";
+10832:    required_tokens[145] = "generated_utc=";
+10833:    required_tokens[146] = "manifest_schema_version=";
+10834:    required_tokens[147] = "artifact_bundle_manifest_role=";
+10835:    required_tokens[148] = "proof_complete=false";
+10836:    required_tokens[149] = "signal_permission=false";
+10837:    required_tokens[150] = "trade_permission=false";
+10838:    required_tokens[151] = "execution_permission=false";
+10839:    required_tokens[152] = "risk_permission=false";
+10840:    required_tokens[153] = "source_identity_token=";
+10841:    required_tokens[154] = "artifact_schema_version=";
+```

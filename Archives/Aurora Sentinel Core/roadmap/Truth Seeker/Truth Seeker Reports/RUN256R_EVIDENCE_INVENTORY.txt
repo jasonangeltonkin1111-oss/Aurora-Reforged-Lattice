@@ -1,0 +1,57 @@
+RUN256R_EVIDENCE_INVENTORY
+decision=HOLD
+source_patch_applied=false
+generated_output_mutated=false
+compile_output_supplied=false
+experts_journal_supplied=false
+terminal_output_root_proven=false
+fresh_RUN255_artifact_identity_proven=false
+
+INCLUDED_OR_INSPECTED_FILES
+evidence/Upcomers-Server/Dossiers/GlobalTop10/AAVEUSD.nx.txt	size=525926	mtime=2026-05-03T11:27:38	sha16=03e5b4dd2156cdbd
+evidence/Upcomers-Server/Dossiers/GlobalTop10/_family_manifest.txt	size=13596	mtime=2026-05-03T11:27:58	sha16=65cce515b4547d6f
+evidence/Upcomers-Server/Dossiers/Top5PerBucket/_family_manifest.txt	size=16812	mtime=2026-05-03T11:27:02	sha16=b3c4fefef1c9a6e1
+evidence/Upcomers-Server/Dossiers/Top5PerBucket/_staging/_staging_manifest.txt	size=1426	mtime=2026-05-03T11:27:02	sha16=81226bb9b217b910
+evidence/Upcomers-Server/Dossiers/Top5PerBucket/crypto/AAVEUSD.nx.txt	size=528684	mtime=2026-05-03T11:27:00	sha16=a48cb2d1cfa40cb8
+evidence/Upcomers-Server/Dossiers/Top5PerBucket/crypto/_bucket_manifest.txt	size=11220	mtime=2026-05-03T11:26:54	sha16=aba20a257b32bb50
+evidence/Upcomers-Server/Open Symbol Snapshot.txt	size=55564	mtime=2026-05-03T11:29:42	sha16=2d86ac0cb833535f
+evidence/Upcomers-Server/Symbol Data Packs/GlobalTop10/AAVEUSD.nx_SYMBOL_DATA_PACK.txt	size=429796	mtime=2026-05-03T11:28:00	sha16=dc835fabb9cee53a
+evidence/Upcomers-Server/Symbol Data Packs/Top5PerBucket/crypto/AAVEUSD.nx_SYMBOL_DATA_PACK.txt	size=428346	mtime=2026-05-03T11:28:24	sha16=ed575e12aa9cf096
+evidence/Upcomers-Server/Workbench/logs/function_results.log	size=8094000	mtime=2026-05-03T11:29:42	sha16=067ba70371428700
+evidence/Upcomers-Server/Workbench/logs/heartbeat_telemetry.log	size=1034788	mtime=2026-05-03T11:28:56	sha16=3393192505d063bf
+mt5/AuroraSentinelCore.mq5	size=17501	mtime=2026-05-03T23:32:34	sha16=2bece75d74a157be
+mt5/core/ASC_Version.mqh	size=146129	mtime=2026-05-03T23:32:34	sha16=a1c5cf274b4f8196
+mt5/runtime/ASC_Dispatcher.mqh	size=1014439	mtime=2026-05-03T23:32:34	sha16=e0dd6f3962ac4076
+roadmap/Truth Seeker/Guidebooks/AURORA_CODING_BRAIN_GUIDEBOOK.md	size=38656	mtime=2026-05-03T23:32:34	sha16=1ec00d8715e74dd2
+roadmap/Truth Seeker/Guidebooks/AURORA_GUIDEBOOK_INDEX.md	size=25244	mtime=2026-05-03T23:32:34	sha16=204d594a07c0a130
+roadmap/Truth Seeker/Guidebooks/AURORA_TRADING_BRAIN_GUIDEBOOK.md	size=23600	mtime=2026-05-03T23:32:34	sha16=07024d04659be97a
+roadmap/Truth Seeker/Truth Seeker Reports/RUN254R_REPORT.md	size=62446	mtime=2026-05-03T23:21:54	sha16=b7d04c29470f54c5
+roadmap/Truth Seeker/Truth Seeker Reports/RUN255R_EVIDENCE_INVENTORY.txt	size=47085	mtime=2026-05-03T23:32:34	sha16=bc979355ed844a1b
+roadmap/Truth Seeker/Truth Seeker Reports/RUN255R_REPORT.md	size=32735	mtime=2026-05-03T23:32:34	sha16=7ffbd9456fa971ec
+
+EVIDENCE_SURFACE_SUMMARY
+evidence/Upcomers-Server/Open Symbol Snapshot.txt	size=55564	runs=none	source_ids=none	artifact_written_by=none	timestamps=2026.05.03 13:29:43;2026.05.03 13:29:44;2026.05.03 13:29:45;2026.05.03 13:29:46;2026.05.03 13:29:47
+evidence/Upcomers-Server/Workbench/logs/function_results.log	size=8094000	runs=RUN100R,RUN101R,RUN124R,RUN141R,RUN205R,RUN233R,RUN235R,RUN236R,RUN238R	source_ids=RUN238R	artifact_written_by=RUN238R	timestamps=2026.05.03 13:15:00;2026.05.03 13:15:01;2026.05.03 13:15:02;2026.05.03 13:15:03;2026.05.03 13:15:05
+evidence/Upcomers-Server/Workbench/logs/heartbeat_telemetry.log	size=1034788	runs=RUN238R	source_ids=none	artifact_written_by=none	timestamps=2026.05.03 13:15:01;2026.05.03 13:15:03;2026.05.03 13:15:05;2026.05.03 13:15:08;2026.05.03 13:15:11
+evidence/Upcomers-Server/Symbol Data Packs/GlobalTop10/AAVEUSD.nx_SYMBOL_DATA_PACK.txt	size=429796	runs=RUN161R,RUN162R,RUN163R,RUN164R,RUN165R,RUN166R,RUN167R,RUN168R,RUN169R,RUN191R,RUN192R,RUN220R,RUN233R,RUN235R,RUN236R,RUN238R	source_ids=none	artifact_written_by=none	timestamps=2026.01.01 00:00:00;2026.01.11 00:00:00;2026.01.18 00:00:00;2026.01.25 00:00:00;2026.02.01 00:00:00
+evidence/Upcomers-Server/Symbol Data Packs/Top5PerBucket/crypto/AAVEUSD.nx_SYMBOL_DATA_PACK.txt	size=428346	runs=RUN161R,RUN162R,RUN163R,RUN164R,RUN165R,RUN166R,RUN167R,RUN168R,RUN169R,RUN191R,RUN192R,RUN220R,RUN233R,RUN235R,RUN236R,RUN238R	source_ids=none	artifact_written_by=none	timestamps=2026.01.01 00:00:00;2026.01.11 00:00:00;2026.01.18 00:00:00;2026.01.25 00:00:00;2026.02.01 00:00:00
+evidence/Upcomers-Server/Dossiers/GlobalTop10/AAVEUSD.nx.txt	size=525926	runs=RUN065R,RUN076R,RUN100R,RUN102R,RUN141R,RUN233R,RUN235R,RUN236R,RUN238R	source_ids=RUN238R	artifact_written_by=RUN238R	timestamps=2026.01.16 00:00:00;2026.01.19 00:00:00;2026.01.20 00:00:00;2026.01.21 00:00:00;2026.01.22 00:00:00
+evidence/Upcomers-Server/Dossiers/GlobalTop10/_family_manifest.txt	size=13596	runs=RUN081R,RUN102R,RUN141R,RUN238R	source_ids=RUN238R	artifact_written_by=RUN238R	timestamps=2026.05.03 13:27:06;2026.05.03 13:27:33
+evidence/Upcomers-Server/Dossiers/Top5PerBucket/_family_manifest.txt	size=16812	runs=RUN125R,RUN238R	source_ids=RUN238R	artifact_written_by=none	timestamps=2026.05.03 13:26:55;2026.05.03 13:36:55;2026.05.03 13:46:55
+evidence/Upcomers-Server/Dossiers/Top5PerBucket/crypto/AAVEUSD.nx.txt	size=528684	runs=RUN065R,RUN076R,RUN100R,RUN102R,RUN125R,RUN141R,RUN233R,RUN235R,RUN236R,RUN238R	source_ids=RUN238R	artifact_written_by=RUN238R	timestamps=2026.01.16 00:00:00;2026.01.19 00:00:00;2026.01.20 00:00:00;2026.01.21 00:00:00;2026.01.22 00:00:00
+evidence/Upcomers-Server/Dossiers/Top5PerBucket/crypto/_bucket_manifest.txt	size=11220	runs=RUN238R	source_ids=RUN238R	artifact_written_by=none	timestamps=2026.05.03 13:26:55;2026.05.03 13:46:55
+evidence/Upcomers-Server/Dossiers/Top5PerBucket/_staging/_staging_manifest.txt	size=1426	runs=RUN238R	source_ids=RUN238R-CompileGateRepairBeforeLiveProof	artifact_written_by=none	timestamps=none
+
+FOLDER_INVENTORY
+output root	exists=True	child_count=4	latest_mtime=2026-05-03T13:35:36	identity_sample=none sampled
+Workbench/logs	exists=True	child_count=2	latest_mtime=2026-05-03T11:29:42	identity_sample=RUN141R; RUN238R; build=RUN238R-CompileGateRepairBeforeLiveProof; run=RUN238R; source_run_id=RUN238R
+Dossiers	exists=True	child_count=2	latest_mtime=2026-05-03T13:35:36	identity_sample=none sampled
+Dossiers/GlobalTop10	exists=True	child_count=2	latest_mtime=2026-05-03T11:27:58	identity_sample=RUN141R; RUN238R; build=RUN238R-CompileGateRepairBeforeLiveProof; run=RUN238R; source_run_id=RUN238R
+Dossiers/GlobalTop10/_staging	exists=False	child_count=0	latest_mtime=n/a	identity_sample=none sampled
+Dossiers/Top5PerBucket	exists=True	child_count=3	latest_mtime=2026-05-03T13:35:36	identity_sample=RUN238R; build=RUN238R-CompileGateRepairBeforeLiveProof; run=RUN238R; source_run_id=RUN238R
+Dossiers/Top5PerBucket/_staging	exists=True	child_count=1	latest_mtime=2026-05-03T11:27:02	identity_sample=RUN238R; source_run_id=RUN238R-CompileGateRepairBeforeLiveProof
+Symbol Data Packs	exists=True	child_count=2	latest_mtime=2026-05-03T13:35:36	identity_sample=none sampled
+Symbol Data Packs/GlobalTop10	exists=True	child_count=1	latest_mtime=2026-05-03T11:28:00	identity_sample=Build: RUN238R-CompileGateRepairBeforeLiveProof; RUN162R; RUN238R; Run: RUN238R; build=RUN238R-CompileGateRepairBeforeLiveProof; membership_source_run=RUN238R; run=RUN238R; run=true
+Symbol Data Packs/Top5PerBucket	exists=True	child_count=1	latest_mtime=2026-05-03T13:35:36	identity_sample=none sampled
+Symbol Data Packs/archive	exists=False	child_count=0	latest_mtime=n/a	identity_sample=none sampled
+Symbol Data Packs/_previous_state_cache	exists=False	child_count=0	latest_mtime=n/a	identity_sample=none sampled
