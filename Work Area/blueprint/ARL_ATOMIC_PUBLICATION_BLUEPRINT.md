@@ -95,3 +95,16 @@ No runtime publication claim is valid until logs/files show the full sequence.
 Future file publication must stage, write, flush, verify/read back where practical, promote, and report status.
 
 File existence alone is not proof. Manifest/readback truth must identify source file, current file, write result, flush result, move/promote result, and last error when present.
+
+
+---
+
+## ARL-RUN009 Implementation Note — MQL5 Atomicity Boundary
+
+RUN009 implements the first ARL publication pattern as staged write + flush/close + temp readback + promote + final readback.
+
+Important limitation:
+This is not a claim of operating-system-level crash-proof atomicity. In MQL5, file work is sandbox-bound and `FileMove` promotion depends on MQL5 file semantics, including `FILE_COMMON` and `FILE_REWRITE` when replacing an existing file. ARL must describe this honestly as staged verified publication until terminal runtime evidence proves its behavior under the target broker/terminal environment.
+
+Future improvement:
+Add a small runtime IO test harness that publishes a fixed payload twice so no-change skip can be proven without the naturally changing heartbeat/timestamp fields.

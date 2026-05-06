@@ -280,3 +280,25 @@ Affected files/modules:
 
 Reversal condition:
 Only if ARL intentionally replaces this system with a stronger single source of agent instructions that preserves audit-first, read-before-edit, source authority, version, trader-data, package, and proof-honesty law.
+
+
+---
+
+## D021 — RUN009 may advance product version to 1.005 because active runtime behavior changed
+
+Date: 2026-05-06
+
+Decision:
+Advance active MT5 product version from `1.004` to `1.005` for ARL-RUN009.
+
+Reason:
+RUN009 adds active runtime behavior: timer heartbeat, bounded scheduler tick, status payload composition, staged file publication, manifest publication, readback validation, no-change skip support, and runtime metrics. This is no longer documentation-only or identity-only work.
+
+Evidence / source:
+Changed owner files under `mt5/runtime`, `mt5/io`, `mt5/telemetry`, `mt5/core/ARL_Version.mqh`, and `mt5/ARL_Core.mq5`.
+
+Boundary:
+Version bump does not imply compile proof, runtime proof, trading permission, signal validity, edge, or prop-firm readiness.
+
+Reversal condition:
+If MetaEditor compile proves RUN009 source cannot build, keep the source decision but mark the implementation as requiring compile-repair before any runtime acceptance.

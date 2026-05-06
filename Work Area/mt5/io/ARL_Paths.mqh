@@ -3,20 +3,48 @@
 
 //+------------------------------------------------------------------+
 //| ARL_Paths
-//| Aurora Reforged Lattice — MT5 scaffold
-//| Run: ARL-RUN004
-//| Status: SCAFFOLD ONLY — no trading, no signal, no execution.
+//| Aurora Reforged Lattice — runtime IO foundation
+//| Run: ARL-RUN009
+//| Status: CANONICAL FILE-SANDBOX PATHS ONLY.
 //+------------------------------------------------------------------+
 // Owner: io/paths
 // Purpose: Owns output path construction and forbids random public paths.
-// Inputs: server/profile/root settings
-// Outputs: canonical output paths
-// Forbidden: writing payloads directly
-// Anti-cosmetic rule: this module must earn its place through a real
-// runtime contract, output contract, acceptance test, or lock file
-// before future implementation is treated as complete.
+// Inputs: product constants and artifact names
+// Outputs: relative paths inside the MT5/Common Files sandbox
+// Forbidden: writing payloads directly, account/server truth ownership
 
 bool ARL_Paths_Init(){ return true; }
-string ARL_Paths_Contract(){ return "SCAFFOLD_CONTRACT"; }
+
+string ARL_Paths_ServerFolder()
+  {
+   return "Default";
+  }
+
+string ARL_Paths_CurrentFolder()
+  {
+   return ARL_OUTPUT_ROOT_FOLDER + "\" + ARL_Paths_ServerFolder() + "\Current";
+  }
+
+string ARL_Paths_StatusCurrent()
+  {
+   return ARL_Paths_CurrentFolder() + "\" + ARL_STATUS_CURRENT_FILE;
+  }
+
+string ARL_Paths_ManifestCurrent()
+  {
+   return ARL_Paths_CurrentFolder() + "\" + ARL_MANIFEST_CURRENT_FILE;
+  }
+
+string ARL_Paths_TempFor(const string final_path)
+  {
+   return final_path + ".tmp";
+  }
+
+int ARL_Paths_CommonFlag()
+  {
+   return FILE_COMMON;
+  }
+
+string ARL_Paths_Contract(){ return "COMMON_FILES_SANDBOX_CURRENT_ONLY"; }
 
 #endif // __IO_ARL_PATHS_MQH__

@@ -290,3 +290,24 @@ Minimum acceptance before first real implementation run:
 13. Compile is reported only if MetaEditor output exists.
 14. Output package excludes Archives.
 15. `Work Area/ARL_RUN007_REPORT.md` exists.
+
+
+---
+
+## TEST-009 — Runtime IO foundation acceptance
+
+Scope:
+RUN009 runtime heartbeat, scheduler, status writer, file publisher, manifest writer, and permission boundary.
+
+Pass condition:
+- `ARL_Core.mq5` `#property version` is `1.005`.
+- `ARL_PRODUCT_VERSION` is `1.005`.
+- `ARL_PRODUCT_RUN_ID` is `ARL-RUN009`.
+- `OnTimer()` stays bounded: heartbeat, scheduler/status publication, and metrics only.
+- `Status_Current.json` payload includes product identity, timestamps, heartbeat count, scheduler tick count, cycle metrics, timer/work budget, file-write status, publication status, and all permission fields false.
+- `Manifest_Current.json` payload includes artifact name, final path, temp path, publish status, readback status, no-change flag, payload size, permission boundary, and proof boundary.
+- File publication uses temp/write/flush/close/readback/promote/final-readback flow.
+- No account, universe, layers, Market Board, dossier, HUD, trading, signal, execution, or strategy formula module is implemented.
+
+Falsifier:
+Any direct current write without temp/readback, version mismatch, heavy `OnTimer` loop, true permission flag, missing manifest, missing readback result, compile claim without compile output, or runtime claim without terminal evidence.

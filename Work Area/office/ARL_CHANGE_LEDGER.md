@@ -172,3 +172,41 @@ Tests required:
 
 Lock impact:
 No MT5 module locks created. This run creates guidance/control records only.
+
+
+---
+
+## 2026-05-06 — ARL-RUN009 Runtime IO Foundation + Atomic Status Publication
+
+Run:
+`ARL-RUN009-RUNTIME-IO-FOUNDATION-ATOMIC-STATUS-PUBLICATION`
+
+Changed source behavior:
+- advanced active MT5 product identity from `1.004` to `1.005`;
+- connected `OnTimer()` to bounded heartbeat, bounded scheduler tick, status publication, manifest publication, and runtime cycle metrics;
+- implemented `Status_Current.json` and `Manifest_Current.json` publication through staged temp writes, flush/close, readback, promote, final readback, and no-change skip support;
+- kept all permissions false: no trading, no signals, no execution, no HUD.
+
+Files changed:
+- `mt5/ARL_Core.mq5`
+- `mt5/core/ARL_Version.mqh`
+- `mt5/runtime/ARL_Heartbeat.mqh`
+- `mt5/runtime/ARL_Scheduler.mqh`
+- `mt5/io/ARL_Paths.mqh`
+- `mt5/io/ARL_FilePublisher.mqh`
+- `mt5/io/ARL_PublicationManifest.mqh`
+- `mt5/io/ARL_PayloadHash.mqh`
+- `mt5/io/ARL_OutputContracts.mqh`
+- `mt5/telemetry/ARL_StatusWriter.mqh`
+- `mt5/telemetry/ARL_ErrorLedger.mqh`
+- `mt5/telemetry/ARL_FunctionResults.mqh`
+- `mt5/telemetry/ARL_RuntimeMetrics.mqh`
+- `mt5/MT5_VERSION_POLICY.md`
+- office/roadmap/blueprint acceptance records
+- `reports/ARL_RUN009_REPORT.md`
+
+Boundary:
+No account snapshot, Market Watch universe, layer work, Market Board, Symbol Trader Pack, Dossier, HUD, trading, signal, execution, strategy formula, archive copy, or changelog `.mqh` was added.
+
+Proof boundary:
+Static validation passed in this environment. MetaEditor compile and MT5 runtime attachment were unavailable, so this run does not claim compile proof or runtime proof.

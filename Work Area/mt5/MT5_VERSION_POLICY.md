@@ -58,3 +58,24 @@ Acceptance:
 - `ARL_PRODUCT_VERSION` equals `1.004`.
 - `ARL_PRODUCT_RUN_ID` equals `ARL-RUN007`.
 - Git/office own change history; MT5 source does not become a changelog.
+
+
+---
+
+## ARL-RUN009 Version Decision
+
+Product version advances from `1.004` to `1.005`.
+
+Reason:
+RUN009 implements active MT5 runtime behavior: heartbeat state, bounded scheduler ticks, status publication, manifest publication, staged file writing, readback validation, no-change skip support, and runtime metrics.
+
+Required identity fields:
+- `#property version` = `1.005`
+- EA description includes `Version 1.005 | ARL-RUN009 | runtime IO foundation`
+- `ARL_PRODUCT_VERSION` = `1.005`
+- `ARL_PRODUCT_RUN_ID` = `ARL-RUN009`
+- `ARL_PRODUCT_CHANNEL` = `RUNTIME_IO_FOUNDATION`
+- `ARL_PRODUCT_STATE` = `RUNTIME_IO_FOUNDATION_NO_TRADING`
+
+Proof boundary:
+Version advancement records behavior implementation. It does not prove compile success, runtime publication success, trading safety, signal validity, edge, or prop-firm readiness.

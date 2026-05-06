@@ -338,3 +338,45 @@ RUN008 adds `AGENTS.md`, `WORK_AREA_INDEX.md`, `GPT_CODEX_README.md`, `office/AR
 
 Test / falsifier:
 A future serious run can begin without reading `AGENTS.md` and `ARL_MANDATORY_READ_INDEX.md`, or can patch MT5 behavior without reading MT5 owner/version/include files.
+
+
+---
+
+## RISK-031 — RUN009 publication can still fail without MetaEditor/runtime proof
+
+Risk:
+The staged write/readback/promote source may still have MQL5 compile or runtime edge cases that static inspection cannot prove.
+
+Cause:
+This environment did not provide MetaEditor or an attached MT5 terminal.
+
+Severity:
+High until compile and runtime proof exist.
+
+Likelihood:
+Medium.
+
+Detection:
+- MetaEditor compile errors.
+- `Status_Current.json` or `Manifest_Current.json` absent after attaching EA.
+- Publication result reports failed temp write, readback mismatch, or promote failure.
+
+Mitigation:
+Run MetaEditor compile first. Then attach EA in demo terminal and verify timer, status output, manifest output, final readback, and no permission leakage.
+
+Test / falsifier:
+Any compile failure, missing status/manifest file, status success without readback, or true trade/signal/execution/HUD permission invalidates RUN009 acceptance.
+
+## RISK-032 — No-change skip cannot be proven by normal heartbeat output alone
+
+Risk:
+`Status_Current.json` includes heartbeat count and timestamps, so normal timer cycles materially change the payload and may not trigger no-change skip.
+
+Cause:
+Heartbeat/status truth fields are intentionally current and changing.
+
+Mitigation:
+Test no-change skip with a fixed payload through `ARL_FilePublisher_Publish()` or with a runtime cycle where the composed payload is intentionally unchanged.
+
+Falsifier:
+A report claims no-change skip was runtime-proven merely because status files appeared.

@@ -3,21 +3,46 @@
 
 //+------------------------------------------------------------------+
 //| ARL_Scheduler
-//| Aurora Reforged Lattice — MT5 scaffold
-//| Run: ARL-RUN004
-//| Status: SCAFFOLD ONLY — no trading, no signal, no execution.
+//| Aurora Reforged Lattice — runtime IO foundation
+//| Run: ARL-RUN009
+//| Status: BOUNDED SCHEDULER TICK ONLY — no layer work.
 //+------------------------------------------------------------------+
 // Owner: runtime/scheduler
-// Purpose: Owns module due queue and bounded work slices.
-// Inputs: module due times, work budget
-// Outputs: next module to run
-// Forbidden: ranking formulas, write implementation
-// Anti-cosmetic rule: this module must earn its place through a real
-// runtime contract, output contract, acceptance test, or lock file
-// before future implementation is treated as complete.
+// Purpose: Owns bounded scheduler ticks. RUN009 permits status publication coordination only.
+// Inputs: timer event
+// Outputs: scheduler tick count and status
+// Forbidden: symbol loops, account scans, ranking, Market Board, dossiers, signals, execution
 
-bool ARL_Scheduler_Init(){ return true; }
-bool ARL_Scheduler_Tick(){ return true; }
-string ARL_Scheduler_Status(){ return "SCAFFOLD"; }
+ulong    g_arl_scheduler_tick_count = 0;
+datetime g_arl_scheduler_last_tick_server_time = 0;
+
+bool ARL_Scheduler_Init()
+  {
+   g_arl_scheduler_tick_count = 0;
+   g_arl_scheduler_last_tick_server_time = TimeCurrent();
+   return true;
+  }
+
+bool ARL_Scheduler_Tick()
+  {
+   g_arl_scheduler_tick_count++;
+   g_arl_scheduler_last_tick_server_time = TimeCurrent();
+   return true;
+  }
+
+ulong ARL_Scheduler_TickCount()
+  {
+   return g_arl_scheduler_tick_count;
+  }
+
+datetime ARL_Scheduler_LastTickServerTime()
+  {
+   return g_arl_scheduler_last_tick_server_time;
+  }
+
+string ARL_Scheduler_Status()
+  {
+   return "SCHEDULER_BOUNDED_STATUS_ONLY";
+  }
 
 #endif // __RUNTIME_ARL_SCHEDULER_MQH__

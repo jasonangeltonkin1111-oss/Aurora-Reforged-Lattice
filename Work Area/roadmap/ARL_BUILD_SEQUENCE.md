@@ -203,3 +203,21 @@ Before the first real implementation run, the system must prove the records are 
 - MT5 scaffold stays no-HUD/no-trade/no-signal/no-execution.
 
 This is not a blocking runtime gate. It is a source-truth cleanup checkpoint so implementation does not start from poison.
+
+
+---
+
+## ARL-RUN009 Implementation Checkpoint — Runtime IO Foundation
+
+RUN009 implements the first narrow runtime behavior before account exposure, universe scanning, layers, Market Board, dossiers, HUD, signals, or execution.
+
+Checkpoint result:
+- heartbeat counter/time owner created;
+- bounded scheduler tick owner created;
+- status payload owner created;
+- staged file publisher created;
+- manifest payload/publication owner created;
+- runtime metrics owner created;
+- version advanced to `1.005` because behavior changed.
+
+Next stage remains account snapshot + exposure foundation only after compile/status publication proof is accepted. Do not jump to ranking, Market Board, dossiers, or HUD.

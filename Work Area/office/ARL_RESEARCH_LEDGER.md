@@ -330,3 +330,33 @@ Findings converted into ARL requirements:
 
 Proof boundary:
 Research informs guide constraints only. It does not prove MT5 compile, runtime behavior, trading edge, execution safety, or prop-firm readiness.
+
+
+---
+
+## 2026-05-06 — ARL-RUN009 Mandatory External Research
+
+Research was performed before patching and converted into implementation constraints, tests, and falsifiers. Primary/official MQL5 sources were used first.
+
+| Topic | Source | ARL coding constraint | File affected | Acceptance test | Falsifier |
+|---|---|---|---|---|---|
+| Timer queue / `EventSetTimer` | MQL5 EventSetTimer / OnTimer docs | One timer per program; timer events do not stack while a timer event is queued/processing; `OnTimer` must stay bounded. | `mt5/ARL_Core.mq5`, `runtime/ARL_Heartbeat.mqh`, `runtime/ARL_Scheduler.mqh`, `telemetry/ARL_StatusWriter.mqh` | `OnTimer()` calls only heartbeat, scheduler/status publication, and metrics. | Symbol loops, scans, ranking, dossier writing, or blocking work inside `OnTimer`. |
+| File sandbox / `FILE_COMMON` | MQL5 FileOpen docs | Public runtime output must use relative sandbox paths; `FILE_COMMON` publishes to common terminal files; no absolute path ownership. | `io/ARL_Paths.mqh`, `io/ARL_FilePublisher.mqh` | Paths are relative under `Aurora Reforged Lattice\Default\Current`. | Absolute terminal/user path hard-coded as current output route. |
+| Flush/close/readback | MQL5 FileFlush / FileClose / FileReadString / FileSize docs | Write temp, flush/close, read back, compare payload, then promote. | `io/ARL_FilePublisher.mqh` | No success status without temp and final readback match. | File presence or temp existence treated as current proof. |
+| Promote semantics | MQL5 FileMove docs | Promotion may use `FileMove(..., FILE_COMMON|FILE_REWRITE)` inside sandbox; do not claim OS-level crash-proof atomicity. | `io/ARL_FilePublisher.mqh`, report | Report states staged-write/readback/promote limitation honestly. | Report claims full OS-level atomic proof from MQL5 docs alone. |
+| Error handling | MQL5 GetLastError / ResetLastError docs | Reset before critical file/timer calls and report `GetLastError()` on failure; `GetLastError()` does not reset itself. | `io/ARL_FilePublisher.mqh`, `telemetry/ARL_ErrorLedger.mqh`, `ARL_Core.mq5` | Failure result includes last error where available. | Error path returns success or drops last error. |
+| Program properties | MQL5 #property docs | `#property version` and `description` must be in main `.mq5`; included file constants do not control EA property display. | `mt5/ARL_Core.mq5`, `core/ARL_Version.mqh` | `#property version` equals `ARL_PRODUCT_VERSION`. | Version truth only changed in included `.mqh`. |
+| Structured commit messages | GitHub docs / conventional structured practice | Use a short searchable summary plus deep structured body; do not paste chat transcript. | Git summary/report records | Commit description includes mode, summary, why, changed files, evidence, risks, next. | Vague commit message or full chat transcript pasted as Git body. |
+| Observability metrics | Reliability practice | Status must expose latency/work metrics, write status, errors, and permission boundaries. | `telemetry/ARL_RuntimeMetrics.mqh`, `telemetry/ARL_StatusWriter.mqh` | Status contains heartbeat, scheduler tick count, last/max cycle ms, publication results, permission false fields. | Status says healthy without write/readback/error visibility. |
+
+### Prompt-master research improvement note
+
+Future prompt-master runs must force research to become engineering law, not a bibliography. Each source must produce exactly four usable outputs: coding constraint, affected owner file, acceptance test, and falsifier. If a finding cannot change code, tests, logs, boundaries, or a decision, it is ornamental and should be deleted or moved to background context.
+
+Future chats should also separate:
+1. official/primary source facts;
+2. engineering inference from those facts;
+3. ARL-specific coding decision;
+4. proof boundary still missing.
+
+For runtime/file-IO work, future research must explicitly check version-specific MQL5 function signatures before patching. This prevents “research-looking” answers that still produce compile-risk code.
