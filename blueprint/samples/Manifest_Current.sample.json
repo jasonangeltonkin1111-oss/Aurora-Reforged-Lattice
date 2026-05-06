@@ -1,0 +1,24 @@
+{
+  "schema_version": "manifest_v1",
+  "generated_utc": "2026-05-06T14:45:02Z",
+  "artifacts": [
+    {
+      "name": "MarketBoard_Current.txt",
+      "snapshot_id": "ARL-MB-000184",
+      "status": "PROMOTED_CURRENT",
+      "readback": "PASS"
+    },
+    {
+      "name": "L3_SurfaceRank_Current.json",
+      "snapshot_id": "ARL-L3-000184",
+      "status": "PROMOTED_CURRENT",
+      "readback": "PASS"
+    },
+    {
+      "name": "L4_GroupRank_Current.json",
+      "snapshot_id": "ARL-L4-000184",
+      "status": "PROMOTED_CURRENT",
+      "readback": "PASS"
+    }
+  ]
+}

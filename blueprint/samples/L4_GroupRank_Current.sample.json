@@ -1,0 +1,37 @@
+{
+  "schema_version": "l4_group_rank_v1",
+  "snapshot_id": "ARL-L4-000184",
+  "status": "COMPLETE",
+  "consumed_l3_snapshot_id": "ARL-L3-000184",
+  "generated_utc": "2026-05-06T14:45:00Z",
+  "global_top10": [
+    "XAUUSD",
+    "CADSGD",
+    "BTCUSD"
+  ],
+  "major_bucket_top5": {
+    "FOREX": [
+      "CADSGD",
+      "EURUSD"
+    ],
+    "CRYPTO": [
+      "BTCUSD",
+      "ETHUSD"
+    ]
+  },
+  "minor_bucket_top5": {
+    "FOREX_EXOTICS": [
+      "CADSGD"
+    ],
+    "CRYPTO_MAJOR_COINS": [
+      "BTCUSD"
+    ]
+  },
+  "active_l4_set": [
+    "XAUUSD",
+    "CADSGD",
+    "BTCUSD",
+    "EURUSD",
+    "ETHUSD"
+  ]
+}

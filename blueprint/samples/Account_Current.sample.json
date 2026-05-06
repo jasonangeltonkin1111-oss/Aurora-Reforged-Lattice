@@ -1,0 +1,19 @@
+{
+  "schema_version": "account_current_v1",
+  "generated_utc": "2026-05-06T14:42:11Z",
+  "account_login_masked": "***MASKED***",
+  "account_server": "Broker-Server-Demo",
+  "account_currency": "USD",
+  "account_balance": 100000.0,
+  "account_equity": 100214.3,
+  "account_profit": 214.3,
+  "account_margin": 1200.0,
+  "account_free_margin": 99014.3,
+  "account_margin_level": 8351.19,
+  "account_trade_allowed": true,
+  "expert_trade_allowed": false,
+  "open_positions_count": 2,
+  "pending_orders_count": 1,
+  "closed_deals_lookback_days": 7,
+  "closed_deals_count": 14
+}

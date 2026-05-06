@@ -1,0 +1,52 @@
+{
+  "system": "Aurora Reforged Lattice",
+  "schema_version": "market_board_v1",
+  "mode": "review_only",
+  "permissions": {
+    "review": true,
+    "trade": false,
+    "signal": false,
+    "execution": false,
+    "risk": false
+  },
+  "generated_utc": "2026-05-06T14:42:11Z",
+  "cycle_id": "ARL-CYCLE-000184",
+  "snapshots": {
+    "l3_snapshot_id": "ARL-L3-000184",
+    "l4_snapshot_id": "ARL-L4-000184",
+    "l4_consumed_l3_snapshot_id": "ARL-L3-000184",
+    "board_snapshot_id": "ARL-MB-000184"
+  },
+  "warmup": {
+    "state_code": 100,
+    "state_label": "READY"
+  },
+  "publication": {
+    "status": "ATOMIC_PROMOTED",
+    "readback_status": "PASS"
+  },
+  "global_top10": [
+    {
+      "rank": 1,
+      "symbol": "XAUUSD",
+      "major_bucket": "METALS",
+      "minor_bucket": "METALS_GOLD_SILVER",
+      "board_score": 92.4,
+      "surface_score": 88.4,
+      "spread_to_atr": 0.042,
+      "exposure_code": 30,
+      "upload_group": "WATCH_EXPOSURE"
+    },
+    {
+      "rank": 2,
+      "symbol": "CADSGD",
+      "major_bucket": "FOREX",
+      "minor_bucket": "FOREX_EXOTICS",
+      "board_score": 90.1,
+      "surface_score": 86.5,
+      "spread_to_atr": 0.00945,
+      "exposure_code": 0,
+      "upload_group": "BEST_3"
+    }
+  ]
+}

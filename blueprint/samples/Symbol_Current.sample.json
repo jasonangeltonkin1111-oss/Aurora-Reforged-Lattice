@@ -1,0 +1,49 @@
+{
+  "symbol": "CADSGD",
+  "canonical_symbol": "CADSGD",
+  "exact_broker_symbol": "CADSGD",
+  "major_bucket": "FOREX",
+  "minor_bucket": "FOREX_EXOTICS",
+  "market_state": {
+    "code": 1,
+    "label": "OPEN",
+    "tick_age_seconds": 0,
+    "retry_required": false
+  },
+  "broker_specs": {
+    "status_code": 100,
+    "digits": 5,
+    "point": 1e-05,
+    "spread_points": 1.0,
+    "spread_to_atr_m15": 0.00945
+  },
+  "surface_ranking": {
+    "surface_score": 86.5,
+    "friction_score": 82.1,
+    "rank_eligible": true
+  },
+  "bucket_ranking": {
+    "global_rank": 2,
+    "major_bucket_rank": 1,
+    "minor_bucket_rank": 1,
+    "board_score": 90.1
+  },
+  "deep_review": {
+    "status_code": 100,
+    "pressure_score": 51.6,
+    "momentum_score": 49.3,
+    "execution_score_deep": 93.2
+  },
+  "exposure": {
+    "open_position_count_symbol": 0,
+    "pending_order_count_symbol": 0,
+    "exposure_code": 0
+  },
+  "permissions": {
+    "review": true,
+    "trade": false,
+    "signal": false,
+    "execution": false,
+    "risk": false
+  }
+}

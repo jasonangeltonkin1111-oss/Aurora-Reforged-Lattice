@@ -1,0 +1,100 @@
+AURORA REFORGED LATTICE — SYMBOL DOSSIER
+Mode: Deep Review
+Review Permission: TRUE
+Trade Permission: FALSE
+Signal Permission: FALSE
+Execution Permission: FALSE
+Risk Permission: FALSE
+
+Symbol: CADSGD
+Major Bucket: FOREX
+Minor Bucket: FOREX_EXOTICS
+Generated UTC: 2026-05-06 14:42:11
+Cycle ID: ARL-CYCLE-000184
+Dossier Snapshot: ARL-DOSSIER-CADSGD-000184
+Source L3 Snapshot: ARL-L3-000184
+Source L4 Snapshot: ARL-L4-000184
+Source Board Snapshot: ARL-MB-000184
+
+IDENTITY
+exact_symbol=CADSGD
+canonical_symbol=CADSGD
+bucket_confidence_score=100.00
+classification_status=RESOLVED
+
+ACCOUNT / EXPOSURE
+account_login=***MASKED***
+open_position_count_symbol=0
+pending_order_count_symbol=0
+recent_closed_deals_symbol=0
+floating_pnl_symbol=0.00
+exposure_code=0
+exposure_label=NONE
+
+MARKET STATE
+market_state_code=1
+market_state_label=OPEN
+tick_present=true
+tick_age_seconds=0
+session_state_code=1
+next_check_utc=2026-05-06T14:47:11Z
+retry_required=false
+
+BROKER SPECS
+spec_status_code=100
+digits=5
+point=0.00001000
+base_currency=CAD
+quote_currency=SGD
+margin_currency=CAD
+spread_points=1.00
+spread_to_atr_m15=0.00945
+required_missing_count=0
+optional_missing_count=2
+
+SURFACE RANKING
+surface_score=86.50
+friction_score=82.10
+quote_health_score=98.00
+session_score=100.00
+volatility_sanity_score=76.00
+rank_eligible=true
+
+BUCKET RANKING
+global_rank=2
+major_bucket_rank=1
+minor_bucket_rank=1
+raw_rank=6
+board_score=90.10
+rank_blend_score=90.10
+relative_field_score=90.10
+leader_separation_score=100.00
+top10_compression_score=39.50
+exposure_load_score=0.00
+
+DEEP REVIEW
+deep_review_status_code=100
+deep_review_trigger=AUTO_ACTIVE_L4_SET
+l5_refresh_age_seconds=0
+pressure_score=51.60
+momentum_score=49.30
+move_age_score=73.70
+liquidity_score=82.80
+participation_score=100.00
+execution_score_deep=93.20
+burst_score=50.70
+late_move_risk_score=31.00
+
+MISSING / DEGRADED
+required_missing_count=0
+optional_missing_count=2
+irrelevant_missing_hidden_count=3
+blocks_review=false
+blocks_trade=true
+reason=review_ready_trade_not_permitted
+
+OPERATOR SUMMARY
+upload_priority_score=92.40
+upload_group=BEST_3
+summary=High review priority because board_score, surface_score, spread_to_atr, bucket rank, and exposure state are clean.
+caution=Review only. No signal or execution permission.

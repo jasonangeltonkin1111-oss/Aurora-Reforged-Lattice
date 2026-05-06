@@ -1,0 +1,24 @@
+{
+  "schema_version": "l3_surface_rank_v1",
+  "snapshot_id": "ARL-L3-000184",
+  "status": "COMPLETE",
+  "generated_utc": "2026-05-06T14:40:00Z",
+  "universe_count": 216,
+  "rank_eligible_count": 181,
+  "rows": [
+    {
+      "rank": 1,
+      "symbol": "XAUUSD",
+      "surface_score": 88.4,
+      "friction_score": 82.1,
+      "spread_to_atr": 0.042
+    },
+    {
+      "rank": 2,
+      "symbol": "CADSGD",
+      "surface_score": 86.5,
+      "friction_score": 82.1,
+      "spread_to_atr": 0.00945
+    }
+  ]
+}
