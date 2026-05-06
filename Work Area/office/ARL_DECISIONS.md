@@ -396,3 +396,28 @@ Version decision:
 Product version stays `1.006`; source run headers and reports record `ARL-RUN011R` as a repair/diagnostic run.
 
 - 2026-05-06 ARL-RUN012: Runtime file output rescue updated folder-chain proof/preflight diagnostics and publish-result logging; runtime validation required in MT5 terminal.
+
+
+## ARL-RUN013 — Compile/runtime evidence attempt (environment-limited)
+
+Date: 2026-05-06
+
+Scope:
+- Attempted to run compile/runtime evidence collection for `Work Area/mt5/ARL_Core.mq5`.
+- No MT5 MetaEditor/compiler/runtime binaries are available in this execution environment.
+
+Evidence attempt results:
+- Compile command availability check: `metaeditor64.exe`, `metaeditor.exe`, `wine`, and `mql5compiler` not found.
+- Runtime terminal/Experts log capture not executable in this environment.
+- Runtime output-file verification for `Status_Current.json` and `Manifest_Current.json` cannot be proven here without MT5 runtime execution.
+
+Decision state:
+- TEST FIRST.
+
+Operator follow-up required in MT5 terminal:
+1. Compile `Work Area/mt5/ARL_Core.mq5` and record exact compiler output.
+2. Attach EA with `InpARL_EnableFileWrites=true` and capture Experts lines for `OnInit`, timer heartbeat, resolved local/common paths, folder-chain creation, temp write, promote/publish result, and `GetLastError()` on failures.
+3. Verify disk artifacts under the exact printed common-files path:
+   - `Aurora Reforged Lattice/Default/Current/Status_Current.json`
+   - `Aurora Reforged Lattice/Default/Current/Manifest_Current.json`
+   - `.tmp` lifecycle behavior across publish/promote.
