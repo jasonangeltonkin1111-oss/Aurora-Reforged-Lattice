@@ -106,13 +106,11 @@ bool ARL_Paths_CreateFolderLevel(const string folder_name,string &diagnostic,int
    last_error = GetLastError();
 
    bool exists = false;
-   bool already_exists_error = false;
 
    if(!ok)
      {
       exists = FileIsExist(folder_name,common_flag);
-      already_exists_error = (last_error == ERR_FILE_ALREADY_EXISTS);
-      if(exists || already_exists_error)
+      if(exists)
         {
          ok = true;
          last_error = 0;
