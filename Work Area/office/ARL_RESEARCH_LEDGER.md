@@ -360,3 +360,17 @@ Future chats should also separate:
 4. proof boundary still missing.
 
 For runtime/file-IO work, future research must explicitly check version-specific MQL5 function signatures before patching. This prevents “research-looking” answers that still produce compile-risk code.
+
+
+---
+
+## ARL-RUN010R Research Conversion — Runtime IO Compile Repair
+
+| Topic | Source | Constraint | Owner file | Acceptance test | Falsifier |
+|---|---|---|---|---|---|
+| String escaping | Official MQL5 string/character docs | Backslash is an escape marker; literal quotes require `\"`, literal backslash requires `\\`; path separators must not appear as raw `"`. | `mt5/io/ARL_Paths.mqh`, JSON payload builders | Static scan finds no unclosed string lines and no raw invalid `"` path fragments. | `closing quote expected` or `Current undeclared` remains. |
+| Include preprocessing | Official MQL5 `#include` docs | Included file content is substituted into the main source, so malformed included source can avalanche into later files; consumers must be included after providers. | `mt5/ARL_Core.mq5` | Include order has payload hash/contracts before publisher/manifest and error/runtime metrics before status writer. | Consumer function/struct undeclared after path repair. |
+| File sandbox and subfolders | Official MQL5 `FileOpen` / `FileMove` docs | Use sandbox-relative paths with `FILE_COMMON`; no absolute Windows path ownership; FileOpen can work with subfolders for write paths, but runtime proof is still required. | `mt5/io/ARL_Paths.mqh`, `mt5/io/ARL_FilePublisher.mqh` | Paths remain relative under `Aurora Reforged Lattice/Default/Current`; no drive letters. | Absolute terminal/user path appears in output route. |
+| Flush/close/readback/promote | Official MQL5 FileFlush/FileClose/FileReadString/FileMove docs | Keep temp write, flush/close, readback, promote, final readback pattern; do not claim OS-level atomicity or runtime success from static code. | `mt5/io/ARL_FilePublisher.mqh` | Static source preserves write/readback/promote/final-readback flow. | Success is reported without readback, or report claims runtime proof without terminal evidence. |
+| Error handling | Official MQL5 GetLastError docs | Call `ResetLastError()` before critical file calls and capture `GetLastError()` on failure; `GetLastError()` does not reset itself. | `mt5/io/ARL_FilePublisher.mqh`, `mt5/telemetry/ARL_ErrorLedger.mqh` | Failure result carries last error where available. | Error paths silently succeed or drop last error. |
+| Program properties | Official MQL5 `#property` docs | Main `.mq5` owns visible EA property version/description; included-file constants do not update EA property metadata. | `mt5/ARL_Core.mq5`, `mt5/core/ARL_Version.mqh` | `#property version` equals `ARL_PRODUCT_VERSION`. | Main `.mq5` property remains stale while version constant changes. |

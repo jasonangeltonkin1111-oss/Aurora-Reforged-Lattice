@@ -302,3 +302,25 @@ Version bump does not imply compile proof, runtime proof, trading permission, si
 
 Reversal condition:
 If MetaEditor compile proves RUN009 source cannot build, keep the source decision but mark the implementation as requiring compile-repair before any runtime acceptance.
+
+
+---
+
+## D022 — RUN010R keeps product version 1.005 and repairs source identity drift only
+
+Date: 2026-05-06
+
+Decision:
+Keep active product version at `1.005` for ARL-RUN010R. Do not bump to `1.006`.
+
+Reason:
+RUN010R is a bounded compile-repair/source-alignment run for the RUN009 runtime IO foundation. It repairs malformed strings, include ordering, and main EA property drift, but it does not add new runtime behavior beyond the intended RUN009 runtime IO foundation.
+
+Source identity rule:
+`ARL_PRODUCT_RUN_ID` remains `ARL-RUN009` because the active product behavior remains the RUN009 runtime IO foundation. ARL-RUN010R is recorded in reports/office/roadmap as the repair run, not as a new product behavior owner.
+
+Boundary:
+Version alignment does not imply MetaEditor compile proof, runtime file proof, trading permission, signal validity, edge, or prop-firm readiness.
+
+Falsifier:
+If future inspection shows RUN010R added new active behavior beyond compile repair and source-property alignment, this decision must be revisited and the product version may need the next correct `a.bcd` bump.

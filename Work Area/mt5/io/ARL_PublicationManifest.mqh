@@ -18,19 +18,19 @@ bool ARL_PublicationManifest_Init(){ return true; }
 string ARL_PublicationManifest_Compose(const string artifact_name,const ARL_FilePublishResult &artifact_result)
   {
    string payload = "{";
-   payload += ""product_name":"" + ARL_PRODUCT_NAME + "",";
-   payload += ""product_version":"" + ARL_PRODUCT_VERSION + "",";
-   payload += ""run_id":"" + ARL_PRODUCT_RUN_ID + "",";
-   payload += ""artifact_name":"" + artifact_name + "",";
-   payload += ""final_path":"" + artifact_result.final_path + "",";
-   payload += ""temp_path":"" + artifact_result.temp_path + "",";
-   payload += ""publish_status":"" + artifact_result.code + "",";
-   payload += ""readback_status":"" + (artifact_result.readback_ok ? "OK" : "NOT_OK") + "",";
-   payload += ""no_change_skip":" + (artifact_result.no_change_skip ? "true" : "false") + ",";
-   payload += ""payload_size":" + IntegerToString(artifact_result.bytes_written) + ",";
-   payload += ""generated_time":"" + TimeToString(TimeCurrent(),TIME_DATE|TIME_SECONDS) + "",";
-   payload += ""permission_boundary":"NO_TRADE_NO_SIGNAL_NO_EXECUTION_NO_HUD",";
-   payload += ""proof_boundary":"COMPILE_OR_RUNTIME_PROOF_REQUIRED_BEFORE_READINESS_CLAIMS"";
+   payload += "\"product_name\":\"" + ARL_PRODUCT_NAME + "\",";
+   payload += "\"product_version\":\"" + ARL_PRODUCT_VERSION + "\",";
+   payload += "\"run_id\":\"" + ARL_PRODUCT_RUN_ID + "\",";
+   payload += "\"artifact_name\":\"" + artifact_name + "\",";
+   payload += "\"final_path\":\"" + artifact_result.final_path + "\",";
+   payload += "\"temp_path\":\"" + artifact_result.temp_path + "\",";
+   payload += "\"publish_status\":\"" + artifact_result.code + "\",";
+   payload += "\"readback_status\":\"" + (artifact_result.readback_ok ? "OK" : "NOT_OK") + "\",";
+   payload += "\"no_change_skip\":" + (artifact_result.no_change_skip ? "true" : "false") + ",";
+   payload += "\"payload_size\":" + IntegerToString(artifact_result.bytes_written) + ",";
+   payload += "\"generated_time\":\"" + TimeToString(TimeCurrent(),TIME_DATE|TIME_SECONDS) + "\",";
+   payload += "\"permission_boundary\":\"NO_TRADE_NO_SIGNAL_NO_EXECUTION_NO_HUD\",";
+   payload += "\"proof_boundary\":\"COMPILE_OR_RUNTIME_PROOF_REQUIRED_BEFORE_READINESS_CLAIMS\"";
    payload += "}";
    return payload;
   }

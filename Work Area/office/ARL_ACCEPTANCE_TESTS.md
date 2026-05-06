@@ -311,3 +311,22 @@ Pass condition:
 
 Falsifier:
 Any direct current write without temp/readback, version mismatch, heavy `OnTimer` loop, true permission flag, missing manifest, missing readback result, compile claim without compile output, or runtime claim without terminal evidence.
+
+
+---
+
+## TEST-010R — Runtime IO compile-repair acceptance
+
+Scope:
+ARL-RUN010R changed source and control files only.
+
+Pass condition:
+- `ARL_Paths.mqh` uses compile-safe path separators and does not contain raw invalid `"` path fragments.
+- `ARL_FilePublisher_ResultJson`, `ARL_PublicationManifest_Compose`, and `ARL_StatusWriter_ComposePayload` use escaped JSON quotes.
+- `ARL_Core.mq5` includes providers before consumers.
+- Main EA `#property version` matches `ARL_PRODUCT_VERSION`.
+- No forbidden module families are patched.
+- MetaEditor compile is either recorded exactly or honestly marked unavailable.
+
+Falsifier:
+`closing quote expected`, `Current undeclared`, downstream include avalanche from malformed string syntax, stale main EA version property, forbidden module edits, or compile success claimed without exact compiler output.

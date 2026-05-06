@@ -210,3 +210,37 @@ No account snapshot, Market Watch universe, layer work, Market Board, Symbol Tra
 
 Proof boundary:
 Static validation passed in this environment. MetaEditor compile and MT5 runtime attachment were unavailable, so this run does not claim compile proof or runtime proof.
+
+
+---
+
+## 2026-05-06 — ARL-RUN010R Runtime IO Compile Repair + Path String Fix
+
+Run:
+`ARL-RUN010R-RUNTIME-IO-COMPILE-REPAIR-PATH-STRING-FIX`
+
+Changed source behavior:
+- repaired malformed path string literals in `mt5/io/ARL_Paths.mqh` by replacing raw backslash separators with compile-safe `/` separators;
+- repaired malformed JSON quote construction in `mt5/io/ARL_FilePublisher.mqh`, `mt5/io/ARL_PublicationManifest.mqh`, and `mt5/telemetry/ARL_StatusWriter.mqh`;
+- reordered dependent includes in `mt5/ARL_Core.mq5` so payload hash/output contracts/error ledger/runtime metrics are declared before consumers;
+- aligned main EA `#property version` and description with existing `ARL_PRODUCT_VERSION=1.005` / `ARL_PRODUCT_RUN_ID=ARL-RUN009` policy.
+
+Files changed:
+- `mt5/ARL_Core.mq5`
+- `mt5/io/ARL_Paths.mqh`
+- `mt5/io/ARL_FilePublisher.mqh`
+- `mt5/io/ARL_PublicationManifest.mqh`
+- `mt5/telemetry/ARL_StatusWriter.mqh`
+- `roadmap/ARL_ROADMAP_COMPLETION_STATUS.md`
+- `office/ARL_CHANGE_LEDGER.md`
+- `office/ARL_DECISIONS.md`
+- `office/ARL_RESEARCH_LEDGER.md`
+- `office/ARL_RISK_LEDGER.md`
+- `office/ARL_ACCEPTANCE_TESTS.md`
+- `reports/ARL_RUN010R_REPORT.md`
+
+Boundary:
+No account scanning, universe implementation, market layers, indicators, ranking, Market Board, Symbol Trader Pack, Dossier, HUD, trading, signals, execution, strategy formula, archive copy, or changelog `.mqh` was added.
+
+Proof boundary:
+Static quote/brace validation passed in this environment. MetaEditor compile and MT5 runtime were unavailable, so this run does not claim compile proof or runtime proof.

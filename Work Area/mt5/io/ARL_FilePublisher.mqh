@@ -190,17 +190,17 @@ ARL_FilePublishResult ARL_FilePublisher_Publish(const string final_path,const st
 
 string ARL_FilePublisher_ResultJson(const ARL_FilePublishResult &r)
   {
-   return "{"ok":" + (r.ok ? "true" : "false") +
-          ","code":"" + r.code + """ +
-          ","message":"" + r.message + """ +
-          ","last_error":" + IntegerToString(r.last_error) +
-          ","bytes_written":" + IntegerToString(r.bytes_written) +
-          ","bytes_read":" + IntegerToString(r.bytes_read) +
-          ","readback_ok":" + (r.readback_ok ? "true" : "false") +
-          ","no_change_skip":" + (r.no_change_skip ? "true" : "false") +
-          ","final_path":"" + r.final_path + """ +
-          ","temp_path":"" + r.temp_path + """ +
-          ","payload_signature":"" + r.payload_signature + ""}";
+   return "{\"ok\":" + (r.ok ? "true" : "false") +
+          ",\"code\":\"" + r.code + "\"" +
+          ",\"message\":\"" + r.message + "\"" +
+          ",\"last_error\":" + IntegerToString(r.last_error) +
+          ",\"bytes_written\":" + IntegerToString(r.bytes_written) +
+          ",\"bytes_read\":" + IntegerToString(r.bytes_read) +
+          ",\"readback_ok\":" + (r.readback_ok ? "true" : "false") +
+          ",\"no_change_skip\":" + (r.no_change_skip ? "true" : "false") +
+          ",\"final_path\":\"" + r.final_path + "\"" +
+          ",\"temp_path\":\"" + r.temp_path + "\"" +
+          ",\"payload_signature\":\"" + r.payload_signature + "\"}";
   }
 
 string ARL_FilePublisher_Contract(){ return "ACTIVE_STAGED_WRITE_READBACK_PROMOTE_NO_CHANGE_SKIP"; }

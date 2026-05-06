@@ -22,17 +22,17 @@ string ARL_Paths_ServerFolder()
 
 string ARL_Paths_CurrentFolder()
   {
-   return ARL_OUTPUT_ROOT_FOLDER + "\" + ARL_Paths_ServerFolder() + "\Current";
+   return ARL_OUTPUT_ROOT_FOLDER + "/" + ARL_Paths_ServerFolder() + "/Current";
   }
 
 string ARL_Paths_StatusCurrent()
   {
-   return ARL_Paths_CurrentFolder() + "\" + ARL_STATUS_CURRENT_FILE;
+   return ARL_Paths_CurrentFolder() + "/" + ARL_STATUS_CURRENT_FILE;
   }
 
 string ARL_Paths_ManifestCurrent()
   {
-   return ARL_Paths_CurrentFolder() + "\" + ARL_MANIFEST_CURRENT_FILE;
+   return ARL_Paths_CurrentFolder() + "/" + ARL_MANIFEST_CURRENT_FILE;
   }
 
 string ARL_Paths_TempFor(const string final_path)

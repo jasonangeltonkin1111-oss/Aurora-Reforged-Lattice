@@ -119,11 +119,11 @@ A trading module cannot be production-ready from backtest alone.
 
 ## Current Whole-System Completion
 
-Last updated by: ARL-RUN010G  
+Last updated by: ARL-RUN010R  
 Last updated date: 2026-05-06  
 Current active root: Work Area/  
 Current product version: 1.005 if RUN009 runtime IO behavior remains active; verify in source.  
-Current source truth warning: active source must be checked every run.
+Current source truth warning: active source must be checked every run; RUN010R static repair prepared, MetaEditor compile proof still pending.
 
 ### Overall Completion Estimate
 
@@ -136,7 +136,7 @@ Reason:
 
 ```text
 The office, roadmap, blueprint, guide, prompt, and brain control layers are strong enough to guide implementation.
-The MT5 scaffold exists and runtime IO work has begun, but compile repair is currently required.
+The MT5 scaffold exists and runtime IO compile-repair source changes have been prepared, but MetaEditor compile and MT5 runtime proof are still required.
 Core trading-data modules, account/exposure, universe, L1-L5, Market Board, Symbol Trader Pack, Dossier, runtime smoke proof, and live proof are not complete.
 ```
 
@@ -147,8 +147,8 @@ Core trading-data modules, account/exposure, universe, L1-L5, Market Board, Symb
 | Phase | Name | Completion | Evidence Rank | Status | Notes |
 |---|---:|---:|---:|---|---|
 | Phase 0 | Archives / old-system preservation | 90% | 3 | INHERITANCE_ONLY | Archives exist in Git, but are not active source. |
-| Phase 1 | Foundation / control / scaffold | 72% | 3-4 | ACTIVE | Office, roadmap, blueprint, MT5 scaffold, guide spine, brain guides exist. Compile repair currently required after runtime IO run. |
-| Phase 2 | Runtime IO nervous system | 35% | 2-3 | IN_PROGRESS_REPAIR | Runtime IO package exists but compile errors are present; cannot upgrade until compile repair passes. |
+| Phase 1 | Foundation / control / scaffold | 72% | 3-4 | ACTIVE | Office, roadmap, blueprint, MT5 scaffold, guide spine, brain guides exist. RUN010R static repair prepared; compile proof pending. |
+| Phase 2 | Runtime IO nervous system | 35% | 2-3 | IN_PROGRESS_REPAIR | Runtime IO package exists; RUN010R repaired visible malformed path/JSON syntax and include ordering statically; cannot upgrade until MetaEditor compile passes. |
 | Phase 3 | Account + exposure + trade history | 10% | 3 | PLANNED | Blueprint/trader-data law exists; implementation not started. |
 | Phase 4 | Universe + symbol folders | 20% | 3 | SCAFFOLDED | MT5 scaffold exists; functional implementation not started. |
 | Phase 5 | L1 market state | 15% | 3 | SCAFFOLDED | Planned/scaffolded; no functional proof. |
@@ -173,13 +173,13 @@ Core trading-data modules, account/exposure, universe, L1-L5, Market Board, Symb
 | brain/ guidebooks | 45% | 3 | RUN009G guide pack exists | mandatory-read integration and future updates | NOT_LOCKED |
 | AGENTS / GPT / Codex guides | 75% | 3 | RUN008 guide spine exists | future run compliance | NOT_LOCKED |
 | Git summary/description standard | 75% | 3 | Standard exists | consistent Git use | NOT_LOCKED |
-| MT5 scaffold | 45% | 3-4 | Scaffold exists; runtime IO repair needed | compile pass after RUN010R | NOT_LOCKED |
+| MT5 scaffold | 45% | 3-4 | Scaffold exists; runtime IO static repair prepared | compile pass after RUN010R | NOT_LOCKED |
 | version identity | 65% | 3-4 | a.bcd law exists; verify current source | compile/source alignment | NOT_LOCKED |
 | runtime heartbeat | 30% | 2-3 | attempted in RUN009 | compile pass, then runtime log | NOT_LOCKED |
 | scheduler | 25% | 2-3 | attempted/partial | compile pass, light OnTimer proof | NOT_LOCKED |
-| atomic file publisher | 25% | 2-3 | attempted/partial; compile break | compile pass + readback test | NOT_LOCKED |
-| Status_Current output | 20% | 2-3 | attempted/partial | compile + runtime file output | NOT_LOCKED |
-| Manifest_Current output | 20% | 2-3 | attempted/partial | compile + runtime file output | NOT_LOCKED |
+| atomic file publisher | 25% | 2-3 | attempted/partial; static syntax repaired, compile pending | compile pass + readback test | NOT_LOCKED |
+| Status_Current output | 20% | 2-3 | attempted/partial; static syntax repaired | compile + runtime file output | NOT_LOCKED |
+| Manifest_Current output | 20% | 2-3 | attempted/partial; static syntax repaired | compile + runtime file output | NOT_LOCKED |
 | account snapshot | 10% | 3 | scaffold/blueprint | implement AccountInfo snapshot | NOT_STARTED |
 | position snapshot | 10% | 3 | scaffold/blueprint | implement PositionsTotal loop | NOT_STARTED |
 | order snapshot | 10% | 3 | scaffold/blueprint | implement OrdersTotal loop | NOT_STARTED |
@@ -346,3 +346,17 @@ RUN012: account snapshot + exposure
 ```
 
 Do not build ranking or outputs before runtime/account truth is stable.
+
+### ARL-RUN010R — Runtime IO compile-repair source patch
+
+Date: 2026-05-06
+
+Completion percentage changed: No.
+
+Reason: RUN010R repaired the visible malformed source syntax in `ARL_Paths.mqh`, JSON payload builders, include ordering, and main EA version-property alignment, but this environment still lacks MetaEditor compile proof and MT5 runtime file-output proof. The runtime IO nervous system remains in TEST FIRST state until `ARL_Core.mq5` compiles in MetaEditor and `Status_Current.json` / `Manifest_Current.json` are verified from terminal runtime.
+
+Affected status areas:
+- Runtime IO nervous system: static repair prepared; compile proof pending.
+- MT5 scaffold compile status: not upgraded; compile not run here.
+- Atomic file publisher: JSON result string syntax repaired; readback/promote still needs runtime proof.
+- `Status_Current` / `Manifest_Current`: payload quote syntax repaired; file creation still unproven.

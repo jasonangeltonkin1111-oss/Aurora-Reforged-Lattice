@@ -1,16 +1,16 @@
 //+------------------------------------------------------------------+
 //| Aurora Reforged Lattice — ARL_Core.mq5
-//| Run: ARL-RUN004
-//| Status: MT5 SCAFFOLD ONLY.
-//| Purpose: compile-visible skeleton for future GPT zip-audit/research/patch runs.
+//| Run: ARL-RUN009
+//| Status: RUNTIME IO FOUNDATION — no trading, no signal, no execution.
+//| Purpose: compile-visible runtime scaffold with bounded runtime IO foundation.
 //| Forbidden: trading, signals, execution, HUD, direct ASC migration.
 //+------------------------------------------------------------------+
 #property strict
 #property copyright "Jason Angel Tonkin"
 #property link      "https://github.com/jasonangeltonkin1111-oss/Aurora-Reforged-Lattice-"
-#property version   "1.004"
+#property version   "1.005"
 #property description "Aurora Reforged Lattice"
-#property description "Version 1.004 | ARL-RUN004 | MT5 scaffold only"
+#property description "Version 1.005 | ARL-RUN009 | runtime IO foundation"
 #property description "Review-only architecture. No trade, signal, execution, or HUD permission."
 
 #include "core/ARL_ResultCodes.mqh"
@@ -27,14 +27,14 @@
 #include "runtime/ARL_RefreshCadence.mqh"
 #include "runtime/ARL_RuntimeState.mqh"
 #include "io/ARL_Paths.mqh"
-#include "io/ARL_FilePublisher.mqh"
-#include "io/ARL_PublicationManifest.mqh"
 #include "io/ARL_PayloadHash.mqh"
 #include "io/ARL_OutputContracts.mqh"
-#include "telemetry/ARL_StatusWriter.mqh"
+#include "io/ARL_FilePublisher.mqh"
+#include "io/ARL_PublicationManifest.mqh"
 #include "telemetry/ARL_ErrorLedger.mqh"
 #include "telemetry/ARL_FunctionResults.mqh"
 #include "telemetry/ARL_RuntimeMetrics.mqh"
+#include "telemetry/ARL_StatusWriter.mqh"
 #include "account/ARL_AccountSnapshot.mqh"
 #include "account/ARL_PositionSnapshot.mqh"
 #include "account/ARL_OrderSnapshot.mqh"

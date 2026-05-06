@@ -380,3 +380,46 @@ Test no-change skip with a fixed payload through `ARL_FilePublisher_Publish()` o
 
 Falsifier:
 A report claims no-change skip was runtime-proven merely because status files appeared.
+
+
+---
+
+## RISK-033 — RUN010R static repair still lacks MetaEditor compile proof
+
+Risk:
+The repaired source can still fail in MetaEditor because static quote/brace checks cannot prove MQL5 compiler acceptance.
+
+Cause:
+This execution environment does not include MetaEditor or an attached MT5 terminal.
+
+Severity:
+High until compile proof exists.
+
+Detection:
+Run MetaEditor compile on `Work Area/mt5/ARL_Core.mq5` and record the exact compiler output.
+
+Mitigation:
+Treat RUN010R as source repair only. Next run must compile first before runtime smoke testing.
+
+Falsifier:
+Any claim that RUN010R compiled successfully without exact MetaEditor output.
+
+## RISK-034 — Runtime IO source/office contradiction remains around OnTimer publication
+
+Risk:
+Office records from RUN009 describe timer-connected status/manifest publication, but active `ARL_Core.mq5` still only ticks heartbeat and scheduler in `OnTimer()` after RUN010R because this repair run did not expand runtime behavior.
+
+Cause:
+RUN010R scope was compile repair and path/string/include-property alignment, not runtime lifecycle expansion.
+
+Severity:
+Medium to high before runtime smoke.
+
+Detection:
+After compile passes, inspect or patch lifecycle wiring deliberately, then verify `Status_Current.json` and `Manifest_Current.json` from terminal runtime.
+
+Mitigation:
+Log the contradiction and do not claim runtime output readiness until lifecycle wiring and file output are proven.
+
+Falsifier:
+`Status_Current.json` / `Manifest_Current.json` are claimed as runtime outputs while `OnTimer()` does not call the status writer or another proved publication path.
